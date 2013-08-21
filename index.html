@@ -13,16 +13,14 @@
 	<script src="js/main.js"></script>
 	<script>
 	$(document).ready(function() {
-	
-		var w = weblabs;
-	
-		w.set('key0','Key 0 Value');
 		
-		console.log( w.get('key0') );
+		weblabs.set('key0','Key 0 Value');
 		
-		w.set('key1','Key 1 Value');
+		console.log( weblabs.get('key0') );
 		
-		console.log( w.get('key1') );
+		_w.set('key1','Key 1 Value mod');
+		
+		console.log( _w.get('key1') );
 	
 	});
 	</script>
