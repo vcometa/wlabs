@@ -1,13 +1,34 @@
 /**
  
-* #.# Main Script
+* #.# WebLabs
 
 * Author: Virgilio Cometa
  
-* The following script drive all the behaviours for Driving.ca
+* 
  
 */
 
+var weblabs;
+
 (function ($) {
+
+	weblabs = {
+	
+		params: {},
+		
+		get: function( key ){
+			
+			return this.params[key];
+		
+		},
+		
+		set: function( key, value ){
+		
+			this.params[key] = value;
+		
+			return 'success';
+		
+		}
+	}
 
 }(jQuery));
