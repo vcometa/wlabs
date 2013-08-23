@@ -16,15 +16,19 @@ var weblabs, $_, $w, _w;
 	
 		params: {},
 		
-		userAgent:{
+		browser:{
 		
-			value: navigator.userAgent,
+			userAgent: navigator.userAgent,
 		
 			type: navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)==null?'desktop':'mobile',
 			
-			browser: navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i)[1],
+			name: navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i)[1],
 			
-			version: navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i)[2]
+			version: navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i)[2],
+			
+			width: $(window).width(),
+			
+			height: $(window).height()
 		
 		},
 		
