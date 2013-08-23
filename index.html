@@ -18,9 +18,21 @@
 		
 		console.log( weblabs.get('key0') );
 		
-		_w.set('key1','Key 1 Value mod');
+		_w.set('key0','New Key 0 Value');
+		
+		console.log( _w.get('key0') );
+		
+		_w.set('key1','New Key = Key 1');
 		
 		console.log( _w.get('key1') );
+		
+		console.log( _w.userAgent.value );
+		
+		console.log( _w.userAgent.type );
+		
+		console.log( _w.userAgent.browser );
+		
+		console.log( _w.userAgent.version );
 	
 	});
 	</script>
