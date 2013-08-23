@@ -8,11 +8,11 @@
  
 */
 
-var weblabs, _w;
+var weblabs, $_, $w, _w;
 
 (function ($) {
 
-	_w = weblabs = {
+	$w = _w = $_ = weblabs = {
 	
 		params: {},
 		
