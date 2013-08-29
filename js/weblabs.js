@@ -17,6 +17,8 @@ var weblabs, $_, $w, _w;
 		params: {},
 		
 		browser:{
+			
+			this: $(window),
 		
 			userAgent: navigator.userAgent,
 		
@@ -28,7 +30,9 @@ var weblabs, $_, $w, _w;
 			
 			width: $(window).width(),
 			
-			height: $(window).height()
+			height: $(window).height(),
+			
+			domain: window.location.hostname
 		
 		},
 		
@@ -43,6 +47,10 @@ var weblabs, $_, $w, _w;
 			this.params[key] = value;
 		
 			return 'success';
+		
+		},
+		
+		loadArticle: function(){
 		
 		}
 	}
