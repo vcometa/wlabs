@@ -50,9 +50,18 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
-		loadArticle: function(){
-		
-		}
+		loadJson: function( path ){
+			
+			$.getJSON( path, { format: "json" }, function( data ) {
+			
+				 var items = [];
+				$.each(data, function(key, val) {
+					items.push('<li id="' + key + '">' + val + '</li>');
+				});
+				
+				
+			});
+		}	
 	}
 
 }(jQuery));
