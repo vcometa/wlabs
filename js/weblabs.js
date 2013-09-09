@@ -60,16 +60,38 @@ var weblabs, $_, $w, _w;
 				}
 
 			});
-					
+		
 		},
 		
-		processJsonData: function( data ){
+		getValues: function( data ){
+		
+			$.each( data, function( key, val ) {
+			
+				console.log( key+' :: '+val );
+			
+			});
+		
+		},
+		
+		parseJson: function( data ){
+		
+			var parseArr = function( arr ){
+			
+				var t = [];
+				$.each( arr, function(index, val){
+				
+					t.push( '<a href="#">',val,'</a>, ');
+					
+				});					
+				return t.join('');
+			}
 		
 			var html=[
 						'<h1>', data.article.details.title, '</h1>',
 						'<div class="author">', data.article.details.author.first, ' ', data.article.details.author.last, '</div>',
 						'<div class="date">', data.article.details.date.month, ' ', data.article.details.date.day, ', ', data.article.details.date.year, '</div>',
-						'<div class="text"><p>', data.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>'
+						'<div class="text"><p>', data.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
+						'<div class="tags">', parseArr( data.article.tags ), '</div>'
 				].join('');
 		
 			$('body').html( html );

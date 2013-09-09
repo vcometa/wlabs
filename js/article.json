@@ -20,11 +20,11 @@
 				},
 			"brief": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
 		},
-		"tags": {
-			"key": "keyword 1",
-			"key": "keyword 2",
-			"key": "keyword 3"
-		},
+		"tags": [
+			"keyword 1",
+			"keyword 2",
+			"keyword 3"
+		],
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac elit erat. Donec malesuada vestibulum magna, in imperdiet nisi mollis eget. Donec odio metus, tempus nec ante quis, facilisis fermentum nibh. Vestibulum lectus orci, porttitor vel neque in, ullamcorper eleifend est. Etiam at viverra nibh. Integer sem risus, tempus non metus ut, consequat volutpat tellus. Aenean vel malesuada odio. Aenean tincidunt ipsum placerat, facilisis leo id, adipiscing nibh. Praesent ultrices volutpat lectus, lobortis sagittis sem elementum et. Aenean cursus sodales velit at placerat. Quisque placerat iaculis consequat. Pellentesque venenatis at quam ut posuere. Donec varius ante lectus, id aliquet nibh tempus eu. Suspendisse magna velit, iaculis vestibulum nisl non, sodales placerat libero. Quisque gravida nunc nec quam ornare, vitae sagittis elit dictum.",
 		"images": { 
 			"image": {
