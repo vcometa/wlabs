@@ -50,18 +50,24 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
-		loadJson: function( path ){
+		loadJson: function( url, callback ){
 			
-			$.getJSON( path, { format: "json" }, function( data ) {
-			
-				 var items = [];
-				$.each(data, function(key, val) {
-					items.push('<li id="' + key + '">' + val + '</li>');
-				});
-				
-				
+			$.ajax({        
+				url: url,
+				dataType: "json",
+				success:function(data){
+					callback(data);
+				}
+
 			});
-		}	
+					
+		},
+		
+		processJsonData: function( data ){
+		
+			console.log( data );
+		
+		}
 	}
 
 }(jQuery));

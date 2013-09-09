@@ -14,7 +14,9 @@
 	<script>
 	$(document).ready(function() {
 	
-		$_.loadJson('js/article.json');
+		$_.loadJson('js/article.json', $_.processJsonData );
+		
+		//$_.get('json') ;
 		
 		
 		/* weblabs.set('key0','Key 0 Value');
