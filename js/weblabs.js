@@ -73,6 +73,25 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
+		keywordMatch: function( text ){
+		
+			var key = $_.get('keyword');
+			
+			
+			text.replace('Vivamus', 'DORKererererere' );
+			
+			console.log( 'TEXT: '+ text );
+		/* 
+			if( key != null ){
+			
+				console.log( text );
+			
+				
+			} */
+		
+			return text;
+		},
+		
 		parseJson: function( data ){
 		
 			var parseArr = function( arr ){
@@ -94,7 +113,7 @@ var weblabs, $_, $w, _w;
 						'<div class="tags">', parseArr( data.article.tags ), '</div>'
 				].join('');
 		
-			$('body').html( html );
+			$('body').html( $_.keywordMatch( html ) );
 		
 		}
 	}
