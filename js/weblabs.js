@@ -65,7 +65,14 @@ var weblabs, $_, $w, _w;
 		
 		processJsonData: function( data ){
 		
-			console.log( data );
+			var html=[
+						'<h1>', data.article.details.title, '</h1>',
+						'<div class="author">', data.article.details.author.first, ' ', data.article.details.author.last, '</div>',
+						'<div class="date">', data.article.details.date.month, ' ', data.article.details.date.day, ', ', data.article.details.date.year, '</div>',
+						'<div class="text"><p>', data.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>'
+				].join('');
+		
+			$('body').html( html );
 		
 		}
 	}
