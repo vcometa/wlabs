@@ -73,28 +73,29 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
-		keywordMatch: function( text ){
+		findKeywords: function( node ){
 		
-			var key = $_.get('keyword');
+			var key = $_.get('keywords');
 			
-			
-			text.replace('Vivamus', 'DORKererererere' );
-			
-			console.log( 'TEXT: '+ text );
-		/* 
 			if( key != null ){
 			
-				console.log( text );
-			
+				$(key).each( function(){
 				
-			} */
+					var pattern = new RegExp("("+this+")", ["gi"]),
+						rs = "<a class='keyword' href='#' title='You searched for: $1'>$1</a>";
+						
+					node.html(node.html().replace(pattern, rs));
+					
+				});
 		
-			return text;
+			}
+		 
+			return node;
 		},
 		
 		parseJson: function( data ){
 		
-			var parseArr = function( arr ){
+			var parseTags = function( arr ){
 			
 				var t = [];
 				$.each( arr, function(index, val){
@@ -105,15 +106,17 @@ var weblabs, $_, $w, _w;
 				return t.join('');
 			}
 		
-			var html=[
+			var article = [
+						'<article>',
 						'<h1>', data.article.details.title, '</h1>',
 						'<div class="author">', data.article.details.author.first, ' ', data.article.details.author.last, '</div>',
 						'<div class="date">', data.article.details.date.month, ' ', data.article.details.date.day, ', ', data.article.details.date.year, '</div>',
 						'<div class="text"><p>', data.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
-						'<div class="tags">', parseArr( data.article.tags ), '</div>'
+						'<div class="tags">', parseTags( data.article.tags ), '</div>',
+						'</article>'
 				].join('');
 		
-			$('body').html( $_.keywordMatch( html ) );
+			$('body').html( $_.findKeywords( $(article) ) );
 		
 		}
 	}
