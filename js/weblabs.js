@@ -105,18 +105,40 @@ var weblabs, $_, $w, _w;
 				});					
 				return t.join('');
 			}
-		
-			var article = [
+			
+			//console.log( data.list.length );
+			
+			var articles = [];
+			
+			$.each( data.list, function( i, o ) {
+			
+				var _ = o.article;
+				
+					//console.log(_.details.title);
+			
+				articles.push(
+					['<article>',
+					'<h1>', _.details.title, '</h1>',
+					'<div class="author">', _.details.author.first, ' ', _.details.author.last, '</div>',
+					'<div class="date">', _.details.date.month, ' ', _.details.date.day, ', ', _.details.date.year, '</div>',
+					'<div class="text"><p>', _.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
+					'<div class="tags">', parseTags( _.tags ), '</div>',
+					'</article>'].join('')
+				);
+				
+			});
+			
+			/* var article = [
 						'<article>',
-						'<h1>', data.article.details.title, '</h1>',
-						'<div class="author">', data.article.details.author.first, ' ', data.article.details.author.last, '</div>',
-						'<div class="date">', data.article.details.date.month, ' ', data.article.details.date.day, ', ', data.article.details.date.year, '</div>',
-						'<div class="text"><p>', data.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
-						'<div class="tags">', parseTags( data.article.tags ), '</div>',
+						'<h1>', data.list.article.details.title, '</h1>',
+						'<div class="author">', data.list.article.details.author.first, ' ', data.list.article.details.author.last, '</div>',
+						'<div class="date">', data.list.article.details.date.month, ' ', data.list.article.details.date.day, ', ', data.list.article.details.date.year, '</div>',
+						'<div class="text"><p>', data.list.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
+						'<div class="tags">', parseTags( data.list.article.tags ), '</div>',
 						'</article>'
-				].join('');
+				].join('');*/
 		
-			$('body').html( $_.findKeywords( $(article) ) );
+			$('body').html( $_.findKeywords( $(articles.join('')) ) ); 
 		
 		}
 	}
