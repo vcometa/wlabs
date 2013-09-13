@@ -93,7 +93,7 @@ var weblabs, $_, $w, _w;
 			return node;
 		},
 		
-		parseJson: function( data ){
+		getArticles: function( data ){
 		
 			var parseTags = function( arr ){
 			
