@@ -93,6 +93,20 @@ var weblabs, $_, $w, _w;
 			return node;
 		},
 		
+		getVideos: function( data ){
+		
+			var v = [];
+		
+			$.each( data.videos, function( i, o ) {
+			
+				v.push( o );
+			
+			});
+			
+			console.log( v )
+		
+		},
+		
 		getArticles: function( data ){
 		
 			var parseTags = function( arr ){
