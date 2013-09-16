@@ -73,15 +73,46 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
-		sortResults = function(arr, prop, asc) {
+		sortResults: function(arr, asc, byDate, prop){
 		
-			arr = arr.sort(function(a, b) {
-				if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
-				else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
-			});
+			var sArr;
 			
-			return arr;
-		}
+			if( byDate ) {
+			
+				sArr = arr.sort( function(a,b) {
+					
+					if( asc ){
+					
+						return new Date(b.details.date).getTime() - new Date(a.details.date).getTime();
+						
+					}else{
+					
+						return new Date(a.details.date).getTime() - new Date(b.details.date).getTime();
+					
+					}
+					
+				});
+			
+			} else {
+			
+				sArr = arr.sort( function(a,b) {
+				
+					if( asc ){
+					
+						return b[prop].localeCompare(a[prop]);
+					
+					}else{
+			
+						return a[prop].localeCompare(b[prop]);
+					
+					}
+				
+				});
+			
+			}
+			
+			return sArr;
+		},
 		
 		findKeywords: function( node ){
 		
@@ -138,19 +169,23 @@ var weblabs, $_, $w, _w;
 			
 			var articleList = ['<ul class="articleList">'];
 			
-			$.each( data.articles, function( i, o ) {
+			var sArr = $_.sortResults( data.articles, true, false, 'id');
+			
+			$.each( sArr, function( i, o ) {
 			
 				articleList.push(
 					['<li><article id="', o.id ,'">',
 					'<h2><a href="?articleId=',o.id,'">', o.details.title, '</a></h2>',
 					'<div class="author">', o.details.author.first, ' ', o.details.author.last, '</div>',
-					'<div class="date">', o.details.date.month, ' ', o.details.date.day, ', ', o.details.date.year, '</div>',
+					'<div class="date">', o.details.date, '</div>',
 					'<div class="description"><p>', o.description.replace(/&#182;/g,'</p><p>'), '</p></div>',
 					'<div class="tags">', parseTags( o.tags ), '</div>',
 					'</article></li>'].join('')
 				);
 				
 			});
+			
+			
 			
 			$('body').html( $( articleList.join('') ) ); 
 
