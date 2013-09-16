@@ -185,8 +185,6 @@ var weblabs, $_, $w, _w;
 				
 			});
 			
-			
-			
 			$('body').html( $( articleList.join('') ) ); 
 
 			//$_.findKeywords( $('article .description') );
