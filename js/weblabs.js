@@ -73,6 +73,16 @@ var weblabs, $_, $w, _w;
 		
 		},
 		
+		sortResults = function(arr, prop, asc) {
+		
+			arr = arr.sort(function(a, b) {
+				if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+				else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+			});
+			
+			return arr;
+		}
+		
 		findKeywords: function( node ){
 		
 			var key = $_.get('keywords');
@@ -95,19 +105,25 @@ var weblabs, $_, $w, _w;
 		
 		getVideos: function( data ){
 		
-			var v = [];
-		
 			$.each( data.videos, function( i, o ) {
 			
-				v.push( o );
+				console.log( o.title );
 			
 			});
-			
-			console.log( v )
 		
 		},
 		
-		getArticles: function( data ){
+		getImages: function( data ){
+		
+			$.each( data.images, function( i, o ) {
+			
+				console.log( o.title );
+			
+			});
+		
+		},
+		
+		getArticleList: function( data ){
 		
 			var parseTags = function( arr ){
 			
@@ -120,25 +136,25 @@ var weblabs, $_, $w, _w;
 				return t.join('');
 			}
 			
-			var articles = [];
+			var articleList = ['<ul class="articleList">'];
 			
-			$.each( data.list, function( i, o ) {
-				
-				articles.push(
-					['<article>',
-					'<h1>', o.article.details.title, '</h1>',
-					'<div class="author">', o.article.details.author.first, ' ', o.article.details.author.last, '</div>',
-					'<div class="date">', o.article.details.date.month, ' ', o.article.details.date.day, ', ', o.article.details.date.year, '</div>',
-					'<div class="text"><p>', o.article.text.replace(/&#182;/g,'</p><p>'), '</p></div>',
-					'<div class="tags">', parseTags( o.article.tags ), '</div>',
-					'</article>'].join('')
+			$.each( data.articles, function( i, o ) {
+			
+				articleList.push(
+					['<li><article id="', o.id ,'">',
+					'<h2><a href="?articleId=',o.id,'">', o.details.title, '</a></h2>',
+					'<div class="author">', o.details.author.first, ' ', o.details.author.last, '</div>',
+					'<div class="date">', o.details.date.month, ' ', o.details.date.day, ', ', o.details.date.year, '</div>',
+					'<div class="description"><p>', o.description.replace(/&#182;/g,'</p><p>'), '</p></div>',
+					'<div class="tags">', parseTags( o.tags ), '</div>',
+					'</article></li>'].join('')
 				);
 				
 			});
 			
-			$('body').html( $( articles.join('') ) ); 
+			$('body').html( $( articleList.join('') ) ); 
 
-			$_.findKeywords( $('body') );
+			//$_.findKeywords( $('article .description') );
 		
 		}
 	}
