@@ -1,0 +1,2947 @@
+'Afador': {
+	'parent':'Afghan Hound',
+	'parent':'Labrador Retriever'
+},
+'Afaird': {
+	'parent':'Afghan Hound',
+	'parent':'Briard'
+},
+'Affen Spaniel': {
+	'parent':'Affenpinscher',
+	'parent':'Cocker Spaniel'
+},
+'Affen Terrier': {
+	'parent':'Affenpinscher',
+	'parent':'Border Terrier'
+},
+'Affen Tzu': {
+	'parent':'Affenpinscher',
+	'parent':'Shih- Tzu'
+},
+'Affengriffon': {
+	'parent':'Affenpinscher',
+	'parent':'Brussels Griffon'
+},
+'Affenhuahua': {
+	'parent':'Affenpinscher',
+	'parent':'Chihuahua'
+},
+'Affenpoo': {
+	'parent':'Affenpinscher',
+	'parent':'Poodle'
+},
+'Affenwich': {
+	'parent':'Affenpinscher',
+	'parent':'Norwich Terrier'
+},
+'Afghan Collie': {
+	'parent':'Affenpinscher',
+	'parent':'Border Collie'
+},
+'Afghan Retriever': {
+	'parent':'Afghan Hound',
+	'parent':'Golden Retriever'
+},
+'Afghan Sheepdog': {
+	'parent':'Afghan Hound',
+	'parent':'Belgian Sheepdog'
+},
+'Afghan Spaniel': {
+	'parent':'Afghan Hound',
+	'parent':'Cocker Spaniel'
+},
+'Afollie': {
+	'parent':'Afghan Hound',
+	'parent':'Collie'
+},
+'Airedoodle': {
+	'parent':'Airedale Terrier',
+	'parent':'Poodle'
+},
+'Akita Chow': {
+	'parent':'Akita',
+	'parent':'Chow Chow'
+},
+'Akita Shepherd': {
+	'parent':'Akita',
+	'parent':'German Shepherd'
+},
+'Alaskan Shepherd': {
+	'parent':'Alaskan Malamute',
+	'parent':'German Shepherd Dog'
+},
+'Alusky': {
+	'parent':'Alaskan Malamute',
+	'parent':'Siberian Husky'
+},
+'American Bandogge': {
+	'parent':'American Bulldog',
+	'parent':'Mastiff'
+},
+'American Boston Bull Terrier': {
+	'parent':'American Pitbull Terrier',
+	'parent':'Boston Terrier'
+},
+'American Bull-Aussie': {
+	'parent':'American Bulldog',
+	'parent':'Australian Shepherd'
+},
+'American Bull Dogue De Bordeaux': {
+	'parent':'American Bulldog',
+	'parent':'Dogue De Bordeaux'
+},
+'American Bullador': {
+	'parent':'Labrador Retriever',
+	'parent':'American Bulldog'
+},
+'American Bull Dane': {
+	'parent':'American Bulldog',
+	'parent':'Great Dane'
+},
+'American Bullnese Hybrid': {
+	'parent':'French Bulldog',
+	'parent':'Pekingese'
+},
+'American Bullweiler': {
+	'parent':'American Bulldog',
+	'parent':'Rottweiler'
+},
+'American Eagle Dog': {
+	'parent':'American Eskimo',
+	'parent':'Beagle'
+}, ''American French Bull Terrier': {
+	'parent':'American Pit Bull Terrier',
+	'parent':'French Bulldog'
+},
+'American French Bulldog': {
+	'parent':'American Bulldog',
+	'parent':'French Bulldog'
+},
+'American Gointer': {
+	'parent':'English Pointer',
+	'parent':'Golden Retriever'
+},
+'American Neo Bull': {
+	'parent':'American Bulldog',
+	'parent':'Neopolitan Mastiff'
+},
+'American Rat Pinscher': {
+	'parent':'American Rat Terrier',
+	'parent':'Miniature Pinscher'
+},
+'Anatolian Pyrenees': {
+	'parent':'Anatolian Shepherd',
+	'parent':'Great Pyrenees'
+},
+'Ausky': {
+	'parent':'Australian Cattle Dog',
+	'parent':'Siberian Husky'
+},
+'Auss-Tzu Auss-Tzu': {
+	'parent':'Miniature Australian Shepherd',
+	'parent':'Shih Tzu'
+},
+'Aussalier': {
+	'parent':'Australian Shepherd',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Aussie-Corgi Aussie-Corgi': {
+	'parent':'Australian Shepherd or Miniature Australian Shepherd',
+	'parent':'Pembroke Welch Corgi'
+},
+'Aussie-Flat Aussie-Flat': {
+	'parent':'Australian Shepherd',
+	'parent':'Flat Coated Retriever'
+},
+'Aussie Siberian': {
+	'parent':'Australian Shepherd',
+	'parent':'Siberian Husky'
+},
+'Aussiedoodle': {
+	'parent':'Australian Shepherd',
+	'parent':'Poodle'
+},
+'Aussiedor': {
+	'parent':'Labrador',
+	'parent':'Australian Shepherd'
+},
+'Australian Boxherd': {
+	'parent':'Australian Shepherd',
+	'parent':'Boxer'
+},
+'Australian Eskimo': {
+	'parent':'American Eskimo',
+	'parent':'Australian Shepherd'
+},
+'Australian Retriever': {
+	'parent':'Australian Shepherd',
+	'parent':'Golden Retriever'
+},
+'Australian Silky Terrier': {
+	'parent':'Australian Terrier',
+	'parent':'Silky Terrier'
+},
+'Australian Yorkshire Terrier': {
+	'parent':'Australian Terrier',
+	'parent':'Yorkshire Terrier'
+},
+'Ba-Shar': {
+	'parent':'Basset Hound',
+	'parent':'Shar-Pei'
+},
+'Bagle Hound': {
+	'parent':'Basset Hound',
+	'parent':'Beagle'
+},
+'Bascottie': {
+	'parent':'Basset Hound',
+	'parent':'Scottish Terrier'
+},
+'Baskimo': {
+	'parent':'American Eskimo',
+	'parent':'Basset Hound'
+},
+'Bassador': {
+	'parent':'Basset Hound',
+	'parent':'Labrador Retriever'
+},
+'Basschshund': {
+	'parent':'Basset Hound',
+	'parent':'Dachshund'
+},
+'Basselier': {
+	'parent':'Cavalier King Charles Spaniel ',
+	'parent':'Basset Hound'
+},
+'Basset Foxhound': {
+	'parent':'Basset Hound / Foxhound'
+},
+'Basset Retriever': {
+	'parent':'Basset Hound',
+	'parent':'Golden Retriever'
+},
+'Bassetoodle': {
+	'parent':'Basset Hound',
+	'parent':'Poodle'
+},
+'Basston': {
+	'parent':'Basset Hound',
+	'parent':'Boston Terrier'
+},
+'Bassugg': {
+	'parent':'Basset Hound',
+	'parent':'Pug'
+},
+'Be-Apso': {
+	'parent':'Beagle',
+	'parent':'Lhasa Apso'
+},
+'Bea Griffon': {
+	'parent':'Beagle',
+	'parent':'Brussels Griffon'
+},
+'Bea-Tzu': {
+	'parent':'Beagle',
+	'parent':'Shih Tzu'
+},
+'Beabull': {
+	'parent':'Beagle',
+	'parent':'Bulldog'
+},
+'Beagi': {
+	'parent':'Beagle',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Beagleman': {
+	'parent':'Beagle / Doberman Pinscher'
+},
+'Beagle Chin': {
+	'parent':'Beagle',
+	'parent':'Japanese Chin'
+},
+'Beaglier': {
+	'parent':' Beagle',
+	'parent':'Cavalier King Charles'
+},
+'Beago': {
+	'parent':'Beagle',
+	'parent':'Golden Retriever'
+},
+'Bernedoodle': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Poodle'
+},
+'Bernefie': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Newfoundland': {
+	'parent':'pronounced burn-ah-fee'
+},
+'Bernese Rottie': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Rottweiler'
+},
+'Bich-poo': {
+	'parent':'Bichon Frise',
+	'parent':'Poodle'
+},
+'Bichomo': {
+	'parent':'American Eskimo',
+	'parent':'Bichon Frise'
+},
+'Bichon-A-Ranian': {
+	'parent':'Bichon Frise',
+	'parent':'Pomeranian'
+},
+'Bichon/Yorkie': {
+	'parent':''	'parent':'Find a Bichon/Yorkie': {
+	'parent':'Bichon Frise',
+	'parent':'Yorkshire Terrier'
+},
+'Biton': {
+	'parent':'Bichon Frise',
+	'parent':'Coton de Tulear'
+},
+'Blue Spaniel': {
+	'parent':'Australian Cattle Dog',
+	'parent':'Cocker Spaniel'
+},
+'Bluetick Coonhound Harrier': {
+	'parent':'Bluetick Coonhound',
+	'parent':'Harrier'
+},
+'Bo-Dach': {
+	'parent':'Boston Terrier',
+	'parent':'Dachshund'
+},
+'Bo-Jack': {
+	'parent':'Boston Terrier',
+	'parent':'Jack Russell Terrier'
+},
+'Bocker': {
+	'parent':'Beagle',
+	'parent':'Cocker Spaniel'
+},
+'Bodacion': {
+	'parent':'Border Collie',
+	'parent':'Dalmatian'
+},
+'Boglen Terrier': {
+	'parent':'Beagle',
+	'parent':'Boston Terrier'
+},
+'Bogle': {
+	'parent':'Beagle',
+	'parent':'Boxer'
+},
+'Bologco': {
+	'parent':'Bolognese',
+	'parent':'Cocker Spaniel'
+},
+'Bolonoodle': {
+	'parent':'Bolognese',
+	'parent':'Poodle'
+},
+'Borador': {
+	'parent':'Border Collie',
+	'parent':'Labrador Retriever'
+},
+'Border-Aussie': {
+	'parent':'Australian Shepherd',
+	'parent':'Border Collie'
+},
+'Border Collie Pit- Border Collie',
+	'parent':'Pitbull Terrier'
+},
+'Border Collie Pyrenees': {
+	'parent':'Border Collie',
+	'parent':'Great Pyrenees'
+},
+'Border Beagle': {
+	'parent':'Border Collie',
+	'parent':'Beagle'
+},
+'Border Jack- Border Collie',
+	'parent':'Jack Russell Terrier'
+},
+'Border Sheepdog': {
+	'parent':'Border Collie',
+	'parent':'Shetland Sheepdog'
+},
+'Border Springer': {
+	'parent':'Border Collie',
+	'parent':'English Springer Spaniel'
+},
+'Border Stack': {
+	'parent':'Border Collieed with Jack Russell Terrier',
+	'parent':'Staffordshire Bull Terrier'
+},
+'Bordernese': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Border Collie'
+},
+'Bordoodle': {
+	'parent':'Border Collie',
+	'parent':'Poodle'
+},
+'Borgi': {
+	'parent':'Border Collie',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Bosapso': {
+	'parent':'Boston Terrier',
+	'parent':'Lhasa Apso'
+},
+'BoShih- Boston Terrier',
+	'parent':'Shih Tzu'
+},
+'Boskimo': {
+	'parent':'American Eskimo',
+	'parent':'Boston Terrier'
+},
+'Bospin': {
+	'parent':'Boston Terrier',
+	'parent':'Miniature Pinscher'
+},
+'Bossi-Poo': {
+	'parent':'Boston Terrier',
+	'parent':'Poodle'
+},
+'Bostalian': {
+	'parent':'Boston Terriers',
+	'parent':'Italian Greyhound'
+},
+'Bostchon': {
+	'parent':'Boston Terrier',
+	'parent':'Bichon Frise'
+},
+'Bostie': {
+	'parent':'Boston Terriers',
+	'parent':'West Highland White Terrier'
+},
+'Bostillon': {
+	'parent':'Boston Terrier',
+	'parent':'Papillon'
+},
+'Bostinese': {
+	'parent':'Boston Terrier',
+	'parent':'Pekingese'
+},
+'Boston Cattle Dog': {
+	'parent':'Australian Cattle Dog',
+	'parent':'Boston Terrier'
+},
+'Boston Chin': {
+	'parent':'Boston Terrier',
+	'parent':'Japanese Chin'
+},
+'Boston Huahua': {
+	'parent':'Boston Terrier',
+	'parent':'Chihuahua'
+},
+'Boston Lab': {
+	'parent':'Boston Terrier',
+	'parent':'Labrador Retriever'
+},
+'Boston Spaniel': {
+	'parent':'Boston Terrier',
+	'parent':'Cocker Spaniel'
+},
+'Boston Yorkie': {
+	'parent':'Boston Terrier',
+	'parent':'Yorkshire Terrier'
+},
+'Boweimar': {
+	'parent':'Boxer',
+	'parent':'Weimaraner'
+},
+'Bowzer': {
+	'parent':'Basset Hound',
+	'parent':'Miniature Schnauzer'
+},
+'Box-a-Shar': {
+	'parent':'Boxer',
+	'parent':'Shar-Pei'
+},
+'Boxador': {
+	'parent':'Boxer',
+	'parent':'Labrador Retriever'
+},
+'Boxane': {
+	'parent':'Boxer',
+	'parent':'Great Dane'
+},
+'Boxapoint': {
+	'parent':'Boxer',
+	'parent':'German Shorthaired Pointer'
+},
+'Boxer Basset': {
+	'parent':'Boxer',
+	'parent':'Basset Hound'
+},
+'Boxerdoodle': {
+	'parent':'Boxer',
+	'parent':'Poodle'
+},
+'Boxerman': {
+	'parent':'Boxer',
+	'parent':'Doberman Pinscher'
+},
+'Boxer Chow': {
+	'parent':'Boxer',
+	'parent':'Chow Chow'
+},
+'Boxita': {
+	'parent':'Akita',
+	'parent':'Boxer'
+},
+'Boxollie': {
+	'parent':'- Boxer',
+	'parent':'Collie'
+},
+'Boxspring': {
+	'parent':'Boxer',
+	'parent':'English Springer Spaniel'
+},
+'Boxweiler': {
+	'parent':'Rottweiler',
+	'parent':'Boxer'
+},
+'Brat- Boston Terrier',
+	'parent':'Rat Terrier'
+},
+'Brittany Bourbonnais': {
+	'parent':'Brittany Spaniel',
+	'parent':'Braque du Bourbonnais'
+},
+'Broodle Griffon': {
+	'parent':'Brussels Griffon',
+	'parent':'Poodle'
+},
+'Brottweiler': {
+	'parent':'Brussels Griffon',
+	'parent':'Rottweiler'
+},
+'Brug': {
+	'parent':'Brussels Griffon',
+	'parent':'Pug'
+},
+'Brussalier- Brussels Griffon',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Brusselranian': {
+	'parent':'Brussels Griffon',
+	'parent':'Pomeranian'
+},
+'BT Walker': {
+	'parent':'Boxer',
+	'parent':'Treeing Walker Coonhound'
+},
+'Buggs': {
+	'parent':'Boston Terrier',
+	'parent':'Pug'
+},
+'Bull-Aussie': {
+	'parent':'English Bulldog',
+	'parent':'Australian Shepherd'
+},
+'Bull-Boxer': {
+	'parent':'English Bulldog',
+	'parent':'Boxer'
+},
+'Bull Jack': {
+	'parent':'Bulldog',
+	'parent':'Jack Russell Terrier'
+},
+'Bull Mastweiler': {
+	'parent':'Bullmastiff',
+	'parent':'Rottweiler'
+},
+'Bull-Pei': {
+	'parent':'Bulldog',
+	'parent':'Chinese Shar-Pei'
+},
+'Bullador': {
+	'parent':'English Bulldog',
+	'parent':'Labrador Retriever'
+},
+'Bullboxer Pit': {
+	'parent':'Boxer',
+	'parent':'American Pit Bull Terrier'
+},
+'Bullboxer Staff': {
+	'parent':'Boxer',
+	'parent':'American Staffordshire Terrier'
+},
+'Bullboxer Staffy Bull': {
+	'parent':'Boxer',
+	'parent':'Staffordshire Bull Terrier'
+},
+'Bullmasador': {
+	'parent':'Bullmastiff',
+	'parent':'Labrador Retriever'
+},
+'Bullmatian': {
+	'parent':'Bulldog',
+	'parent':'Dalmatian'
+},
+'Bulloxer': {
+	'parent':'Boxer',
+	'parent':'American Bulldog'
+},
+'Bullwhip': {
+	'parent':'Bulldog',
+	'parent':'Whippet'
+},
+'Bully Basset': {
+	'parent':'Basset Hound',
+	'parent':'Bulldog'
+},
+'Bully Bordeaux': {
+	'parent':'Bullmastiff',
+	'parent':'Dogue de Bordeaux'
+},
+'Bully Pitsky': {
+	'parent':'American Bully',
+	'parent':'Siberian Husky or Alaskan Husky'
+},
+'Bully Wheaten': {
+	'parent':'Bulldog',
+	'parent':'Soft Coated Wheaten Terrier'
+},
+'Bullypit': {
+	'parent':'American Bulldog',
+	'parent':'American Pit Bull Terrier'
+},
+'Bushland Terrier': {
+	'parent':'Cairn Terrier',
+	'parent':'Scottish Terrier'
+},
+'Cadoodle': {
+	'parent':'Collie',
+	'parent':'Poodle'
+},
+'Cairanian ': {
+	'parent':'Cairn Terrier',
+	'parent':'Pomeranian'
+},
+'Cairland Terrier': {
+	'parent':'Cairn Terrier',
+	'parent':'Westie'
+},
+'Cairmal': {
+	'parent':'Cairn Terrier / Maltese'
+},
+'Cairn Corgi': {
+	'parent':'Cairn Terrier',
+	'parent':'Welsh Corgi'
+},
+'Cairnese': {
+	'parent':'Cairn Terrier',
+	'parent':'Havanese'
+},
+'Cairnoodle': {
+	'parent':'Cairn Terrier',
+	'parent':'Poodle'
+},
+'Cairnwich Terrier': {
+	'parent':'Cairn Terrier',
+	'parent':'Norwich Terrier'
+},
+'Cairoston': {
+	'parent':'Cairn Terrier',
+	'parent':'Boston Terrier'
+},
+'Care-Tzu': {
+	'parent':'Cairn Terrier',
+	'parent':'Shih Tzu'
+},
+'Carkie': {
+	'parent':'Cairn Terrier / Yorkshire Terrier'
+},
+'Carnauzer': {
+	'parent':'Cairn Terrier',
+	'parent':'Miniature Schnauzer'
+},
+'Catahoula Bulldog': {
+	'parent':'Louisiana Catahoula Leopard Dog',
+	'parent':'American Bulldog'
+},
+'Cattle Collie Dog': {
+	'parent':'Australian Cattle Dog',
+	'parent':'Collie'
+},
+'Corgi Cattle Dog Australian Cattle Dog',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Cav-A-Malt': {
+	'parent':'Cavalier King Charles',
+	'parent':'Maltese'
+},
+'Cav-A-Mo': {
+	'parent':'American Eskimo',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Cava-Chin': {
+	'parent':'Cavalier King Charles',
+	'parent':'Japanese Chin'
+},
+'Cava-Corgi': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Cava-lon': {
+	'parent':' Cavalier King Charles',
+	'parent':'Papillon'
+},
+'Cava-Tzu': {
+	'parent':'Cavalier King Charles',
+	'parent':'Shih Tzu'
+},
+'Cavachon': {
+	'parent':'Bichon Frise',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Cavador': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Labrador Retriever'
+},
+'Cavanese': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Havanese'
+},
+'Cavapom': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Pomeranian'
+},
+'Cavapoo': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Poodle'
+},
+'Cavaton': {
+	'parent':'Cavalier King Charles',
+	'parent':'Coton de Tulear'
+}, ''Cava-Shell': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Shetland Sheepdog'
+},
+'Cavestie': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'West Highland White Terrier'
+},
+'Cavottish': {
+	'parent':'Cavalier King Charles',
+	'parent':'Scottish Terrier'
+},
+'Chabrador': {
+	'parent':'Chow Chow',
+	'parent':'Labrador Retriever'
+},
+'Chatham Hill Retriever': {
+	'parent':'Flat Coated Retriever',
+	'parent':'Cocker Spaniel'
+},
+'Cheagle': {
+	'parent':'Chihuahua',
+	'parent':'Beagle'
+},
+'Cheeks': {
+	'parent':'Chihuahua',
+	'parent':'Pekingese'
+},
+'Cheenese': {
+	'parent':'Chihuahua',
+	'parent':'Havanese'
+},
+'Cherokee Monarch': {
+	'parent':'Papillon',
+	'parent':'Russian Toy Terrier'
+},
+'Chesador': {
+	'parent':'Chesapeake Bay Retriever',
+	'parent':'Labrador Retriever'
+},
+'Chestie': {
+	'parent':'Chihuahua',
+	'parent':'West Highland White Terrier'
+},
+'Chi Apso': {
+	'parent':'Chihuahua',
+	'parent':'Lhasa Apso'
+},
+'Chi-Chi': {
+	'parent':'Chihuahua',
+	'parent':'Chinese Crested'
+},
+'Chi-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Chihuahua'
+},
+'Chidale': {
+	'parent':'Chihuahua',
+	'parent':'Airedale Terrier'
+},
+'Chi-Poo': {
+	'parent':'Chihuahua',
+	'parent':'Poodle'
+},
+'Chi-Spaniel': {
+	'parent':'Chihuahua',
+	'parent':'Cocker Spaniel'
+},
+'Chi Staffy Bull': {
+	'parent':''	'parent':'Find a Chi-Staffy BullChihuahua',
+	'parent':'Stffordshire Bull Terrier'
+},
+'Chigi': {
+	'parent':'Chihuahua / Corgi'
+},
+'Chilier': {
+	'parent':'Cavalier King Charles',
+	'parent':'Chihuahua'
+},
+'Chimation': {
+	'parent':'Chihuahua',
+	'parent':'Dalmatian'
+},
+'Chin-Ocker': {
+	'parent':'Cocker Spaniel /Japanese Chin'
+},
+'Chin-Pin': {
+	'parent':'Miniature Pinscher',
+	'parent':'Japanese Chin'
+},
+'Chin-wa': {
+	'parent':'Chihuahua',
+	'parent':'Japanese Chin'
+},
+'China Jack': {
+	'parent':'Chinese Crested',
+	'parent':'Jack Russell Terrier'
+},
+'Chinaranian': {
+	'parent':'Chinese Crested',
+	'parent':'Pomeranian'
+},
+'Chineranian': {
+	'parent':'Japanese Chin',
+	'parent':'Pomeranian'
+},
+'Chinese Crestepoo- Chinese Crested',
+	'parent':'Poodle'
+},
+'Chinese Crestese': {
+	'parent':'Chinese Crested',
+	'parent':'Maltese'
+},
+'Chinese Frise': {
+	'parent':'Bichon Frise',
+	'parent':'Chinese Crested'
+},
+'Chion': {
+	'parent':'Chihuahua',
+	'parent':'Papillon'
+},
+'Chipin': {
+	'parent':'Chihuahua',
+	'parent':'Miniature Pinscher'
+},
+'Chipit': {
+	'parent':'Chihuahua',
+	'parent':'American Pit Bull Terrier'
+},
+'Chiweenie': {
+	'parent':'Chihuahua',
+	'parent':'Dachshund'
+},
+'Chizer': {
+	'parent':'Chihuahua',
+	'parent':'Miniature Schnauzer'
+},
+'Chonzer': {
+	'parent':'Bichon Frise',
+	'parent':'Miniature Schnauzer'
+},
+'Chorkie': {
+	'parent':'Chihuahua',
+	'parent':'Yorkshire Terrier'
+},
+'Chow Pei': {
+	'parent':'Chow Chow',
+	'parent':'Shar Pei'
+},
+'Chow Shepherd': {
+	'parent':' Chow Chow',
+	'parent':'Shepherd'
+},
+'Chug': {
+	'parent':'Chihuahua',
+	'parent':'Pug'
+},
+'Chusky': {
+	'parent':'Chow Chow',
+	'parent':'Siberian Husky'
+},
+'Chussel': {
+	'parent':'Brussels Griffon',
+	'parent':'Chihuahua'
+},
+'Cluminger Spaniel': {
+	'parent':' Clumber Spaniel',
+	'parent':'English Springer'
+},
+'Cock-A-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Cocker Spaniel'
+},
+'Cock-A-Mo': {
+	'parent':'American Eskimo',
+	'parent':'Cocker Spaniel'
+},
+'Cock-A-Tzu': {
+	'parent':'Cocker Spaniel',
+	'parent':'Shih Tzu'
+},
+'Cockalier': {
+	'parent':'Cavalier King Charles',
+	'parent':'Cocker Spaniel'
+},
+'Cockapin': {
+	'parent':'Cocker Spaniel',
+	'parent':'Miniature Pinscher'
+},
+'Cockapoo': {
+	'parent':'Cocker Spaniel',
+	'parent':'Poodle'
+},
+'Cocker Griffon': {
+	'parent':'Cocker Spaniel',
+	'parent':'Brussels Griffon'
+},
+'Cocker Jack': {
+	'parent':'Cocker Spaniel',
+	'parent':'Jack Russell Terrier'
+},
+'Cocker-Pei': {
+	'parent':'Cocker Spaniel',
+	'parent':'Chinese Shar Pei'
+},
+'Cocker Pug': {
+	'parent':'Cocker Spaniel',
+	'parent':'Pug'
+},
+'Cocker Westie': {
+	'parent':'Cocker Spaniel',
+	'parent':'West Highland White Terrier'
+},
+'Cockeranian': {
+	'parent':'Cocker Spaniel',
+	'parent':'Pomeranian'
+},
+'Cockinese': {
+	'parent':' Cocker Spaniel',
+	'parent':'Pekingese'
+},
+'Cojack': {
+	'parent':' Jack Russell Terrier',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Colonial Cocker Spaniel': {
+	'parent':'American Cocker Spaniel',
+	'parent':'English Cocker Spaniel'
+},
+'Confetti Australian Shepherd': {
+	'parent':'Australian Shepherd',
+	'parent':'Miniature Schnauzer'
+},
+'Copica': {
+	'parent':'Corgi',
+	'parent':'Cockapoo'
+},
+'Corgi Basset Basset Hound',
+	'parent':'Welsh Corgi'
+},
+'Corgi Schip Welsh Corgi / Schipperke'
+},
+'Corgidor': {
+	'parent':'Labrador Retriever',
+	'parent':'Corgi'
+},
+'Corgipoo': {
+	'parent':'Corgi',
+	'parent':'Poodle'
+},
+'Corillon': {
+	'parent':'Papillon',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Corkie': {
+	'parent':'Cocker Spaniel',
+	'parent':'Yorkie'
+},
+'Cosheltie': {
+	'parent':'Collie',
+	'parent':'Shetland Sheepdog'
+},
+'Coton Eskimo': {
+	'parent':'American Eskimo',
+	'parent':'Coton de Tulear'
+},
+'Coton Tzu': {
+	'parent':'Coton De Tulear',
+	'parent':'Shih Tzu'
+},
+'Cotonese': {
+	'parent':'Coton de Tulear',
+	'parent':'Maltese'
+},
+'Cotralian': {
+	'parent':'Cocker Spaniel',
+	'parent':'Miniature or Toy Australian Shepherd'
+},
+'Coydog': {
+	'parent':''	'parent':'Domestic Dog ',
+	'parent':'Coyote'
+},
+'Crested Beagle': {
+	'parent':'Chinese Crested / Beagle'
+},
+'Crested Cavalier': {
+	'parent':'Chinese Crested',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Crested Malt': {
+	'parent':'Chinese Crested',
+	'parent':'Maltese'
+},
+'Crested Peke': {
+	'parent':'Chinese Crested',
+	'parent':'Pekingese'
+},
+'Crested Schnauzer': {
+	'parent':'Chinese Crested',
+	'parent':'Miniature Schnauzer'
+}, ''Crested Tzu': {
+	'parent':'Chinese Crested',
+	'parent':'Shih Tzu'
+},
+'Crestoxie': {
+	'parent':'Chinese Crested',
+	'parent':'Dachshund'
+},
+'Crustie': {
+	'parent':'Chinese Crested',
+	'parent':'Yorkshire Terrier'
+},
+'Dach-Griffon': {
+	'parent':'Dachshund',
+	'parent':'Brussels Griffon'
+},
+'Dachsador': {
+	'parent':'Dachshund',
+	'parent':'Labrador Retriever'
+},
+'Daisy Dog': {
+	'parent':'Bichon ',
+	'parent':'Poodle',
+	'parent':'Shih-Tzu'
+},
+'Dalmadoodle': {
+	'parent':'Dalmatian / Poodle'
+},
+'Dalmador': {
+	'parent':'Labrador Retriever',
+	'parent':'Dalmatian'
+},
+'Dalmatian Husky': {
+	'parent':'Dalmatian',
+	'parent':'Siberian Husky'
+},
+'Dameranian': {
+	'parent':'Dachshund',
+	'parent':'Pomeranian'
+},
+'Daniff': {
+	'parent':'Great Dane',
+	'parent':'Mastiff'
+},
+'Das Pinscher Danish Swedish Farm Dog',
+	'parent':'Miniature Pinscher'
+},
+'Dashalier': {
+	'parent':'Dachshund',
+	'parent':'Cavalier King Charles Spaniel'
+},
+'Daug': {
+	'parent':'Dachshund',
+	'parent':'Pug'
+},
+'Doberman Shepherd': {
+	'parent':'Doberman Pinscher',
+	'parent':'German Shepherd'
+},
+'Dobie-Basset': {
+	'parent':'Doberman Pinscher / Basset Hound'
+},
+'Docker': {
+	'parent':'Dachshund',
+	'parent':'Cocker Spaniel'
+},
+'Dogue Brasileiro': {
+	'parent':'Bull Terrier',
+	'parent':'Boxer'
+},
+'Doodleman Pinscher': {
+	'parent':'Doberman',
+	'parent':'Standard Poodle'
+},
+'Dorgi': {
+	'parent':'Dachshund',
+	'parent':'Corgi'
+},
+'Dorkie': {
+	'parent':'Dachshund',
+	'parent':'Yorkshire Terrier'
+},
+'Doubull-Mastiff': {
+	'parent':'Bullmastiff',
+	'parent':'Mastiff'
+},
+'Double Doodle': {
+	'parent':'Goldendoodle',
+	'parent':'Labradoodle'
+},
+'Doxie-Chin': {
+	'parent':'Dachshund',
+	'parent':'Japanese Chin'
+},
+'Doxie-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Dachshund'
+},
+'Doxie Scot': {
+	'parent':'Dachshund',
+	'parent':'Scottish Terrier'
+},
+'Doxie-Pin': {
+	'parent':'Dachshund',
+	'parent':'Miniature Pinscher'
+},
+'Doxiemo': {
+	'parent':'Dachshund',
+	'parent':'American Eskimo'
+},
+'Doxiepoo': {
+	'parent':'Dachshund',
+	'parent':'Poodle'
+},
+'Doxle': {
+	'parent':'Beagle',
+	'parent':'Dachshund'
+},
+'Elk-Kee': {
+	'parent':'Keeshond',
+	'parent':'Norwegian Elkhound'
+},
+'Eng-A-Poo': {
+	'parent':'English Toy Spaniel',
+	'parent':'Poodle'
+},
+'Enga-Apso': {
+	'parent':'English Toy Spaniel',
+	'parent':'Lhasa Apso'
+},
+'Engachon': {
+	'parent':'Bichon Frise',
+	'parent':'English Toy Spaniel'
+},
+'EngAm Bulldog/Olde Bulldog': {
+	'parent':'American Bull Dog',
+	'parent':'English Bulldog'
+},
+'Engatzu Spaniel': {
+	'parent':'English Toy Spaniel',
+	'parent':'Shih Tzu'
+},
+'Englian Mastiff': {
+	'parent':'English Mastiff',
+	'parent':'Neapolitan Mastiff'
+},
+'English Boodle': {
+	'parent':'English Bulldog',
+	'parent':'Poodle'
+},
+'English Boston-Bulldog': {
+	'parent':'Boston Terrier',
+	'parent':'English Bulldog'
+},
+'English Bull Springer': {
+	'parent':'Bulldog',
+	'parent':'English Springer Spaniel'
+},
+'English Bullweiler': {
+	'parent':'English Bulldog',
+	'parent':'Rottweiler'
+},
+'English King': {
+	'parent':'Cavalier King Charles',
+	'parent':'English Toy Spaniel'
+},
+'English Mastweiler': {
+	'parent':'Mastiff',
+	'parent':'Rottweiler'
+},
+'English Speagle': {
+	'parent':'Beagle',
+	'parent':'English Toy Spaniel'
+},
+'English Toy Cocker Spaniel': {
+	'parent':'Cocker Spaniel',
+	'parent':'English Toy Spaniel'
+},
+'Eskapoo': {
+	'parent':'American Eskimo Dog / Poodle'
+},
+'Eskifon': {
+	'parent':'American Eskimo',
+	'parent':'Brussels Griffon'
+},
+'Eskijack': {
+	'parent':'American Eskimo',
+	'parent':'Jack Russell Terrier'
+},
+'Eskland': {
+	'parent':'American Eskimo',
+	'parent':'Shetland Sheepdog'
+},
+'Euro Mountain Sheparnese': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'German Shepherd'
+},
+'Ewokian': {
+	'parent':'Havanese',
+	'parent':'Pomeranian'
+}, ''Faux Frenchbo Bulldog': {
+	'parent':'Boston Terrier',
+	'parent':'French Bulldog'
+},
+'Flandoodle': {
+	'parent':'Bouvier des Flandres',
+	'parent':'Poodle'
+},
+'Fo-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Toy Fox Terrier'
+},
+'Fo-Tzu': {
+	'parent':'Shih Tzu',
+	'parent':'Toy Fox Terrier'
+},
+'Foodle': {
+	'parent':'Poodle',
+	'parent':'Toy Fox Terrier'
+},
+'Fourche Terrier': {
+	'parent':'Westie',
+	'parent':'Yorkshire Terrier'
+},
+'Foxhoodle': {
+	'parent':'Fox Hound',
+	'parent':'Poodle'
+},
+'Foxingese': {
+	'parent':'Pekingese',
+	'parent':'Toy Fox Terrier '
+},
+'Foxton': {
+	'parent':' Boston Terrier',
+	'parent':'Toy Fox Terrier'
+},
+'Foxy Rat Terrier': {
+	'parent':' American Rat Terrier',
+	'parent':'Toy Fox Terrier'
+},
+'Foxy Russell': {
+	'parent':' Jack Russell Terrier',
+	'parent':'Toy Fox Terrier'
+},
+'Free-Lance Bulldog': {
+	'parent':'French Bulldog',
+	'parent':'Bulldog'
+},
+'French Bull Tzu': {
+	'parent':' French Bulldog',
+	'parent':'Shih Tzu'
+},
+'French Bull Weiner': {
+	'parent':' French Bulldog',
+	'parent':'Dachshund'
+},
+'French Bullhuahua': {
+	'parent':' French Bulldog',
+	'parent':'Chihuahua'
+},
+'French Bulloxer': {
+	'parent':' Boxer',
+	'parent':'French Bulldog'
+},
+'French Pin': {
+	'parent':'French Bulldog',
+	'parent':'Miniature Pinscher'
+},
+'Frenchie-Pei': {
+	'parent':'French Bulldog',
+	'parent':'Chinese Shar Pei'
+},
+'Frenchie Pug': {
+	'parent':'French Bulldog',
+	'parent':'Pug'
+},
+'Frengle': {
+	'parent':'French Bulldog',
+	'parent':'Beagle'
+}, ''Gerberian Shepsky': {
+	'parent':'German Shepherd',
+	'parent':'Siberian Husky'
+},
+'German Australian Shepherd': {
+	'parent':'German Shepherd',
+	'parent':'Australian Shepherd'
+},
+'German Malinois': {
+	'parent':'Belgian Malinois',
+	'parent':'German Shepherd Dog'
+},
+'German Sheprador': {
+	'parent':'German Shepherd Dog',
+	'parent':'Labrador Retriever'
+},
+'German Shorthaired Lab': {
+	'parent':'German Shorthaired Pointer',
+	'parent':'Labrador Retriever'
+},
+'Giant Schnoodle': {
+	'parent':'Giant Schnauzer',
+	'parent':'Standard Poodle'
+}, ''Glechon': {
+	'parent':'Beagle',
+	'parent':'Bichon Frise'
+},
+'Goberian': {
+	'parent':'Golden Retriever',
+	'parent':'Siberian Husky'
+},
+'Golden Border Retriever': {
+	'parent':'Golden Retriever',
+	'parent':'Border Collie'
+},
+'Golden Boxer- Golden Retriever',
+	'parent':'Boxer'
+},
+'Golden Cocker Retriever': {
+	'parent':'Cocker Spaniel',
+	'parent':'Golden Retriever'
+},
+'Golden Dox': {
+	'parent':'Golden Retriever',
+	'parent':'Dachshund'
+},
+'Golden Irish': {
+	'parent':'Golden Retriever',
+	'parent':'Irish Setter'
+},
+'Golden Labrador': {
+	'parent':' Golden Retriever',
+	'parent':'Labrador Retriever'
+},
+'Golden Mountain Dog': {
+	'parent':' Golden Retriever',
+	'parent':'Bernese Mountain Dog'
+},
+'Golden Newfie': {
+	'parent':' Golden Retriever',
+	'parent':'Newfoundland'
+},
+'Golden Pei': {
+	'parent':' Chinese Shar Pei',
+	'parent':'Golden Retriever'
+},
+'Golden Pyrenees': {
+	'parent':' Golden Retriever',
+	'parent':'Great Pyrenees'
+},
+'Golden Saint': {
+	'parent':' Golden Retriever',
+	'parent':'Saint Bernard'
+},
+'Golden Sammy': {
+	'parent':' Golden Retriever',
+	'parent':'Samoyed'
+},
+'Golden Sheltie': {
+	'parent':' Golden Retriever',
+	'parent':'Sheltie'
+},
+'Golden Shepherd': {
+	'parent':' Golden Retriever',
+	'parent':'German Shepherd'
+},
+'Goldendoodle': {
+	'parent':' Golden Retriever',
+	'parent':'Poodle'
+},
+'Goldmaraner': {
+	'parent':' Golden Retriever',
+	'parent':'Weimaraner'
+},
+'Goldmation': {
+	'parent':' Golden Retriever',
+	'parent':'Dalmatian'
+},
+'Gollie': {
+	'parent':'Golden Retriever',
+	'parent':'Collie'
+},
+'Great Bernese': {
+	'parent':' Bernese Mountain dog',
+	'parent':'Great Pyrenees'
+},
+'Great Danebull': {
+	'parent':' American Pit Bull Terrier',
+	'parent':'Great Dane'
+},
+'Great Danoodle': {
+	'parent':'Great Dane / Poodle'
+},
+'Great Pyredane': {
+	'parent':' Great Dane',
+	'parent':'Great Pyrenees'
+}, ''Great Wolfhound': {
+	'parent':' Great Pyrenees',
+	'parent':'Irish Wolfhound'
+},
+'Griffichon': {
+	'parent':' Bichon Frise',
+	'parent':'Brussels Griffon'
+},
+'Griffonese': {
+	'parent':' Brussels Griffon',
+	'parent':'Pekingese'
+},
+'Griffonshire': {
+	'parent':' Brussels Griffon',
+	'parent':'Yorkshire Terrier'
+},
+'Hava-Apso': {
+	'parent':'Havanese',
+	'parent':'Lhasa Apso'
+},
+'Havachin': {
+	'parent':'Havanese',
+	'parent':'Japanese Chin'
+},
+'Havachon': {
+	'parent':'Bichon Frise',
+	'parent':'Havanese'
+},
+'Havallon': {
+	'parent':'Havanese',
+	'parent':'Papillon'
+},
+'Havamalt': {
+	'parent':'Havanese',
+	'parent':'Maltese'
+},
+'Havanestie': {
+	'parent':' Havanese',
+	'parent':'West Highland Terrier'
+},
+'Havapeke': {
+	'parent':'Havanese',
+	'parent':'Pekingese'
+},
+'Havashire': {
+	'parent':'Havanese',
+	'parent':'Yorkshire Terrier'
+},
+'Havashu': {
+	'parent':'Havanese',
+	'parent':'Shih Tzu'
+},
+'Havaton': {
+	'parent':' Coton de Tulear',
+	'parent':'Havanese'
+},
+'Highland Maltie': {
+	'parent':'West Highland White Terrier': {
+	'parent':'Westie'
+},',
+	'parent':'Maltese'
+},
+'Hug': {
+	'parent':'Siberian Husky',
+	'parent':'Pug Hybrid'
+},
+'Hush Basset': {
+	'parent':'Basset Hound',
+	'parent':'Cocker Spaniel'
+},
+'Huskimo	- Siberian Husky / American Eskimo'
+},
+'Huskita': {
+	'parent':'Siberian Husky / Akita'
+},
+'Husky Jack': {
+	'parent':'Siberian Husky / Jack Russell Terrier'
+},
+'Imo-Inu Imo-Inu': {
+	'parent':'American Eskimo',
+	'parent':'Shiba Inu'
+},
+'Irish Dane': {
+	'parent':'Irish Wolfhound',
+	'parent':'Great Dane'
+},
+'Irish Doodle': {
+	'parent':'': {
+	'parent':'Find an Irish Doodle': {
+	'parent':'Irish Setter',
+	'parent':'Poodle'
+},
+'Irish Mastiff': {
+	'parent':'': {
+	'parent':'Find an Irish Mastiff': {
+	'parent':'Irish Wolfhound',
+	'parent':'Mastiff'
+},
+'Irish Troodle': {
+	'parent':'Irish Terrier',
+	'parent':'Poodle'
+},
+'Italian-Bichon Italian-Bichon': {
+	'parent':'Bichon Frise',
+	'parent':'Italian Greyhound'
+},
+'Italian Bulldogge': {
+	'parent':'Neapolitan Mastiff',
+	'parent':'Olde English Bulldogge'
+},
+'Italian Grey Min Pin': {
+	'parent':'Italian Greyhound',
+	'parent':'Miniature Pinscher'
+},
+'Italian Greyhuahua': {
+	'parent':'Chihuahua',
+	'parent':'Italian Greyhound'
+},
+'Italian Papihound': {
+	'parent':'': {
+	'parent':'Find an Italian Papihound': {
+	'parent':'Italian Greyhound',
+	'parent':'Papillon'
+},
+'Italian Tzu': {
+	'parent':'': {
+	'parent':'Find an Italian Tzu': {
+	'parent':'Italian Greyhound',
+	'parent':'Shih Tzu'
+},
+'Ja-Chon': {
+	'parent':' Bichon Frise',
+	'parent':'Japanese Chin'
+},
+'Jacairn': {
+	'parent':' Cairn Terrier',
+	'parent':'Jack Russell Terrier'
+},
+'Jack-A-Bee': {
+	'parent':' Beagle',
+	'parent':'Jack Russell Terrier'
+},
+'Jack-A-Poo': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Poodle'
+},
+'Jack-A-Ranian- Jack Russell Terrier',
+	'parent':'Pomeranian'
+},
+'Jack Chi': {
+	'parent':' Chihuahua',
+	'parent':'Jack Russell Terrier'
+},
+'Jack-Rat Terrier': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Rat Terrier'
+},
+'Jack Tzu': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Shih Tzu'
+},
+'Jackie-Bichon': {
+	'parent':' Bichon Frise',
+	'parent':'Jack Russell Terrier'
+},
+'Jackshund': {
+	'parent':' Jack Russell Terrier',
+	'parent':'Dachshund'
+},
+'Jafox': {
+	'parent':' Japanese Chin',
+	'parent':'Toy Fox Terrier'
+},
+'Jaland': {
+	'parent':' Japanese Chin',
+	'parent':'West Highland White Terrier'
+},
+'Japeke': {
+	'parent':' Japanese Chin',
+	'parent':'Pekinese'
+},
+'Japillon': {
+	'parent':' Japanese Chin',
+	'parent':'Papillon'
+},
+'Japug': {
+	'parent':' Japanese Chin',
+	'parent':'Pug'
+},
+'Jarkie': {
+	'parent':' Japanese Chin',
+	'parent':'Yorkshire Terrier'
+},
+'Jatese': {
+	'parent':'Japanese Chin',
+	'parent':'Maltese'
+},
+'Jatzu': {
+	'parent':'Japanese Chin',
+	'parent':'Shih Tzu'
+},
+'Jug': {
+	'parent':'Jack Russell',
+	'parent':'Pug'
+},
+'Kashon': {
+	'parent':'Bichon Frise',
+	'parent':'Cairn Terrier'
+},
+'Kerry Wheaten': {
+	'parent':'Kerry Blue Terrier',
+	'parent':'Soft-Coated Wheaten'
+},
+'Kimola': {
+	'parent':'American Eskimo',
+	'parent':'Lhasa Apso'
+},
+'King Cavrin': {
+	'parent':'Cavalier King Charles',
+	'parent':'Cairn Terrier'
+},
+'King Charles Yorkie': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Yorkshire Terrier'
+},
+'King Schnauzer': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Miniature Schnauzer'
+},
+'Kobetan': {
+	'parent':'Cocker Spaniel',
+	'parent':'Tibetan Terrier'
+},
+'La-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Lhasa Apso'
+},
+'La Pom': {
+	'parent':'Pomeranian',
+	'parent':'Lhasa Apso'
+},
+'Lab'Aire': {
+	'parent':''	'parent':'Find a Lab'Aire': {
+	'parent':'Airedale Terrier',
+	'parent':'Labrador Retriever'
+},
+'Lab-Pointer': {
+	'parent':'Labrador Retriever',
+	'parent':'Pointer'
+},
+'Labahoula': {
+	'parent':'Labrador Retriever',
+	'parent':'Louisiana Catahoula Leopard Dog'
+},
+'Labany': {
+	'parent':'Labrador Retriever',
+	'parent':'Brittany Spaniel'
+},
+'Labbe': {
+	'parent':'Beagle',
+	'parent':'Labrador Retriever'
+},
+'Labernard': {
+	'parent':'Labrador Retriever',
+	'parent':'Saint Bernard'
+},
+'Labernese': {
+	'parent':'Labrador',
+	'parent':'Bernese Mountain Dog'
+},
+'Labloodhound': {
+	'parent':'Bloodhound',
+	'parent':'Labrador Retriever'
+},
+'Labmaraner': {
+	'parent':'Labrador Retriever',
+	'parent':'Weimaraner'
+},
+'Labrabull': {
+	'parent':'Labrador Retriever',
+	'parent':'American Pit Bull Terrier'
+},
+'Labradane': {
+	'parent':'Labrador Retriever',
+	'parent':'Great Dane'
+},
+'Labradinger': {
+	'parent':'English Springer Spaniel',
+	'parent':'Lab'
+},
+'Labradoodle': {
+	'parent':'Labrador Retriever',
+	'parent':'Poodle'
+},
+'Labradoodle Miniature': {
+	'parent':'Labrador Retriever',
+	'parent':'Toy or Miniature Poodle'
+},
+'Labrador Corso': {
+	'parent':'Labrador Retriever',
+	'parent':'Cane Corso Italiano'
+},
+'Labraheeler': {
+	'parent':'Labrador Retriever',
+	'parent':'Australian Cattle Dog'
+},
+'Labralas': {
+	'parent':'Labrador Retriever',
+	'parent':'Vizsla'
+},
+'Labrottie': {
+	'parent':'Labrador Retriever',
+	'parent':'Rottweiler'
+},
+'Lacasapoo': {
+	'parent':'Cock-A-Poo',
+	'parent':'Lhasa Apso'
+},
+'Lha-Basset Basset Hound',
+	'parent':'Lhasa Apso'
+},
+'Lha-Cocker': {
+	'parent':'Cocker Spaniel/ Lhasa Apso'
+},
+'Lhasa-Coton': {
+	'parent':'Coton de Tulear',
+	'parent':'Lhasa Apso'
+},
+'Lhaffon- Brussels Griffon',
+	'parent':'Lhasa Apso'
+},
+'Lhasalier': {
+	'parent':'Cavalier King Charles',
+	'parent':'Lhasa Apso'
+},
+'Lhasanese': {
+	'parent':'Lhasa Apso',
+	'parent':'Pekingese'
+},
+'Lhasapoo': {
+	'parent':'Lhasa Apso',
+	'parent':'Poodle'
+},
+'Lhatese': {
+	'parent':'Lhasa Apso',
+	'parent':'Maltese'
+},
+'Mal-Shi': {
+	'parent':'Maltese',
+	'parent':'Shih Tzu'
+},
+'Malchi': {
+	'parent':'Chihuahua',
+	'parent':'Maltese'
+},
+'Malinois X': {
+	'parent':' Belgian Malinois / German Shepherd Dog'
+},
+'Mally Foxhound': {
+	'parent':'Alaskan Malamute / Foxhound'
+},
+'Malteagle': {
+	'parent':'Beagle',
+	'parent':'Maltese'
+},
+'Malti-Pin': {
+	'parent':'Maltese',
+	'parent':'Miniature Pinscher'
+},
+'Malti-Poo': {
+	'parent':'Maltese',
+	'parent':'Poodle'
+},
+'Malti-Pug': {
+	'parent':'Maltese',
+	'parent':'Pug'
+},
+'Maltichon': {
+	'parent':'Maltese',
+	'parent':'Bichon'
+},
+'Maltipom': {
+	'parent':'Maltese/Pomeranian'
+},
+'Malton': {
+	'parent':'Cavachon',
+	'parent':'Maltese'
+},
+'Mastador': {
+	'parent':'Labrador Retriever',
+	'parent':'Mastiff'
+},
+'Masti-Bull': {
+	'parent':'Bulldog',
+	'parent':'Mastiff'
+},
+'Mauxie': {
+	'parent':'Dachshund',
+	'parent':'Maltese'
+},
+'Mauzer': {
+	'parent':'Maltese',
+	'parent':'Miniature Schnauzer'
+},
+'Meagle': {
+	'parent':'Beagle',
+	'parent':'Miniature Pinscher'
+},
+'Mini Australian Shepterrier': {
+	'parent':'Australian Terrier',
+	'parent':'Miniature Australian Shepherd'
+},
+'Mini English Cocker': {
+	'parent':'Dachshund',
+	'parent':'English Cocker Spaniel'
+},
+'Mini St. Bernard': {
+	'parent':''	'parent':'Find a Mini St. Bernard': {
+	'parent':'Saint Bernard',
+	'parent':'Cocker Spaniel'
+},
+'Miniature Aussiedoodle- Miniature Australian Shepherd ',
+	'parent':'Miniature Poodle'
+},
+'Miniature Boxer Boston Terrier',
+	'parent':'Boxer'
+},
+'Miniature Bulldog': {
+	'parent':'Bulldog',
+	'parent':'Pug'
+},
+'Miniature English Bulldach': {
+	'parent':'Bulldog',
+	'parent':'Dachshund'
+},
+'Miniature French Schnauzer': {
+	'parent':'French Bulldog',
+	'parent':'Miniature Schnauzer'
+},
+'Miniature Golden Retriever': {
+	'parent':'Golden Retriever',
+	'parent':'Cocker Spaniel',
+	'parent':'Poodle'
+},
+'Miniature Goldendoodle': {
+	'parent':'Golden Retriever',
+	'parent':'Toy or Miniature Poodle'
+},
+'Miniature Labradoodle': {
+	'parent':'Labrador Retriever',
+	'parent':'Toy or Miniature Poodle'
+},
+'Miniature Schnaupin': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Min Pin'
+},
+'Miniature Schnauzzie': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Miniature Australian Shepherd'
+},
+'Miniature Schnoxie': {
+	'parent':'Dachshund',
+	'parent':'Miniature Schnauzer'
+},
+'Miniboz': {
+	'parent':'Boston Terrier',
+	'parent':'Miniature Schnauzer'
+},
+'MiniCoonhound': {
+	'parent':'Exact in this type of dog has not be disclosed'
+},
+'Minnie Jack': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Miniature Pinscher'
+},
+'Mountain Bulldog': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Bulldog'
+}, ''Mountain Mastiff': {
+	'parent':'Bernese Mountain Dog',
+	'parent':'Mastiff'
+},
+'Muggin': {
+	'parent':'Miniature Pinscher',
+	'parent':'Pug'
+},
+'Muscle Mastiff': {
+	'parent':'Dogue de Bordeaux',
+	'parent':'Mastiff'
+},
+'Native American Village Dog': {
+	'parent':'German Shepherd',
+	'parent':'Native American Indian Dog'
+},
+'Newfypoo': {
+	'parent':'Newfoundland',
+	'parent':'Poodle'
+},
+'Nortese': {
+	'parent':'Norwich Terrier',
+	'parent':'Maltese',
+	'parent':'mix'
+},
+'Old Anglican Bulldogge ': {
+	'parent':'American Pit Bull Terrier or American Staffordshire Terrier',
+	'parent':'Bulldog'
+},
+'Old Deerhound Sheepdog ': {
+	'parent':'Old English Sheepdog / Scottish Deerhound'
+},
+'Olde Pit Bulldogge ': {
+	'parent':'American Pit Bull Terrier',
+	'parent':'Olde English Bulldogge'
+},
+'Olde Staff Bulldogge': {
+	'parent':'Find an Old Staff Bulldogge': {
+	'parent':'American Staffordshire Terrier',
+	'parent':'Olde English Bulldogge'
+},
+'Ori Pei': {
+	'parent':''	'parent':'Pug',
+	'parent':'Shar-Pei'
+},
+'Papastzu': {
+	'parent':'Papillon',
+	'parent':'Shih Tzu'
+},
+'Paperanian': {
+	'parent':'Papillon',
+	'parent':'Pomeranian'
+},
+'Papi-poo -Papillon',
+	'parent':'Poodle'
+},
+'Papichon': {
+	'parent':'Papillon',
+	'parent':'Bichon'
+},
+'Papigriffon': {
+	'parent':'Brussels Griffon',
+	'parent':'Papillon'
+},
+'Papijack': {
+	'parent':'Papillon',
+	'parent':'Jack Russell Terrier'
+},
+'Papimo': {
+	'parent':'American Eskimo',
+	'parent':'Papillon'
+},
+'Papitese': {
+	'parent':'Maltese',
+	'parent':'Papillon'
+},
+'Papshund': {
+	'parent':'Dachshund',
+	'parent':'Papillon'
+},
+'Patterdale Shepherd': {
+	'parent':'Patterdale Terrier',
+	'parent':'German Shepherd'
+},
+'Patterjack': {
+	'parent':'Patterdale Terrier',
+	'parent':'Jack Russell'
+},
+'Patterland': {
+	'parent':' Patterdale Terrier',
+	'parent':'Lakeland Terrier'
+},
+'Patton Terrier': {
+	'parent':'Patterdale Terrier',
+	'parent':'Boston Terrier'
+},
+'Peagle': {
+	'parent':'Beagle',
+	'parent':'Pekingese'
+},
+'Peek-A-Pom': {
+	'parent':'Pekingese/Pomeranian'
+},
+'Pekalier': {
+	'parent':'Cavalier King Charles',
+	'parent':'Pekingese'
+},
+'Pekarin': {
+	'parent':'Cairn Terrier',
+	'parent':'Pekingese'
+},
+'Peke-A-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Pekingese'
+},
+'Peke-A-Pap': {
+	'parent':'Papillon',
+	'parent':'Pekingese'
+},
+'Peke-A-Pin': {
+	'parent':' Miniature Pinscher',
+	'parent':'Pekingese'
+},
+'Peke-A-Tese': {
+	'parent':'Maltese',
+	'parent':'Pekingese'
+},
+'Peka-A-West': {
+	'parent':'Pekingnese',
+	'parent':'West Highland White Terrier'
+},
+'Peke-Italian': {
+	'parent':'Pekingnese',
+	'parent':'Italian Greyhound'
+},
+'Pekehund': {
+	'parent':'Pekingese',
+	'parent':'Dachshund'
+},
+'Pekepoo': {
+	'parent':'Pekingese',
+	'parent':'Poodle'
+},
+'Petite Goldendoodle': {
+	'parent':'Golden Retriever',
+	'parent':'Cocker Spaniel',
+	'parent':'Poodle'
+},
+'Petite Labradoodle': {
+	'parent':'Labrador Retriever',
+	'parent':'Cocker Spaniel',
+	'parent':'Poodle'
+},
+'Pembroke Cocker Corgi- Pembroke Welsh Corgi',
+	'parent':'American Cocker Spaniel'
+},
+'Pembroke Sheltie': {
+	'parent':'Shetland Sheepdog',
+	'parent':'Pembroke Welsh Corgi'
+},
+'Plica': {
+	'parent':'Basset Hound',
+	'parent':'Ori Pei'
+},
+'Pin-Tzu': {
+	'parent':'Miniature Pinscher',
+	'parent':'Shih Tzu'
+},
+'Pineranian': {
+	'parent':'Miniature Pinscher',
+	'parent':'Pomeranian'
+},
+'Pinny-Poo': {
+	'parent':'Miniature Pinscher',
+	'parent':'Poodle'
+},
+'Pit Heeler	- American Pitbull Terrier',
+	'parent':'Blue Heeler'
+},
+'Pitsky': {
+	'parent':'American Pitbull Terrier',
+	'parent':'Siberian Husky or Alaskan Husky'
+},
+'Pitweiler': {
+	'parent':'American Pit Bull Terrier',
+	'parent':'Rottweiler'
+},
+'Pocket Pitbull- American Pit Bull Terrier',
+	'parent':'Patterdale Terrier'
+},
+'Pointer Bay': {
+	'parent':'German Shorthaired Pointer',
+	'parent':'Chesapeake Bay Retriever'
+},
+'Pom-A-Nauze': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Pomeranian'
+},
+'Pom-A-Pug': {
+	'parent':'Pomeranian',
+	'parent':'Pug'
+},
+'Pom-Coton': {
+	'parent':'Coton De Tulear',
+	'parent':'Pomeranian'
+},
+'Pom-Shi': {
+	'parent':'Pomeranian',
+	'parent':'Shiba Inu'
+},
+'Pom-Silk': {
+	'parent':'Pomeranian',
+	'parent':'Silky Terrier'
+},
+'Pom Terrier': {
+	'parent':'Pomeranian',
+	'parent':'Toy Fox Terrier'
+},
+'Pomapoo': {
+	'parent':'Pomeranian',
+	'parent':'Poodle'
+},
+'Pomchi': {
+	'parent':' Pomeranian',
+	'parent':'Chihuahua'
+},
+'Pomeagle': {
+	'parent':' Beagle',
+	'parent':'Pomeranian'
+},
+'Pomerat': {
+	'parent':' Pomeranian',
+	'parent':'American Rat Terrier'
+},
+'Pomimo': {
+	'parent':'American Eskimo',
+	'parent':'Pomeranian'
+},
+'Pomsky': {
+	'parent':' Pomeranian / Husky'
+},
+'Pomston': {
+	'parent':'Boston Terrier',
+	'parent':'Pomeranian'
+},
+'Poo-Shi': {
+	'parent':'Poodle',
+	'parent':'Shiba Inu'
+},
+'Poo-Ton': {
+	'parent':'Coton De Tulear',
+	'parent':'Poodle'
+},
+'Poochin': {
+	'parent':'Japanese Chin',
+	'parent':'Poodle'
+},
+'Poogle': {
+	'parent':'Beagle',
+	'parent':'Poodle'
+},
+'Poolky': {
+	'parent':' Poodle',
+	'parent':'Silky Terrier'
+},
+'Pootalian': {
+	'parent':'Italian Greyhound',
+	'parent':'Poodle'
+},
+'Poovanese': {
+	'parent':'Havanese',
+	'parent':'Poodle'
+},
+'Poshies': {
+	'parent':'Pomeranian',
+	'parent':'Shetland Sheepdog'
+},
+'Powderpap': {
+	'parent':'Papillon',
+	'parent':'Chinese Crested'
+},
+'Prague Farm Dog': {
+	'parent':'Danish Swedish Farm Dog',
+	'parent':'Prazsky Krysarik'
+},
+'Pug-A-Mo': {
+	'parent':'Pug',
+	'parent':'American Eskimo Dog'
+},
+'Pug-Coton': {
+	'parent':'Pug',
+	'parent':'Coton de Tulear'
+},
+'Pug-Zu': {
+	'parent':'Pug',
+	'parent':'Shih Tzu'
+},
+'Pugairn': {
+	'parent':'Pug',
+	'parent':'Cairn Terrier'
+},
+'Pugalier': {
+	'parent':'Cavalier King Charles',
+	'parent':'Pug'
+},
+'Pugapoo': {
+	'parent':'Pug',
+	'parent':'Poodle'
+},
+'Pugese': {
+	'parent':'Pug',
+	'parent':'Chinese Crested'
+},
+'Puggat': {
+	'parent':'Pug',
+	'parent':'American Rat Terrier'
+},
+'Puggit': {
+	'parent':'Pug',
+	'parent':'Italian Greyhound'
+},
+'Puggle': {
+	'parent':'Pug',
+	'parent':'Beagle'
+},
+'Pughasa': {
+	'parent':'Pug',
+	'parent':'Lhasa Apso'
+},
+'Puginese': {
+	'parent':'Pug',
+	'parent':'Pekingese'
+},
+'Pugland': {
+	'parent':'Pug',
+	'parent':'Westie'
+},
+'Pugottie': {
+	'parent':'Pug',
+	'parent':'Scottish Terrier'
+},
+'Pugshire': {
+	'parent':'Pug',
+	'parent':'Yorkshire Terrier'
+},
+'Pugwich': {
+	'parent':'Pug',
+	'parent':'Norwich Terrier'
+},
+'Pushon': {
+	'parent':'Pug',
+	'parent':'Bichon Frise'
+},
+'Pyredoodle': {
+	'parent':'Great Pyrenees',
+	'parent':'Poodle'
+},
+'Pyrador': {
+	'parent':'Great Pyrenees',
+	'parent':'Labrador Retriever'
+},
+'Raggle': {
+	'parent':'American Rat Terrier',
+	'parent':'Beagle'
+},
+'Rashon': {
+	'parent':'Rat Terrier',
+	'parent':'Bichon Frise'
+},
+'Rat-A-Pap': {
+	'parent':'American Rat Terrier',
+	'parent':'Papillon'
+},
+'Rat-Cha': {
+	'parent':'Chihuahua',
+	'parent':'Rat Terrier'
+},
+'Ratese': {
+	'parent':'American Rat Terrier',
+	'parent':'Maltese'
+},
+'Ratshi Terrier': {
+	'parent':'American Rat Terrier',
+	'parent':'Shih Tzu'
+},
+'Ratshire Terrier': {
+	'parent':'Yorkshire Terrier',
+	'parent':'American Rat Terrier'
+},
+'Rattle': {
+	'parent':'American Rat Terrier',
+	'parent':'Poodle'
+},
+'Rattle Griffon': {
+	'parent':'Brussels Griffon',
+	'parent':'Rat Terrier'
+},
+'Reagle': {
+	'parent':'Rottweiler',
+	'parent':'Beagle'
+},
+'Rhodesian Boxer': {
+	'parent':'Rhodesian Ridgeback / Boxer'
+},
+'Rhodesian Labrador': {
+	'parent':'Rhodesian Ridgeback / Labrador Retriever'
+},
+'Rott Pei': {
+	'parent':'Rottweiler',
+	'parent':'Shar Pei'
+},
+'Rottaf': {
+	'parent':'Afghan Hound',
+	'parent':'Rottweiler'
+}, ''Rotterman': {
+	'parent':'Doberman Pinscher',
+	'parent':'Rottweiler'
+},
+'Rottle': {
+	'parent':'Rottweiler',
+	'parent':'Poodle'
+},
+'Rus-A-Pei': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Chinese Shar Pei'
+},
+'Rustralian Terrier': {
+	'parent':'Australian Terrier',
+	'parent':'Jack Russell Terrier'
+}, ''Saint Bernese': {
+	'parent':' Saint Bernard',
+	'parent':'Bernese Mountain Dog'
+},
+'Saint Berdoodle': {
+	'parent':'Saint Bernard',
+	'parent':'Poodle'
+},
+'Saint Bermastiff': {
+	'parent':'Mastiff',
+	'parent':'Saint Bernard'
+},
+'Saint Bernewfie': {
+	'parent':'Saint Bernard',
+	'parent':'Newfoundland'
+},
+'Saint Dane': {
+	'parent':'Great Dane',
+	'parent':'Saint Bernard'
+},
+'Saint Pyrenees': {
+	'parent':'Saint Bernard',
+	'parent':'Great Pyrenees'
+},
+'Sceagle': {
+	'parent':'Beagle',
+	'parent':'Scottish Terrier'
+},
+'Schapso': {
+	'parent':'Lhasa Apso',
+	'parent':'Miniature Schnauzer'
+},
+'Schip-A-Pom': {
+	'parent':'Pomeranian',
+	'parent':'Schipperke'
+},
+'Schipese': {
+	'parent':'Maltese',
+	'parent':'Schipperke'
+},
+'Schipper-Poo': {
+	'parent':'Poodle',
+	'parent':'Schipperke'
+},
+'Schnau-Tzu': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Shih Tzu'
+},
+'Schneagle': {
+	'parent':'Beagle',
+	'parent':'Schnauzer'
+},
+'Schnekingese': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Pekingese'
+},
+'Schnese': {
+	'parent':'Havanese',
+	'parent':'Miniature Schnauzer'
+},
+'Schnocker': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Cocker Spaniel'
+},
+'Schnoodle': {
+	'parent':'Schnauzer',
+	'parent':'Poodle'
+},
+'Schnug': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Pug'
+},
+'Schweenie': {
+	'parent':'Dachshund',
+	'parent':'Shih Tzu'
+},
+'Sco-Shi': {
+	'parent':'Scottish Terrier',
+	'parent':'Shih Tzu'
+},
+'Scobo Terrier': {
+	'parent':'Boston Terrier',
+	'parent':'Scottish Terrier'
+},
+'Scoland Terrier': {
+	'parent':'Scottish Terrier',
+	'parent':'Westie'
+},
+'Scolden Terrier': {
+	'parent':'Scottish Terrier',
+	'parent':'Golden Retriever'
+},
+'Scorkie': {
+	'parent':'Scottish Terrier',
+	'parent':'Yorkshire Terrier'
+},
+'Scotchi': {
+	'parent':'Scottish Terrier',
+	'parent':'Chihuahua'
+},
+'Scotchon': {
+	'parent':'Bichon Frise',
+	'parent':'Scottish Terrier'
+},
+'Scotti Apso': {
+	'parent':'Lhasa Apso',
+	'parent':'Scottish Terrier'
+},
+'Scottish Cocker': {
+	'parent':'Cocker Spaniel',
+	'parent':'Scottish Terrier'
+},
+'Scottish-Skye Terrier': {
+	'parent':'Scottish Terrier',
+	'parent':'Skye Terrier'
+},
+'Scoodle': {
+	'parent':'Scottish Terrier',
+	'parent':'Poodle'
+},
+'Sharberian Husky': {
+	'parent':'Chinese Shar-pei',
+	'parent':'Siberian Husky'
+},
+'Sharbo': {
+	'parent':'Boston Terrier',
+	'parent':'Chinese Shar-Pei'
+},
+'Shar-Poo': {
+	'parent':'Shar-Pei',
+	'parent':'Poodle'
+},
+'Sharmatian': {
+	'parent':'Chinese Shar-Pei',
+	'parent':'Dalmatian'
+},
+'Sharp Eagle': {
+	'parent':'Beagle',
+	'parent':'Chinese Shar Pei'
+},
+'Sheepadoodle': {
+	'parent':'Old English Sheepdog',
+	'parent':'Standard Poodle'
+},
+'Shel-Aussie ': {
+	'parent':'Australian Shepherd or Miniature Australian Shepherd',
+	'parent':'Shetland Sheepdog'
+},
+'Shelchon': {
+	'parent':'Bichon Frise',
+	'parent':'Shetland Sheepdog'
+},
+'Shelestie ': {
+	'parent':'Shetland Sheepdog',
+	'parent':'West Highland White Terrier'
+},
+'Shelillon ': {
+	'parent':'Papillon',
+	'parent':'Shetland Sheepdog'
+},
+'Sheltidoodle': {
+	'parent':'Sheltie',
+	'parent':'Poodle'
+},
+'Sheltie Inu': {
+	'parent':'Shetland Sheepdog',
+	'parent':'Shiba Inu'
+},
+'Sheltie Pin': {
+	'parent':'Shetland Sheepdog',
+	'parent':'Miniature Pinscher'
+},
+'Sheltie Pug': {
+	'parent':'Shetland Sheepdog',
+	'parent':'Pug'
+},
+'Sheltie Shepherd': {
+	'parent':'German Shepherd',
+	'parent':'Shetland Sheepdog'
+},
+'Sheltie Tzu': {
+	'parent':'Shetland Sheepdog',
+	'parent':'Shih Tzu'
+},
+'Shepadoodle': {
+	'parent':'German Shepherd',
+	'parent':'Standard Poodle'
+},
+'Sheprador': {
+	'parent':'Australian Shepherd',
+	'parent':'Labrador Retriever'
+},
+'Shibos': {
+	'parent':'Boston Terrier',
+	'parent':'Shiba Inu'
+},
+'ShiChi': {
+	'parent':'Chihuahua',
+	'parent':'Shih Tzu'
+},
+'Shichon': {
+	'parent':'Bichon Frise',
+	'parent':'Shih Tzu'
+},
+'Shiffon': {
+	'parent':'Brussels Griffon',
+	'parent':'Shih Tzu'
+},
+'Shih Apso': {
+	'parent':'Lhasa Apso',
+	'parent':'Shih Tzu'
+},
+'Shih-Mo': {
+	'parent':'American Eskimo',
+	'parent':'Shih Tzu'
+},
+'Shih-Poo- Shih-Tzu',
+	'parent':'Poodle'
+},
+'Shinese': {
+	'parent':'Shih Tzu',
+	'parent':'Pekingese'
+},
+'Shiranian': {
+	'parent':'Pomeranian',
+	'parent':'Shih Tzu'
+},
+'Shocker': {
+	'parent':'Cocker Spaniel',
+	'parent':'Shiba Inu'
+},
+'Shockerd': {
+	'parent':'English Shepherd',
+	'parent':'Cocker Spaniel'
+},
+'Shollie': {
+	'parent':'German Shepherd',
+	'parent':'Collie'
+},
+'Shorgi': {
+	'parent':'Corgi',
+	'parent':'Shih-Tzu'
+},
+'Shorkie Tzu': {
+	'parent':'Shih Tzu',
+	'parent':'Yorkie'
+},
+'Shug': {
+	'parent':'German Shepherd Dog',
+	'parent':'Pug'
+},
+'Sibercaan': {
+	'parent':'Siberian Husky or Native American Indian Dog',
+	'parent':'Canaan Dog'
+},
+'Siberian Boston': {
+	'parent':'Siberian Husky',
+	'parent':'Boston Terrier'
+},
+'Siberian Cocker ': {
+	'parent':'Cocker Spaniel',
+	'parent':'Siberian Husky'
+},
+'Siberian Indian Dog': {
+	'parent':'Siberian Husky',
+	'parent':'Native American Indian Dog'
+},
+'Siberian Retriever': {
+	'parent':'Siberian Husky',
+	'parent':'Labrador Retriever'
+},
+'Siberian Shiba': {
+	'parent':'Siberian Husky',
+	'parent':'Shiba Inu'
+},
+'Siberpoo': {
+	'parent':'Siberian Husky',
+	'parent':'Poodle'
+},
+'Silkchon': {
+	'parent':'Bichon Frise',
+	'parent':'Silky Terrier'
+},
+'Silkese': {
+	'parent':'Maltese',
+	'parent':'Silky Terrier'
+},
+'Silkin': {
+	'parent':'Japanese Chin',
+	'parent':'Silky Terrier'
+},
+'Silkinese': {
+	'parent':'Pekingese',
+	'parent':'Silky Terrier'
+},
+'Silkland Terrier': {
+	'parent':'Silky Terrier',
+	'parent':'Westie'
+},
+'Silkshund': {
+	'parent':'Dachshund',
+	'parent':'Silky Terrier'
+},
+'Silky-Pin': {
+	'parent':'Miniature Pinscher',
+	'parent':'Silky Terrier'
+},
+'Silky Pug': {
+	'parent':'Pug',
+	'parent':'Silky Terrier'
+},
+'Silky Cocker': {
+	'parent':'Maltese',
+	'parent':'Cocker Spaniel'
+},
+'Silky Coton': {
+	'parent':'Coton de Tulear',
+	'parent':'Silky Terrier'
+},
+'Silky Jack': {
+	'parent':'Jack Russell Terrier',
+	'parent':'Silky Terrier'
+}, ''Silky-Lhasa': {
+	'parent':'Lhasa Apso',
+	'parent':'Silky Terrier'
+},
+'Silky Tzu': {
+	'parent':'Silky Terrier',
+	'parent':'Shih-Tzu'
+},
+'Silkyhuahua': {
+	'parent':'Chihuahua',
+	'parent':'Silky Terrier'
+},
+'Silkzer': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Silky Terrier'
+},
+'Skilky Terrier': {
+	'parent':'Scottish Terrier',
+	'parent':'Silky Terrier'
+},
+'Skip-Shzu': {
+	'parent':'Schipperke',
+	'parent':'Shih Tzu'
+},
+'Skypoo': {
+	'parent':'Poodle',
+	'parent':'Skye Terrier'
+},
+'Sniffon': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Brussels Griffon'
+},
+'Snorkie': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Yorkshire Terrier'
+},
+'Soft Coated Golden': {
+	'parent':'Golden Retriever',
+	'parent':'Soft Coated Wheaten'
+},
+'Soft Coated Wheatzer': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Soft Coated Wheaten Terrier'
+},
+'Soft Coated Woxer': {
+	'parent':'Boxer',
+	'parent':'Soft Coated Wheaten'
+},
+'Spanador': {
+	'parent':'Labrador Retriever',
+	'parent':'American Cocker Spaniel'
+},
+'Spangold Retriever': {
+	'parent':'English Springer Spaniel',
+	'parent':'Golden Retriever'
+},
+'Spreagle': {
+	'parent':'English Springer Spaniel',
+	'parent':'Beagle'
+},
+'Springer Pit': {
+	'parent':'English Springer Spaniel',
+	'parent':'American Pitbull Terrier'
+},
+'Springerdoodle': {
+	'parent':'English Springer Spaniel',
+	'parent':'Poodle'
+},
+'St. Weiler': {
+	'parent':'Rottweiler',
+	'parent':'St. Bernard'
+},
+'Staffy Bull Pit': {
+	'parent':'Staffordshire Bull Terrier',
+	'parent':'Pitbull Terrier'
+},
+'Standard Schnoodle': {
+	'parent':'Poodle',
+	'parent':'Standard Schnauzer'
+},
+'Swissy Saint': {
+	'parent':'Greater Swiss Mountain Dog',
+	'parent':'Saint Bernard'
+},
+'Swissneese': {
+	'parent':'Great Swiss Mountain Dog',
+	'parent':'Great Pyrenees'
+},
+'Taco Terrier': {
+	'parent':'Chihuahua',
+	'parent':'Toy Fox Terrier'
+},
+'Texas Heeler': {
+	'parent':'Australian Cattle Dog',
+	'parent':'Australian Shepherd Dog'
+},
+'Tibalier': {
+	'parent':'Cavalier King Charles Spaniel',
+	'parent':'Tibetan Spaniel'
+},
+'Tibetan Chin': {
+	'parent':'Tibetan Spaniel',
+	'parent':'Japanese Chin'
+},
+'Tibetan Pug': {
+	'parent':'Pug',
+	'parent':'Tibetan Spaniel'
+},
+'Tibetan Wolfhound': {
+	'parent':'Tibetan Mastiff',
+	'parent':'Irish Wolfhound'
+},
+'Torkie': {
+	'parent':'Toy Fox Terrier',
+	'parent':'Yorkie'
+},
+'Toxirn': {
+	'parent':'Cairn Terrier',
+	'parent':'Chihuahua'
+},
+'Toy Fox Beagle': {
+	'parent':'Toy Fox Terrier',
+	'parent':'Beagle'
+},
+'Toy Fox Pinscher': {
+	'parent':'Miniature Pinscher',
+	'parent':'Toy Fox Terrier'
+},
+'Toy Foxillon': {
+	'parent':'Papillon',
+	'parent':'Toy Fox Terrier'
+},
+'Toy Poxer': {
+	'parent':'Pug',
+	'parent':'Toy Fox Terrier'
+},
+'Toy Rat Doxie': {
+	'parent':'Dachshund',
+	'parent':'American Rat Terrier'
+},
+'Ttoodle': {
+	'parent':'Poodle',
+	'parent':'Tibetan Terrier'
+},
+'Tzu Basset': {
+	'parent':'Basset Hound',
+	'parent':'Shih Tzu'
+},
+'Ultimate Mastiff': {
+	'parent':'Dogue de Bordeau',
+	'parent':'Neapolitan Mastiff'
+},
+'Vizmaraner': {
+	'parent':'Vizsla',
+	'parent':'Weimaraner'
+},
+'Wauzer': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Westie'
+},
+'Wee-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Westie'
+},
+'Weeranian': {
+	'parent':'Pomeranian',
+	'parent':'Westie'
+},
+'Weim-Pei': {
+	'parent':'Weimaraner',
+	'parent':'Shar Pei'
+},
+'Weimardoodle': {
+	'parent':'Weimaraner',
+	'parent':'Poodle'
+},
+'Wel-Chon': {
+	'parent':'Bichon Frise',
+	'parent':'Welsh Terrier'
+},
+'Weshi': {
+	'parent':'Shih Tzu',
+	'parent':'Westie'
+},
+'West Highland Doxie': {
+	'parent':'Dachshund',
+	'parent':'West Highland White Terrier'
+},
+'West of Argyll Terrier': {
+	'parent':'Beagle',
+	'parent':'West Highland White Terrier'
+},
+'Westeke': {
+	'parent':'West Highland White Terrier',
+	'parent':'Schipperke'
+},
+'Westie-Laso': {
+	'parent':'Lhasa Apso',
+	'parent':'West Highland White Terrier'
+},
+'Westie Staff': {
+	'parent':'West Highland White Terrier',
+	'parent':'American Staffordshire Terrier'
+},
+'Westiepoo': {
+	'parent':'Westie',
+	'parent':'Poodle'
+},
+'Westillon': {
+	'parent':'Westie',
+	'parent':'Papillon'
+},
+'Weston': {
+	'parent':'West Highland White Terrier',
+	'parent':'Coton de Tulear'
+},
+'Whoodle': {
+	'parent':'Soft Coated Wheaten Terrier',
+	'parent':'Poodle'
+},
+'Wire Fox Pinscher': {
+	'parent':'Wire Fox Terrier',
+	'parent':'Miniature Pinscher'
+},
+'Wire Hair Snauzer': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Wire Fox Terrier'
+},
+'Wire-Poo': {
+	'parent':'Wirehaired Fox Terrier',
+	'parent':'Poodle'
+},
+'Wirelsh Terrier': {
+	'parent':' Welsh Terrier',
+	'parent':'Wire Fox Terrier'
+},
+'Wolador': {
+	'parent':'Timber Wolf',
+	'parent':'Labrador Retriever'
+},
+'Wolamute': {
+	'parent':'Alaskan Malamute',
+	'parent':'Timber Wolf'
+},
+'Wolfdog': {
+	'parent':'Wolf',
+	'parent':'Domestic Dog'
+},
+'Woodle': {
+	'parent':'Welsh Terrier',
+	'parent':'Poodle'
+},
+'Wowauzer': {
+	'parent':'Miniature Schnauzer',
+	'parent':'Welsh Terrier'
+},
+'Yoranian': {
+	'parent':'Pomeranian',
+	'parent':'Yorkshire Terrier'
+},
+'Yorkie-Apso': {
+	'parent':'Lhasa Apso',
+	'parent':'Yorkshire Terrier'
+},
+'Yorkie Pin': {
+	'parent':'Miniature Pinscher',
+	'parent':'Yorkshire Terrier'
+},
+'Yorkie Russell': {
+	'parent':'Yorkshire Terrier',
+	'parent':'Jack Russell Terrier'
+},
+'Yorkie-ton': {
+	'parent':'Coton de Tulear',
+	'parent':'Yorkshire Terrier'
+},
+'Yorkillon': {
+	'parent':'Papillon',
+	'parent':'Yorkshire Terrier'
+},
+'Yorkipoo': {
+	'parent':'Yorkie',
+	'parent':'Poodle'
+},
+'Yorkinese': {
+	'parent':'Pekingese',
+	'parent':'Yorkie'
+},
+'Yorktese': {
+	'parent':'Yorkshire Terrier',
+	'parent':'Maltese'
+},
+'Yorwich': {
+	'parent':'Yorkshire Terrier',
+	'parent':'Norwich Terrier'
+},
+'Zuchon': {
+	'parent':'Bichon Frise',
+	'parent':'Shih Tzu'
+}
+
