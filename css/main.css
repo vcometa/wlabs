@@ -8,4 +8,131 @@
 
 @media all {
 
+	html {
+	
+		font: 14px arial;		
+	
+	}
+	
+	body {
+	
+		margin: 0;
+	
+	}
+	
+	header, footer, article{
+	
+		display: block;
+		
+		clear: both;
+		
+		width: 100%;	
+		
+		margin: 0 auto;
+		
+		overflow: hidden;
+	
+	}
+	
+	footer ul,
+	
+	header ul{
+	
+		display:block;
+		
+		margin: 0 auto;
+		
+		padding: 0;
+		
+		max-width: 1024px;
+	
+	}
+	
+	article {
+	
+		display: block;
+		
+		position: relative;
+		
+		top: 20px;
+	
+		max-width: 1024px;
+		
+		height: 100%;
+		
+		background: #fff;
+	
+	}
+	
+	footer ul li,
+	
+	header ul li {
+		
+		list-style: none;
+		
+		float: left;
+		
+		margin: 0;
+		
+		color: #fff;
+		
+		font: bold 14px verdana;
+		
+	
+	}
+	
+	footer ul li a,
+	
+	header ul li a {
+	
+		display: block;
+	
+		color: #fff;
+		
+		padding: 5px 10px;
+		
+		text-decoration: none;
+		
+		cursor: pointer;
+	
+	}
+	
+	header ul li a:hover,
+	
+	header ul li a.active {
+	
+		background: #666;
+	
+	}
+	
+	footer ul li a:hover,
+	
+	footer ul li a.active {
+	
+		background: #000;
+	
+	}
+	
+	header {
+	
+		position: fixed;
+		
+		top: 0;
+		
+		z-index:999999;
+	
+		background: #000;
+	
+	}
+	
+	footer {
+	
+		position:fixed;
+		
+		bottom: 0;
+	
+		background: #666;
+	
+	}
+
 }
