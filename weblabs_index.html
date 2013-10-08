@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Index</title>			 
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+	</head>
+	 
+	<body id="index" class="home">
+	</body>
+	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="js/weblabs.js"></script>
+	<script>
+	$(document).ready(function() {
+	
+		$_.set('keywords', ['Vivamus', 'Lorem', 'eros']);
+	
+		$_.loadJson('js/article.json', $_.getArticleList );
+		
+		$_.loadJson('js/videos.json', $_.getVideos );
+		
+		$_.loadJson('js/images.json', $_.getImages );
+		
+		//$_.get('json') ;
+		
+		
+		/* weblabs.set('key0','Key 0 Value');
+		
+		console.log( weblabs.get('key0') );
+		
+		$w.set('key0','New Key 0 Value');
+		
+		console.log( $_.get('key0') );
+		
+		_w.set('key1','New Key = Key 1');
+		
+		console.log( $_.get('key1') );
+		
+		console.log( $_.browser.userAgent );
+		
+		console.log( $_.browser.type );
+		
+		console.log( $_.browser.name );
+		
+		console.log( $_.browser.version );
+		
+		console.log( $_.browser.width );
+		
+		console.log( $_.browser.height );
+		
+		console.log( $_.browser.domain );
+		
+		console.log( $_.browser );
+	*/
+	});
+	</script>
+</html>

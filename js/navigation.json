@@ -1,0 +1,34 @@
+{
+	"navigation":[
+		{
+			"id": "link_Home",
+			"src": "index.html",
+			"title": "Home",
+			"description": "A quick preview of what we have in store"
+		},
+		{
+			"id": "link_Science",
+			"src": "science.html",
+			"title": "Science",
+			"description": "All about science"
+		},
+		{
+			"id": "link_Technology",
+			"src": "technology.html",
+			"title": "Technology",
+			"description": "All about the latest technologies"
+		},
+		{
+			"id": "link_Entertainment",
+			"src": "entertainment.html",
+			"title": "Entertainment",
+			"description": "All about entertainment"
+		},
+		{
+			"id": "link_Gaming",
+			"src": "gaming.html",
+			"title": "Gaming",
+			"description": "All about gaming"
+		}
+	]
+}

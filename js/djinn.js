@@ -8,18 +8,23 @@ function getParameterByName(name) {
 function getHeaderFooter(){
 
 	var header = $('header'),
-		footer = $('footer'),
-		navHtml = [
-						'<ul class="navigation">',
-						'<li><a href="page1.html">page1</a></li>',
-						'<li><a href="page2.html">page2</a></li>',
-						'<li><a href="page3.html">page3</a></li>',
-						'<li><a href="page4.html">page4</a></li>',
-						'<li><a href="page5.html">page5</a></li>',
-						'</ul>'
-					].join('');
-					
-	$(navHtml).appendTo(header).clone().appendTo(footer);
+		footer = $('footer');
+		
+	$.getJSON( "js/navigation.json", function( data ) {
+	
+		 var items = [];
+			$.each( data.navigation, function( i, navigation ) {
+				items.push( '<li id="' + navigation.id + '"><a href="'+navigation.src+'" title="'+navigation.description+'" >' + navigation.title + '</a></li>' );
+			});
+			
+		$( "<ul/>", {
+			"class": "navigation",
+			html: items.join( "" )
+			}).appendTo(header).clone().appendTo(footer);
+			
+		setActive();
+	
+	});
 
 }
 
@@ -31,84 +36,69 @@ function setActive(){
 		
 		arr = $('header .navigation li a');
 		
-		for( var i=0,j=arr.length;i<j;i++){
-		
-			if( pageName == $(arr[i]).attr('href') ){
+	for( var i=0,j=arr.length;i<j;i++){
 			
-				$(arr[i]).addClass('active');
-				
-			}
-		}
+		if( pageName == $(arr[i]).attr('href') ){
 		
+			$(arr[i]).addClass('active');
+			
+		}
+	}
 	
 };
 
 function init(){
 
-	getHeaderFooter();
-	setActive();
+	getHeaderFooter();	
 
 }
 
-(function () {
-
-	function loadFile(url, type, justIE, callback) {
+function loadFile(url, type, justIE, callback) {
 	
-		if ( type == 'script'){
-			var script = document.createElement(type);
-				script.type = 'text/javascript';
-				
-				//alert(script.readyState);
-				
-				if (script.readyState) { //IE
-				
-					document.createElement('header');
-					document.createElement('nav');
-					document.createElement('section');
-					document.createElement('article');
-					document.createElement('aside');
-					document.createElement('footer');
-					document.createElement('figure');
-					document.createElement('figcaption');				
-				
-					script.onreadystatechange = function () {
-					
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							
-							
-							callback();
-						}		
-					};
-				} else { //Others 
-					script.onload = function () {
-						callback();
-					};
-				}
-				
-				if ( justIE ) {
-					script.src = url;
-					document.getElementsByTagName("head")[0].appendChild(script);
-				} else if (!justIE){
-					script.src = url;
-					document.getElementsByTagName("head")[0].appendChild(script);
-				}
+	if ( type == 'script'){
+		var script = document.createElement(type);
+			script.type = 'text/javascript';
 			
-		} else if ( type == 'stylesheet'){
-		
-			var link = document.createElement('link');
-				link.type = 'text/css';
-				link.rel = 'stylesheet';
+			if (script.readyState) { //IE
+			
+				script.onreadystatechange = function () {
 				
-			link.href = url;
-			document.getElementsByTagName("head")[0].appendChild(link);
+					if (script.readyState == "loaded" || script.readyState == "complete") {
+						script.onreadystatechange = null;
+						
+						
+						callback();
+					}		
+				};
+			} else { //Others 
+				script.onload = function () {
+					callback();
+				};
+			}
+			
+			if ( justIE ) {
+				script.src = url;
+				document.getElementsByTagName("head")[0].appendChild(script);
+			} else if (!justIE){
+				script.src = url;
+				document.getElementsByTagName("head")[0].appendChild(script);
+			}
 		
-		}
-	}
-
-	loadFile( 'css/main.css', 'stylesheet');
-	loadFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', 'script', false, function(){init()} );
+	} else if ( type == 'stylesheet'){
 	
+		var link = document.createElement('link');
+			link.type = 'text/css';
+			link.rel = 'stylesheet';
+			
+		link.href = url;
+		document.getElementsByTagName("head")[0].appendChild(link);
+	
+	}
+}
 
+(function () {
+	
+	loadFile( 'css/main.css', 'stylesheet');	
+	loadFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', 'script', false, function(){init()} );
 
 })();
