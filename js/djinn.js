@@ -1,3 +1,5 @@
+/*.* by Virgilio Cometa 2013 */
+
 function getParameterByName(name) {
 			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
 			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -5,7 +7,7 @@ function getParameterByName(name) {
 			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
 		
-function getHeaderFooter(){
+function getHeaderFooter( callback ){
 
 	var header = $('header'),
 		footer = $('footer');
@@ -22,13 +24,13 @@ function getHeaderFooter(){
 			html: items.join( "" )
 			}).appendTo(header).clone().appendTo(footer);
 			
-		setActive();
+		callback();
 	
 	});
 
 }
 
-function setActive(){
+function setActiveTab(){
 		
 	var url = window.location.pathname,
 
@@ -49,7 +51,7 @@ function setActive(){
 
 function init(){
 
-	getHeaderFooter();	
+	getHeaderFooter(setActiveTab);	
 
 }
 
@@ -64,9 +66,7 @@ function loadFile(url, type, justIE, callback) {
 				script.onreadystatechange = function () {
 				
 					if (script.readyState == "loaded" || script.readyState == "complete") {
-						script.onreadystatechange = null;
-						
-						
+						script.onreadystatechange = null;						
 						callback();
 					}		
 				};
