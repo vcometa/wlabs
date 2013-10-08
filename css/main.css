@@ -8,19 +8,23 @@
 
 @media all {
 
-	html {
-	
-		font: 14px arial;		
-	
-	}
-	
-	body {
+	.page {
+		
+		position: relative;
 	
 		margin: 0;
+		
+		padding: 0;
+		
+		font: 14px arial;
+		
+		color: #000;
 	
 	}
 	
-	header, footer, article{
+	.page header,
+	.page footer,
+	.page article{
 	
 		display: block;
 		
@@ -34,9 +38,9 @@
 	
 	}
 	
-	footer ul,
+	.page footer ul,
 	
-	header ul{
+	.page header ul{
 	
 		display:block;
 		
@@ -48,25 +52,9 @@
 	
 	}
 	
-	article {
+	.page footer ul li,
 	
-		display: block;
-		
-		position: relative;
-		
-		top: 20px;
-	
-		max-width: 1024px;
-		
-		height: 100%;
-		
-		background: #fff;
-	
-	}
-	
-	footer ul li,
-	
-	header ul li {
+	.page header ul li {
 		
 		list-style: none;
 		
@@ -81,9 +69,9 @@
 	
 	}
 	
-	footer ul li a,
+	.page footer ul li a,
 	
-	header ul li a {
+	.page header ul li a {
 	
 		display: block;
 	
@@ -97,23 +85,23 @@
 	
 	}
 	
-	header ul li a:hover,
+	.page header ul li a:hover,
 	
-	header ul li a.active {
+	.page header ul li a.active {
 	
 		background: #666;
 	
 	}
 	
-	footer ul li a:hover,
+	.page footer ul li a:hover,
 	
-	footer ul li a.active {
+	.page footer ul li a.active {
 	
 		background: #000;
 	
 	}
 	
-	header {
+	.page header {
 	
 		position: fixed;
 		
@@ -125,13 +113,63 @@
 	
 	}
 	
-	footer {
+	.page footer {
 	
 		position:fixed;
 		
 		bottom: 0;
 	
 		background: #666;
+	
+	}
+	
+	.page .main-body {
+	
+		display: block;
+		
+		position: relative;
+		
+		top: 20px;
+		
+		width: 100%;
+		
+		max-width: 1024px;
+		
+		margin: 0 auto;
+	
+	}
+	
+	.page .main-article {
+	
+		display: block;
+		
+		position: relative;
+		
+		float: left;
+	
+		width: 70%;
+		
+		height: 100%;
+		
+		background: #fff;
+	
+	}
+	
+	.page .right-rail {
+	
+		display: block;
+		
+		position: relative;
+		
+		float: left;
+	
+		width: 30%;
+		
+		min-width: 300px;
+		
+		height: 100%;
+		
+		background: #999;
 	
 	}
 
