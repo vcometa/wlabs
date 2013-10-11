@@ -3,8 +3,20 @@
 		{
 			"id": "link_Home",
 			"src": "index.html",
-			"title": "Home",
+			"title": ":::listFED.com",
 			"description": "A quick preview of what we have in store"
+		},
+		{
+			"id": "link_News",
+			"src": "news.html",
+			"title": "News",
+			"description": "All about news"
+		},
+		{
+			"id": "link_Business",
+			"src": "business.html",
+			"title": "Business",
+			"description": "All about business"
 		},
 		{
 			"id": "link_Science",

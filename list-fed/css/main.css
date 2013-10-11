@@ -38,13 +38,13 @@
 	
 	}
 	
-	.page footer ul,
+	.page footer ul ,
 	
-	.page header ul{
+	.page header ul {
 	
 		display:block;
 		
-		margin: 0 auto;
+		margin: -6px auto 0;
 		
 		padding: 0;
 		
@@ -52,11 +52,9 @@
 	
 	}
 	
-	.page footer ul{
-	
-		width: auto;
-	
-		max-width: auto;
+	.page footer ul {
+			
+		margin: 0 auto;
 	
 	}
 	
@@ -72,7 +70,7 @@
 		
 		color: #fff;
 		
-		font: bold 14px verdana;
+		font: normal 14px helvetica;
 		
 	
 	}
@@ -83,21 +81,37 @@
 	
 		display: block;
 	
-		color: #fff;
+		color: #000;
 		
-		padding: 5px 10px;
+		padding: 10px 15px;
 		
 		text-decoration: none;
 		
 		cursor: pointer;
+		
+		border-top: 5px groove transparent;
 	
 	}
 	
-	.page header ul li a:hover,
+	.page header ul li a:hover {
+	
+		background: #ddd;
+		
+		color: #2c7697;
+		
+		border-top: 5px solid #4ca9d4;
+	
+	}
 	
 	.page header ul li a.active {
 	
-		background: #666;
+		background: #444;
+		
+		color: #f87e3c;
+		
+		font-weight: bold;
+		
+		border-top: 5px solid #f87e3c;
 	
 	}
 	
@@ -105,7 +119,7 @@
 	
 	.page footer ul li a.active {
 	
-		background: #000;
+		background: #fff;
 	
 	}
 	
@@ -117,7 +131,17 @@
 		
 		z-index:999999;
 	
-		background: #000;
+		background: #eee;
+		
+		border: 1px solid #666;
+		
+		border-width: 1px 0;
+		
+		letter-spacing: 1px;
+		
+		margin: 5px auto 0;
+		
+		overflow: visible;
 	
 	}
 	
@@ -137,7 +161,7 @@
 		
 		position: relative;
 		
-		top: 20px;
+		top: 40px;
 		
 		width: 100%;
 		
