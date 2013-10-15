@@ -77,7 +77,47 @@ function bindNavigation(){
 		setActiveTab( $($(this).parent()).index() );
 	
 	});
+}
 
+function bindSortDate(){
+
+	var mainList = $('.main-list li');
+
+	$('button.sort').on('click', function(){
+	
+		var type = $(this).data('sort');
+		
+		mainList.sort(function(a,b){			
+				a = new Date( $(a).data('date') );
+				b = new Date( $(b).data('date') );
+				
+				if( type == 'ascending' ){
+		
+					return a-b
+		
+				} else {
+				
+					return b-a
+				
+				}
+				
+			});
+		
+		$('.main-list li').remove();
+		
+		$('.main-list').append( mainList );
+		
+		/* mainList.sort(function(a,b){
+		
+			
+		  a = new Date( $(a).data('date') );
+		  b = new Date( $(b).data('date') );
+		  return a<b?-1:a>b?1:0;
+		}); */
+		
+		//}
+		
+	});
 
 }
 
@@ -86,7 +126,7 @@ function onInitialLoad(){
 	setActiveTab(0);
 	bindNavigation();
 	sortList('all');	
-
+	bindSortDate();
 }
 
 function loadFile(url, type, justIE, callback) {
