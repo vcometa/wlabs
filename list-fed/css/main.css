@@ -179,11 +179,13 @@
 		
 		float: left;
 	
-		width: 70%;
+		width: 68%;
 		
 		height: 100%;
 		
-		background: #fff;
+		background: #eee;
+		
+		padding: 1%
 	
 	}
 	

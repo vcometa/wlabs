@@ -51,6 +51,8 @@ function setActiveTab(){
 
 function init(){
 
+	//alert('test');
+
 	getHeaderFooter(setActiveTab);	
 
 }
