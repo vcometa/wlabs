@@ -24,34 +24,26 @@ function init(){
 			html: items.join( "" )
 			}).appendTo(header).clone().appendTo(footer);
 			
-		dependencies();
+		onInitialLoad();
 	
 	});
 
 }
 
-function setActiveTab(){
+function setActiveTab( index ){
 		
-	var url = window.location.pathname,
-
-		pageName = url.substring(url.lastIndexOf('/') + 1),
-		
-		arr = $('header .navigation li a');
-		
-	for( var i=0,j=arr.length;i<j;i++){
-			
-		if( pageName == $(arr[i]).attr('href') ){
-		
-			$(arr[i]).addClass('active');
-			
-		}
-	}
+	var arr = $('header .navigation li a');
+	
+	$(arr).removeClass('active');
+	
+	$(arr[index]).addClass('active');
 	
 };
 
-function sortList(listType) {
+function sortList( listType ) {
 	
-	var mainList = $('.main-list li');		
+	var mainList = $('.main-list li');
+	
 	listType = ( listType == '')?'all':listType;
 	
 	for( var i=0, j=mainList.length; i<j; i++ ){
@@ -81,15 +73,17 @@ function bindNavigation(){
 		event.preventDefault();
 		
 		sortList( $(this).attr('href').replace('?list=','') );
+		
+		setActiveTab( $($(this).parent()).index() );
 	
 	});
 
 
 }
 
-function dependencies(){
+function onInitialLoad(){
 
-	setActiveTab();
+	setActiveTab(0);
 	bindNavigation();
 	sortList('all');	
 
