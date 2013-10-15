@@ -259,15 +259,7 @@
 
 }
 
-@media all and ( max-width: 1020px ){
-
-	.page .main-article {
-	
-		width: 66.5%;
-	}
-}
-
-@media all and ( max-width: 969px ) {
+@media (min-width: 971px) and (max-width: 1024px) {
 
 	.page .main-article {
 	
@@ -275,23 +267,16 @@
 	}
 }
 
-@media all and ( max-width: 950px ) {
+
+@media (min-width: 768px) and (max-width: 970px) {
 
 	.page .main-article {
 	
-		width: 63.5%;
+		width: 60.5%;
 	}
 }
 
-@media all and ( max-width: 870px ){
-
-	.page .main-article {
-	
-		width: 58.9%;
-	}
-}
-
-@media all and ( max-width: 780px ) {
+@media (max-width: 767px) {
 
 	.page .main-article {
 	
