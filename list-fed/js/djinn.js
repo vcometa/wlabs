@@ -121,12 +121,26 @@ function bindSortDate(){
 
 }
 
+function windowWidth(){
+
+	var log = $('.logWindow');
+	
+	$(window).on('load resize', function(){
+	
+		log.text( $(this).width()+'px' );
+		
+	});
+
+}
+
 function onInitialLoad(){
 
 	setActiveTab(0);
 	bindNavigation();
 	sortList('all');	
 	bindSortDate();
+	
+	windowWidth();
 }
 
 function loadFile(url, type, justIE, callback) {

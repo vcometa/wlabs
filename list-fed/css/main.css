@@ -234,5 +234,73 @@
 		display: block;
 	
 	}
+	
+	.logWindow {
+	
+		position: fixed;
+		
+		z-index:9999999;
+		
+		top:0;
+		
+		left: 0;
+		
+		width:100px;
+		
+		height: 20px;
+		
+		background: blue;
+		
+		color: #fff;
+		
+		padding: 10px;
+	
+	}
 
+}
+
+@media all and ( max-width: 1020px ){
+
+	.page .main-article {
+	
+		width: 66.5%;
+	}
+}
+
+@media all and ( max-width: 969px ) {
+
+	.page .main-article {
+	
+		width: 66%;
+	}
+}
+
+@media all and ( max-width: 950px ) {
+
+	.page .main-article {
+	
+		width: 63.5%;
+	}
+}
+
+@media all and ( max-width: 870px ){
+
+	.page .main-article {
+	
+		width: 58.9%;
+	}
+}
+
+@media all and ( max-width: 780px ) {
+
+	.page .main-article {
+	
+		width: 98%;
+	}
+	
+	.page .right-rail {
+	
+		display: none;
+	
+	}
 }
