@@ -206,5 +206,33 @@
 		background: #999;
 	
 	}
+	
+	.page .main-list {
+		
+		list-style: none;
+		
+		padding: 0;
+		
+		margin: 0;		
+	
+	}
+	
+	.page .main-list li {
+	
+		padding: 5px;
+	
+	}
+	
+	.page .hidden {
+		
+		display: none;
+	
+	}
+	
+	.page .show {
+		
+		display: block;
+	
+	}
 
 }

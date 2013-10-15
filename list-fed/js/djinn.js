@@ -7,7 +7,7 @@ function getParameterByName(name) {
 			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
 		
-function getHeaderFooter( callback ){
+function init(){
 
 	var header = $('header'),
 		footer = $('footer');
@@ -24,7 +24,7 @@ function getHeaderFooter( callback ){
 			html: items.join( "" )
 			}).appendTo(header).clone().appendTo(footer);
 			
-		callback();
+		dependencies();
 	
 	});
 
@@ -49,11 +49,49 @@ function setActiveTab(){
 	
 };
 
-function init(){
+function sortList(listType) {
+	
+	var mainList = $('.main-list li');		
+	listType = ( listType == '')?'all':listType;
+	
+	for( var i=0, j=mainList.length; i<j; i++ ){
+	
+		var node = $(mainList[i]);
+	
+		if( listType != node.data('type') && listType != 'all' ){
+		
+			node.removeClass('show').addClass('hidden');
+		
+		}else{
+		
+			node.removeClass('hidden').addClass('show');
+		
+		}
+	
+	}
 
-	//alert('test');
+}
 
-	getHeaderFooter(setActiveTab);	
+function bindNavigation(){
+
+	var nav = $('.navigation li a');
+	
+	nav.on('click', function(event){
+	
+		event.preventDefault();
+		
+		sortList( $(this).attr('href').replace('?list=','') );
+	
+	});
+
+
+}
+
+function dependencies(){
+
+	setActiveTab();
+	bindNavigation();
+	sortList('all');	
 
 }
 

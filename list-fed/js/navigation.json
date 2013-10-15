@@ -2,44 +2,44 @@
 	"navigation":[
 		{
 			"id": "link_Home",
-			"src": "index.html",
-			"title": ":::listFED.com",
+			"src": "?list=all",
+			"title": "home",
 			"description": "A quick preview of what we have in store"
 		},
 		{
 			"id": "link_News",
-			"src": "news.html",
-			"title": "News",
+			"src": "?list=news",
+			"title": "page 1",
 			"description": "All about news"
 		},
 		{
 			"id": "link_Business",
-			"src": "business.html",
-			"title": "Business",
+			"src": "?list=business",
+			"title": "page 2",
 			"description": "All about business"
 		},
 		{
 			"id": "link_Science",
-			"src": "science.html",
-			"title": "Science",
+			"src": "?list=science",
+			"title": "page 3",
 			"description": "All about science"
 		},
 		{
 			"id": "link_Technology",
-			"src": "technology.html",
-			"title": "Technology",
+			"src": "?list=technology",
+			"title": "page 4",
 			"description": "All about the latest technologies"
 		},
 		{
 			"id": "link_Entertainment",
-			"src": "entertainment.html",
-			"title": "Entertainment",
+			"src": "?list=entertainment",
+			"title": "page 5",
 			"description": "All about entertainment"
 		},
 		{
 			"id": "link_Gaming",
-			"src": "gaming.html",
-			"title": "Gaming",
+			"src": "?list=gaming",
+			"title": "page 6",
 			"description": "All about gaming"
 		}
 	]
