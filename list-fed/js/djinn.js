@@ -66,7 +66,8 @@ function sortList( listType ) {
 
 function bindNavigation(){
 
-	var nav = $('.navigation li a');
+	var nav = $('.navigation li a'),
+		headerMenu = $('header h2');
 	
 	nav.on('click', function(event){
 	
@@ -76,6 +77,14 @@ function bindNavigation(){
 		
 		setActiveTab( $($(this).parent()).index() );
 	
+	});
+	
+	headerMenu.on('click', function(){
+	
+		var nav = $('.navigation');
+		
+		nav.slideToggle();
+		
 	});
 }
 
@@ -123,13 +132,35 @@ function bindSortDate(){
 
 function windowWidth(){
 
-	var log = $('.logWindow');
+	var log = $('.logWindow'),
 	
-	$(window).on('load resize', function(){
+		resize = function(){
+		
+			var w =  $(this).width();
+			
+			if( w > 768 ){
+			
+				var w1 = w>1024?1024:w,
+					offset = 28,
+					w2 = Math.round(((w1 - ($('aside.right-rail').outerWidth() + offset ))/w1)*100)+'%';
 	
-		log.text( $(this).width()+'px' );
+				log.text( w +'px' );
+				
+				$('.page .main-article').width(w2);
+			} else {
+			
+				$('.page .main-article').removeAttr('style');
+			
+			}
+		
+		}
+	resize();
+	$(window).on('resize', function(){
+	
+		resize();
 		
 	});
+
 
 }
 
@@ -138,8 +169,7 @@ function onInitialLoad(){
 	setActiveTab(0);
 	bindNavigation();
 	sortList('all');	
-	bindSortDate();
-	
+	bindSortDate();	
 	windowWidth();
 }
 

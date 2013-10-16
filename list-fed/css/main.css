@@ -145,6 +145,24 @@
 	
 	}
 	
+	.page header h2 {
+	
+		display: none;
+		
+		cursor: pointer;
+		
+		margin: 5px 10px;
+		
+		padding: 0;
+		
+	}
+	
+	.page header .navigation {
+	
+		display:block;
+	
+	}
+	
 	.page footer {
 	
 		position:relative;
@@ -185,13 +203,13 @@
 		
 		float: left;
 	
-		width: 68%;
+		width: auto;
 		
 		height: 100%;
 		
 		background: #eee;
 		
-		padding: 1%
+		padding: 10px;
 	
 	}
 	
@@ -203,9 +221,9 @@
 		
 		float: left;
 	
-		width: 30%;
+		width: 300px;
 		
-		min-width: 300px;
+		padding: 10px;
 		
 		height: 100%;
 		
@@ -243,6 +261,8 @@
 	
 	.logWindow {
 	
+		display: none;
+	
 		position: fixed;
 		
 		z-index:9999999;
@@ -265,33 +285,60 @@
 
 }
 
-@media (min-width: 971px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width:4000px) {
 
-	.page .main-article {
+	.page header .navigation {
 	
-		width: 66%;
-	}
-}
-
-
-@media (min-width: 768px) and (max-width: 970px) {
-
-	.page .main-article {
+		display:block !important;
 	
-		width: 60.5%;
 	}
 }
 
 @media (max-width: 767px) {
-
-	.page .main-article {
 	
-		width: 98%;
-	}
+	.page .main-article ,
 	
 	.page .right-rail {
 	
-		display: none;
+		width: 100%;
+		
+		padding: 0;
 	
 	}
+	
+	.page .main-body  {
+	
+		width: 96%;
+	
+		padding: 40px 2%;
+	
+	}
+	
+	.page header,
+	.page footer {
+		
+		margin: 0 auto;
+	
+	}
+	
+	.page header .navigation {
+	
+		display: none;
+		
+		margin: 0 auto;
+	
+	}
+	
+	.page header ul li {
+	
+		float: none;
+	
+	}
+	
+	.page header h2 {
+	
+		display:block;
+		
+	}
+	
 }
