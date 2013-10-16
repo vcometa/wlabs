@@ -41,6 +41,12 @@
 			"src": "?list=gaming",
 			"title": "page 6",
 			"description": "All about gaming"
+		},
+		{
+			"id": "link_GIFs",
+			"src": "?list=gifs",
+			"title": "page 7",
+			"description": "Free GIFs"
 		}
 	]
 }
