@@ -44,7 +44,7 @@
 	
 		display:block;
 		
-		margin: -6px auto 0;
+		margin: -10px auto 0;
 		
 		padding: 0;
 		
@@ -81,7 +81,7 @@
 	
 		display: block;
 	
-		color: #000;
+		color: #fff;
 		
 		padding: 10px 15px;
 		
@@ -90,28 +90,28 @@
 		cursor: pointer;
 		
 		border-top: 5px groove transparent;
+		
+		margin: 5px 0 0;
 	
 	}
 	
 	.page header ul li a:hover {
 	
-		background: #ddd;
+		background: #d7d9da;
 		
-		color: #2c7697;
+		color: #273138;
 		
-		border-top: 5px solid #4ca9d4;
+		border-top: 5px solid #666;
 	
 	}
 	
 	.page header ul li a.active {
 	
-		background: #444;
+		background: #273138;
 		
-		color: #f87e3c;
+		color: #fff;
 		
-		font-weight: bold;
-		
-		border-top: 5px solid #f87e3c;
+		border-top: 5px solid #30beda;
 	
 	}
 	
@@ -131,17 +131,19 @@
 		
 		z-index:999999;
 	
-		background: #eee;
+		background: #4b5c66;
 		
-		border: 1px solid #666;
+		border-bottom: 1px dotted #fff;
 		
-		border-width: 1px 0;
+		border-top: 5px solid #273138;
 		
 		letter-spacing: 1px;
 		
-		margin: 5px auto 0;
+		margin: 0px auto 0;
 		
 		overflow: visible;
+		
+		box-shadow: 2px 2px 10px #333;
 	
 	}
 	
