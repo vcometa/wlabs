@@ -14,9 +14,11 @@
 		
 		font: 14px Helvetica;
 		
-		margin: 0;
+		margin: 0 auto;
 		
 		padding: 0;
+		
+		max-width: 1024px;
 	
 	}
 	
@@ -28,13 +30,17 @@
 		
 		left: 0;
 		
-		background: #eee;
-		
 		z-index:999;
+		
+		height: 100%;
 	
 	}
 	
 	.page header h2 {
+	
+		position: relative;
+		
+		z-index:999;
 	
 		float: left;
 	
@@ -43,6 +49,17 @@
 		padding: 10px;
 		
 		cursor: pointer;
+		
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
+	
+	}
+	
+	.page header h2.active {
+			
+		color: #fff;
 	
 	}
 	
@@ -60,15 +77,32 @@
 	
 	.page header ul.navigation {
 	
+		position: absolute;
+		
+		left: -213px;
+		
+		top: 0px;
+	
 		clear: both;
 	
-		display: none;
+		display: block;
 	
 		list-style: none;
 		
-		padding: 0;
+		padding: 38px 0 0;
 		
 		margin: 0;
+		
+		width: 213px;
+		
+		height: 100%;
+		
+		background: #4b5c66;
+		
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
 	
 	}
 	
@@ -76,19 +110,28 @@
 	
 		display: block;
 		
+		color: #fff;
+		
+		text-decoration: none;
+		
 		width: auto;
 		
 		padding: 10px 20px;
 		
 		outline: none;
+		
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
 	
 	}
 	
 	.page header ul.navigation li a:hover {
 	
-		background: #666;
+		background: #eee;
 		
-		color: #fff;
+		color: #4b5c66;
 	
 	}
 	

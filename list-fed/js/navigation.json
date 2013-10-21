@@ -1,55 +1,55 @@
 {
-	"navigation":{
-		"title": "Lorem Ipsum Dolor",
-		"items":[
-			{
-				"id": "link_Home",
-				"src": "?list=all",
-				"title": "home",
-				"description": "A quick preview of what we have in store"
-			},
-			{
-				"id": "link_News",
-				"src": "?list=news",
-				"title": "page 1",
-				"description": "All about news"
-			},
-			{
-				"id": "link_Business",
-				"src": "?list=business",
-				"title": "page 2",
-				"description": "All about business"
-			},
-			{
-				"id": "link_Science",
-				"src": "?list=science",
-				"title": "page 3",
-				"description": "All about science"
-			},
-			{
-				"id": "link_Technology",
-				"src": "?list=technology",
-				"title": "page 4",
-				"description": "All about the latest technologies"
-			},
-			{
-				"id": "link_Entertainment",
-				"src": "?list=entertainment",
-				"title": "page 5",
-				"description": "All about entertainment"
-			},
-			{
-				"id": "link_Gaming",
-				"src": "?list=gaming",
-				"title": "page 6",
-				"description": "All about gaming"
-			},
-			{
-				"id": "link_GIFs",
-				"src": "?list=gif",
-				"title": "page 7",
-				"description": "Free GIFs"
-			}
-		]
-	}
+    "navigation":{
+        "title": "Lorem Ipsum Dolor",
+        "items":[
+            {
+                "id": "link_Home",
+                "src": "?list=all",
+                "title": "home",
+                "description": "A quick preview of what we have in store"
+            },
+            {
+                "id": "link_News",
+                "src": "?list=news",
+                "title": "page 1",
+                "description": "All about news"
+            },
+            {
+                "id": "link_Business",
+                "src": "?list=business",
+                "title": "page 2",
+                "description": "All about business"
+            },
+            {
+                "id": "link_Science",
+                "src": "?list=science",
+                "title": "page 3",
+                "description": "All about science"
+            },
+            {
+                "id": "link_Technology",
+                "src": "?list=technology",
+                "title": "page 4",
+                "description": "All about the latest technologies"
+            },
+            {
+                "id": "link_Entertainment",
+                "src": "?list=entertainment",
+                "title": "page 5",
+                "description": "All about entertainment"
+            },
+            {
+                "id": "link_Gaming",
+                "src": "?list=gaming",
+                "title": "page 6",
+                "description": "All about gaming"
+            },
+            {
+                "id": "link_GIFs",
+                "src": "?list=gif",
+                "title": "page 7",
+                "description": "Free GIFs"
+            }
+        ]
+    }
 }
