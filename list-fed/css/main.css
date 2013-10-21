@@ -17,8 +17,6 @@
 		margin: 0 auto;
 		
 		padding: 0;
-		
-		max-width: 1024px;
 	
 	}
 	
@@ -79,7 +77,7 @@
 	
 		position: absolute;
 		
-		left: -213px;
+		left: -220px;
 		
 		top: 0px;
 	
@@ -93,7 +91,7 @@
 		
 		margin: 0;
 		
-		width: 213px;
+		width: 220px;
 		
 		height: 100%;
 		
@@ -199,7 +197,13 @@
 		
 		width: 79%;
 		
-		margin: 0 1% 0 0;
+		padding: 0 10px 0 0;
+		
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
+		
 	
 	}
 	
@@ -209,7 +213,7 @@
 		
 		width: 18%;
 		
-		margin: 0 10px;
+		padding: 0 10px;
 		
 		max-width: 300px;
 	

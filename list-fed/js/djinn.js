@@ -93,13 +93,31 @@ function bindNavigation(){
 	
 		var pos = 0,
 		
-			nav = $('.navigation');
+			pWidth = '79%',
+			
+			mLeft = '0px',
+			
+			nav = $('.navigation'),
+			
+			navW = nav.outerWidth();
 	
 		if( nav.position().left == 0 ){
 		
-			pos = -(nav.outerWidth());
+			pos = -(navW);
+			
+			pWidth = '79%';
+			
+			mLeft = '0px';
+		
+		} else {
+		
+			pWidth = ($(window).width() - (navW + $('.page .main-body  .right-rail').outerWidth() + 49 ))+'px';
+			
+			mLeft = navW+'px';
 		
 		}
+		
+		$('.page .main-body  .main-article').css({'width':pWidth,'margin-left':mLeft})
 	
 		nav.css({'left':pos+'px'});
 		
