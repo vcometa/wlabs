@@ -19,7 +19,7 @@ function init(){
 				listItems.push( '<li id="' + items.id + '"><a href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 			});
 			
-		header.append('<h2>'+ data.navigation.title +'</h2>');
+		header.append('<h2 id="menu-title">'+ data.navigation.title +'</h2>');
 			
 		$( "<ul/>", {
 			"class": "navigation",
@@ -83,9 +83,17 @@ function bindNavigation(){
 	
 	headerMenu.on('click', function(){
 	
-		var nav = $('.navigation');
+		$('.navigation').slideToggle();
 		
-		nav.slideToggle();
+	});
+	
+	$('body').on('click', function(e){
+	
+		if( $(e.target).attr('id') != 'menu-title' ){
+	
+			$('.navigation').slideUp();
+		
+		}
 		
 	});
 }

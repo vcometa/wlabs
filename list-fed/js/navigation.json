@@ -46,7 +46,7 @@
 			},
 			{
 				"id": "link_GIFs",
-				"src": "?list=gifs",
+				"src": "?list=gif",
 				"title": "page 7",
 				"description": "Free GIFs"
 			}
