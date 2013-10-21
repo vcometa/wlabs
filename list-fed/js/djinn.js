@@ -14,14 +14,16 @@ function init(){
 		
 	$.getJSON( "js/navigation.json", function( data ) {
 	
-		 var items = [];
-			$.each( data.navigation, function( i, navigation ) {
-				items.push( '<li id="' + navigation.id + '"><a href="'+navigation.src+'" title="'+navigation.description+'" >' + navigation.title + '</a></li>' );
+		 var listItems = [];
+			$.each( data.navigation.items, function( i, items ) {
+				listItems.push( '<li id="' + items.id + '"><a href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 			});
+			
+		header.append('<h2>'+ data.navigation.title +'</h2>');
 			
 		$( "<ul/>", {
 			"class": "navigation",
-			html: items.join( "" )
+			html: listItems.join( "" )
 			}).appendTo(header).clone().appendTo(footer);
 			
 		onInitialLoad();
@@ -170,7 +172,7 @@ function onInitialLoad(){
 	bindNavigation();
 	sortList('all');	
 	bindSortDate();	
-	windowWidth();
+	//windowWidth();
 }
 
 function loadFile(url, type, justIE, callback) {
