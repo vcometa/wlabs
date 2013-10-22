@@ -43,7 +43,7 @@
 	
 		float: left;
 		
-		color: #fff;
+		color: #333;
 	
 		margin: 0;
 		
@@ -60,7 +60,7 @@
 	
 	.page header h2.active {
 			
-		color: #000;
+		color: #036;
 	
 	}
 	
@@ -136,9 +136,15 @@
 	
 	.page header ul.navigation li a:hover {
 	
-		background: #eee;
-		
-		color: #4b5c66;
+		background: #eee;		
+		background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+		background: linear-gradient(135deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		color: #ffd200;
 	
 	}
 	
@@ -244,8 +250,14 @@
 		
 		z-index: 99;
 	
-		background: #333;
-		
+		background: -moz-linear-gradient(top,  rgba(222,239,255,0.75) 0%, rgba(152,190,222,0.9) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(222,239,255,0.75)), color-stop(100%,rgba(152,190,222,0.9))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(222,239,255,0.75) 0%,rgba(152,190,222,0.9) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(222,239,255,0.75) 0%,rgba(152,190,222,0.9) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(222,239,255,0.75) 0%,rgba(152,190,222,0.9) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(222,239,255,0.75) 0%,rgba(152,190,222,0.9) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfdeefff', endColorstr='#e698bede',GradientType=0 ); /* IE6-9 */
+
 		height: 38px;
 		
 		width: 100%;
