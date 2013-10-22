@@ -120,7 +120,7 @@ function bindNavigation(){
 			mLeft = navW+'px';
 		
 		}
-		
+				
 		$('.page .main-body  .main-article').css({'width':pWidth,'margin-left':mLeft});
 		
 		$('.page footer').css({'width':fWidth,'margin-left':mLeft})
@@ -149,7 +149,9 @@ function bindNavigation(){
 			
 			$('.page .main-body  .main-article').css({'width':'79%','margin-left':'0'});
 			
-			$('.page footer').css({'width':'98.75%','margin-left':'0'})
+			$('.page footer').css({'width':'98.75%','margin-left':'0'});
+			
+			
 		
 		}
 		

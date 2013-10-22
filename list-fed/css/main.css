@@ -27,9 +27,7 @@
 		top: 0;
 		
 		left: 0;
-		
-		z-index:999;
-		
+				
 		height: 100%;		
 
 	
@@ -85,6 +83,8 @@
 		left: -240px;
 		
 		top: 0px;
+		
+		z-index: 998;
 	
 		clear: both;
 	
