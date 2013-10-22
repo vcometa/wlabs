@@ -95,6 +95,8 @@ function bindNavigation(){
 		
 			pWidth = '79%',
 			
+			fWidth = '98.75%',
+			
 			mLeft = '0px',
 			
 			nav = $('.navigation'),
@@ -111,13 +113,17 @@ function bindNavigation(){
 		
 		} else {
 		
-			pWidth = ($(window).width() - (navW + $('.page .main-body  .right-rail').outerWidth() + 49 ))+'px';
+			pWidth = ($(window).width() - (navW + $('.page .main-body  .right-rail').outerWidth() + 29 ))+'px';
+			
+			fWidth = ($(window).width() - (navW + 21 ))+'px';
 			
 			mLeft = navW+'px';
 		
 		}
 		
-		$('.page .main-body  .main-article').css({'width':pWidth,'margin-left':mLeft})
+		$('.page .main-body  .main-article').css({'width':pWidth,'margin-left':mLeft});
+		
+		$('.page footer').css({'width':fWidth,'margin-left':mLeft})
 	
 		nav.css({'left':pos+'px'});
 		
@@ -140,6 +146,10 @@ function bindNavigation(){
 			$('.navigation').css({'left': -( $('.navigation').outerWidth() )+'px'});
 			
 			headerMenu.removeClass('active');
+			
+			$('.page .main-body  .main-article').css({'width':'79%','margin-left':'0'});
+			
+			$('.page footer').css({'width':'98.75%','margin-left':'0'})
 		
 		}
 		
