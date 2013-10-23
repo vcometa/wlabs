@@ -107,13 +107,13 @@ function bindNavigation(){
 		
 			pos = -(navW);
 			
-			pWidth = '79%';
+			pWidth = '100%';
 			
 			mLeft = '0px';
 		
 		} else {
 		
-			pWidth = ($(window).width() - (navW + $('.page .main-body  .right-rail').outerWidth() + 29 ))+'px';
+			pWidth = ($(window).width() - navW )+'px';
 			
 			fWidth = ($(window).width() - (navW + 21 ))+'px';
 			
@@ -121,7 +121,7 @@ function bindNavigation(){
 		
 		}
 				
-		$('.page .main-body  .main-article').css({'width':pWidth,'margin-left':mLeft});
+		$('.page .main-body').css({'width':pWidth,'margin-left':mLeft});
 		
 		$('.page footer').css({'width':fWidth,'margin-left':mLeft})
 	
@@ -147,7 +147,7 @@ function bindNavigation(){
 			
 			headerMenu.removeClass('active');
 			
-			$('.page .main-body  .main-article').css({'width':'79%','margin-left':'0'});
+			$('.page .main-body').css({'width':'100%','margin-left':'0'});
 			
 			$('.page footer').css({'width':'98.75%','margin-left':'0'});
 			
