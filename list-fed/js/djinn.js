@@ -234,14 +234,46 @@ function windowWidth(){
 
 }
 
+function loadRSSFeed(){
+
+	var count = 20,
+			startIndex = 0,
+			url = 'http://feeds.reuters.com/reuters/topNews';
+			
+	$.ajax({
+		url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=json_xml&num='+(count + startIndex)+'&callback=?&q=' + encodeURIComponent(url),
+		dataType: 'json',
+		success: function(data) {
+		  parseJSON(data);
+		}
+	});
+	
+	var parseJSON = function(data){
+	
+		var entries = $($.parseXML(data.responseData.xmlString)).find('entry'),
+			data = data.responseData.feed;
+			
+		for (var i=startIndex, j=data.entries.length; i < j; i++) {
+		
+			console.log( data.entries[i] );
+		}
+	
+	}
+
+}
+
 function onInitialLoad(){
 
 	setActiveTab(0);
 	bindNavigation();
 	sortList('all');	
 	bindSortDate();
+	loadRSSFeed();
 	//windowWidth();
 }
+
+
+
 
 function loadFile(url, type, justIE, callback) {
 	
