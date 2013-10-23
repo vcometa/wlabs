@@ -27,7 +27,7 @@ function init(){
 				listItems.push( '<li id="' + items.id + '"><a href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 			});
 			
-		header.append('<h2 id="menu-title">'+ data.navigation.title +'</h2>');
+		header.append('<h2 id="menu-title" class="active">'+ data.navigation.title +'</h2>');
 			
 		$( "<ul/>", {
 			"class": "navigation",
