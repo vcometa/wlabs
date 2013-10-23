@@ -74,7 +74,7 @@ function sortList( listType ) {
 
 }
 
-function bindNavigation(){
+function bindNavigation(goOnBlur){
 
 	var nav = $('.navigation li a'),
 		headerMenu = $('header h2');
@@ -139,64 +139,73 @@ function bindNavigation(){
 		
 	});
 	
-	$('html').on('click', function(e) {
+	if( goOnBlur ){
 	
-		if( $(e.target).attr('id') != 'menu-title' && !$( $(e.target).parent().parent() ).hasClass('navigation') ){
-	
-			$('.navigation').css({'left': -( $('.navigation').outerWidth() )+'px'});
-			
-			headerMenu.removeClass('active');
-			
-			$('.page .main-body').css({'width':'100%','margin-left':'0'});
-			
-			$('.page footer').css({'width':'98.75%','margin-left':'0'});
-			
-			
+		$('html').on('click', function(e) {
 		
-		}
+			if( $(e.target).attr('id') != 'menu-title' && !$( $(e.target).parent().parent() ).hasClass('navigation') ){
 		
-	});
+				$('.navigation').css({'left': -( $('.navigation').outerWidth() )+'px'});
+				
+				headerMenu.removeClass('active');
+				
+				$('.page .main-body').css({'width':'100%','margin-left':'0'});
+				
+				$('.page footer').css({'width':'98.75%','margin-left':'0'});
+				
+				
+			
+			}
+			
+		});
+	}
 }
 
 function bindSortDate(){
 
-	var mainList = $('.main-list li');
-
-	$('button.sort').on('click', function(){
+	var sortObjArr = $('.sorter'),
 	
-		var type = $(this).data('sort');
-		
-		mainList.sort(function(a,b){			
-				a = new Date( $(a).data('date') );
-				b = new Date( $(b).data('date') );
+		sortList = function(selector, button){
+
+			var mainList = $(selector),
+				listParent = $(mainList.parent());
+
+			$(button).on('click', function(){
+			
+				console.log(selector);
+			
+				var type = $(this).data('sort');
 				
-				if( type == 'ascending' ){
-		
-					return a-b
-		
-				} else {
+				mainList.sort(function(a,b){			
+						a = new Date( $(a).data('date') );
+						b = new Date( $(b).data('date') );
+						
+						if( type == 'ascending' ){
 				
-					return b-a
+							return a-b
 				
-				}
+						} else {
+						
+							return b-a
+						
+						}
+						
+					});
+				
+				mainList.remove();
+				
+				listParent.append( mainList );
+				
 				
 			});
 		
-		$('.main-list li').remove();
+		}
 		
-		$('.main-list').append( mainList );
-		
-		/* mainList.sort(function(a,b){
-		
-			
-		  a = new Date( $(a).data('date') );
-		  b = new Date( $(b).data('date') );
-		  return a<b?-1:a>b?1:0;
-		}); */
-		
-		//}
-		
-	});
+	for(var i=0, j=sortObjArr.length;i<j;i++){
+	
+		sortList($(sortObjArr[i]).data('target')+' li', $(sortObjArr[i]).find('button.sort'))
+	
+	}
 
 }
 
@@ -251,12 +260,22 @@ function loadRSSFeed(){
 	var parseJSON = function(data){
 	
 		var entries = $($.parseXML(data.responseData.xmlString)).find('entry'),
-			data = data.responseData.feed;
+			data = data.responseData.feed,
+			listItems = [];
 			
 		for (var i=startIndex, j=data.entries.length; i < j; i++) {
 		
-			console.log( data.entries[i] );
+			//console.log(data.entries[i]);
+		
+			listItems.push( '<li data-type="'+data.entries[i].categories[0]+'" data-date="'+data.entries[i].publishedDate+'"><a href="'+data.entries[i].link+'" title="'+data.entries[i].title+'" target="_blank">'+data.entries[i].title+'</a></li>' );
 		}
+		
+		$( "<ul/>", {
+			"class": "news-list",
+			html: listItems.join( "" )
+			}).appendTo($('#column2'));
+		
+		
 	
 	}
 
@@ -265,7 +284,7 @@ function loadRSSFeed(){
 function onInitialLoad(){
 
 	setActiveTab(0);
-	bindNavigation();
+	bindNavigation(false);
 	sortList('all');	
 	bindSortDate();
 	loadRSSFeed();
