@@ -270,8 +270,6 @@ function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 		if(	addSort	){
 		
 			html += '<div class="sorter" data-target="#'+listID+'">sort by date<button class="sort asc" data-sort="ascending">a</button> | <button class="sort desc" data-sort="descending">d</button></div>';
-			
-			//$(sortHtml).appendTo(parentNode);
 		
 		}
 		
@@ -298,9 +296,17 @@ function onInitialLoad(){
 	bindNavigation(false);
 	sortList('all');
 	loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 10, 0,'listTopNews', 'column1', true);
-	loadRSSFeed('http://feeds.reuters.com/reuters/businessNews',10, 0, 'listBusiness', 'column2', true);
-	loadRSSFeed('http://feeds.reuters.com/reuters/entertainment',10, 0, 'listEntertainment', 'column3', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/businessNews',10, 0, 'listBusiness', 'column1', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/entertainment',10, 0, 'listEntertainment', 'column1', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/healthNews',10, 0, 'listHealth', 'column2', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/lifestyle',10, 0, 'listLifestyle', 'column2', true);
+	loadRSSFeed('http://feeds.reuters.com/news/wealth',10, 0, 'listMoney', 'column2', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/peopleNews',10, 0, 'listPeople', 'column3', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/politicsNews',10, 0, 'listPolitics', 'column3', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/scienceNews',10, 0, 'listScience', 'column3', true);
 	loadRSSFeed('http://feeds.reuters.com/reuters/sportsNews',10, 0, 'listSports', 'column4', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/technologyNews',10, 0, 'listTechnology', 'column4', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/worldNews',10, 0, 'listWorld', 'column4', true);
 }
 
 

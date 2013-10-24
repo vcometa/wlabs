@@ -5,50 +5,80 @@
             {
                 "id": "link_Home",
                 "src": "?list=all",
-                "title": "home",
+                "title": "Home",
                 "description": "A quick preview of what we have in store"
             },
             {
                 "id": "link_News",
                 "src": "?list=news",
-                "title": "page 1",
+                "title": "Top News",
                 "description": "All about news"
             },
             {
                 "id": "link_Business",
                 "src": "?list=business",
-                "title": "page 2",
+                "title": "Business",
                 "description": "All about business"
-            },
-            {
-                "id": "link_Science",
-                "src": "?list=science",
-                "title": "page 3",
-                "description": "All about science"
-            },
-            {
-                "id": "link_Technology",
-                "src": "?list=technology",
-                "title": "page 4",
-                "description": "All about the latest technologies"
             },
             {
                 "id": "link_Entertainment",
                 "src": "?list=entertainment",
-                "title": "page 5",
+                "title": "Entertainment",
                 "description": "All about entertainment"
             },
             {
-                "id": "link_Gaming",
-                "src": "?list=gaming",
-                "title": "page 6",
-                "description": "All about gaming"
+                "id": "link_Health",
+                "src": "?list=health",
+                "title": "Health",
+                "description": "All about the health"
             },
             {
-                "id": "link_GIFs",
-                "src": "?list=gif",
-                "title": "page 7",
-                "description": "Free GIFs"
+                "id": "link_Lifestyle",
+                "src": "?list=lifestyle",
+                "title": "Lifestyle",
+                "description": "All about lifestyle"
+            },
+            {
+                "id": "link_Money",
+                "src": "?list=money",
+                "title": "Money",
+                "description": "All about money"
+            },
+            {
+                "id": "link_People",
+                "src": "?list=people",
+                "title": "People",
+                "description": "All about people"
+            },
+            {
+                "id": "link_Politics",
+                "src": "?list=politics",
+                "title": "Politics",
+                "description": "All about politics"
+            },
+            {
+                "id": "link_science",
+                "src": "?list=science",
+                "title": "Science",
+                "description": "All about science"
+            },
+            {
+                "id": "link_sports",
+                "src": "?list=sports",
+                "title": "Sports",
+                "description": "All about sports"
+            },
+            {
+                "id": "link_technology",
+                "src": "?list=technology",
+                "title": "Technology",
+                "description": "All about technology"
+            },
+            {
+                "id": "link_world",
+                "src": "?list=world",
+                "title": "World",
+                "description": "World news"
             }
         ]
     }
