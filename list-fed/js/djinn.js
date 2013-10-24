@@ -172,8 +172,6 @@ function bindSortDate(){
 
 			$(button).on('click', function(){
 			
-				console.log(selector);
-			
 				var type = $(this).data('sort');
 				
 				mainList.sort(function(a,b){			
@@ -243,17 +241,15 @@ function windowWidth(){
 
 }
 
-function loadRSSFeed(){
+function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 
-	var count = 20,
-			startIndex = 0,
-			url = 'http://feeds.reuters.com/reuters/topNews';
+	var parentNode = $('#'+parentID);
 			
 	$.ajax({
 		url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=json_xml&num='+(count + startIndex)+'&callback=?&q=' + encodeURIComponent(url),
 		dataType: 'json',
 		success: function(data) {
-		  parseJSON(data);
+		  parseJSON(data, listID, parentID);
 		}
 	});
 	
@@ -263,20 +259,35 @@ function loadRSSFeed(){
 			data = data.responseData.feed,
 			listItems = [];
 			
+			//console.log(data);
 		for (var i=startIndex, j=data.entries.length; i < j; i++) {
-		
-			//console.log(data.entries[i]);
 		
 			listItems.push( '<li data-type="'+data.entries[i].categories[0]+'" data-date="'+data.entries[i].publishedDate+'"><a href="'+data.entries[i].link+'" title="'+data.entries[i].title+'" target="_blank">'+data.entries[i].title+'</a></li>' );
 		}
 		
-		$( "<ul/>", {
+		var html = '<h2>'+data.title.replace('Reuters: ','').replace('News','').replace('Top', 'Top Headlines')+'</h2>';
+		
+		if(	addSort	){
+		
+			html += '<div class="sorter" data-target="#'+listID+'">sort by date<button class="sort asc" data-sort="ascending">a</button> | <button class="sort desc" data-sort="descending">d</button></div>';
+			
+			//$(sortHtml).appendTo(parentNode);
+		
+		}
+		
+		html += '<ul id="'+listID+'" class="news-list">'+listItems.join('')+'</ul>';
+		
+		$(html).appendTo(parentNode);
+		
+		/*$( '<ul />', {
 			"class": "news-list",
 			html: listItems.join( "" )
-			}).appendTo($('#column2'));
+			}).appendTo(parentNode).attr('id', listID);*/
 		
+		if(	addSort	){
+			bindSortDate();
+		}
 		
-	
 	}
 
 }
@@ -285,10 +296,11 @@ function onInitialLoad(){
 
 	setActiveTab(0);
 	bindNavigation(false);
-	sortList('all');	
-	bindSortDate();
-	loadRSSFeed();
-	//windowWidth();
+	sortList('all');
+	loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 10, 0,'listTopNews', 'column1', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/businessNews',10, 0, 'listBusiness', 'column2', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/entertainment',10, 0, 'listEntertainment', 'column3', true);
+	loadRSSFeed('http://feeds.reuters.com/reuters/sportsNews',10, 0, 'listSports', 'column4', true);
 }
 
 

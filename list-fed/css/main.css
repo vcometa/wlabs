@@ -355,6 +355,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2dfed', end
 		margin: 0 0 10px;
 	
 	}
+	
+	.page .column h2 {
+	
+		font-weight: normal;
+	
+	}
 
 }
 
