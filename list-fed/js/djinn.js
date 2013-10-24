@@ -74,7 +74,7 @@ function setActiveTab( index ){
 
 function loadPageList(pageType){
 
-	console.log(pageType);
+	//console.log(pageType);
 	
 	switch (pageType){
 	
