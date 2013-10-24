@@ -24,7 +24,7 @@ function init(){
 	
 		 var listItems = [];
 			$.each( data.navigation.items, function( i, items ) {
-				listItems.push( '<li id="' + items.id + '"><a href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
+				listItems.push( '<li><a id="' + items.id + '" href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 			});
 			
 		header.append('<h2 id="menu-title" class="active">'+ data.navigation.title +'</h2>');
@@ -42,41 +42,134 @@ function init(){
 
 function setActiveTab( index ){
 		
-	var arr = $('header .navigation li a');
+	var arr = $('header .navigation li a'),
 	
-	$(arr).removeClass('active');
+		sameTab = false;
 	
-	$(arr[index]).addClass('active');
+	for(var i=0, j=arr.length;i<j;i++){
+	
+		if( $(arr[i]).hasClass('active') ){
+		
+			if( i == index ){
+			
+				sameTab = true;
+			
+			}
+		
+		}
+	
+	}
+	
+	if( !sameTab ){
+	
+		$(arr).removeClass('active');
+		
+		$(arr[index]).addClass('active');
+	
+	}
+	
+	return sameTab;
 	
 };
 
 function loadPageList(pageType){
 
 	console.log(pageType);
-
-	if( pageType == 'all'){
-
-		loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 10, 0,'listTopNews', 'column1', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/businessNews',10, 0, 'listBusiness', 'column1', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/entertainment',10, 0, 'listEntertainment', 'column1', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/healthNews',10, 0, 'listHealth', 'column2', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/lifestyle',10, 0, 'listLifestyle', 'column2', true);
-		loadRSSFeed('http://feeds.reuters.com/news/wealth',10, 0, 'listMoney', 'column2', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/peopleNews',10, 0, 'listPeople', 'column3', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/politicsNews',10, 0, 'listPolitics', 'column3', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/scienceNews',10, 0, 'listScience', 'column3', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/sportsNews',10, 0, 'listSports', 'column4', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/technologyNews',10, 0, 'listTechnology', 'column4', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/worldNews',10, 0, 'listWorld', 'column4', true);
 	
-	} else if( pageType == 'news'){
+	switch (pageType){
 	
-		loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 20, 0,'listTopNews', 'column1', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 20, 10,'listTopNews', 'column2', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 20, 20,'listTopNews', 'column3', true);
-		loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 20, 30,'listTopNews', 'column4', true);
+		case 'news':
 		
+			loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 50, 0,'TopNews', 'column5', true);
+			break;
+		
+		case 'business':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/businessNews', 50, 0,'Business', 'column5', true);
+			break;
+			
+		case 'entertainment':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/entertainment', 50, 0,'Entertainment', 'column5', true);
+			break;
+		
+		case 'health':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/healthNews', 50, 0,'Health', 'column5', true);
+			break;
+			
+		case 'lifestyle':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/lifestyle', 50, 0,'Lifestyle', 'column5', true);
+			break;
+			
+		case 'money':
+	
+			loadRSSFeed('http://feeds.reuters.com/news/wealth', 50, 0,'Money', 'column5', true);
+			break;
+			
+		case 'people':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/peopleNews', 50, 0,'People', 'column5', true);
+			break;
+			
+		case 'politics':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/politicsNews', 50, 0,'Politics', 'column5', true);
+			break;
+			
+		case 'science':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/scienceNews', 50, 0,'Science', 'column5', true);
+			break;
+			
+		case 'sports':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/sportsNews', 50, 0,'Sports', 'column5', true);
+			break;
+			
+		case 'technology':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/technologyNews', 50, 0,'Technology', 'column5', true);
+			break;
+			
+		case 'world':
+	
+			loadRSSFeed('http://feeds.reuters.com/reuters/worldNews', 50, 0,'World', 'column5', true);
+			break;
+
+		default:
+
+			loadRSSFeed('http://feeds.reuters.com/reuters/topNews', 10, 0,'TopNews', 'column1', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/businessNews',10, 0, 'Business', 'column1', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/entertainment',10, 0, 'Entertainment', 'column1', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/healthNews',10, 0, 'Health', 'column2', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/lifestyle',10, 0, 'Lifestyle', 'column2', true);
+			loadRSSFeed('http://feeds.reuters.com/news/wealth',10, 0, 'Money', 'column2', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/peopleNews',10, 0, 'People', 'column3', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/politicsNews',10, 0, 'Politics', 'column3', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/scienceNews',10, 0, 'Science', 'column3', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/sportsNews',10, 0, 'Sports', 'column4', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/technologyNews',10, 0, 'Technology', 'column4', true);
+			loadRSSFeed('http://feeds.reuters.com/reuters/worldNews',10, 0, 'World', 'column4', true);
+			break;
+	
 	}
+	if( pageType == 'all'){
+	
+		$('.quarter').show();
+		$('.full').hide();
+	
+	} else {
+	
+		$('.quarter').hide();
+		$('footer').hide();
+		$($('.full article')[0]).remove();
+		$('.full').show();
+		setTimeout(function(){$('footer').show()}, 600);
+	
+	}
+	
 
 }
 
@@ -113,9 +206,13 @@ function bindNavigation(goOnBlur){
 	
 		event.preventDefault();
 		
-		loadPageList( $(this).attr('href').replace('?page=','') );
+		var tab = setActiveTab( $($(this).parent()).index() );
 		
-		setActiveTab( $($(this).parent()).index() );
+		if( !tab){
+		
+			loadPageList( $(this).attr('href').replace('?page=','') );
+		
+		}		
 	
 	});
 	
@@ -181,9 +278,7 @@ function bindNavigation(goOnBlur){
 				
 				$('.page .main-body').css({'width':'100%','margin-left':'0'});
 				
-				$('.page footer').css({'width':'98.75%','margin-left':'0'});
-				
-				
+				$('.page footer').css({'width':'98.75%','margin-left':'0'});				
 			
 			}
 			
@@ -274,48 +369,51 @@ function windowWidth(){
 function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 
 	var parentNode = $('#'+parentID);
-			
-	$.ajax({
-		url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=json_xml&num='+(count + startIndex)+'&callback=?&q=' + encodeURIComponent(url),
-		dataType: 'json',
-		success: function(data) {
-		  parseJSON(data, listID, parentID);
-		}
-	});
 	
-	var parseJSON = function(data){
-	
-		var entries = $($.parseXML(data.responseData.xmlString)).find('entry'),
-			data = data.responseData.feed,
-			listItems = [];
+	if( parentNode.children().length <= 1 ){
 			
-			//console.log(data);
-		for (var i=startIndex, j=data.entries.length; i < j; i++) {
+		$.ajax({
+			url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=json_xml&num='+(count + startIndex)+'&callback=?&q=' + encodeURIComponent(url),
+			dataType: 'json',
+			success: function(data) {
+			  parseJSON(data, listID, parentID);
+			}
+		});
 		
-			listItems.push( '<li data-type="'+data.entries[i].categories[0]+'" data-date="'+data.entries[i].publishedDate+'"><a href="'+data.entries[i].link+'" title="'+data.entries[i].title+'" target="_blank">'+data.entries[i].title+'</a></li>' );
+		var parseJSON = function(data){
+		
+			var entries = $($.parseXML(data.responseData.xmlString)).find('entry'),
+				data = data.responseData.feed,
+				listItems = [];
+				
+				//console.log(data);
+			for (var i=startIndex, j=data.entries.length; i < j; i++) {
+			
+				listItems.push( '<li data-type="'+data.entries[i].categories[0]+'" data-date="'+data.entries[i].publishedDate+'"><a href="'+data.entries[i].link+'" title="'+data.entries[i].title+'" target="_blank">'+data.entries[i].title+'</a></li>' );
+			}
+			
+			var html = '<article class="article-list" id="article'+listID+'"><h2>'+data.title.replace('Reuters: ','').replace('News','').replace('Top', 'Top Headlines')+'</h2>';
+			
+			if(	addSort	){
+			
+				html += '<div class="sorter" data-target="#list'+listID+'">sort by date<button class="sort asc" data-sort="ascending">a</button> | <button class="sort desc" data-sort="descending">d</button></div>';
+			
+			}
+			
+			html += '<ul id="list'+listID+'" class="news-list">'+listItems.join('')+'</ul></article>';
+			
+			$(html).prependTo(parentNode);
+			
+			/*$( '<ul />', {
+				"class": "news-list",
+				html: listItems.join( "" )
+				}).appendTo(parentNode).attr('id', listID);*/
+			
+			if(	addSort	){
+				bindSortDate();
+			}
+			
 		}
-		
-		var html = '<h2>'+data.title.replace('Reuters: ','').replace('News','').replace('Top', 'Top Headlines')+'</h2>';
-		
-		if(	addSort	){
-		
-			html += '<div class="sorter" data-target="#'+listID+'">sort by date<button class="sort asc" data-sort="ascending">a</button> | <button class="sort desc" data-sort="descending">d</button></div>';
-		
-		}
-		
-		html += '<ul id="'+listID+'" class="news-list">'+listItems.join('')+'</ul>';
-		
-		$(html).appendTo(parentNode);
-		
-		/*$( '<ul />', {
-			"class": "news-list",
-			html: listItems.join( "" )
-			}).appendTo(parentNode).attr('id', listID);*/
-		
-		if(	addSort	){
-			bindSortDate();
-		}
-		
 	}
 
 }
