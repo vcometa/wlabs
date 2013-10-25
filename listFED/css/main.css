@@ -1,5 +1,17 @@
 @media all{
 
+	.logWindow {
+		display:none;
+		position: fixed;
+		top:0;
+		left: 0;
+		z-index:9999999;
+		width: auto;
+		padding: 10px 20px;
+		background: #364;
+		color: #fff;
+	}
+
 	.lf {
 		
 		position: relative;
@@ -183,7 +195,7 @@
 		padding: 0 1.5%;
 	
 	}
-	.lf .main-body .column.full  {
+	.lf .main-body .column  {
 	
 		float: left;
 	
