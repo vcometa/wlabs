@@ -125,7 +125,7 @@ function bindNavigation(colWidth){
 		
 		if( !tab ){
 		
-			console.log( colWidth );
+			//console.log( colWidth );
 		
 			mainBody.css({'margin-left':'-'+( colWidth * index )+'px'});
 		
