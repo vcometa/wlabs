@@ -1,0 +1,192 @@
+@media all{
+
+	.lf {
+		
+		position: relative;
+		
+		margin: 0 auto;
+		
+		padding: 0;
+		
+		font: 14px Helvetica, Verdana;
+	
+	}
+	
+	.lf a {
+	
+		text-decoration: none;
+		
+		color: #666;
+		
+		outline: none;
+	
+	}
+	
+	.lf a:hover {
+	
+		text-decoration: underline;
+		
+		color: #000;
+	
+	}
+	
+	.lf ul {
+	
+		margin: 0;
+		
+		padding: 0;
+	
+	}
+	
+	.lf h1, .lf h2, .lf h3 {
+	
+		margin: 0;
+		
+		padding: 0;
+		
+		font-weight: normal;
+	
+	}
+	
+	.lf header, .lf footer {
+	
+		position: relative;
+		
+		margin: 0 auto;
+		
+		padding: 0;
+		
+		background: #eee;
+		
+		width: 100%;
+			
+	}
+	
+	.lf header {
+	
+		position: fixed;
+		
+		top: 0;
+		
+		left: 0;
+		
+		border-bottom: 3px double #ddd;
+		
+		
+		box-shadow: 0 0 8px #888;
+	
+	}
+	
+	.lf header navigation, .lf footer navigation {
+	
+		display: block;
+		
+		margin: 0 auto;
+		
+		width: 1200px;
+		
+		height: 38px;
+	
+	}
+	
+	.lf header ul, .lf footer ul {
+	
+		list-style: none;
+		
+		margin: 0 auto;
+	
+	}
+	.lf header ul li, .lf footer ul li {
+	
+		float: left;
+		
+		width: auto;
+	
+	}
+	
+	.lf header ul li a, .lf footer ul li a {
+	
+		display: block;
+		
+		padding: 10px;
+		
+		font: bold 16px Garamond;
+	
+	}
+	
+	.lf header ul li a:hover, .lf footer ul li a:hover {
+	
+		background: #ccc;
+	
+	}
+	
+	.lf header ul li a.active, .lf footer ul li a.active {
+	
+		background: #fff;
+		
+		color: #000;
+		
+		padding-bottom: 12px;
+		
+		margin-bottom: -3px;
+		
+		border: solid #ddd;
+		
+		border-width: 1px 1px 0;
+	
+	}
+	
+	.lf header h2, .lf footer h2 {
+	
+		float: left;
+		
+		margin: 5px 10px;
+		
+	}
+	
+	.lf .main-body {
+	
+		margin: 0 auto;
+		
+		max-width: 1200px;
+		
+		overflow: hidden;
+		
+		padding: 60px 0 0;
+		
+		width: 100%;
+	
+	}
+	
+	.lf .main-body .column.quarter  {
+	
+		float: left;
+	
+		overflow: hidden;
+		
+		width: 31.33%;
+		
+		padding: 0 1%;
+	
+	}
+	
+	.lf .main-body .column article {
+	
+		margin: 0 0 20px;
+	
+	}
+	
+	.lf .main-body .column article ul {
+	
+		list-style: none;
+	
+	}
+	
+	.lf .main-body .column article ul li {
+	
+		margin: 10px 0;
+	
+	}
+
+
+}

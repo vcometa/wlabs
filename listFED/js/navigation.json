@@ -1,0 +1,85 @@
+{
+    "navigation":{
+        "title": "Lorem Ipsum",
+        "items":[
+            {
+                "id": "link_Home",
+                "src": "?page=all",
+                "title": "Home",
+                "description": "A quick preview of what we have in store"
+            },
+            {
+                "id": "link_News",
+                "src": "?page=news",
+                "title": "Top News",
+                "description": "All about news"
+            },
+            {
+                "id": "link_Business",
+                "src": "?page=business",
+                "title": "Business",
+                "description": "All about business"
+            },
+            {
+                "id": "link_Entertainment",
+                "src": "?page=entertainment",
+                "title": "Entertainment",
+                "description": "All about entertainment"
+            },
+            {
+                "id": "link_Health",
+                "src": "?page=health",
+                "title": "Health",
+                "description": "All about the health"
+            },
+            {
+                "id": "link_Lifestyle",
+                "src": "?page=lifestyle",
+                "title": "Lifestyle",
+                "description": "All about lifestyle"
+            },
+            {
+                "id": "link_Money",
+                "src": "?page=money",
+                "title": "Money",
+                "description": "All about money"
+            },
+            {
+                "id": "link_People",
+                "src": "?page=people",
+                "title": "People",
+                "description": "All about people"
+            },
+            {
+                "id": "link_Politics",
+                "src": "?page=politics",
+                "title": "Politics",
+                "description": "All about politics"
+            },
+            {
+                "id": "link_science",
+                "src": "?page=science",
+                "title": "Science",
+                "description": "All about science"
+            },
+            {
+                "id": "link_sports",
+                "src": "?page=sports",
+                "title": "Sports",
+                "description": "All about sports"
+            },
+            {
+                "id": "link_technology",
+                "src": "?page=technology",
+                "title": "Technology",
+                "description": "All about technology"
+            },
+            {
+                "id": "link_world",
+                "src": "?page=world",
+                "title": "World",
+                "description": "World news"
+            }
+        ]
+    }
+}
