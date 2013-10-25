@@ -70,8 +70,9 @@
 		
 		left: 0;
 		
-		border-bottom: 3px double #ddd;
+		z-index: 999;
 		
+		border-bottom: 3px double #ddd;
 		
 		box-shadow: 0 0 8px #888;
 	
@@ -111,6 +112,8 @@
 		padding: 10px;
 		
 		font: bold 16px Garamond;
+		
+		cursor: pointer;
 	
 	}
 	
@@ -144,17 +147,28 @@
 		
 	}
 	
-	.lf .main-body {
+	.lf .viewport {
 	
-		margin: 0 auto;
+		position: relative;
+				
+		margin: 60px auto 30px;
 		
 		max-width: 1200px;
 		
 		overflow: hidden;
+	
+	}
+	
+	.lf .main-body {
+	
+		position:relative;
 		
-		padding: 60px 0 0;
+		width: 15600px;
 		
-		width: 100%;
+		-webkit-transition: all 0.8s ease-in-out;
+		-moz-transition: all 0.8s ease-in-out;
+		-o-transition: all 0.8s ease-in-out;
+		transition: all 0.8s ease-in-out;
 	
 	}
 	
@@ -164,9 +178,22 @@
 	
 		overflow: hidden;
 		
-		width: 31.33%;
+		width: 30.33%;
 		
-		padding: 0 1%;
+		padding: 0 1.5%;
+	
+	}
+	.lf .main-body .column.full  {
+	
+		float: left;
+	
+		overflow: hidden;
+		
+		width: 100%;
+		
+		padding: 0;
+		
+		max-width: 1200px;
 	
 	}
 	
@@ -179,12 +206,20 @@
 	.lf .main-body .column article ul {
 	
 		list-style: none;
+		
+		float: left;
 	
 	}
 	
 	.lf .main-body .column article ul li {
 	
 		margin: 10px 0;
+	
+	}
+	
+	.lf .sorter {
+	
+		float: right;
 	
 	}
 

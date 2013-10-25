@@ -69,6 +69,73 @@ function setActiveTab( index ){
 
 function loadPageList(pageType){
 
+	var arr = [
+				[
+					"TopNews",
+					"http://feeds.reuters.com/reuters/topNews"
+				],
+				[
+					"Business",
+					"http://feeds.reuters.com/reuters/businessNews"
+				],
+				[
+					"Entertainment",
+					"http://feeds.reuters.com/reuters/entertainment"
+				],
+				[
+					"Health",
+					"http://feeds.reuters.com/reuters/healthNews"
+				],
+				[
+					"Lifestyle",
+					"http://feeds.reuters.com/reuters/lifestyle"
+				],
+				[
+					"Money",
+					"http://feeds.reuters.com/news/wealth"
+				],
+				[
+					"People",
+					"http://feeds.reuters.com/reuters/peopleNews"
+				],
+				[
+					"Politics",
+					"http://feeds.reuters.com/reuters/politicsNews"
+				],
+				[
+					"Science",
+					"http://feeds.reuters.com/reuters/scienceNews"
+				],
+				[
+					"Sports",
+					"http://feeds.reuters.com/reuters/sportsNews"
+				],
+				[
+					"Technology",
+					"http://feeds.reuters.com/reuters/technologyNews"
+				],
+				[
+					"World",
+					"http://feeds.reuters.com/reuters/worldNews"
+				]
+		
+			];
+		
+		var count = arr.length/4;
+		for( var i=0,j=arr.length; i<j; i++ ){
+		
+			console.log(arr[i][0]);
+		
+			loadRSSFeed(arr[i][1], 10, 0, 'pre'+arr[i][0], 'column'+( i%count+1 ), true);
+			
+			loadRSSFeed(arr[i][1], 100, 0, 'full'+arr[i][0], 'col'+arr[i][0], true);
+			
+		}
+
+}
+
+function loadPageList_old(pageType){
+
 	//console.log(pageType);
 	
 	switch (pageType){
@@ -240,6 +307,30 @@ function sortByType( listType ) {
 }
 
 function bindNavigation(goOnBlur){
+
+	var nav = $('navigation ul li a'),
+	
+		mainBody = $('.lf .main-body');
+	
+	nav.on('click', function(event){
+	
+		event.preventDefault();
+		
+		var index = $($(this).parent()).index(),
+		
+			tab = setActiveTab( index );
+		
+		if( !tab ){
+		
+			mainBody.css({'margin-left':'-'+(1200*index)+'px'});
+		
+		}		
+	
+	});
+
+}
+
+function bindNavigation_old(goOnBlur){
 
 	var nav = $('.navigation li a'),
 		headerMenu = $('header h2');
@@ -460,9 +551,10 @@ function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 
 function onInitialLoad(){
 
-	setActiveTab(0);
-	//bindNavigation(false);
-	loadPageList('all');	
+	setActiveTab(0);	
+	loadPageList('all');
+	bindNavigation(false);
+	
 }
 
 
