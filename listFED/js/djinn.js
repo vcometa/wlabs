@@ -29,7 +29,7 @@ function init(){
 			
 		$(['<navigation><h2 id="menu-title" class="active">', data.navigation.title,'</h2><ul class="nav-list">',listItems.join(''),'</ul></navigation>'].join('')).appendTo(header).clone().appendTo(footer);
 	
-		onInitialLoad();
+		onInitialLoad(data.navigation);
 	
 	});
 
@@ -67,70 +67,17 @@ function setActiveTab( index ){
 	
 };
 
-function loadPageList(pageType){
+function loadPageList(data){
 
-	var arr = [
-				[
-					"TopNews",
-					"http://feeds.reuters.com/reuters/topNews"
-				],
-				[
-					"Business",
-					"http://feeds.reuters.com/reuters/businessNews"
-				],
-				[
-					"Entertainment",
-					"http://feeds.reuters.com/reuters/entertainment"
-				],
-				[
-					"Health",
-					"http://feeds.reuters.com/reuters/healthNews"
-				],
-				[
-					"Lifestyle",
-					"http://feeds.reuters.com/reuters/lifestyle"
-				],
-				[
-					"Money",
-					"http://feeds.reuters.com/news/wealth"
-				],
-				[
-					"People",
-					"http://feeds.reuters.com/reuters/peopleNews"
-				],
-				[
-					"Politics",
-					"http://feeds.reuters.com/reuters/politicsNews"
-				],
-				[
-					"Science",
-					"http://feeds.reuters.com/reuters/scienceNews"
-				],
-				[
-					"Sports",
-					"http://feeds.reuters.com/reuters/sportsNews"
-				],
-				[
-					"Technology",
-					"http://feeds.reuters.com/reuters/technologyNews"
-				],
-				[
-					"World",
-					"http://feeds.reuters.com/reuters/worldNews"
-				]
-		
-			];
-		
-		var count = arr.length/4;
-		for( var i=0,j=arr.length; i<j; i++ ){
-		
-			//console.log(arr[i][0]);
-		
-			loadRSSFeed(arr[i][1], 10, 0, 'pre'+arr[i][0], 'column'+( i%count+1 ), true);
-			
-			loadRSSFeed(arr[i][1], 100, 0, 'full'+arr[i][0], 'col'+arr[i][0], true);
-			
-		}
+	var itemsPerColumn = 4,
+		count =  Object.keys(data.items[0].feedURL).length / itemsPerColumn,
+		ctr = 0;
+	
+	$.each( data.items[0].feedURL, function( key, value ) {
+		ctr++;
+		loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count+1 ), true);
+		loadRSSFeed(value, 100, 0, 'full'+key, 'col'+key, true);
+	});
 
 }
 
@@ -234,6 +181,8 @@ function windowWidth( showLog ){
 
 	var log = $('.logWindow'),
 	
+		maxWidth = 1200;
+	
 		resize = function(){
 		
 			var winW =  $(this).width();
@@ -247,13 +196,21 @@ function windowWidth( showLog ){
 				log.hide();
 			
 			}
-			if( winW < 1200 ){
+			if( winW < maxWidth ){
 			
-				$('.lf .main-body .column').width( winW );
+				$('.lf .main-body .column.full').width( winW );
 				
 				$('.lf navigation').width(winW);
 				
 				$('.lf .viewport').width(winW);
+			
+			} else {
+			
+				$('.lf .main-body .column.full').width( maxWidth );
+				
+				$('.lf navigation').width( maxWidth );
+				
+				$('.lf .viewport').width( maxWidth );
 			
 			}
 			
@@ -319,10 +276,10 @@ function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 
 }
 
-function onInitialLoad(){
+function onInitialLoad(data){
 
 	setActiveTab(0);	
-	loadPageList('all');
+	loadPageList(data);
 	bindNavigation(false);
 	windowWidth(false);
 	
