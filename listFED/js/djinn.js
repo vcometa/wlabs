@@ -113,6 +113,12 @@ function bindNavigation(colWidth){
 	
 	nav.on('click', function(event){
 	
+		if( !mainBody.hasClass('transition') ){
+		
+			mainBody.addClass('transition');
+		
+		}
+	
 		event.preventDefault();
 		
 		var index = $($(this).parent()).index(),
