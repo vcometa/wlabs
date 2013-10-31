@@ -27,7 +27,7 @@ function init(){
 				listItems.push( '<li><a id="' + items.id + '" href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 			});
 			
-		$(['<navigation><h2 id="menu-title" class="active">', data.navigation.title,'</h2><ul class="nav-list">',listItems.join(''),'</ul></navigation>'].join('')).appendTo(header).clone().appendTo(footer);
+		$(['<navigation><h2 id="menu-title" class="active">', data.navigation.title,'</h2><ul class="nav-list">',listItems.join(''),'</ul></navigation>'].join('')).appendTo(header);//.clone().appendTo(footer);
 	
 		onInitialLoad(data.navigation);
 	
@@ -177,7 +177,7 @@ function bindSortDate(){
 
 }
 
-function windowWidth( showLog ){
+function setDimensions( showLog ){
 
 	var log = $('.logWindow'),
 	
@@ -185,7 +185,9 @@ function windowWidth( showLog ){
 	
 		resize = function(){
 		
-			var winW =  $(this).width();
+			var winW =  $(this).width(),
+				
+				winH = $(this).height();
 			
 			if( showLog ){
 			
@@ -214,6 +216,9 @@ function windowWidth( showLog ){
 			
 			}
 			
+			/*var topOffset = (winH) - $('.lf header').outerHeight();
+			$('.lf header').css( 'top',  topOffset);
+			$('.lf .main-body').css('margin-top', winH+$('.lf header').outerHeight() );*/
 		
 		}
 		
@@ -281,7 +286,7 @@ function onInitialLoad(data){
 	setActiveTab(0);	
 	loadPageList(data);
 	bindNavigation(false);
-	windowWidth(false);
+	setDimensions(false);
 	
 }
 
