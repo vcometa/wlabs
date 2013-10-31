@@ -74,9 +74,9 @@ function loadPageList(data){
 		ctr = 0;
 	
 	$.each( data.items[0].feedURL, function( key, value ) {
-		ctr++;
-		loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count+1 ), true);
+		loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
 		loadRSSFeed(value, 100, 0, 'full'+key, 'col'+key, true);
+		ctr++;
 	});
 
 }
