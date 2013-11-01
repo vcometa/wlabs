@@ -73,25 +73,10 @@ function loadPageList(data){
 		count =  Object.keys(data.items[0].feedURL).length / itemsPerColumn,
 		ctr = 0;
 	
-	$.each( data.items, function( key, value ) {
-	
-		//console.log( value.feedURL );
-		
-		var title = value.title.replace(' ',''),
-			selector = null;
-		
-		$.each( value.feedURL, function( key, value ) {
-		
-			selector = ('#col'+title+' #column'+( ctr%count ) );
-			
-			loadRSSFeed(value, 10, 0, 'pre'+key, selector, true);
-			ctr++;
-		});
-		//loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
-		
-		//loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
-		//loadRSSFeed(value, 100, 0, 'full'+key, 'col'+key, true);
-		
+	$.each( data.items[0].feedURL, function( key, value ) {
+		loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
+		loadRSSFeed(value, 100, 0, 'full'+key, 'col'+key, true);
+		ctr++;
 	});
 
 }
@@ -253,9 +238,11 @@ function setDimensions( showLog ){
 
 }
 
-function loadRSSFeed(url, count, startIndex, listID, target, addSort){
+function loadRSSFeed(url, count, startIndex, listID, parentID, addSort){
 
-	var parentNode = $(target);
+	var parentNode = $('#'+parentID);
+	
+	console.log( url );
 	
 	if( parentNode.children().length <= 1 ){
 			
@@ -263,7 +250,7 @@ function loadRSSFeed(url, count, startIndex, listID, target, addSort){
 			url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=json_xml&num='+(count + startIndex)+'&callback=?&q=' + encodeURIComponent(url),
 			dataType: 'json',
 			success: function(data) {
-			  parseJSON(data);
+			  parseJSON(data, listID, parentID);
 			}
 		});
 		
