@@ -387,5 +387,18 @@ function loadFile(url, type, justIE, callback) {
 	
 	loadFile( 'css/main.css', 'stylesheet');	
 	loadFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', 'script', false, function(){init()} );
+	
+	WebFontConfig = {
+    google: { families: [ 'Oswald:300:latin', 'Droid+Sans:400,700:latin', 'PT+Sans:400,700:latin' ] }
+	  };
+	  (function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+		  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	  })(); 
 
 })();

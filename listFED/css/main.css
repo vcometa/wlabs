@@ -20,7 +20,9 @@
 		
 		padding: 0;
 		
-		font: 14px Helvetica, Verdana;
+		font: 14px 'PT Sans', sans-serif;
+		/*(\font-family: 'Droid Sans', sans-serif;
+font-family: 'PT Sans', sans-serif;*/
 	
 	}
 	
@@ -119,7 +121,7 @@
 		
 		padding: 10px;
 		
-		font: bold 16px Garamond;
+		font: bold 16px 'Oswald', sans-serif;
 		
 		cursor: pointer;
 	
