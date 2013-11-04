@@ -24,10 +24,14 @@ function init(){
 	
 		 var listItems = [];
 			$.each( data.navigation.items, function( i, items ) {
-				listItems.push( '<li><a id="' + items.id + '" href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
+				if( i > 0 ){
+					listItems.push( '<li><a id="' + items.id + '" href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
+				}else{
+					listItems.push( '<div id="menu-tab" class="menu-tab"><button id="' + items.id + '" class="transition" value="all" title="'+items.description+'" >' + items.title + '</button><h2 id="menu-title" class="active">'+ data.navigation.title+'</h2></div><ul class="nav-list">' );
+				}
 			});
 			
-		$(['<navigation><h2 id="menu-title" class="active">', data.navigation.title,'</h2><ul class="nav-list">',listItems.join(''),'</ul></navigation>'].join('')).appendTo(header);//.clone().appendTo(footer);
+		$(['<navigation>',listItems.join(''),'</ul></navigation>'].join('')).appendTo(header);//.clone().appendTo(footer);
 	
 		onInitialLoad(data.navigation);
 	
@@ -167,10 +171,14 @@ function setFixed(topOffet, targetNode){
 			console.log('stop');
 			
 			targetNode.addClass( 'fixed' );
+			
+			$('.lf .menu-tab button').css('color','#000');
 		
 		} else {
 		
 			targetNode.removeClass( 'fixed' );
+			
+			$('.lf .menu-tab button').css('color','#fff');
 		
 		}
 	

@@ -3,9 +3,9 @@
         "title": "Lorem Ipsum",
         "items":[
             {
-                "id": "link_Home",
+                "id": "link_All",
                 "src": "?page=all",
-                "title": "Home",
+                "title": "All",
                 "description": "A quick preview of what we have in store",
 				"feedURL": {
 					"Lifehacker": "http://feeds.gawker.com/lifehacker/vip?format=xml",
