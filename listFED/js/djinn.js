@@ -123,6 +123,7 @@ function sortByType( listType ) {
 	}
 
 }
+var isMenuOn = false;
 
 function bindNavigation(colWidth){
 
@@ -156,6 +157,23 @@ function bindNavigation(colWidth){
 		
 		}		
 	
+	});
+		
+	$('.lf .menu-tab button').on('click', function(){
+	
+		if( !isMenuOn ){
+	
+			$('.lf .main.transition').css('margin-left','280px');
+			
+			isMenuOn = true;
+		
+		}else{
+		
+			$('.lf .main.transition').css('margin-left','0px');
+			
+			isMenuOn = false;
+		}
+		
 	});
 	
 	
