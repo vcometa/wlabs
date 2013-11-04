@@ -154,19 +154,23 @@ function bindNavigation(colWidth){
 	
 	});
 	
-	var featureH = $('.lf .feature').height();
+	
+
+}
+
+function setFixed(topOffet, targetNode){
 	
 	$(window).on('scroll', function(e){
 	
-		if( featureH <= $(this).scrollTop()){
+		if( topOffet <= $(this).scrollTop()){
 		
 			console.log('stop');
 			
-			$('.lf header').addClass( 'fixed' );
+			targetNode.addClass( 'fixed' );
 		
 		} else {
 		
-			$('.lf header').removeClass( 'fixed' );
+			targetNode.removeClass( 'fixed' );
 		
 		}
 	
@@ -326,6 +330,7 @@ function onInitialLoad(data){
 	loadPageList(data);
 	bindNavigation(false);
 	setDimensions(false);
+	setFixed($('.lf .feature').height(), $('.lf header'));
 	
 }
 
