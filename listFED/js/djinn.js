@@ -153,6 +153,24 @@ function bindNavigation(colWidth){
 		}		
 	
 	});
+	
+	var featureH = $('.lf .feature').height();
+	
+	$(window).on('scroll', function(e){
+	
+		if( featureH <= $(this).scrollTop()){
+		
+			console.log('stop');
+			
+			$('.lf header').addClass( 'fixed' );
+		
+		} else {
+		
+			$('.lf header').removeClass( 'fixed' );
+		
+		}
+	
+	});
 
 }
 
