@@ -28,9 +28,12 @@
                 "title": "Top News",
                 "description": "All about news",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
-					"Business": "http://feeds.mashable.com/Mashable?format=xml",
-					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
+					"Reuters": "http://feeds.reuters.com/reuters/topNews",
+					"CNET": "http://feeds.feedburner.com/cnet/tcoc?format=xml",
+					"CBC": "http://rss.cbc.ca/lineup/topstories.xml",
+					"CNN": "http://rss.cnn.com/rss/cnn_topstories.rss",
+					"IBN":"http://ibnlive.in.com/ibnrss/top.xml",
+					"FOXNews":"http://feeds.foxnews.com/foxnews/latest?format=xml"
 				}
             },
             {
@@ -39,9 +42,12 @@
                 "title": "Business",
                 "description": "All about business",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
-					"Business": "http://feeds.mashable.com/Mashable?format=xml",
-					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
+					"Reuters": "http://feeds.reuters.com/reuters/businessNews",
+					"Forbes": "http://www.forbes.com/business/feed/",
+					"The Economist": "http://www.economist.com/feeds/print-sections/77/business.xml",
+					"CNBC":"http://www.cnbc.com/id/100727362/device/rss/rss.html",
+					"Financial Times":"http://www.ft.com/rss/home/us",
+					"The Wall Street Journal":"http://online.wsj.com/xml/rss/3_7014.xml"
 				}
             },
             {
@@ -50,9 +56,10 @@
                 "title": "Entertainment",
                 "description": "All about entertainment",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
-					"Business": "http://feeds.mashable.com/Mashable?format=xml",
-					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
+					"The Hollywood Reporter": "http://feeds.feedburner.com/thr/news",
+					"Entertainment Weekly": "http://feeds.ew.com/entertainmentweekly/latest",
+					"BBC": "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml?edition=uk",
+					"Reuters":"http://feeds.reuters.com/reuters/entertainment"
 				}
             },
             {
@@ -61,6 +68,7 @@
                 "title": "Health",
                 "description": "All about the health",
 				"feedURL": {
+					"Reuters":"http://feeds.reuters.com/reuters/healthNews",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -72,7 +80,8 @@
                 "title": "Lifestyle",
                 "description": "All about lifestyle",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
+					"Reuters":"http://feeds.reuters.com/reuters/lifestyle",
+					"The Wall Street Journal": "http://online.wsj.com/xml/rss/3_7201.xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
 				}
@@ -83,6 +92,7 @@
                 "title": "Money",
                 "description": "All about money",
 				"feedURL": {
+					"Reuters":"http://feeds.reuters.com/news/wealth",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -94,6 +104,7 @@
                 "title": "People",
                 "description": "All about people",
 				"feedURL": {
+					"Reuters":"http://feeds.reuters.com/reuters/peopleNews",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -105,6 +116,7 @@
                 "title": "Politics",
                 "description": "All about politics",
 				"feedURL": {
+					"Politics":"http://feeds.reuters.com/Reuters/PoliticsNews",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -116,6 +128,7 @@
                 "title": "Science",
                 "description": "All about science",
 				"feedURL": {
+					"Reuters":"http://feeds.reuters.com/reuters/scienceNews",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -127,6 +140,7 @@
                 "title": "Sports",
                 "description": "All about sports",
 				"feedURL": {
+					"Reuters":"http://feeds.reuters.com/reuters/sportsNews",
 					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
@@ -138,9 +152,9 @@
                 "title": "Technology",
                 "description": "All about technology",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
-					"Business": "http://feeds.mashable.com/Mashable?format=xml",
-					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
+					"Reuters":"http://feeds.reuters.com/reuters/technologyNews",
+					"TechCrunch": "http://feeds.feedburner.com/TechCrunch/",
+					"The Wall Street Journal":"http://online.wsj.com/xml/rss/3_7455.xml"
 				}
             },
             {
@@ -149,7 +163,9 @@
                 "title": "World",
                 "description": "World news",
 				"feedURL": {
-					"TopNews": "http://feeds.gawker.com/lifehacker/vip?format=xml",
+					"Reuters":"http://feeds.reuters.com/Reuters/worldNews",
+					"CNBC":"http://www.cnbc.com/id/100727362/device/rss/rss.html",
+					"The Wall Street Journal":"http://online.wsj.com/xml/rss/3_7085.xml",
 					"Business": "http://feeds.mashable.com/Mashable?format=xml",
 					"Entertainment": "http://feeds.feedburner.com/TechCrunch/"
 				}

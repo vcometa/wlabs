@@ -223,7 +223,9 @@ font-family: 'PT Sans', sans-serif;*/
 	
 	.lf .main-body .column article {
 	
-		margin: 0 0 20px;
+		margin: 10px 0;
+		
+		clear: both;
 	
 	}
 	
@@ -287,7 +289,7 @@ font-family: 'PT Sans', sans-serif;*/
 		
 		top: 0;
 		
-		left: 0;	
+		right: 0;	
 	
 	}
 	

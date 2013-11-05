@@ -27,7 +27,7 @@ function init(){
 				if( i > 0 ){
 					listItems.push( '<li><a id="' + items.id + '" href="'+items.src+'" title="'+items.description+'" >' + items.title + '</a></li>' );
 				}else{
-					listItems.push( '<div id="menu-tab" class="menu-tab"><button id="' + items.id + '" class="transition" value="all" title="'+items.description+'" >' + items.title + '</button><h2 id="menu-title" class="active">'+ data.navigation.title+'</h2></div><ul class="nav-list">' );
+					listItems.push( '<div id="menu-tab" class="menu-tab"><h2 id="menu-title" class="active">'+ data.navigation.title+'</h2><button id="' + items.id + '" class="transition" value="all" title="'+items.description+'" >' + items.title + '</button></div><ul class="nav-list">' );
 				}
 			});
 			
@@ -83,14 +83,20 @@ function loadPageList(data){
 		
 		var title = value.title.replace(' ',''),
 			selector = null;
-		
-		$.each( value.feedURL, function( key, value ) {
-		
-			selector = ('#col'+title+' #column'+( ctr%count ) );
 			
-			loadRSSFeed(value, 10, 0, 'pre'+key, selector, true);
-			ctr++;
-		});
+		if( key > 0){
+		
+			$.each( value.feedURL, function( key, value ) {
+			
+				selector = ('#col'+title+' #column'+( ctr%count ) );
+				
+				
+				
+				loadRSSFeed(value, 10, 0, 'pre'+key, selector, true);
+				ctr++;
+			});
+		
+		}
 		//loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
 		
 		//loadRSSFeed(value, 10, 0, 'pre'+key, 'column'+( ctr%count ), true);
@@ -163,13 +169,13 @@ function bindNavigation(colWidth){
 	
 		if( !isMenuOn ){
 	
-			$('.lf .main.transition').css('margin-left','280px');
+			$('.lf .main.transition').css('margin-right','280px');
 			
 			isMenuOn = true;
 		
 		}else{
 		
-			$('.lf .main.transition').css('margin-left','0px');
+			$('.lf .main.transition').css('margin-right','0px');
 			
 			isMenuOn = false;
 		}
@@ -327,7 +333,9 @@ function loadRSSFeed(url, count, startIndex, listID, target, addSort){
 				listItems.push( '<li data-type="'+data.entries[i].categories[0]+'" data-date="'+data.entries[i].publishedDate+'"><a href="'+data.entries[i].link+'" title="'+data.entries[i].title+'" target="_blank">'+data.entries[i].title+'</a></li>' );
 			}
 			
-			var html = '<article class="article-list" id="article'+listID+'"><h2>'+data.title.replace('Reuters: ','').replace('News','').replace('Top', 'Top Headlines')+'</h2>';
+			//var html = '<article class="article-list" id="article'+listID+'"><h2>'+data.title.replace('Reuters: ','').replace('News','').replace('Top', 'Top Headlines')+'</h2>';
+			
+			var html = '<article class="article-list" id="article'+listID+'"><h2>'+data.title+'</h2>';
 			
 			if(	addSort	){
 			
