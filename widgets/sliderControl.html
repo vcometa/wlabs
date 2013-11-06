@@ -26,26 +26,6 @@ function rangeSlider( objectSelector, outputSelector ){
 		r.maxVal = parseInt( r.range.data('max') );
 		r.retMin = r.minVal;
 		r.retMax = r.maxVal;
-		r.ctr = 0;
-
-/*
-	var range = $(objectSelector),
-		output = $(outputSelector),
-		lH = $( range.find('.left-handle') ),
-		rH = $( range.find('.right-handle') ),
-		button = $( range.find('button') ),
-		sBar = $(range.find('.slider-bar')),
-		coverLeft = $( range.find('.cover-left')),
-		coverRight = $( range.find('.cover-right')),
-		target = null,
-		dragging = false,
-		rLim = sBar.outerWidth() - button.outerWidth(),
-		outerLim = sBar.outerWidth() + button.outerWidth()
-		minVal = parseInt( range.data('min') ),
-		maxVal = parseInt( range.data('max') ),
-		retMin = minVal;
-		retMax = maxVal;
-		ctr = 0;		*/
 	
 	r.button.on('mousedown', function(e){
 	
@@ -54,9 +34,7 @@ function rangeSlider( objectSelector, outputSelector ){
 		r.target = $( this );
 		
 		startX = e.clientX;
-		
-		//console.log( startX + ' :: '+ (sBar.outerWidth()+button.outerWidth()) );
-		
+				
 		if( startX <= r.outerLim && startX >= 0){
 		
 			r.dragging = true;
@@ -68,18 +46,12 @@ function rangeSlider( objectSelector, outputSelector ){
 	$(document).on('mousemove', function(e){
 	
 		e.preventDefault();
-		
-		
 	
 		if( r.dragging && e.clientX <= r.outerLim && e.clientX >= 0){
 		
 			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width();
 			
 			var isMin = ( r.target.data('type') == 'min' )?true:false;
-			
-			//console.log( e.clientX +' :: '+pos);
-			
-			//console.log(rLim+ ' :: '+ pos);
 			
 			if( e.clientX <  r.rLim && e.clientX > 0){
 		
@@ -147,11 +119,20 @@ function rangeSlider( objectSelector, outputSelector ){
 
 $(function() {
 
-	rangeSlider( '#range-slider1', '#amount1' );
+	var rangeArr = $('.range-slider');
 	
-	rangeSlider( '#range-slider2', '#amount2' );
+	if( rangeArr.length > 0){
 	
-	rangeSlider( '#range-slider3', '#amount3' );
+		for ( var i=0, j=rangeArr.length; i<j; i++ ) {
+		
+			var id = '#'+$(rangeArr[i]).attr('id'),
+				outputID = '#'+$(rangeArr[i]).data('output');
+				
+			rangeSlider( id, outputID );
+		
+		}
+	
+	}
 
 });
 
@@ -259,7 +240,7 @@ $(function() {
 			<p>
 				<input type="text" id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider1" data-min="0" data-max="500">
+			<div class="range-slider" id="range-slider1" data-min="0" data-max="500" data-output="amount1">
 				<button class="left-handle" data-type="min"></button>
 				<button class="right-handle" data-type="max"></button>
 				<div class="cover-left"></div>
@@ -273,7 +254,7 @@ $(function() {
 			<p>
 				<input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider2" data-min="0" data-max="100000">
+			<div class="range-slider" id="range-slider2" data-min="0" data-max="100000" data-output="amount2" >
 				<button class="left-handle" data-type="min"></button>
 				<button class="right-handle" data-type="max"></button>
 				<div class="cover-left"></div>
@@ -287,7 +268,7 @@ $(function() {
 			<p>
 				<input type="text" id="amount3" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider3" data-min="0" data-max="50">
+			<div class="range-slider" id="range-slider3" data-min="0" data-max="50" data-output="amount3" >
 				<button class="left-handle" data-type="min"></button>
 				<button class="right-handle" data-type="max"></button>
 				<div class="cover-left"></div>
