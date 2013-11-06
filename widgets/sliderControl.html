@@ -8,6 +8,27 @@
 
 function rangeSlider( objectSelector, outputSelector ){
 
+	var r = new Object();
+
+		r.range = $(objectSelector);
+		r.output = $(outputSelector);
+		r.lH = $( r.range.find('.left-handle') );
+		r.rH = $( r.range.find('.right-handle') );
+		r.button = $( r.range.find('button') );
+		r.sBar = $(r.range.find('.slider-bar'));
+		r.coverLeft = $( r.range.find('.cover-left'));
+		r.coverRight = $( r.range.find('.cover-right'));
+		r.target = null;
+		r.dragging = false;
+		r.rLim = r.sBar.outerWidth() - r.button.outerWidth();
+		r.outerLim = r.sBar.outerWidth() + r.button.outerWidth();
+		r.minVal = parseInt( r.range.data('min') );
+		r.maxVal = parseInt( r.range.data('max') );
+		r.retMin = r.minVal;
+		r.retMax = r.maxVal;
+		r.ctr = 0;
+
+/*
 	var range = $(objectSelector),
 		output = $(outputSelector),
 		lH = $( range.find('.left-handle') ),
@@ -24,21 +45,21 @@ function rangeSlider( objectSelector, outputSelector ){
 		maxVal = parseInt( range.data('max') ),
 		retMin = minVal;
 		retMax = maxVal;
-		ctr = 0;		
+		ctr = 0;		*/
 	
-	button.on('mousedown', function(e){
+	r.button.on('mousedown', function(e){
 	
 		e.preventDefault();
 		
-		target = $( this );
+		r.target = $( this );
 		
 		startX = e.clientX;
 		
 		//console.log( startX + ' :: '+ (sBar.outerWidth()+button.outerWidth()) );
 		
-		if( startX <= outerLim && startX >= 0){
+		if( startX <= r.outerLim && startX >= 0){
 		
-			dragging = true;
+			r.dragging = true;
 		
 		}
 	
@@ -50,63 +71,63 @@ function rangeSlider( objectSelector, outputSelector ){
 		
 		
 	
-		if( dragging && e.clientX <= outerLim && e.clientX >= 0){
+		if( r.dragging && e.clientX <= r.outerLim && e.clientX >= 0){
 		
-			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-button.width();
+			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width();
 			
-			var isMin = ( target.data('type') == 'min' )?true:false;
+			var isMin = ( r.target.data('type') == 'min' )?true:false;
 			
 			//console.log( e.clientX +' :: '+pos);
 			
 			//console.log(rLim+ ' :: '+ pos);
 			
-			if( e.clientX <  rLim && e.clientX > 0){
+			if( e.clientX <  r.rLim && e.clientX > 0){
 		
-				target.css('left', pos );
+				r.target.css('left', pos );
 				
-				var retVal = maxVal * (pos/rLim).toFixed(2);
+				var retVal = r.maxVal * (pos/r.rLim).toFixed(2);
 				
 				if( isMin ){
 				
-					retMin = retVal;
+					r.retMin = retVal;
 					
-					coverLeft.width( pos );
+					r.coverLeft.width( pos );
 				
 				}else{
 				
-					retMax = retVal;
+					r.retMax = retVal;
 					
-					coverRight.width( rLim - pos );
+					r.coverRight.width( r.rLim - pos );
 				
 				}
 			
 			} else if( e.clientX <= 0 ){
 			
-				retMin = minVal;
+				r.retMin = r.minVal;
 		
-				target.css('left', 0 );
+				r.target.css('left', 0 );
 			
-			} else if( e.clientX >  rLim ){				
+			} else if( e.clientX >  r.rLim ){				
 			
-				target.css('left', rLim );
+				r.target.css('left', r.rLim );
 				
 				if( isMin ){
 				
-					coverLeft.width( outerLim );
+					r.coverLeft.width( r.outerLim );
 					
-					retMin = maxVal;
+					r.retMin = r.maxVal;
 				
 				}else{
 				
-					coverRight.width( button.outerWidth() );
+					r.coverRight.width( r.button.outerWidth() );
 					
-					retMax = maxVal;
+					r.retMax = r.maxVal;
 				
 				}
 				
 			}
 			
-			output.val( retMin+' to '+retMax );
+			r.output.val( Math.round(r.retMin)+' to '+ Math.round(r.retMax) );
 		
 		}
 	
@@ -114,9 +135,9 @@ function rangeSlider( objectSelector, outputSelector ){
 
 	$(document).on('mouseup', function(){
 	
-		if( dragging ){
+		if( r.dragging ){
 		 
-			dragging = false;
+			r.dragging = false;
 		
 		}
 	
@@ -126,7 +147,11 @@ function rangeSlider( objectSelector, outputSelector ){
 
 $(function() {
 
-	rangeSlider( '.range-slider', '#amount' );
+	rangeSlider( '#range-slider1', '#amount1' );
+	
+	rangeSlider( '#range-slider2', '#amount2' );
+	
+	rangeSlider( '#range-slider3', '#amount3' );
 
 });
 
@@ -232,9 +257,9 @@ $(function() {
 		<h3>Price</h3>
 		<div>
 			<p>
-				<input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+				<input type="text" id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" data-min="0" data-max="500">
+			<div class="range-slider" id="range-slider1" data-min="0" data-max="500">
 				<button class="left-handle" data-type="min"></button>
 				<button class="right-handle" data-type="max"></button>
 				<div class="cover-left"></div>
@@ -243,6 +268,35 @@ $(function() {
 				
 			</div>
 		</div>
+		<h3>Kilometers</h3>
+		<div>
+			<p>
+				<input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
+			</p>
+			<div class="range-slider" id="range-slider2" data-min="0" data-max="100000">
+				<button class="left-handle" data-type="min"></button>
+				<button class="right-handle" data-type="max"></button>
+				<div class="cover-left"></div>
+				<div class="cover-right"></div>
+				<div class="slider-bar"></div>
+				
+			</div>
+		</div>
+		<h3>Age</h3>
+		<div>
+			<p>
+				<input type="text" id="amount3" style="border: 0; color: #f6931f; font-weight: bold;" />
+			</p>
+			<div class="range-slider" id="range-slider3" data-min="0" data-max="50">
+				<button class="left-handle" data-type="min"></button>
+				<button class="right-handle" data-type="max"></button>
+				<div class="cover-left"></div>
+				<div class="cover-right"></div>
+				<div class="slider-bar"></div>
+				
+			</div>
+		</div>
+		
 		
 	</div>
 </body>
