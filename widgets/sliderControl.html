@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>filters POC</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+
+function rangeSlider( objectSelector, outputSelector ){
+
+	var range = $(objectSelector),
+		output = $(outputSelector),
+		lH = $( range.find('.left-handle') ),
+		rH = $( range.find('.right-handle') ),
+		button = $( range.find('button') ),
+		sBar = $(range.find('.slider-bar')),
+		coverLeft = $( range.find('.cover-left')),
+		coverRight = $( range.find('.cover-right')),
+		target = null,
+		dragging = false,
+		rLim = sBar.outerWidth() - button.outerWidth(),
+		outerLim = sBar.outerWidth() + button.outerWidth()
+		minVal = parseInt( range.data('min') ),
+		maxVal = parseInt( range.data('max') ),
+		retMin = minVal;
+		retMax = maxVal;
+		ctr = 0;		
+	
+	button.on('mousedown', function(e){
+	
+		e.preventDefault();
+		
+		target = $( this );
+		
+		startX = e.clientX;
+		
+		//console.log( startX + ' :: '+ (sBar.outerWidth()+button.outerWidth()) );
+		
+		if( startX <= outerLim && startX >= 0){
+		
+			dragging = true;
+		
+		}
+	
+	});
+	
+	$(document).on('mousemove', function(e){
+	
+		e.preventDefault();
+		
+		
+	
+		if( dragging && e.clientX <= outerLim && e.clientX >= 0){
+		
+			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-button.width();
+			
+			var isMin = ( target.data('type') == 'min' )?true:false;
+			
+			//console.log( e.clientX +' :: '+pos);
+			
+			//console.log(rLim+ ' :: '+ pos);
+			
+			if( e.clientX <  rLim && e.clientX > 0){
+		
+				target.css('left', pos );
+				
+				var retVal = maxVal * (pos/rLim).toFixed(2);
+				
+				if( isMin ){
+				
+					retMin = retVal;
+					
+					coverLeft.width( pos );
+				
+				}else{
+				
+					retMax = retVal;
+					
+					coverRight.width( rLim - pos );
+				
+				}
+			
+			} else if( e.clientX <= 0 ){
+			
+				retMin = minVal;
+		
+				target.css('left', 0 );
+			
+			} else if( e.clientX >  rLim ){				
+			
+				target.css('left', rLim );
+				
+				if( isMin ){
+				
+					coverLeft.width( outerLim );
+					
+					retMin = maxVal;
+				
+				}else{
+				
+					coverRight.width( button.outerWidth() );
+					
+					retMax = maxVal;
+				
+				}
+				
+			}
+			
+			output.val( retMin+' to '+retMax );
+		
+		}
+	
+	});
+
+	$(document).on('mouseup', function(){
+	
+		if( dragging ){
+		 
+			dragging = false;
+		
+		}
+	
+	});
+
+}
+
+$(function() {
+
+	rangeSlider( '.range-slider', '#amount' );
+
+});
+
+</script>
+<style>
+
+	.range-slider {
+	
+		position: relative;
+		
+		width: 300px;
+		
+		height: 30px;
+		
+		overflow: hidden;
+	
+	}
+	
+	.range-slider .slider-bar {
+	
+		position: absolute;
+		
+		top: 10px;
+		
+		left: 0;
+	
+		background: #333;
+		
+		width: 100%;
+		
+		height: 10px;
+	
+	}
+	
+	.range-slider .cover-left,
+
+	.range-slider .cover-right {
+	
+		position: relative;
+		
+		margin: 10px auto;
+		
+		float: left;
+		
+		z-index:1;
+	
+		background: #ccc;
+		
+		width: 10px;
+		
+		height: 10px;
+	
+	}
+	
+	.range-slider .cover-right {
+	
+		float: right;
+		
+	}
+
+	.range-slider button {
+	
+		position: absolute;
+		
+		top: 0;
+		
+		z-index: 9;
+		
+		width: 10px;
+		
+		height: 30px;
+		
+		border: 0;
+		
+		padding: 0;
+		
+		margin: 0;
+		
+		cursor: pointer;
+	
+	}
+	
+	.range-slider .left-handle {
+		
+		left: 0;
+		
+		background: red;
+	
+	}
+	
+	.range-slider .right-handle {
+		
+		right: 0;
+		
+		background: blue;
+		
+	}
+
+</style>
+</head>
+<body>
+	<div id="accordion">
+		<h3>Price</h3>
+		<div>
+			<p>
+				<input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+			</p>
+			<div class="range-slider" data-min="0" data-max="500">
+				<button class="left-handle" data-type="min"></button>
+				<button class="right-handle" data-type="max"></button>
+				<div class="cover-left"></div>
+				<div class="cover-right"></div>
+				<div class="slider-bar"></div>
+				
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
