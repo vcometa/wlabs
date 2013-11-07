@@ -11,19 +11,34 @@ function rangeSlider( objectSelector, outputSelector ){
 	var r = new Object();
 		r.range = $(objectSelector);
 		r.output = $(outputSelector);
-		r.button = $( r.range.find('button') );
-		r.sBar = $(r.range.find('.slider-bar'));
-		r.coverLeft = $( r.range.find('.cover-left'));
-		r.coverRight = $( r.range.find('.cover-right'));
-		r.target = null;
-		r.dragging = false;
-		r.rLim = r.sBar.outerWidth() - r.button.outerWidth();
-		r.outerLim = r.sBar.outerWidth() + r.button.outerWidth();
-		r.minVal = parseInt( r.range.data('min') );
-		r.maxVal = parseInt( r.range.data('max') );
-		r.retMin = r.minVal;
-		r.retMax = r.maxVal;
-		r.lastPos = 0;
+		r.type = r.range.data('type');
+		
+		
+	var html = '<button class="left-handle" data-type="min"></button><button class="right-handle" data-type="max"></button><div class="cover-left"></div><div class="cover-right"></div><div class="slider-bar"></div>';
+	
+	
+	if( r.type == 'single'){
+	
+		html = '<button class="right-handle" data-type="max"></button><div class="cover-right"></div><div class="slider-bar"></div>';
+		
+	}
+	
+	$(html).appendTo(r.range);
+		
+	r.button = $( r.range.find('button') );
+	r.sBar = $(r.range.find('.slider-bar'));
+	r.coverLeft = $( r.range.find('.cover-left'));	
+	r.coverRight = $( r.range.find('.cover-right'));
+	r.target = null;
+	r.dragging = false;
+	r.rLim = r.sBar.outerWidth() - r.button.outerWidth();
+	r.outerLim = r.sBar.outerWidth() + r.button.outerWidth();
+	r.minVal = parseInt( r.range.data('min') );
+	r.maxVal = parseInt( r.range.data('max') );
+	r.retMin = r.minVal;
+	r.retMax = r.maxVal;
+	r.lastPos = 0;
+	r.interval = 0.01;
 		
 	r.output.val( r.minVal+' to '+ r.maxVal );
 	
@@ -53,7 +68,7 @@ function rangeSlider( objectSelector, outputSelector ){
 			
 				isMin = ( r.target.data('type') == 'min' )?true:false,
 				
-				offset = ( r.maxVal * 0.02 ),
+				offset = ( r.type == 'double')?( r.maxVal * r.interval ):0,
 				
 				lTemp = r.retMin+offset,
 				
@@ -236,42 +251,21 @@ $(function() {
 			<p>
 				<input type="text" id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider1" data-min="0" data-max="500" data-output="amount1">
-				<button class="left-handle" data-type="min"></button>
-				<button class="right-handle" data-type="max"></button>
-				<div class="cover-left"></div>
-				<div class="cover-right"></div>
-				<div class="slider-bar"></div>
-				
-			</div>
+			<div class="range-slider" id="range-slider1" data-type="single" data-min="0" data-max="500" data-output="amount1"></div>
 		</div>
 		<h3>Kilometers</h3>
 		<div>
 			<p>
 				<input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider2" data-min="0" data-max="100000" data-output="amount2" >
-				<button class="left-handle" data-type="min"></button>
-				<button class="right-handle" data-type="max"></button>
-				<div class="cover-left"></div>
-				<div class="cover-right"></div>
-				<div class="slider-bar"></div>
-				
-			</div>
+			<div class="range-slider" id="range-slider2" data-type="double" data-min="0" data-max="100000" data-output="amount2" ></div>
 		</div>
 		<h3>Age</h3>
 		<div>
 			<p>
 				<input type="text" id="amount3" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider3" data-min="0" data-max="50" data-output="amount3" >
-				<button class="left-handle" data-type="min"></button>
-				<button class="right-handle" data-type="max"></button>
-				<div class="cover-left"></div>
-				<div class="cover-right"></div>
-				<div class="slider-bar"></div>
-				
-			</div>
+			<div class="range-slider" id="range-slider3" data-type="double" data-min="0" data-max="50" data-output="amount3" ></div>
 		</div>
 		
 		
