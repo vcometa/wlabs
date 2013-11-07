@@ -26,6 +26,9 @@ function rangeSlider( objectSelector, outputSelector ){
 		r.maxVal = parseInt( r.range.data('max') );
 		r.retMin = r.minVal;
 		r.retMax = r.maxVal;
+		r.lastPos = 0;
+		
+	r.output.val( r.minVal+' to '+ r.maxVal );
 	
 	r.button.on('mousedown', function(e){
 	
@@ -42,86 +45,58 @@ function rangeSlider( objectSelector, outputSelector ){
 		}
 	
 	});
-	
+
 	$(document).on('mousemove', function(e){
 	
 		e.preventDefault();
 	
 		if( r.dragging && e.clientX <= r.outerLim && e.clientX >= 0){
 		
-			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width();
+			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width(),
 			
-			var isMin = ( r.target.data('type') == 'min' )?true:false;
-			
-			var offset = r.retMax * 0.033;
-			
-			if( e.clientX <  r.rLim && e.clientX > 0 ){
-			
-				var retVal = r.maxVal * (pos/r.rLim).toFixed(2);
+				isMin = ( r.target.data('type') == 'min' )?true:false,
 				
-				if( r.retMin+offset < r.retMax-offset ){
-		
-					r.target.css('left', pos );
+				offset = ( r.maxVal * 0.02 ),
+				
+				lTemp = r.retMin+offset,
+				
+				rTemp = r.retMax-offset;
+				
+			if( (r.retMin+offset < r.retMax-offset) ||  ( isMin && r.lastPos > pos ) || ( !isMin && r.lastPos < pos ) ){
 					
+				if( pos <= r.rLim ){
+					
+					var retVal = Math.round(r.maxVal * (pos/r.rLim));
+				
+					r.target.css('left', pos );
+						
 					if ( isMin ){
 					
+						r.retMin = retVal;
+						
 						r.coverLeft.width( pos );
-					
+						
 					} else {
 					
+						r.retMax = retVal;
+						
 						r.coverRight.width( r.rLim - pos );
 					
 					}
 					
-					
+					r.lastPos = pos;
 				
-				}
-								
-				if ( isMin ){
-				
-					r.retMin = retVal;
-					
-				} else {
-				
-					r.retMax = retVal;
-				
-				}
-				
-				
-			
-			} else if( e.clientX <= 0 ){
-			
-				r.retMin = r.minVal;
-		
-				r.target.css('left', 0 );
-			
-			} else if( e.clientX >  r.rLim ){				
-			
-				r.target.css('left', r.rLim );
-				
-				if( isMin ){
-				
-					r.coverLeft.width( r.outerLim );
-					
-					r.retMin = r.maxVal;
-				
-				}else{
-				
-					r.coverRight.width( r.button.outerWidth() );
+				} else if( pos > r.rLim ){				
 					
 					r.retMax = r.maxVal;
+					
+					r.target.css('left', r.rLim );
 				
 				}
 				
+				r.output.val( r.retMin+' to '+ r.retMax );				
+		
 			}
-			
-			if( r.retMin+offset < r.retMax-offset ){
-			
-				r.output.val( Math.round(r.retMin)+' to '+ Math.round(r.retMax) );
-			
-			}
-			
-			
 		
 		}
 	
@@ -234,6 +209,8 @@ $(function() {
 		margin: 0;
 		
 		cursor: pointer;
+		
+		outline: none;
 	
 	}
 	
