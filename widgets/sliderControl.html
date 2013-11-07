@@ -5,7 +5,12 @@
 <title>filters POC</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
+/*
 
+	by: Virgilio Cometa
+	date: November 2013
+
+*/
 function rangeSlider( objectSelector, outputSelector ){
 
 	var r = new Object();
@@ -14,8 +19,7 @@ function rangeSlider( objectSelector, outputSelector ){
 		r.type = r.range.data('type');
 		
 		
-	var html = '<button class="left-handle" data-type="min"></button><button class="right-handle" data-type="max"></button><div class="cover-left"></div><div class="cover-right"></div><div class="slider-bar"></div>';
-	
+	var html = '<button class="left-handle" data-type="min"></button><button class="right-handle" data-type="max"></button><div class="cover-left"></div><div class="cover-right"></div><div class="slider-bar"></div>';	
 	
 	if( r.type == 'single'){
 	
@@ -23,8 +27,7 @@ function rangeSlider( objectSelector, outputSelector ){
 		
 	}
 	
-	$(html).appendTo(r.range);
-		
+	$(html).appendTo(r.range);		
 	r.button = $( r.range.find('button') );
 	r.sBar = $(r.range.find('.slider-bar'));
 	r.coverLeft = $( r.range.find('.cover-left'));	
@@ -35,12 +38,55 @@ function rangeSlider( objectSelector, outputSelector ){
 	r.outerLim = r.sBar.outerWidth() + r.button.outerWidth();
 	r.minVal = parseInt( r.range.data('min') );
 	r.maxVal = parseInt( r.range.data('max') );
+	r.sMinVal = parseInt( r.range.data('start-min') );
+	r.sMaxVal = parseInt( r.range.data('start-max') );
 	r.retMin = r.minVal;
 	r.retMax = r.maxVal;
 	r.lastPos = 0;
 	r.interval = 0.01;
+	
+	var getPos = function( val ){
 		
-	r.output.val( r.minVal+' to '+ r.maxVal );
+		val = (val/r.maxVal)*r.rLim;
+	
+		return (val + document.body.scrollLeft - document.body.clientLeft)-r.button.width();
+	
+	}
+	
+	
+	
+	if( r.sMinVal && r.sMaxVal){
+	
+		var lPos = getPos(r.sMinVal),
+			rPos =  getPos(r.sMaxVal);
+	
+		$(r.button[0]).css('left', lPos );
+		r.coverLeft.width( lPos );
+		
+		$(r.button[1]).css('left', rPos );
+		r.coverRight.width( r.rLim - rPos );
+		
+		r.retMin = r.sMinVal;
+		r.retMax = r.sMaxVal;
+		
+		r.output.val( r.sMinVal+' to '+ r.sMaxVal );
+	
+	} else if( !r.sMinVal && r.sMaxVal){
+	
+		var rPos =  getPos(r.sMaxVal);
+		
+		$(r.button[0]).css('left', rPos );
+		r.coverRight.width( r.rLim - rPos );
+		
+		r.retMax = r.sMaxVal;
+		
+		r.output.val( r.minVal+' to '+ r.sMaxVal );
+	
+	} else {	
+	
+		r.output.val( r.minVal+' to '+ r.maxVal );	
+	
+	}
 	
 	r.button.on('mousedown', function(e){
 	
@@ -251,14 +297,14 @@ $(function() {
 			<p>
 				<input type="text" id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider1" data-type="single" data-min="0" data-max="500" data-output="amount1"></div>
+			<div class="range-slider" id="range-slider1" data-type="single" data-min="0" data-max="500" data-output="amount1" data-start-max="300" ></div>
 		</div>
 		<h3>Kilometers</h3>
 		<div>
 			<p>
 				<input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider2" data-type="double" data-min="0" data-max="100000" data-output="amount2" ></div>
+			<div class="range-slider" id="range-slider2" data-type="double" data-min="0" data-max="100000" data-output="amount2" data-start-min="10000" data-start-max="60000" ></div>
 		</div>
 		<h3>Age</h3>
 		<div>
