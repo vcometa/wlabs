@@ -8,8 +8,15 @@
 <script>
 /*
 
-	by: Virgilio Cometa
-	date: November 2013
+	Touch Enabled Range Slider build.0.1
+	
+	rangeSlider is Copyright © 2013-2018 Virgilio Cometa. It is freely distributable under the terms of an MIT-style license.
+
+    Copyright (c) 2013-2018 Virgilio Cometa
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
 function rangeSlider( objectSelector, outputSelector ){
@@ -89,13 +96,13 @@ function rangeSlider( objectSelector, outputSelector ){
 	
 	}
 	
-	r.button.on('mousedown', function(e){
+	r.button.on('mousedown touchstart', function(e){
 	
 		e.preventDefault();
 		
 		r.target = $( this );
 		
-		startX = e.clientX;
+		startX = (e.clientX != null)?e.clientX:event.touches[0].pageX;
 				
 		if( startX <= r.outerLim && startX >= 0){
 		
@@ -105,13 +112,15 @@ function rangeSlider( objectSelector, outputSelector ){
 	
 	});
 
-	$(document).on('mousemove', function(e){
+	$(document).on('mousemove touchmove', function(e){
 	
-		e.preventDefault();
+		var x = (e.clientX != null)?e.clientX:event.touches[0].pageX;
 	
-		if( r.dragging && e.clientX <= r.outerLim && e.clientX >= 0){
+		if( r.dragging && x <= r.outerLim && x >= 0){
 		
-			var pos = ((e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(e.clientX + document.body.scrollLeft - document.body.clientLeft)-r.button.width(),
+			e.preventDefault();
+		
+			var pos = ((x + document.body.scrollLeft - document.body.clientLeft)-r.button.width())<0?0:(x + document.body.scrollLeft - document.body.clientLeft)-r.button.width(),
 			
 				isMin = ( r.target.data('type') == 'min' )?true:false,
 				
@@ -161,7 +170,7 @@ function rangeSlider( objectSelector, outputSelector ){
 	
 	});
 
-	$(document).on('mouseup', function(){
+	$(document).on('mouseup touchend', function(){
 	
 		if( r.dragging ){
 		 
@@ -194,99 +203,111 @@ $(function() {
 
 </script>
 <style>
+	@media all{
+		.range-slider {
+		
+			position: relative;
+			
+			width: 300px;
+			
+			height: 30px;
+			
+			overflow: hidden;
+		
+		}
+		
+		.range-slider .slider-bar {
+		
+			position: absolute;
+			
+			top: 10px;
+			
+			left: 0;
+		
+			background: #333;
+			
+			width: 100%;
+			
+			height: 10px;
+		
+		}
+		
+		.range-slider .cover-left,
 
-	.range-slider {
-	
-		position: relative;
+		.range-slider .cover-right {
 		
-		width: 300px;
+			position: relative;
+			
+			margin: 10px auto;
+			
+			float: left;
+			
+			z-index:1;
 		
-		height: 30px;
+			background: #ccc;
+			
+			width: 10px;
+			
+			height: 10px;
 		
-		overflow: hidden;
-	
-	}
-	
-	.range-slider .slider-bar {
-	
-		position: absolute;
+		}
 		
-		top: 10px;
+		.range-slider .cover-right {
 		
-		left: 0;
-	
-		background: #333;
-		
-		width: 100%;
-		
-		height: 10px;
-	
-	}
-	
-	.range-slider .cover-left,
+			float: right;
+			
+		}
 
-	.range-slider .cover-right {
-	
-		position: relative;
+		.range-slider button {
 		
-		margin: 10px auto;
+			position: absolute;
+			
+			top: 0;
+			
+			z-index: 9;
+			
+			width: 10px;
+			
+			height: 30px;
+			
+			border: 0;
+			
+			padding: 0;
+			
+			margin: 0;
+			
+			cursor: pointer;
+			
+			outline: none;
 		
-		float: left;
+		}
 		
-		z-index:1;
-	
-		background: #ccc;
+		.range-slider .left-handle {
+			
+			left: 0;
+			
+			background: red;
 		
-		width: 10px;
+		}
 		
-		height: 10px;
-	
+		.range-slider .right-handle {
+			
+			right: 0;
+			
+			background: blue;
+			
+		}
 	}
+	@media all and (max-width:767px) {
 	
-	.range-slider .cover-right {
+		.range-slider button {
+		
+			width: 44px;
+			
+			height: 44px;
+		
+		}
 	
-		float: right;
-		
-	}
-
-	.range-slider button {
-	
-		position: absolute;
-		
-		top: 0;
-		
-		z-index: 9;
-		
-		width: 10px;
-		
-		height: 30px;
-		
-		border: 0;
-		
-		padding: 0;
-		
-		margin: 0;
-		
-		cursor: pointer;
-		
-		outline: none;
-	
-	}
-	
-	.range-slider .left-handle {
-		
-		left: 0;
-		
-		background: red;
-	
-	}
-	
-	.range-slider .right-handle {
-		
-		right: 0;
-		
-		background: blue;
-		
 	}
 
 </style>
@@ -315,7 +336,21 @@ $(function() {
 			<div class="range-slider" id="range-slider3" data-type="double" data-min="0" data-max="50" data-output="amount3" ></div>
 		</div>
 		
-		
+		<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ante laoreet, tincidunt nibh ut, venenatis urna. Vestibulum at lorem adipiscing, posuere nisl ut, lacinia nunc. Vivamus commodo felis vel molestie lobortis. Integer odio mauris, cursus a justo a, tempor tempus enim. Fusce iaculis venenatis diam eget molestie. Vestibulum mollis mauris congue justo ultrices, vel congue magna vestibulum. In eget orci eget purus bibendum egestas nec eget ipsum. Praesent in pellentesque mauris, eu sollicitudin libero. Mauris lectus lacus, sollicitudin eget congue vel, consequat in lectus. Etiam velit massa, fringilla vel dignissim ac, suscipit at odio. Vivamus tortor nisl, bibendum vel mi sed, fringilla iaculis diam. Suspendisse at felis vel felis vulputate volutpat. Integer at hendrerit erat. Donec a enim sit amet nunc semper tincidunt eleifend at enim.
+		</p>
+		<p>
+Pellentesque sit amet elit eget ante porta suscipit sed semper turpis. Aenean condimentum libero in augue gravida molestie. Nunc et tellus sed justo consequat vehicula. Morbi sed sem euismod, sodales nibh et, luctus diam. Donec tempus venenatis tempus. In sit amet risus vel leo sagittis feugiat at molestie neque. Proin nulla nunc, rutrum vel mi vitae, consequat scelerisque nisi. Proin dictum luctus ante, sed egestas odio gravida non.
+		</p>
+		<p>
+Sed semper sem eget nulla laoreet, vel vehicula dolor convallis. Duis nec sapien neque. Duis eget varius ante, ac fringilla est. Mauris mi enim, semper at massa nec, fringilla rutrum turpis. Phasellus nec congue ante. Morbi sed gravida purus, in rhoncus turpis. Praesent blandit urna nunc, sed iaculis purus gravida id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque quis justo in ante accumsan hendrerit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque aliquam, orci et dictum bibendum, magna erat euismod nisi, et vestibulum neque neque euismod neque. Curabitur pretium vel turpis lacinia vehicula. Aliquam auctor tellus in enim fringilla aliquet. Proin malesuada cursus dignissim. Nulla facilisi.
+		</p>
+		<p>
+Cras pulvinar pharetra porta. Donec in congue sapien, sit amet ornare sapien. Proin eget ullamcorper leo. Aliquam fermentum, massa eu elementum fringilla, augue nisl laoreet diam, vitae fringilla leo ante ut ligula. Nam ac vestibulum tortor, non condimentum risus. Proin mauris erat, mattis eu lorem non, sagittis lobortis sem. Aliquam sollicitudin dapibus felis, vitae laoreet sem faucibus non. Curabitur nec porta velit, in dignissim quam. Nunc eleifend quam eget arcu luctus ultrices.
+		</p>
+		<p>
+Aliquam ac lorem enim. Cras leo dui, dapibus a metus et, interdum ornare nibh. Quisque quis justo auctor, viverra enim vel, pharetra nunc. Phasellus vehicula diam tellus, ut volutpat dolor porta quis. Maecenas ut lorem leo. Ut faucibus, neque in porta sodales, nisl ligula pharetra sem, non posuere quam mauris at erat. Morbi sagittis nisl et ipsum viverra, nec semper ipsum cursus. Fusce consequat lacus a pulvinar ultrices. Curabitur rhoncus dapibus orci eget suscipit. Nullam elementum tristique mi, vel vestibulum tortor blandit at. Mauris vestibulum in velit et sollicitudin. Morbi vitae leo quis erat dignissim tincidunt sit amet ac ligula. Sed ullamcorper rutrum eros, eget volutpat sapien sollicitudin vel. Vestibulum venenatis, orci quis bibendum semper, sapien ante semper magna, ac mattis nulla enim nec elit. Nam in euismod odio. Aliquam at ultricies nunc, a faucibus urna. 
+		</p>
 	</div>
 </body>
 </html>
