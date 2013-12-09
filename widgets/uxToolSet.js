@@ -15,8 +15,6 @@
 (function ( $ ) {
 
 	$.fn.uxToolSet = function(params) {
-		
-		
 
 		function addCSS(strCSS) {
 			var node = document.createElement('style');
