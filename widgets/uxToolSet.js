@@ -14,7 +14,7 @@
 
 (function ( $ ) {
 
-	$.fn.uxToolSet = function(params) {
+	$.fn.uxToolSet = function() {
 
 		function addCSS(strCSS) {
 			var node = document.createElement('style');
@@ -22,41 +22,37 @@
 			document.head.appendChild(node);
 		}
 		
+		function getParams(defaultParams, params){
+			
+			if(params != null){
+				
+				for (var key in defaultParams) {
+					
+					if( params[key] != defaultParams[key] ){
+					
+						if( params[key] != null ){
+						
+							defaultParams[key] = params[key];
+						}
+					}
+				}
+			
+				return defaultParams;
+			
+			}else{
+			
+				return defaultParams;
+			
+			}
+		
+		}
+		
 		/** Range Slider begins **/
 
 		function setRangeSlider(){
 		
-			var getRangeSliderParams = function(){
-		
-				var defaultParams = {'width':'300px', 'height':'30px', 'barHeight':'10px', 'tabWidth':'10px', 'tabHeight':'30px', 'leftHandle':'red', 'rightHandle':'blue', 'barColor':'#333','barBackground':'#ccc'};
+			var defaultParams = {'width':'300px', 'height':'30px', 'barHeight':'10px', 'tabWidth':'10px', 'tabHeight':'30px', 'leftHandle':'red', 'rightHandle':'blue', 'barColor':'#333','barBackground':'#ccc', 'callback':function(){} },
 			
-				if(params != null){
-					
-					for (var key in defaultParams) {
-						
-						if( params[key] != defaultParams[key] ){
-						
-							if( params[key] != null ){
-							
-								defaultParams[key] = params[key];
-							}
-						}
-					}
-				
-					return defaultParams;
-				
-				}else{
-				
-					return defaultParams;
-				
-				}
-			
-			},
-			
-			/*
-			* params: width, height, barColor, barHeight, tabWidth, tabHeight, leftHandle, rightHandle
-			*/
-
 			rangeSlider = function( objectSelector, outputSelector ){
 
 				var r = new Object();
@@ -213,6 +209,8 @@
 					if( r.dragging ){
 					 
 						r.dragging = false;
+						
+						uxSliderRangeParams.callback();
 					
 					}
 				
@@ -220,13 +218,13 @@
 
 			};
 		
-			params = getRangeSliderParams();			
+			uxRangeParams = getParams(defaultParams, uxSliderRangeParams),			
 
-			var rangeArr = $('.ux-range-slider');
+			rangeArr = $('.ux-range-slider');
 			
 			if( rangeArr.length > 0){
 			
-				var	rangeCSS = "@media all{.ux-range-slider{position:relative;width:"+params.width+";height:"+params.height+";overflow:hidden}.ux-range-slider .slider-bar{position:absolute;top:10px;left:0;background:"+params.barColor+";width:100%;height:"+params.barHeight+"}.ux-range-slider .cover-left,.ux-range-slider .cover-right{position:relative;margin:10px auto;float:left;z-index:1;background:"+params.barBackground+";width:10px;height:10px}.ux-range-slider .cover-right{float:right}.ux-range-slider button{position:absolute;top:0;z-index:9;width:"+params.tabWidth+";height:"+params.tabHeight+";border:0;padding:0;margin:0;cursor:pointer;outline:0}.ux-range-slider .left-handle{left:0;background:"+params.leftHandle+"}.ux-range-slider .right-handle{right:0;background:"+params.rightHandle+"}}@media all and (max-width:767px){.ux-range-slider button{width:44px;height:44px}}";
+				var	rangeCSS = "@media all{.ux-range-slider{position:relative;width:"+uxRangeParams.width+";height:"+uxRangeParams.height+";overflow:hidden}.ux-range-slider .slider-bar{position:absolute;top:10px;left:0;background:"+uxRangeParams.barColor+";width:100%;height:"+uxRangeParams.barHeight+"}.ux-range-slider .cover-left,.ux-range-slider .cover-right{position:relative;margin:10px auto;float:left;z-index:1;background:"+uxRangeParams.barBackground+";width:10px;height:10px}.ux-range-slider .cover-right{float:right}.ux-range-slider button{position:absolute;top:0;z-index:9;width:"+uxRangeParams.tabWidth+";height:"+uxRangeParams.tabHeight+";border:0;padding:0;margin:0;cursor:pointer;outline:0}.ux-range-slider .left-handle{left:0;background:"+uxRangeParams.leftHandle+"}.ux-range-slider .right-handle{right:0;background:"+uxRangeParams.rightHandle+"}}@media all and (max-width:767px){.ux-range-slider button{width:44px;height:44px}}";
 					
 				if( rangeArr.length > 0){
 				
@@ -253,7 +251,10 @@
 		
 		function setAccordion(){
 			
-			var accordionArr = $('.ux-accordion');
+			var accordionArr = $('.ux-accordion'),
+				defaultParams = {'callback':function(){}},
+				accordionParams = getParams(defaultParams, uxAccordionParams);
+			
 			
 			if(accordionArr.length > 0){
 			
@@ -279,6 +280,8 @@
 							a.children.slideUp('fast');
 							a.listItem.removeClass('active');
 						}
+						
+						accordionParams.callback();
 							
 					});
 				

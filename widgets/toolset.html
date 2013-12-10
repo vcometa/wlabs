@@ -7,11 +7,12 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="uxToolSet.js"></script>
 <script>
+	var uxSliderRangeParams = {'barColor':'gray','barBackground':'#ccc','leftHandle':'green', 'rightHandle':'purple', 'callback':function(){alert('slider callback');}},
+		uxAccordionParams = { 'callback':function(){alert('accordion callback');} };
+	
 	$(function() {
-
-		var rangeParams = {'barColor':'gray','barBackground':'#ccc','leftHandle':'green', 'rightHandle':'purple'};
 		
-		$( document.body ).uxToolSet(rangeParams).addClass('chain');
+		$( document.body ).uxToolSet().addClass('chain');
 		
 	});
 </script>
