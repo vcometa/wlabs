@@ -9,41 +9,109 @@
 <script>
 	$(function() {
 
-		var rangeParams = {'leftColor':'green', 'rightColor':'purple'};
+		var rangeParams = {'barColor':'gray','barBackground':'#ccc','leftHandle':'green', 'rightHandle':'purple'};
 		
 		$( document.body ).uxToolSet(rangeParams).addClass('chain');
 		
 	});
 </script>
+<style>
+.ux-accordion {
+	position: relative;	
+}
+.ux-accordion .ux-list{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+.ux-accordion .ux-list .ux-list-item{
+	border:solid #ccc;
+	border-width: 0 1px 1px;
+	background: #fff;	
+	cursor: pointer;
+}
+.ux-accordion .ux-list .ux-list-item:first-child{
+	border-top-width:1px;
+}
+.ux-accordion .ux-list .ux-list-item h4 {
+	margin: 0;
+	padding: 0;
+	padding: 10px;
+}
+.ux-accordion .ux-list .ux-list-item:hover h4{
+	background: #ccc;
+}
+.ux-accordion ul.ux-list .ux-list-item .ux-child {
+	display: none;
+	padding: 10px;
+}
+</style>
 </head>
 <body>
-	<div id="accordion">
+	<h3>Slider Controls</h3>
+	<div id="slider">
 		<h3>Price</h3>
 		<div>
 			<p>
 				<input type="text" id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider1" data-type="single" data-min="0" data-max="500" data-output="amount1" data-start-max="450" ></div>
+			<div class="ux-range-slider" id="ux-range-slider1" data-type="single" data-min="0" data-max="500" data-output="amount1" data-start-max="450" ></div>
 		</div>
 		<h3>Kilometers</h3>
 		<div>
 			<p>
 				<input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider2" data-type="double" data-min="0" data-max="100000" data-output="amount2" data-start-min="15000" data-start-max="50000" ></div>
+			<div class="ux-range-slider" id="ux-range-slider2" data-type="double" data-min="0" data-max="100000" data-output="amount2" data-start-min="15000" data-start-max="50000" ></div>
 		</div>
 		<h3>Age</h3>
 		<div>
 			<p>
 				<input type="text" id="amount3" style="border: 0; color: #f6931f; font-weight: bold;" />
 			</p>
-			<div class="range-slider" id="range-slider3" data-type="double" data-min="0" data-max="50" data-output="amount3" ></div>
-		</div>
-		
-		<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ante laoreet, tincidunt nibh ut, venenatis urna. Vestibulum at lorem adipiscing, posuere nisl ut, lacinia nunc. Vivamus commodo felis vel molestie lobortis. Integer odio mauris, cursus a justo a, tempor tempus enim. Fusce iaculis venenatis diam eget molestie. Vestibulum mollis mauris congue justo ultrices, vel congue magna vestibulum. In eget orci eget purus bibendum egestas nec eget ipsum. Praesent in pellentesque mauris, eu sollicitudin libero. Mauris lectus lacus, sollicitudin eget congue vel, consequat in lectus. Etiam velit massa, fringilla vel dignissim ac, suscipit at odio. Vivamus tortor nisl, bibendum vel mi sed, fringilla iaculis diam. Suspendisse at felis vel felis vulputate volutpat. Integer at hendrerit erat. Donec a enim sit amet nunc semper tincidunt eleifend at enim.
-		</p>
-		
+			<div class="ux-range-slider" id="ux-range-slider3" data-type="double" data-min="0" data-max="50" data-output="amount3" ></div>
+		</div>		
 	</div>
+	<br/>
+	<br/>
+	<hr/>
+	<br/>
+	<br/>
+	<h3>Accordion</h3>
+	<div id="accordion" class="ux-accordion">
+		<ul class="ux-list">
+			<li class="ux-list-item">
+				<h4>Item 1</h4>
+				<div class="ux-child">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</li>
+			<li class="ux-list-item">
+				<h4>Item 2</h4>
+				<div class="ux-child">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</li>
+			<li class="ux-list-item">
+				<h4>Item 3</h4>
+				<div class="ux-child">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</li>
+			<li class="ux-list-item">
+				<h4>Item 4</h4>
+				<div class="ux-child">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</li>
+			<li class="ux-list-item">
+				<h4>Item 5</h4>
+				<div class="ux-child">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</li>
+		</ul>
+	</div>
+	
 </body>
 </html>
