@@ -259,22 +259,30 @@
 			
 				var accordion = function(objectSelector){
 					
-						var a = new Object();
-						a.accordion = $(objectSelector);					
-						a.listItem = $( a.accordion.find('.ux-list-item') );
-						a.children = $( a.accordion.find('.ux-child') );
+					var a = new Object();
 						
-						a.listItem.on('click', function(e){
-							var item = $(this),
-								child = $(item.find('.ux-child') );
-								a.children.slideUp('fast');
-								child.slideToggle('fast');
-								
-						});
+					a.accordion = $(objectSelector);					
+					a.listItem = $( a.accordion.find('.ux-list-item') );
+					a.children = $( a.accordion.find('.ux-child') );
 					
-					};
+					a.listItem.on('click', function(e){
+						var item = $(this);
+						
+						if(!item.hasClass('active')){
+							var child = $(item.find('.ux-child') );
+								
+							a.children.slideUp('fast');
+							child.slideToggle('fast');
+							a.listItem.removeClass('active');
+							item.addClass('active');
+						}else{
+							a.children.slideUp('fast');
+							a.listItem.removeClass('active');
+						}
+							
+					});
 				
-				
+				};
 					
 				if( accordionArr.length > 0){
 				
