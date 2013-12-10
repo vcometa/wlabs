@@ -283,6 +283,10 @@
 					});
 				
 				};
+				
+				var accordionCSS = ".ux-accordion{position:relative}.ux-accordion .ux-list{list-style:none;margin:0;padding:0}.ux-accordion .ux-list .ux-list-item{border:solid #ccc;border-width:0 1px 1px;background:#fff;cursor:pointer}.ux-accordion .ux-list .ux-list-item:first-child{border-top-width:1px}.ux-accordion .ux-list .ux-list-item h4{margin:0;padding:0;padding:10px}.ux-accordion .ux-list .ux-list-item:hover h4{background:#ccc}.ux-accordion ul.ux-list .ux-list-item .ux-child{display:none;padding:10px}";
+				
+				addCSS(accordionCSS);
 					
 				if( accordionArr.length > 0){
 				
