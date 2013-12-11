@@ -51,7 +51,7 @@
 
 		function setRangeSlider(){
 		
-			var defaultParams = {'width':'300px', 'height':'30px', 'barHeight':'10px', 'tabWidth':'10px', 'tabHeight':'30px', 'leftHandle':'red', 'rightHandle':'blue', 'barColor':'#333','barBackground':'#ccc', 'callback':function(){} },
+			var defaultParams = {'width':'300px', 'height':'30px', 'barHeight':'10px', 'tabWidth':'10px', 'tabHeight':'30px', 'leftHandle':'red', 'rightHandle':'blue', 'barColor':'#333','barBackground':'#ccc', 'callback':function(){alert('here')} },
 			
 			rangeSlider = function( objectSelector, outputSelector ){
 
@@ -210,17 +210,25 @@
 					 
 						r.dragging = false;
 						
-						uxSliderRangeParams.callback();
+						uxRangeParams.callback();
 					
 					}
 				
 				});
 
 			};
+			
+			if (typeof uxSliderRangeParams === 'undefined') {
+			
+				uxRangeParams = getParams(defaultParams, {});
+			
+			} else {
 		
-			uxRangeParams = getParams(defaultParams, uxSliderRangeParams),			
+				uxRangeParams = getParams(defaultParams, uxSliderRangeParams);
+				
+			}
 
-			rangeArr = $('.ux-range-slider');
+			var rangeArr = $('.ux-range-slider');
 			
 			if( rangeArr.length > 0){
 			
@@ -253,8 +261,16 @@
 			
 			var accordionArr = $('.ux-accordion'),
 				defaultParams = {'callback':function(){}},
-				accordionParams = getParams(defaultParams, uxAccordionParams);
+				accordionParams = null;
 			
+			if (typeof uxAccordionParams === 'undefined') {
+				
+				accordionParams = getParams(defaultParams, {});
+				
+			}else{
+			
+				accordionParams = getParams(defaultParams, uxAccordionParams);
+			}			
 			
 			if(accordionArr.length > 0){
 			
