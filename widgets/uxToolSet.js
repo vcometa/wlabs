@@ -306,27 +306,71 @@
 				var accordionCSS = ".ux-accordion{position:relative}.ux-accordion .ux-list{list-style:none;margin:0;padding:0}.ux-accordion .ux-list .ux-list-item{border:solid #ccc;border-width:0 1px 1px;background:#fff;cursor:pointer}.ux-accordion .ux-list .ux-list-item:first-child{border-top-width:1px}.ux-accordion .ux-list .ux-list-item h4{margin:0;padding:0;padding:10px}.ux-accordion .ux-list .ux-list-item:hover h4{background:#ccc}.ux-accordion ul.ux-list .ux-list-item .ux-child{display:none;padding:10px}";
 				
 				addCSS(accordionCSS);
-					
-				if( accordionArr.length > 0){
 				
-					for ( var i=0, j=accordionArr.length; i<j; i++ ) {
-					
-						var id = '#'+$(accordionArr[i]).attr('id');
-						accordion( id );
-					
-					}
+				for ( var i=0, j=accordionArr.length; i<j; i++ ) {
+				
+					var id = '#'+$(accordionArr[i]).attr('id');
+					accordion( id );
 				
 				}
+				
 			}
 			
 		}
 		
 		/** Accordion ends **/
 		
+		/** Select Box begins **/
+		
+		function setSelectBox(){
+		
+			var selectBoxArr = $('.ux-select-box');
+			
+			var selectBox = function(objectSelector){
+			
+				var s = new Object();
+						
+					s.selectBox = $(objectSelector);	
+					s.selectList = $( s.selectBox.find('.ux-select-list') );
+					s.selectListItem = $( s.selectList.find('.ux-select-list-item') );
+					s.selectValue = $( s.selectBox.find('.ux-select-value') );
+					
+					s.selectBox.on('click',function(e){
+						s.selectList.slideToggle('fast');
+					});
+					
+					s.selectListItem.on('click',function(e){
+						var option = $(this);
+						s.selectValue.attr('data-value', option.data('value'));
+						s.selectValue.text(option.text());
+						s.selectListItem.removeClass('selected');
+						option.addClass('selected');
+					});
+			}
+			
+			var selectBoxCSS = ".ux-select-box{border:1px solid #ccc;overflow:hidden;cursor:pointer;padding:5px}.ux-select-box .ux-select-value{height:20px}.ux-select-box .ux-select-list{display:none;list-style:none;margin:0;padding:0}.ux-select-box .ux-select-list .ux-select-list-item.selected,.ux-select-box .ux-select-list .ux-select-list-item:hover{background:navy;color:#fff}";
+				
+			addCSS(selectBoxCSS);
+			
+			if( selectBoxArr.length > 0){
+				
+				for ( var i=0, j=selectBoxArr.length; i<j; i++ ) {
+				
+					var id = '#'+$(selectBoxArr[i]).attr('id');
+					selectBox( id );
+				
+				}
+			
+			}
+			
+		}
+		
+		/** Select Box ends **/
+		
 		function init(){
 			setAccordion();
 			setRangeSlider();
-		
+			setSelectBox();		
 		}
 		
 		init();

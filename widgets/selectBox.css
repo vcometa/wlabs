@@ -1,0 +1,36 @@
+.ux-select-box {
+
+	border: 1px solid #ccc;
+	
+	overflow: hidden;
+	
+	cursor: pointer;
+	
+	padding: 5px;
+	
+}
+
+.ux-select-box .ux-select-value {
+	
+	height: 20px;
+	
+}
+.ux-select-box .ux-select-list{
+
+	display: none;
+
+	list-style: none;
+	
+	margin: 0;
+	
+	padding: 0;
+	
+}
+
+.ux-select-box .ux-select-list .ux-select-list-item.selected,
+.ux-select-box .ux-select-list .ux-select-list-item:hover{
+
+	background: navy;
+	color: #fff;
+
+}
