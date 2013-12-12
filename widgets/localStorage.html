@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Local Storage</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+
+var str=[];
+
+$(function() {
+
+	$('.check').on('click',function(e){
+	
+		var item = $( $(this).siblings('.item-set') ),
+			key = item.attr('id');
+			
+		if( this.checked ){
+			
+			var itemSet = {
+						'make': $(item.find('.make span')).text(),
+						'model': $(item.find('.model span')).text(),
+						'trim': $(item.find('.trim span')).text(),
+						'year': $(item.find('.year span')).text()
+					};
+			
+			localStorage.setItem( key, JSON.stringify(itemSet));
+			
+			str.push( key+':'+localStorage.getItem( key ) );
+			
+			$('.result-set').html( str );
+			
+			//console.log( str );
+			
+		}else{
+		
+			localStorage.removeItem(key);
+			
+			var t = JSON.parse( JSON.stringify(str) );
+			
+			//delete t[key];
+			
+			console.log(t);
+			
+			//$('.result-set').html( localStorage );
+			
+		}
+	});
+	
+});
+</script>
+<style>
+	html {
+		font: 14px verdana;
+	}
+	.item {
+		border: 1px solid #333;
+		width: 200px;
+		float: left;
+	}
+	.item-set {
+		list-style:none;
+		margin: 0;
+		padding: 0;
+	}
+	.item-set h4{
+		float:left;
+		margin:0 10px 0 0;
+		padding: 0;
+	}
+	.item-set li{
+		clear:both;
+		padding: 5px;
+	}
+	.result-set {
+		clear: both;
+		height: 50px;
+		padding: 10px;
+		background: #eee;
+		border: 1px solid #333;
+	}
+</style>
+</head>
+<body>
+	<div id="page">
+		<div class="result-set"></div>
+		<div class="item">
+			<input type="checkbox" class="check" /><span>Compare</span>
+			<ul class="item-set" id="1bmw">
+				<li class="make"><h4>Make:</h4> <span>BMW</span></li>
+				<li class="model"><h4>Model:</h4> <span>323i</span></li>
+				<li class="trim"><h4>Trim:</h4> <span>M52</span></li>
+				<li class="year"><h4>Year:</h4> <span>2013</span></li>
+			</ul>
+		</div>
+		<div class="item">
+			<input type="checkbox" class="check" /><span>Compare</span>
+			<ul class="item-set" id="2Mercedes">
+				<li class="make"><h4>Make:</h4> <span>Mercedes</span></li>
+				<li class="model"><h4>Model:</h4> <span>C240</span></li>
+				<li class="trim"><h4>Trim:</h4> <span>el</span></li>
+				<li class="year"><h4>Year:</h4> <span>2013</span></li>
+			</ul>
+		</div>
+		<div class="item">
+			<input type="checkbox" class="check" /><span>Compare</span>
+			<ul class="item-set" id="3Audi">
+				<li class="make"><h4>Make:</h4> <span>Audi</span></li>
+				<li class="model"><h4>Model:</h4> <span>A4</span></li>
+				<li class="trim"><h4>Trim:</h4> <span>4L</span></li>
+				<li class="year"><h4>Year:</h4> <span>2013</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
