@@ -23,27 +23,32 @@ $(function() {
 						'model': $(item.find('.model span')).text(),
 						'trim': $(item.find('.trim span')).text(),
 						'year': $(item.find('.year span')).text()
-					};
+					},
+					
+					
+			itemSetStr =  JSON.stringify(itemSet);
+					
 			
-			localStorage.setItem( key, JSON.stringify(itemSet));
 			
-			str.push( key+':'+localStorage.getItem( key ) );
+			localStorage.setItem( key, itemSetStr );
 			
-			$('.result-set').html( str );
+			//str.push( key+':'+localStorage.getItem( key ) );
 			
-			//console.log( str );
+			$('.result-set').html( $('.result-set').html()+ itemSetStr );
+			
+			console.log(localStorage);
 			
 		}else{
 		
 			localStorage.removeItem(key);
 			
-			var t = JSON.parse( JSON.stringify(str) );
+			//var t = JSON.parse(localStorage);
 			
 			//delete t[key];
 			
-			console.log(t);
+			console.log(localStorage);
 			
-			//$('.result-set').html( localStorage );
+			$('.result-set').html( localStorage );
 			
 		}
 	});
