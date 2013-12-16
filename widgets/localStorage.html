@@ -6,10 +6,31 @@
 <title>Local Storage</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
+var carsJSON =  JSON.parse(localStorage.getItem('carList')), carList= null;
+	
+function checkLocalStorage(){
+	
+	var retData = {cars:{}};
 
-var str=[];
+	if( Object.keys(carsJSON.cars).length>0 ){
+	
+		for( key in carsJSON.cars ) {
+
+			$('#'+key+'_checkbox' ).prop('checked', true);
+			
+		}
+		
+		retJSON = carsJSON;
+	
+	}
+	
+	return retData;
+
+}
 
 $(function() {
+
+	carList = checkLocalStorage();
 
 	$('.check').on('click',function(e){
 	
@@ -18,39 +39,47 @@ $(function() {
 			
 		if( this.checked ){
 			
-			var itemSet = {
+			/*var itemSet = {
 						'make': $(item.find('.make span')).text(),
 						'model': $(item.find('.model span')).text(),
 						'trim': $(item.find('.trim span')).text(),
 						'year': $(item.find('.year span')).text()
-					},
+					};*/
 					
 					
-			itemSetStr =  JSON.stringify(itemSet);
-					
+			//itemSetStr =  JSON.stringify(itemSet);
+			
+			//localStorage.setItem( key, itemSetStr );
+			
+			carList.cars[key] = {
+				
+				make: $(item.find('.make span')).text(),
+				model: $(item.find('.model span')).text(),
+				trim: $(item.find('.trim span')).text(),
+				year: $(item.find('.year span')).text()
+			
+			};
+			
+			//$('.result-set').html( $('.result-set').html()+ itemSetStr );
 			
 			
-			localStorage.setItem( key, itemSetStr );
-			
-			//str.push( key+':'+localStorage.getItem( key ) );
-			
-			$('.result-set').html( $('.result-set').html()+ itemSetStr );
-			
-			console.log(localStorage);
 			
 		}else{
 		
-			localStorage.removeItem(key);
+			//localStorage.removeItem(key);
 			
 			//var t = JSON.parse(localStorage);
 			
-			//delete t[key];
+			delete carList.cars[key];
 			
-			console.log(localStorage);
-			
-			$('.result-set').html( localStorage );
+			//$('.result-set').html( localStorage );
 			
 		}
+		
+		localStorage.setItem( "carList", JSON.stringify(carList) );
+			
+		console.log(localStorage);
+			
 	});
 	
 });
@@ -91,7 +120,7 @@ $(function() {
 	<div id="page">
 		<div class="result-set"></div>
 		<div class="item">
-			<input type="checkbox" class="check" /><span>Compare</span>
+			<input type="checkbox" class="check" id="1bmw_checkbox" /><span>Compare</span>
 			<ul class="item-set" id="1bmw">
 				<li class="make"><h4>Make:</h4> <span>BMW</span></li>
 				<li class="model"><h4>Model:</h4> <span>323i</span></li>
@@ -100,7 +129,7 @@ $(function() {
 			</ul>
 		</div>
 		<div class="item">
-			<input type="checkbox" class="check" /><span>Compare</span>
+			<input type="checkbox" class="check" id="2Mercedes_checkbox"/><span>Compare</span>
 			<ul class="item-set" id="2Mercedes">
 				<li class="make"><h4>Make:</h4> <span>Mercedes</span></li>
 				<li class="model"><h4>Model:</h4> <span>C240</span></li>
@@ -109,7 +138,7 @@ $(function() {
 			</ul>
 		</div>
 		<div class="item">
-			<input type="checkbox" class="check" /><span>Compare</span>
+			<input type="checkbox" class="check" id="3Audi_checkbox"/><span>Compare</span>
 			<ul class="item-set" id="3Audi">
 				<li class="make"><h4>Make:</h4> <span>Audi</span></li>
 				<li class="model"><h4>Model:</h4> <span>A4</span></li>
