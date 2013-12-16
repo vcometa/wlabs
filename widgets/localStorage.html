@@ -10,20 +10,22 @@ var carsJSON =  JSON.parse(localStorage.getItem('carList')), carList= null;
 	
 function checkLocalStorage(){
 	
-	var retData = {cars:{}};
+	var retData = {cars:{}}, keys='', c = carsJSON.cars;
 
-	if( Object.keys(carsJSON.cars).length>0 ){
+	if( Object.keys(c).length>0 ){
 	
-		for( key in carsJSON.cars ) {
+		for( key in c ) {
 
 			$('#'+key+'_checkbox' ).prop('checked', true);
 			
+			keys += key;
 		}
 		
-		retJSON = carsJSON;
+		retData = carsJSON;
 	
 	}
 	
+	$('.result-set').html( JSON.stringify(carsJSON) );
 	return retData;
 
 }
@@ -39,18 +41,6 @@ $(function() {
 			
 		if( this.checked ){
 			
-			/*var itemSet = {
-						'make': $(item.find('.make span')).text(),
-						'model': $(item.find('.model span')).text(),
-						'trim': $(item.find('.trim span')).text(),
-						'year': $(item.find('.year span')).text()
-					};*/
-					
-					
-			//itemSetStr =  JSON.stringify(itemSet);
-			
-			//localStorage.setItem( key, itemSetStr );
-			
 			carList.cars[key] = {
 				
 				make: $(item.find('.make span')).text(),
@@ -58,27 +48,21 @@ $(function() {
 				trim: $(item.find('.trim span')).text(),
 				year: $(item.find('.year span')).text()
 			
-			};
-			
-			//$('.result-set').html( $('.result-set').html()+ itemSetStr );
-			
-			
+			};			
 			
 		}else{
 		
-			//localStorage.removeItem(key);
-			
-			//var t = JSON.parse(localStorage);
-			
 			delete carList.cars[key];
 			
-			//$('.result-set').html( localStorage );
+			$('.result-set').html(carList.cars);
 			
 		}
 		
-		localStorage.setItem( "carList", JSON.stringify(carList) );
-			
-		console.log(localStorage);
+		var c = JSON.stringify(carList);
+		
+		localStorage.setItem( "carList", c );
+		
+		$('.result-set').html( c );
 			
 	});
 	
