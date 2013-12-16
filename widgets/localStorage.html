@@ -5,66 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>Local Storage</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="compare.js"></script>
 <script>
-var carsJSON =  JSON.parse(localStorage.getItem('carList')), carList= null;
-	
-function checkLocalStorage(){
-	
-	var retData = {cars:{}}, keys='', c = carsJSON.cars;
-
-	if( Object.keys(c).length>0 ){
-	
-		for( key in c ) {
-
-			$('#'+key+'_checkbox' ).prop('checked', true);
-			
-			keys += key;
-		}
-		
-		retData = carsJSON;
-	
-	}
-	
-	$('.result-set').html( JSON.stringify(carsJSON) );
-	return retData;
-
-}
-
 $(function() {
 
-	carList = checkLocalStorage();
-
-	$('.check').on('click',function(e){
-	
-		var item = $( $(this).siblings('.item-set') ),
-			key = item.attr('id');
-			
-		if( this.checked ){
-			
-			carList.cars[key] = {
-				
-				make: $(item.find('.make span')).text(),
-				model: $(item.find('.model span')).text(),
-				trim: $(item.find('.trim span')).text(),
-				year: $(item.find('.year span')).text()
-			
-			};			
-			
-		}else{
-		
-			delete carList.cars[key];
-			
-			$('.result-set').html(carList.cars);
-			
-		}
-		
-		var c = JSON.stringify(carList);
-		
-		localStorage.setItem( "carList", c );
-		
-		$('.result-set').html( c );
-			
-	});
+	$(document).compare();
 	
 });
 </script>
@@ -76,6 +21,7 @@ $(function() {
 		border: 1px solid #333;
 		width: 200px;
 		float: left;
+		margin: 5px;
 	}
 	.item-set {
 		list-style:none;
@@ -103,27 +49,27 @@ $(function() {
 <body>
 	<div id="page">
 		<div class="result-set"></div>
-		<div class="item">
-			<input type="checkbox" class="check" id="1bmw_checkbox" /><span>Compare</span>
-			<ul class="item-set" id="1bmw">
+		<div class="item" id="01-bmw">
+			<input type="checkbox" class="check" /><span>Compare</span>
+			<ul class="item-set">
 				<li class="make"><h4>Make:</h4> <span>BMW</span></li>
 				<li class="model"><h4>Model:</h4> <span>323i</span></li>
 				<li class="trim"><h4>Trim:</h4> <span>M52</span></li>
 				<li class="year"><h4>Year:</h4> <span>2013</span></li>
 			</ul>
 		</div>
-		<div class="item">
-			<input type="checkbox" class="check" id="2Mercedes_checkbox"/><span>Compare</span>
-			<ul class="item-set" id="2Mercedes">
+		<div class="item" id="02-Mercedes">
+			<input type="checkbox" class="check" /><span>Compare</span>
+			<ul class="item-set">
 				<li class="make"><h4>Make:</h4> <span>Mercedes</span></li>
 				<li class="model"><h4>Model:</h4> <span>C240</span></li>
 				<li class="trim"><h4>Trim:</h4> <span>el</span></li>
 				<li class="year"><h4>Year:</h4> <span>2013</span></li>
 			</ul>
 		</div>
-		<div class="item">
-			<input type="checkbox" class="check" id="3Audi_checkbox"/><span>Compare</span>
-			<ul class="item-set" id="3Audi">
+		<div class="item" id="03-Audi">
+			<input type="checkbox" class="check"/><span>Compare</span>
+			<ul class="item-set">
 				<li class="make"><h4>Make:</h4> <span>Audi</span></li>
 				<li class="model"><h4>Model:</h4> <span>A4</span></li>
 				<li class="trim"><h4>Trim:</h4> <span>4L</span></li>
