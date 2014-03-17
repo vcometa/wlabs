@@ -1,7 +1,13 @@
+<!--/**
+
+author: Virgilio Cometa
+
+**/-->
+
 <!DOCTYPE html>
 <html lang="en" data-protoform="true">
 <head>
-<meta name="description" content="">
+<meta name="content" content="">
 <meta name="keywords" content="">
 <meta name="author" content="Virgilio Cometa">
 <meta charset="UTF-8">
@@ -9,6 +15,63 @@
 <!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<style>
+
+	.page {
+	
+		width: 100%;
+		
+		max-width: 1024px;
+		
+		margin: 0 auto;
+		
+		font: 14px arial;
+	
+	}
+	.left-panel{
+	
+		float: left;
+		
+		width: 68%;
+		
+		padding: 1%;
+	
+	}
+	.right-panel{
+	
+		float: right;
+		
+		width: 28%;
+		
+		padding: 1%;
+	
+	}
+	
+	figure {
+	
+		padding: 10px 0;
+		
+		margin: 0 0 15px;
+		
+		background: #000;
+		
+		overflow: hidden;
+	
+	}
+	
+	figure img {
+	
+		display: block;
+	
+		width: 100%;
+		
+		max-width: 680px;
+		
+		margin: 0 auto;
+	
+	}
+</style>
 </head>
  
 <body id="index" class="page">
@@ -17,77 +80,38 @@
 	
 	<div class="body">
 	
-		<article class="article" data-template="true">
-			<h1>
-				<span data-bind="title" />
-			</h1>
-			<div class="content" data-bind="description"></div>
-		</article>
+		<div class="left-panel">
+	
+			<article id="template1" class="article" data-template="true" data-src="">
+				<h1>
+					<span data-bind="title" />
+				</h1>
+				<figure data-bind="image"></figure>
+				<div class="content" data-bind="content"></div>
+			</article>
+			
+		</div>
+		<div class="right-panel">
 		
+			<article id="template2" class="article" data-template="true" data-src="">
+				<h1>
+					<span data-bind="title" />
+				</h1>
+				<div class="content" data-bind="content"></div>
+			</article>
+		
+		</div>
 	</div>
 	
 	<footer></footer>
 	
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="protoform.js"></script>
 	<script>
-	
-	(function ( $ ) {
-		$.protoform = function(data) {
-		
-			var proto = {};
-				proto.data = data;
-		
-			try{
-			
-				var init = function(){
-			
-					if( typeof $('html[data-protoform="true"]') != 'undefined' && $('html[data-protoform="true"]').length > 0){
-			
-						proto.template = $('[data-template="true"]');
-						
-						var node = $(proto.template),
-						
-							parent = $( node.parent() );
-										
-						for( key in proto.data.nodes ){
-							
-							var clone = $(node.clone()),
-						
-								elem = $( clone.find('[data-bind]') );
-							
-							for( var i=0, j = elem.length; i<j;i++ ){
-							
-								$( elem[i] ).html( proto.data.nodes[key][ $( elem[i] ).data('bind') ] ).removeAttr('data-bind');
-								
-								parent.append( clone.removeAttr('data-template') );
-							}
-						
-						}
-						
-						proto.template.remove();
-					
-					}					
-					
-				};
-				
-				
-				init();
-				
-			} catch( err ){
-			
-				console.log(err);
-			
-			}
-				
-			//return this;
-		
-		};
-	}( jQuery ));
-	
 	$(function() {	
 	
-		var data = {
+		var data1 = {
 			
 				nodes: {
 					
@@ -95,7 +119,9 @@
 					
 						title: "Lorem Ipsum",
 						
-						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
+						image: "<img src='images/img0001.jpg'/>",
+						
+						content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
 					
 					},
 					
@@ -103,23 +129,73 @@
 					
 						title: "Dolor Sit Amet",
 						
-						description: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
+						image: "<img src='images/img0002.jpg'/>",
+						
+						content: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
 					
 					},
 					
 					'000003':{
 					
-						title: "The quick brown fox",
+						title: "The quick brown",
 						
-						description: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
+						image: "<img src='images/img0003.jpg'/>",
+						
+						content: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
+					
+					},
+					
+					'000004':{
+					
+						title: "Jumped over the lazy dog",
+						
+						image: "<img src='images/img0004.jpg'/>",
+						
+						content: 'In volutpat dui sit amet neque tempor, ac aliquam ipsum fringilla. Sed porttitor quam sed massa ullamcorper, sit amet eleifend enim tristique. Phasellus vulputate gravida nisi, eu viverra odio lobortis id. '
 					
 					}
 				
 				}
 		
 			};
+			
+		var data2 = {
+			
+				nodes: {
+					
+					'000001':{
+					
+						title: "Right Rail Lorem Ipsum",
+						
+						content: 'Right Rail Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
+					
+					},
+					
+					'000002':{
+					
+						title: "Right Rail Dolor Sit Amet",
+						
+						content: 'Right Rail Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
+					
+					},
+					
+					'000003':{
+					
+						title: "Right Rail The quick brown",
+						
+						content: 'Right Rail Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
+					
+					}
+				
+				}
+		
+			};
+			
+		$('#template1').data('src', JSON.stringify(data1));
+		
+		$('#template2').data('src', JSON.stringify(data2));
 	
-		$.protoform(data);
+		$.protoform();
 	
 	});
 	</script>
