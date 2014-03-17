@@ -15,16 +15,15 @@
 
 	<header></header>
 	
-	<div class="main-body">
-		<article class="main-article">
-			<h1>Post</h1>
-			<div data-model="true">
-				<h3 data-template="true">
-					<span data-bind="id" />
-					<span data-bind="title" />				
-				</h3>
-			</div>
+	<div class="body">
+	
+		<article class="article" data-template="true">
+			<h1>
+				<span data-bind="title" />
+			</h1>
+			<div class="content" data-bind="description"></div>
 		</article>
+		
 	</div>
 	
 	<footer></footer>
@@ -45,17 +44,28 @@
 			
 					if( typeof $('html[data-protoform="true"]') != 'undefined' && $('html[data-protoform="true"]').length > 0){
 			
-						proto.model = $('div[data-model="true"]');
+						proto.template = $('[data-template="true"]');
 						
-						proto.elements = $(proto.model.find("[data-bind]"));
+						var node = $(proto.template),
 						
-						for(key in proto.data.nodes){
-						
-							var node = $(proto.elements.clone()).html( proto.data.nodes[key].title);
+							parent = $( node.parent() );
+										
+						for( key in proto.data.nodes ){
 							
-							proto.model.append( node );
-							  
+							var clone = $(node.clone()),
+						
+								elem = $( clone.find('[data-bind]') );
+							
+							for( var i=0, j = elem.length; i<j;i++ ){
+							
+								$( elem[i] ).html( proto.data.nodes[key][ $( elem[i] ).data('bind') ] ).removeAttr('data-bind');
+								
+								parent.append( clone.removeAttr('data-template') );
+							}
+						
 						}
+						
+						proto.template.remove();
 					
 					}					
 					
@@ -83,13 +93,25 @@
 					
 					'000001':{
 					
-						title: "Lorem Ipsum"
+						title: "Lorem Ipsum",
+						
+						description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
 					
 					},
 					
 					'000002':{
 					
-						title: "Dolor Sit Amet"
+						title: "Dolor Sit Amet",
+						
+						description: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
+					
+					},
+					
+					'000003':{
+					
+						title: "The quick brown fox",
+						
+						description: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
 					
 					}
 				
