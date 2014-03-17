@@ -33,7 +33,19 @@
 							
 							for( var i=0, j = elem.length; i<j;i++ ){
 							
-								$( elem[i] ).html( proto.data.nodes[key][ $( elem[i] ).data('bind') ] ).removeAttr('data-bind');
+								var e = $( elem[i] ), t=null;
+							
+								if( e.prop('tagName').toLowerCase() === 'figure' ){
+								
+									t = '<img id="img_'+key+'" src="'+proto.data.nodes[key][ e.data('bind') ]+'" />';
+								
+								} else {
+							
+									t = proto.data.nodes[key][ e.data('bind') ];
+								
+								}
+								
+								e.html( t ).removeAttr('data-bind');
 								
 								parent.append( clone.removeAttr('data-template') );
 							}
