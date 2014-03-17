@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-protoform="true">
+<head>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Virgilio Cometa">
+<meta charset="UTF-8">
+<title>Prototype</title> 
+<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+ 
+<body id="index" class="page">
+
+	<header></header>
+	
+	<div class="main-body">
+		<article class="main-article">
+			<h1>Post</h1>
+			<div data-model="true">
+				<h3 data-template="true">
+					<span data-bind="id" />
+					<span data-bind="title" />				
+				</h3>
+			</div>
+		</article>
+	</div>
+	
+	<footer></footer>
+	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script>
+	
+	(function ( $ ) {
+		$.protoform = function(data) {
+		
+			var proto = {};
+				proto.data = data;
+		
+			try{
+			
+				var init = function(){
+			
+					if( typeof $('html[data-protoform="true"]') != 'undefined' && $('html[data-protoform="true"]').length > 0){
+			
+						proto.model = $('div[data-model="true"]');
+						
+						proto.elements = $(proto.model.find("[data-bind]"));
+						
+						for(key in proto.data.nodes){
+						
+							var node = $(proto.elements.clone()).html( proto.data.nodes[key].title);
+							
+							proto.model.append( node );
+							  
+						}
+					
+					}					
+					
+				};
+				
+				
+				init();
+				
+			} catch( err ){
+			
+				console.log(err);
+			
+			}
+				
+			//return this;
+		
+		};
+	}( jQuery ));
+	
+	$(function() {	
+	
+		var data = {
+			
+				nodes: {
+					
+					'000001':{
+					
+						title: "Lorem Ipsum"
+					
+					},
+					
+					'000002':{
+					
+						title: "Dolor Sit Amet"
+					
+					}
+				
+				}
+		
+			};
+	
+		$.protoform(data);
+	
+	});
+	</script>
+</body>
+</html>
