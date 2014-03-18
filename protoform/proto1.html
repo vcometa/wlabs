@@ -71,6 +71,16 @@ author: Virgilio Cometa
 		margin: 0 auto;
 	
 	}
+	
+	.left-panel .article {
+	
+		width: 46%;
+		
+		float: left;
+		
+		margin: 0 2%;
+	
+	}
 </style>
 </head>
  
@@ -87,18 +97,19 @@ author: Virgilio Cometa
 					<span data-bind="title" />
 				</h1>
 				<figure data-bind="image"></figure>
+				<h5>By: <span data-bind="author" /></h5>
 				<div class="content" data-bind="content"></div>
 			</article>
 			
 		</div>
 		<div class="right-panel">
 		
-			<article id="template2" class="article" data-template="true" data-src="">
-				<h1>
+			<div id="template2" class="article" data-template="true" data-src="">
+				<h3>
 					<span data-bind="title" />
-				</h1>
+				</h3>
 				<div class="content" data-bind="content"></div>
-			</article>
+			</div>
 		
 		</div>
 	</div>
@@ -121,6 +132,8 @@ author: Virgilio Cometa
 						
 						image: "images/img0001.jpg",
 						
+						author: "John Doe",
+						
 						content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
 					
 					},
@@ -130,6 +143,8 @@ author: Virgilio Cometa
 						title: "Dolor Sit Amet",
 						
 						image: "images/img0002.jpg",
+						
+						author: "John Doe",
 						
 						content: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
 					
@@ -141,6 +156,8 @@ author: Virgilio Cometa
 						
 						image: "images/img0003.jpg",
 						
+						author: "John Doe",
+						
 						content: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
 					
 					},
@@ -150,6 +167,56 @@ author: Virgilio Cometa
 						title: "Jumped over the lazy dog",
 						
 						image: "images/img0004.jpg",
+						
+						author: "John Doe",
+						
+						content: 'In volutpat dui sit amet neque tempor, ac aliquam ipsum fringilla. Sed porttitor quam sed massa ullamcorper, sit amet eleifend enim tristique. Phasellus vulputate gravida nisi, eu viverra odio lobortis id. '
+					
+					},
+					
+					'000005':{
+					
+						title: "Lorem Ipsum",
+						
+						image: "images/img0001.jpg",
+						
+						author: "John Doe",
+						
+						content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
+					
+					},
+					
+					'000006':{
+					
+						title: "Dolor Sit Amet",
+						
+						image: "images/img0002.jpg",
+						
+						author: "John Doe",
+						
+						content: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
+					
+					},
+					
+					'000007':{
+					
+						title: "The quick brown",
+						
+						image: "images/img0003.jpg",
+						
+						author: "John Doe",
+						
+						content: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
+					
+					},
+					
+					'000008':{
+					
+						title: "Jumped over the lazy dog",
+						
+						image: "images/img0004.jpg",
+						
+						author: "John Doe",
 						
 						content: 'In volutpat dui sit amet neque tempor, ac aliquam ipsum fringilla. Sed porttitor quam sed massa ullamcorper, sit amet eleifend enim tristique. Phasellus vulputate gravida nisi, eu viverra odio lobortis id. '
 					
@@ -180,6 +247,30 @@ author: Virgilio Cometa
 					},
 					
 					'000003':{
+					
+						title: "Right Rail The quick brown",
+						
+						content: 'Right Rail Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
+					
+					},
+					
+					'000004':{
+					
+						title: "Right Rail Lorem Ipsum",
+						
+						content: 'Right Rail Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
+					
+					},
+					
+					'000005':{
+					
+						title: "Right Rail Dolor Sit Amet",
+						
+						content: 'Right Rail Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
+					
+					},
+					
+					'000006':{
 					
 						title: "Right Rail The quick brown",
 						

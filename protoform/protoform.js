@@ -24,7 +24,6 @@
 					
 						proto.data = JSON.parse(node.data('src'));
 						
-										
 						for( key in proto.data.nodes ){
 							
 							var clone = $(node.clone()).prop('id', 'T'+g+'_'+key),
