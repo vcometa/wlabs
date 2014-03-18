@@ -1,0 +1,57 @@
+<!--/**
+
+author: Virgilio Cometa
+
+**/-->
+
+<!DOCTYPE html>
+<html lang="en" data-protoform="true">
+<head>
+<meta name="content" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Virgilio Cometa">
+<meta charset="UTF-8">
+<title>Prototype</title> 
+<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="prototype.css" />
+</head>
+ 
+<body id="index" class="page">
+
+	<header></header>
+	
+	<div class="body">
+	
+		<div class="left-panel">
+	
+			<article id="template1" class="article" data-template="true" data-src="data/articles.json">
+				<h1>
+					<span data-bind="title" />
+				</h1>
+				<figure data-bind="image"></figure>
+				<h5>By: <span data-bind="author" /></h5>
+				<div class="content" data-bind="content"></div>
+			</article>
+			
+		</div>
+		<div class="right-panel"></div>
+		
+	</div>
+	
+	<footer></footer>
+	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="protoform.js"></script>
+	<script>
+	$(function() {	
+		
+		$.protoform();
+	
+	});
+	</script>
+</body>
+</html>
