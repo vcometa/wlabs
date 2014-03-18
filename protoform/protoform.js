@@ -25,6 +25,23 @@
 				
 				return json;
 			}
+			
+			var loadIncludes = function(){
+							
+				var d1 = new $.Deferred(),
+					d2 = new $.Deferred(),
+					d3 = new $.Deferred();
+
+				// Set up the chain of events...
+				$.when(d1, d2, d3).then(function() {
+					bindDataToTemplate();
+				});
+				
+				$('header').load('includes/navigation.html #navContent', function() { d1.resolve(); });
+				$('footer').load('includes/navigation.html #navContent', function() { d2.resolve(); });
+				$('.right-panel').load('includes/rightPanel.html #rightPanel', function() { d3.resolve(); });
+			
+			}
 		
 			var bindDataToTemplate = function(){
 		
@@ -83,7 +100,13 @@
 				
 			};
 			
-			bindDataToTemplate();
+			function init(){
+			
+				loadIncludes();
+			
+			}
+			
+			init();
 			
 		} catch( err ){
 		
