@@ -16,83 +16,24 @@ author: Virgilio Cometa
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<style>
-
-	.page {
-	
-		width: 100%;
-		
-		max-width: 1024px;
-		
-		margin: 0 auto;
-		
-		font: 14px arial;
-	
-	}
-	.left-panel{
-	
-		float: left;
-		
-		width: 68%;
-		
-		padding: 1%;
-	
-	}
-	.right-panel{
-	
-		float: right;
-		
-		width: 28%;
-		
-		padding: 1%;
-	
-	}
-	
-	figure {
-	
-		padding: 10px 0;
-		
-		margin: 0 0 15px;
-		
-		background: #000;
-		
-		overflow: hidden;
-	
-	}
-	
-	figure img {
-	
-		display: block;
-	
-		width: 100%;
-		
-		max-width: 680px;
-		
-		margin: 0 auto;
-	
-	}
-	
-	.left-panel .article {
-	
-		width: 46%;
-		
-		float: left;
-		
-		margin: 0 2%;
-	
-	}
-</style>
+<link rel="stylesheet" href="prototype.css" />
 </head>
  
 <body id="index" class="page">
 
-	<header></header>
+	<header>
+		<ul class="navigation">
+			<li class="nav-item" data-template="true" data-src="data/navigation.json">
+				<a href="" class="link" data-url="url" data-bind="title"></a>
+			</li>
+		</ul>
+	</header>
 	
 	<div class="body">
 	
 		<div class="left-panel">
 	
-			<article id="template1" class="article" data-template="true" data-src="">
+			<article id="template1" class="article" data-template="true" data-src="data/articles.json">
 				<h1>
 					<span data-bind="title" />
 				</h1>
@@ -104,7 +45,7 @@ author: Virgilio Cometa
 		</div>
 		<div class="right-panel">
 		
-			<div id="template2" class="article" data-template="true" data-src="">
+			<div id="template2" class="article" data-template="true" data-src="data/right-rail.json">
 				<h3>
 					<span data-bind="title" />
 				</h3>
@@ -114,178 +55,20 @@ author: Virgilio Cometa
 		</div>
 	</div>
 	
-	<footer></footer>
+	<footer>
+		<ul class="navigation">
+			<li class="nav-item" data-template="true" data-src="data/navigation.json">
+				<a href="" class="link" data-url="url" data-bind="title"></a>
+			</li>
+		</ul>
+	</footer>
 	
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="protoform.js"></script>
 	<script>
 	$(function() {	
-	
-		var data1 = {
-			
-				nodes: {
-					
-					'000001':{
-					
-						title: "Lorem Ipsum",
-						
-						image: "images/img0001.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
-					
-					},
-					
-					'000002':{
-					
-						title: "Dolor Sit Amet",
-						
-						image: "images/img0002.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
-					
-					},
-					
-					'000003':{
-					
-						title: "The quick brown",
-						
-						image: "images/img0003.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
-					
-					},
-					
-					'000004':{
-					
-						title: "Jumped over the lazy dog",
-						
-						image: "images/img0004.jpg",
-						
-						author: "John Doe",
-						
-						content: 'In volutpat dui sit amet neque tempor, ac aliquam ipsum fringilla. Sed porttitor quam sed massa ullamcorper, sit amet eleifend enim tristique. Phasellus vulputate gravida nisi, eu viverra odio lobortis id. '
-					
-					},
-					
-					'000005':{
-					
-						title: "Lorem Ipsum",
-						
-						image: "images/img0001.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
-					
-					},
-					
-					'000006':{
-					
-						title: "Dolor Sit Amet",
-						
-						image: "images/img0002.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
-					
-					},
-					
-					'000007':{
-					
-						title: "The quick brown",
-						
-						image: "images/img0003.jpg",
-						
-						author: "John Doe",
-						
-						content: 'Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
-					
-					},
-					
-					'000008':{
-					
-						title: "Jumped over the lazy dog",
-						
-						image: "images/img0004.jpg",
-						
-						author: "John Doe",
-						
-						content: 'In volutpat dui sit amet neque tempor, ac aliquam ipsum fringilla. Sed porttitor quam sed massa ullamcorper, sit amet eleifend enim tristique. Phasellus vulputate gravida nisi, eu viverra odio lobortis id. '
-					
-					}
-				
-				}
 		
-			};
-			
-		var data2 = {
-			
-				nodes: {
-					
-					'000001':{
-					
-						title: "Right Rail Lorem Ipsum",
-						
-						content: 'Right Rail Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
-					
-					},
-					
-					'000002':{
-					
-						title: "Right Rail Dolor Sit Amet",
-						
-						content: 'Right Rail Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
-					
-					},
-					
-					'000003':{
-					
-						title: "Right Rail The quick brown",
-						
-						content: 'Right Rail Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
-					
-					},
-					
-					'000004':{
-					
-						title: "Right Rail Lorem Ipsum",
-						
-						content: 'Right Rail Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu.'
-					
-					},
-					
-					'000005':{
-					
-						title: "Right Rail Dolor Sit Amet",
-						
-						content: 'Right Rail Aliquam rhoncus metus ac consequat venenatis. Pellentesque ut tortor vel orci mollis dapibus in eget felis. Vivamus vulputate aliquam molestie. Fusce a augue tempus, pretium neque ut, faucibus est.'
-					
-					},
-					
-					'000006':{
-					
-						title: "Right Rail The quick brown",
-						
-						content: 'Right Rail Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia.'
-					
-					}
-				
-				}
-		
-			};
-			
-		$('#template1').data('src', JSON.stringify(data1));
-		
-		$('#template2').data('src', JSON.stringify(data2));
-	
 		$.protoform();
 	
 	});

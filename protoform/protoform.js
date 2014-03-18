@@ -10,6 +10,22 @@
 	
 		try{
 		
+			var loadDataFromSource = function(src){
+			
+				var json = null;
+				$.ajax({
+					'async': false,
+					'global': false,
+					'url': src,
+					'dataType': "json",
+					'success': function (data) {
+						json = data;
+					}
+				});
+				
+				return json;
+			}
+		
 			var bindDataToTemplate = function(){
 		
 				if( typeof $('html[data-protoform="true"]') != 'undefined' && $('html[data-protoform="true"]').length > 0){
@@ -22,7 +38,7 @@
 						
 							parent = $( node.parent() );
 					
-						proto.data = JSON.parse(node.data('src'));
+						proto.data = loadDataFromSource(node.data('src'));
 						
 						for( key in proto.data.nodes ){
 							
@@ -37,16 +53,24 @@
 								if( e.prop('tagName').toLowerCase() === 'figure' ){
 								
 									t = '<img id="img_'+key+'" src="'+proto.data.nodes[key][ e.data('bind') ]+'" />';
+									
+									e.html( t );
 								
+								} else if( e.prop('tagName').toLowerCase() === 'a' ){
+																	
+									e.attr({'id':'link_'+key, 'href':proto.data.nodes[key][ e.data('url') ]}).html(proto.data.nodes[key][ e.data('bind') ]);
+
 								} else {
 							
 									t = proto.data.nodes[key][ e.data('bind') ];
+									
+									e.html( t );
 								
 								}
 								
-								e.html( t ).removeAttr('data-bind');
+								e.removeAttr('data-bind data-url');
 								
-								parent.append( clone.removeAttr('data-template') );
+								parent.append( clone.removeAttr('data-template data-src') );
 							}
 						
 						}
