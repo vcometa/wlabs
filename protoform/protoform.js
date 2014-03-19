@@ -74,7 +74,9 @@
 									e.html( t );
 								
 								} else if( e.prop('tagName').toLowerCase() === 'a' ){
-																	
+								
+								
+									if( e.data('bind') )
 									e.attr({'id':'link_'+key, 'href':proto.data.nodes[key][ e.data('url') ]}).html(proto.data.nodes[key][ e.data('bind') ]);
 
 								} else {

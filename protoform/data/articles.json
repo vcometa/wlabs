@@ -8,6 +8,8 @@
 
 "image": "../images/img0001_thmb.jpg",
 
+"url": "story.html",
+
 "author": "John Doe",
 
 "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu."
@@ -19,6 +21,8 @@
 "title": "Dolor Sit Amet",
 
 "image": "../images/img0002_thmb.jpg",
+
+"url": "story.html",
 
 "author": "John Doe",
 
@@ -32,6 +36,8 @@
 
 "image": "../images/img0003_thmb.jpg",
 
+"url": "story.html",
+
 "author": "John Doe",
 
 "content": "Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia."
@@ -43,6 +49,8 @@
 "title": "Jumped over the lazy dog",
 
 "image": "../images/img0004_thmb.jpg",
+
+"url": "story.html",
 
 "author": "John Doe",
 
@@ -56,6 +64,8 @@
 
 "image": "../images/img0001_thmb.jpg",
 
+"url": "story.html",
+
 "author": "John Doe",
 
 "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fermentum molestie magna, vitae blandit tortor aliquam eu. Quisque rhoncus lorem magna, eu luctus sapien suscipit eu."
@@ -67,6 +77,8 @@
 "title": "Dolor Sit Amet",
 
 "image": "../images/img0002_thmb.jpg",
+
+"url": "story.html",
 
 "author": "John Doe",
 
@@ -80,6 +92,8 @@
 
 "image": "../images/img0003_thmb.jpg",
 
+"url": "story.html",
+
 "author": "John Doe",
 
 "content": "Sed eros ipsum, cursus sollicitudin mollis eu, condimentum sit amet dolor. Phasellus vel augue pharetra, feugiat eros eget, auctor ipsum. Proin mollis velit at enim auctor lacinia."
@@ -91,6 +105,8 @@
 "title": "Jumped over the lazy dog",
 
 "image": "../images/img0004_thmb.jpg",
+
+"url": "story.html",
 
 "author": "John Doe",
 
