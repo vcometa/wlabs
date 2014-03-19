@@ -106,7 +106,7 @@
 				
 				}		
 
-				$('.main').removeClass('hidden');
+				$('.main').fadeIn('slow').removeClass('hidden');
 				
 			};
 			
