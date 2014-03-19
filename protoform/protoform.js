@@ -74,11 +74,17 @@
 									e.html( t );
 								
 								} else if( e.prop('tagName').toLowerCase() === 'a' ){
-								
-								
-									if( e.data('bind') )
-									e.attr({'id':'link_'+key, 'href':proto.data.nodes[key][ e.data('url') ]}).html(proto.data.nodes[key][ e.data('bind') ]);
-
+									
+									if( e.data('url') === undefined ){
+									
+										e.attr({'id':'link_'+key, 'href':proto.data.nodes[key][ e.data('bind') ]});
+									
+									}else{
+									
+										e.attr({'id':'link_'+key, 'href':proto.data.nodes[key][ e.data('url') ]}).html(proto.data.nodes[key][ e.data('bind') ]);
+										
+									}
+									
 								} else {
 							
 									t = proto.data.nodes[key][ e.data('bind') ];
