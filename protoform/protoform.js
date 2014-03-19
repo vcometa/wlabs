@@ -96,7 +96,9 @@
 					
 					}
 				
-				}					
+				}		
+
+				$('.main').removeClass('hidden');
 				
 			};
 			

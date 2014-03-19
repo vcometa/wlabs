@@ -11,6 +11,12 @@
 		font: 14px arial;
 	
 	}
+	
+	.hidden {
+	
+		display: none;
+	
+	}
 	.left-panel{
 	
 		float: left;
