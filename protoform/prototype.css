@@ -78,6 +78,8 @@
 	
 	}
 	
+	.left-panel article ,
+	
 	.left-panel .article {
 	
 		width: 46%;
@@ -87,6 +89,8 @@
 		margin: 0 2%;
 	
 	}
+	
+	.story .left-panel article,
 	
 	.story .left-panel .article {
 	

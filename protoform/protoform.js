@@ -126,3 +126,8 @@
 	
 	};
 }( jQuery ));
+$(function() {	
+		
+	$.protoform();
+
+});
