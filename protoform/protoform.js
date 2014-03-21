@@ -110,9 +110,27 @@
 				
 			};
 			
+			function loadTempate(){
+			
+				var bodyHTML = $('article'),
+					dbody = $(document.body),
+					template = dbody.data('template')+'.html #main';
+			
+				dbody.load(template, function() { 
+				
+					$('.content-panel').html(bodyHTML);
+				
+					loadIncludes();
+					
+					$(this).fadeIn('fast');
+
+				});
+			
+			}
+			
 			function init(){
 			
-				loadIncludes();
+				loadTempate();
 			
 			}
 			
