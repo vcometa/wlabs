@@ -33,6 +33,9 @@
 		display: none;
 	
 	}
+	
+	.content-panel,
+	
 	.left-panel{
 	
 		float: left;
@@ -78,6 +81,8 @@
 	
 	}
 	
+	.content-panel article ,
+	
 	.left-panel article ,
 	
 	.left-panel .article {
@@ -89,6 +94,8 @@
 		margin: 0 2%;
 	
 	}
+	
+	.story .content-panel article,
 	
 	.story .left-panel article,
 	
