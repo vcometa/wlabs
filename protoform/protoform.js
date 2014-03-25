@@ -26,20 +26,36 @@
 				return json;
 			}
 			
-			var loadIncludes = function(){
+			var loadIncludes = function(nodes){
+				var arr = [];
+				for( var i=0, j=nodes.length; i < j; i++){
+				
+					var d = new $.Deferred(),
+					
+						node = $(nodes[i]);
+						
+					arr.push(d);
+					
+					node.load(node.data('src')+' '+node.data('target'), function(){ d.resolve(); });
+					
+					$.when(arr).then(function() {
+						bindDataToTemplate();
+					});
+									
+				}
 							
-				var d1 = new $.Deferred(),
+				/*var d1 = new $.Deferred(),
 					d2 = new $.Deferred(),
-					d3 = new $.Deferred();
+					d3 = new $.Deferred();*/
 
 				// Set up the chain of events...
-				$.when(d1, d2, d3).then(function() {
+				/*$.when(d1, d2, d3).then(function() {
 					bindDataToTemplate();
-				});
+				});*/
 				
-				$('header').load('includes/navigation.html #navContent', function() { d1.resolve(); });
+				/*$('header').load('includes/navigation.html #navContent', function() { d1.resolve(); });
 				$('footer').load('includes/navigation.html #navContent', function() { d2.resolve(); });
-				$('.right-panel').load('includes/rightPanel.html #rightPanel', function() { d3.resolve(); });
+				$('.right-panel').load('includes/rightPanel.html #rightPanel', function() { d3.resolve(); });*/
 			
 			}
 		
@@ -120,7 +136,7 @@
 				
 					$('.content-panel').html(bodyHTML);
 				
-					loadIncludes();
+					loadIncludes($('[data-type="include"]'));
 					
 					$(this).fadeIn('fast');
 
