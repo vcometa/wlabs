@@ -44,7 +44,7 @@
 					
 				});
 				
-				/*var d = [];
+				var d = [];
 				
 					d.push(new $.Deferred());
 					d.push(new $.Deferred());
@@ -58,7 +58,7 @@
 				$('header').load('includes/navigation.html #navContent', function() { d[0].resolve(); });
 				$('footer').load('includes/navigation.html #navContent', function() { d[1].resolve(); });
 				$('.right-panel').load('includes/rightPanel.html #rightPanel', function() { d[2].resolve(); });
-				*/
+				
 			}
 		
 			var bindDataToTemplate = function(){
