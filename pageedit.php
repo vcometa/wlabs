@@ -41,7 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$createdErr = "created is required";
 		$created_pass = false;
 	}else{
-		$created = test_input($_POST["created"]);
+		$t1 =  strtotime($_POST["created"]);
+		$created = date('Y-m-d', $t1);
 		$created_pass = true;
 	}
 	
@@ -49,7 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$lastupdatedErr = "lastupdated is required";
 		$lastupdated_pass = false;
 	}else{
-		$lastupdated = test_input($_POST["lastupdated"]);
+		$t = strtotime($_POST["lastupdated"]);
+		$lastupdated = date('Y-m-d', $t);
 		$lastupdated_pass = true;
 	}
 	
