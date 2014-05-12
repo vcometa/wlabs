@@ -24,12 +24,12 @@ if ($db_found) {
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
 
-		print '<h1>'.$db_field['title'].'</h1>';
-		print '<h2>'.$db_field['description'].'</h2>';		
-		print '<span> By: '.$db_field['author'].'</span>';
+		print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
+		print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
+		print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
-		print '<article>'.$db_field['article'] . '</article>';
-		print '<div>'.$db_field['tags'] . '</div>';
+		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
+		print '<div>'.html_entity_decode($db_field['tags']). '</div>';
 
 	}
 	mysql_close($db_handle);

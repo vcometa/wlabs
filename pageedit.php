@@ -144,14 +144,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		
 		if($author_pass == true && $galleryid_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
 		
-			$currentDate = date('m/d/Y h:i:s a', time());
-			print $currentDate;
-			
-			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid','$currentDate','$currentDate','$title','$description','$article','$tags' )";	
+			$currentDate = date('Y-m-d H:i:s');
+
+			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
 			$result = mysql_query($SQL);
 			mysql_close($db_handle);
 			
-			print $result;
+			print "Success!";
 		}
 	}else{
 		print "Database NOT Found " . $db_handle;
@@ -254,8 +253,7 @@ var article = new TINY.editor.edit('editor', {
 $('.submit').on('click', function(){
 	description.post();
 	article.post();
-	//console.log(  instance.post()  );
-	setTimeout(function(){$( "#formPost" ).submit();},300);
+	setTimeout(function(){$( "#formPost" ).submit();}, 800);
 });
 </script>
 </body>
