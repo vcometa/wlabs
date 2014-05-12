@@ -19,8 +19,8 @@ $db_found = mysql_select_db($database);
 
 if ($db_found) {
 
-	$qID = htmlspecialchars($_GET["id"]);	
-	$SQL = "SELECT * FROM content WHERE id='$qID'";
+	$articlename = htmlspecialchars($_GET["articlename"]);	
+	$SQL = "SELECT * FROM content WHERE articlename='$articlename'";
 	$result = mysql_query($SQL);
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
