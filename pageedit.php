@@ -1,23 +1,93 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<link rel="stylesheet" href="tinyeditor/tinyeditor.css">
+<script src="tinyeditor/tiny.editor.packed.js"></script>
 <style>
 .error {color: #FF0000;}
+body{
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	font: 14px Arial;
+	color: #333;
+}
+.page{	
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+label {
+	display:block;
+	width: 100px;
+	clear: both;
+	float: left;
+	text-transform: capitalize;
+}
+.form-body{
+	margin: 60px auto 0;
+}
+.form-body > div {
+	margin: 10px 0;	
+	float: left;
+}
+.form-body .inline{
+	width: 49%;
+}
+.form-body .inline.left{
+	margin: 0 1% 0 0;
+}
+.form-body .inline.right{
+	margin: 0 0 0 1%;
+}
+.form-body .full{
+	width: 100%;
+}
+.form-body input{
+	width: 97%;
+	height: 20px;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+.form-body textarea {
+	width: 300px;
+	height: 100px;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+.form-body .full input{
+	width: 98.5%;
+	
+}
+.submit{	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	cursor: pointer;
+	background: #333;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border:1px solid #eee;	
+	margin: 0 auto 20px;
+}
 </style>
 </head>
 <body>
 
 <?php
 // define variables and set to empty values
-$authorErr = $galleryErr = $createdErr = $lastupdatedErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
-$author = $galleryid = $created = $lastupdated = $title = $description = $article = $tags = "";
+$authorErr = $galleryErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
+$author = $galleryid = $title = $description = $article = $tags = "";
 $user_name = "root";
 $password = "";
 $database = "test";
 $server = "127.0.0.1";
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database);
-$author_pass = $galleryid_pass = $created_pass = $lastupdated_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
+$author_pass = $galleryid_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -35,24 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	}else{
 		$galleryid = test_input($_POST["galleryid"]);
 		$galleryid_pass = true;
-	}
-	
-	if(empty($_POST["created"])){		
-		$createdErr = "created is required";
-		$created_pass = false;
-	}else{
-		$t1 =  strtotime($_POST["created"]);
-		$created = date('Y-m-d', $t1);
-		$created_pass = true;
-	}
-	
-	if(empty($_POST["lastupdated"])){		
-		$lastupdatedErr = "lastupdated is required";
-		$lastupdated_pass = false;
-	}else{
-		$t = strtotime($_POST["lastupdated"]);
-		$lastupdated = date('Y-m-d', $t);
-		$lastupdated_pass = true;
 	}
 	
 	if(empty($_POST["title"])){		
@@ -87,14 +139,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$tags_pass = true;
 	}
 
-
-
 	if($db_found){
 	
 		
-		if($author_pass == true && $galleryid_pass == true && $created_pass == true && $lastupdated_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass ){
-						
-			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid','$created','$lastupdated','$title','$description','$article','$tags' )";	
+		if($author_pass == true && $galleryid_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
+		
+			$currentDate = date('m/d/Y h:i:s a', time());
+			print $currentDate;
+			
+			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid','$currentDate','$currentDate','$title','$description','$article','$tags' )";	
 			$result = mysql_query($SQL);
 			mysql_close($db_handle);
 			
@@ -115,42 +168,95 @@ function test_input($data){
 }
 ?>
 
-<p>
-<span class="error">* required field.</span>
-</p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<div class="page">
 
-author: <input type="text" name="author">
-<span class="error">* <?php echo $authorErr;?></span>
+<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<button class="submit"> SAVE ARTICLE</button>
+	<div class="form-body">
+		<div class="inline left">
+			<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
+			<input type="text" name="author">			
+		</div>
+		<div class="inline right">
+			<label for="galleryid">gallery ID<span class="error">*</span>: </label> <span class="error"><?php echo $galleryErr;?></span>
+			<input type="text" name="galleryid">
+			
+		</div>		
+		<div class="full">
+			<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
+			<input type="text" name="title">			
+		</div>
+		<div class="full">
+			<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
+			<input type="text" name="tags">			
+		</div>
+		<div>
+			<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
+			<br>
+			<textarea name="description" id="edt-description"></textarea>			
+		</div>
+		<div>
+			<label for="article">article<span class="error">*</span>: </label> <span class="error"><?php echo $articleErr;?></span>
+			<br/>
+			<textarea name="article" id="edt-article"></textarea>			
+		</div>
+		
 
-<br><br>
-
-galleryID: <input type="text" name="galleryid">
-<span class="error">* <?php echo $galleryErr;?></span>
-
-created: <input type="text" name="created">
-<span class="error">* <?php echo $createdErr;?></span>
-
-lastUpdated: <input type="text" name="lastupdated">
-<span class="error">* <?php echo $lastupdatedErr;?></span>
-
-title: <input type="text" name="title">
-<span class="error">* <?php echo $titleErr;?></span>
-
-description: <input type="text" name="description">
-<span class="error">* <?php echo $descriptionErr;?></span>
-
-article: <textarea name="article"></textarea>
-<span class="error">* <?php echo $articleErr;?></span>
-
-tags: <input type="text" name="tags">
-<span class="error">* <?php echo $tagsErr;?></span>
-
-<input type="submit" name="submit" value="Submit">
+	</div>
+	
 </form>
-
-
-
-
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+var description = new TINY.editor.edit('editor', {
+	id: 'edt-description',
+	width: 1018,
+	height: 80,
+	cssclass: 'tinyeditor',
+	controlclass: 'tinyeditor-control',
+	rowclass: 'tinyeditor-header',
+	dividerclass: 'tinyeditor-divider',
+	controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
+		'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+		'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
+		'font', 'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
+	footer: true,
+	fonts: ['Verdana','Arial','Georgia','Trebuchet MS'],
+	xhtml: true,
+	cssfile: '',
+	bodyid: 'editor',
+	footerclass: 'tinyeditor-footer',
+	toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+	resize: {cssclass: 'resize'}
+});
+var article = new TINY.editor.edit('editor', {
+	id: 'edt-article',
+	width: 1018,
+	height: 480,
+	cssclass: 'tinyeditor',
+	controlclass: 'tinyeditor-control',
+	rowclass: 'tinyeditor-header',
+	dividerclass: 'tinyeditor-divider',
+	controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
+		'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+		'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
+		'font', 'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
+	footer: true,
+	fonts: ['Verdana','Arial','Georgia','Trebuchet MS'],
+	xhtml: true,
+	cssfile: '',
+	bodyid: 'editor',
+	footerclass: 'tinyeditor-footer',
+	toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+	resize: {cssclass: 'resize'}
+});
+$('.submit').on('click', function(){
+	description.post();
+	article.post();
+	//console.log(  instance.post()  );
+	setTimeout(function(){$( "#formPost" ).submit();},300);
+});
+</script>
 </body>
 </html>
