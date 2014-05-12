@@ -79,8 +79,8 @@ label {
 
 <?php
 // define variables and set to empty values
-$authorErr = $galleryErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
-$author = $galleryid = $title = $description = $article = $tags = "";
+$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
+$author = $title = $description = $article = $tags = "";
 $user_name = "root";
 $password = "";
 $database = "test";
@@ -97,14 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	}else{
 		$author = test_input($_POST["author"]);
 		$author_pass = true;
-	}
-	
-	if(empty($_POST["galleryid"])){		
-		$galleryErr = "galleryID is required";
-		$galleryid_pass = false;
-	}else{
-		$galleryid = test_input($_POST["galleryid"]);
-		$galleryid_pass = true;
 	}
 	
 	if(empty($_POST["title"])){		
@@ -142,11 +134,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($db_found){
 	
 		
-		if($author_pass == true && $galleryid_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
+		if($author_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
 		
-			$currentDate = date('Y-m-d H:i:s');
-
-			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
+			$SQL = "INSERT INTO content (author, created, lastupdated, title, description, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
 			$result = mysql_query($SQL);
 			mysql_close($db_handle);
 			
@@ -172,20 +162,16 @@ function test_input($data){
 <form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <button class="submit"> SAVE ARTICLE</button>
 	<div class="form-body">
-		<div class="inline left">
-			<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
-			<input type="text" name="author">			
-		</div>
-		<div class="inline right">
-			<label for="galleryid">gallery ID<span class="error">*</span>: </label> <span class="error"><?php echo $galleryErr;?></span>
-			<input type="text" name="galleryid">
-			
-		</div>		
 		<div class="full">
 			<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
 			<input type="text" name="title">			
 		</div>
-		<div class="full">
+		<div class="inline left">
+			<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
+			<input type="text" name="author">			
+		</div>
+		
+		<div class="inline right">
 			<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
 			<input type="text" name="tags">			
 		</div>
