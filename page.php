@@ -25,8 +25,9 @@ if ($db_found) {
 	while ( $db_field = mysql_fetch_assoc($result) ) {
 
 		print '<h1>'.$db_field['title'].'</h1>';
-		print '<h4>'.$db_field['description'].'</h4>';
-		print '<div>'.$db_field['lastupdated'].'</div>';
+		print '<h2>'.$db_field['description'].'</h2>';		
+		print '<span> By: '.$db_field['author'].'</span>';
+		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<article>'.$db_field['article'] . '</article>';
 		print '<div>'.$db_field['tags'] . '</div>';
 

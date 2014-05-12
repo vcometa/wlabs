@@ -10,23 +10,23 @@
 <?php
 // define variables and set to empty values
 $authorErr = $galleryErr = $createdErr = $lastupdatedErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
-$authorid = $galleryid = $created = $lastupdated = $title = $description = $article = $tags = "";
+$author = $galleryid = $created = $lastupdated = $title = $description = $article = $tags = "";
 $user_name = "root";
 $password = "";
 $database = "test";
 $server = "127.0.0.1";
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database);
-$authorid_pass = $galleryid_pass = $created_pass = $lastupdated_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
+$author_pass = $galleryid_pass = $created_pass = $lastupdated_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	if(empty($_POST["authorid"])){		
-		$authorErr = "authorID is required";
-		$authorid_pass = false;
+	if(empty($_POST["author"])){		
+		$authorErr = "author is required";
+		$author_pass = false;
 	}else{
-		$authorid = test_input($_POST["authorid"]);
-		$authorid_pass = true;
+		$author = test_input($_POST["author"]);
+		$author_pass = true;
 	}
 	
 	if(empty($_POST["galleryid"])){		
@@ -92,9 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($db_found){
 	
 		
-		if($authorid_pass == true && $galleryid_pass == true && $created_pass == true && $lastupdated_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass ){
+		if($author_pass == true && $galleryid_pass == true && $created_pass == true && $lastupdated_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass ){
 						
-			$SQL = "INSERT INTO content (authorid, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$authorid','$galleryid','$created','$lastupdated','$title','$description','$article','$tags' )";	
+			$SQL = "INSERT INTO content (author, galleryid, created, lastupdated, title, description, article, tags ) VALUES ('$author','$galleryid','$created','$lastupdated','$title','$description','$article','$tags' )";	
 			$result = mysql_query($SQL);
 			mysql_close($db_handle);
 			
@@ -120,7 +120,7 @@ function test_input($data){
 </p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-authorID: <input type="text" name="authorid">
+author: <input type="text" name="author">
 <span class="error">* <?php echo $authorErr;?></span>
 
 <br><br>
