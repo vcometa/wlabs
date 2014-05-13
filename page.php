@@ -6,11 +6,12 @@
 </style>
 </head>
 <body>
+<?PHP include ("includes/header.php"); ?>
 <?PHP
 
 $user_name = "root";
 $password = "";
-$database = "test";
+$database = "simplecms";
 $server = "127.0.0.1";
 
 $db_handle = mysql_connect($server, $user_name, $password);
@@ -44,6 +45,6 @@ else {
 }
 
 ?>
-
+<?PHP include ("includes/footer.php"); ?>
 </body>
 </html>
