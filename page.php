@@ -1,12 +1,11 @@
  <!DOCTYPE HTML>
 <html>
 <head>
-<style>
-.error {color: #FF0000;}
-</style>
+<?PHP include ("includes/css.php"); ?>
 </head>
 <body>
 <?PHP include ("includes/header.php"); ?>
+<div class="content">
 <?PHP
 
 $user_name = "root";
@@ -45,6 +44,7 @@ else {
 }
 
 ?>
+</div>
 <?PHP include ("includes/footer.php"); ?>
 </body>
 </html>

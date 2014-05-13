@@ -13,7 +13,7 @@ body{
 	color: #333;
 }
 .page{	
-	width: 1024px;
+	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -25,7 +25,7 @@ label {
 	text-transform: capitalize;
 }
 .form-body{
-	margin: 60px auto 0;
+	margin: 20px auto 0;
 }
 .form-body > div {
 	margin: 10px 0;	
@@ -60,9 +60,9 @@ label {
 	
 }
 .submit{	
-	position: fixed;
+	/*position: fixed;
 	top: 0;
-	left: 0;
+	left: 0;*/
 	width: 100%;
 	height: 40px;
 	cursor: pointer;
@@ -73,6 +73,26 @@ label {
 	border:1px solid #eee;	
 	margin: 0 auto 20px;
 }
+
+.leftpanel{
+	width:56%;	
+	padding:2%;
+	float:left;
+}
+.rightpanel{
+	width:36%;
+	padding:2%;
+	background: #eee;
+	float:right;
+}
+.rightpanel ul {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+.rightpanel ul li{
+	margin: 10px;
+}
 </style>
 </head>
 <body>
@@ -80,7 +100,7 @@ label {
 <?php
 // define variables and set to empty values
 $authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
-$author = $title = $description = $article = $tags = "";
+$author = $title = $description = $article = $tags = $id = "";
 $user_name = "root";
 $password = "";
 $database = "simplecms";
@@ -88,6 +108,24 @@ $server = "127.0.0.1";
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database);
 $author_pass = $galleryid_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
+
+if ($_GET){
+	$id = htmlspecialchars($_GET["id"]);	
+	$SQL = "SELECT * FROM content WHERE id='$id'";
+	$result = mysql_query($SQL);
+	
+	while ( $db_field = mysql_fetch_assoc($result) ) {
+	
+		$author = html_entity_decode($db_field['author']);
+		$title = html_entity_decode($db_field['title']);
+		$description = html_entity_decode($db_field['description']);
+		$article = html_entity_decode($db_field['article']);
+		$tags = html_entity_decode($db_field['tags']);
+	}
+	
+}
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -133,19 +171,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	if($db_found){
 	
+		//mysql_query("UPDATE blogEntry SET content = '$udcontent', title = '$udtitle' WHERE id = $id");
+		
+		
 		
 		if($author_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
 		
-			$SQL = "INSERT INTO content (author, created, lastupdated, title, description, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
-			$result = mysql_query($SQL);
-			mysql_close($db_handle);
+			if ($_POST["id"] != ""){
 			
+				$id = test_input($_POST["id"]);							
+				$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', description='$description', article='$article', tags='$tags' WHERE id = '$id'";	
+				$result = mysql_query($SQL);
+				
+				
+			} else {
+				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
+				$result = mysql_query($SQL);
+				mysql_close($db_handle);
+			}
+			
+			print $result;
 			print "Success!";
 		}
 	}else{
 		print "Database NOT Found " . $db_handle;
 		mysql_close($db_handle);
-	}
+	}	
 
 }
 
@@ -153,50 +204,71 @@ function test_input($data){
 	$data = trim($data);
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data);
+	$data = mysql_real_escape_string($data);
 	return $data;
 }
 ?>
 
 <div class="page">
+	<div class="leftpanel">
+		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<button class="submit"> SAVE ARTICLE</button>
-	<div class="form-body">
-		<div class="full">
-			<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
-			<input type="text" name="title">			
-		</div>
-		<div class="inline left">
-			<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
-			<input type="text" name="author">			
-		</div>
-		
-		<div class="inline right">
-			<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
-			<input type="text" name="tags">			
-		</div>
-		<div>
-			<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
-			<br>
-			<textarea name="description" id="edt-description"></textarea>			
-		</div>
-		<div>
-			<label for="article">article<span class="error">*</span>: </label> <span class="error"><?php echo $articleErr;?></span>
-			<br/>
-			<textarea name="article" id="edt-article"></textarea>			
-		</div>
-		
+		<button class="submit"> SAVE ARTICLE</button>
+			<div class="form-body">
+				<input type="text" name="id" value="<?php echo htmlentities($id); ?>">
+				<div class="full">
+					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
+					<input type="text" name="title" value="<?php echo htmlentities($title); ?>">			
+				</div>
+				<div class="inline left">
+					<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
+					<input type="text" name="author" value="<?php echo htmlentities($author); ?>">			
+				</div>
+				
+				<div class="inline right">
+					<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
+					<input type="text" name="tags" value="<?php echo htmlentities($tags); ?>">			
+				</div>
+				<div>
+					<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
+					<br>
+					<textarea name="description" id="edt-description"><?php echo htmlentities($description); ?></textarea>			
+				</div>
+				<div>
+					<label for="article">article<span class="error">*</span>: </label> <span class="error"><?php echo $articleErr;?></span>
+					<br/>
+					<textarea name="article" id="edt-article"><?php echo htmlentities($article); ?></textarea>			
+				</div>
+				
 
+			</div>
+			
+		</form>
 	</div>
-	
-</form>
+	<div class="rightpanel">
+	<?php
+		if ($db_found) {
+
+			$SQL = "SELECT * FROM content";
+			$result = mysql_query($SQL);
+			print "<ul>";
+			while ( $db_field = mysql_fetch_assoc($result) ) {
+
+				print '<li><span>'.  date('Y - m - d', strtotime($db_field['lastupdated']) ) .'</span> | <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
+			}
+			print "</ul>";
+			mysql_close($db_handle);
+
+		}
+	?>
+	</div>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
 var description = new TINY.editor.edit('editor', {
 	id: 'edt-description',
-	width: 1018,
+	width: 926,
 	height: 80,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
@@ -217,7 +289,7 @@ var description = new TINY.editor.edit('editor', {
 });
 var article = new TINY.editor.edit('editor', {
 	id: 'edt-article',
-	width: 1018,
+	width: 926,
 	height: 480,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',

@@ -1,44 +1,7 @@
  <!DOCTYPE HTML>
 <html>
 <head>
-<style>
-.error {color: #FF0000;}
-body{
-	font: 14px arial;
-	color: #333;
-	margin:0;
-	padding: 0;
-}
-.content {
-	margin: 0 auto;
-	width: 100%;
-	max-width: 1200px;
-	height: 100%;
-	overflow: hidden;	
-}
-header {
-	width: 100%;
-	height: 30px;
-	margin: 0 auto 20px;
-	border-bottom: 1px solid #eee;
-	background: #000;
-	color: #fff;
-}
-nav ul {
-	margin: 0 auto;
-	padding: 0;
-}
-nav ul li{
-	list-style:none;
-	float: left;
-	padding: 5px 10px;
-}
-footer {
-	width:100%;
-	height: 30px;
-	background: #eee;
-}
-</style>
+<?PHP include ("includes/css.php"); ?>
 </head>
 <body>
 <?PHP include ("includes/header.php"); ?>
@@ -61,7 +24,7 @@ if ($db_found) {
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
 
-		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
+		print '<h2><a href="http://localhost/php/wlabs/page.php?articlename='.html_entity_decode($db_field['articlename']).'">'.html_entity_decode($db_field['title']).'</a></h2>';		
 		print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
 		print '<p>'.html_entity_decode($db_field['description']).'</p>';		
