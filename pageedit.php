@@ -35,10 +35,10 @@ label {
 	width: 49%;
 }
 .form-body .inline.left{
-	margin: 0 1% 0 0;
+	margin: 0 1% 20px 0;
 }
 .form-body .inline.right{
-	margin: 0 0 0 1%;
+	margin: 0 0 20px 1%;
 }
 .form-body .full{
 	width: 100%;
@@ -54,6 +54,13 @@ label {
 	height: 100px;
 	border: 1px solid #ccc;
 	padding: 5px;
+}
+.form-body .inline.right > select {
+	width: 100%;
+	height: 35px;
+	border: 1px solid #ccc;
+	padding: 5px;
+
 }
 .form-body .full input{
 	width: 98.5%;
@@ -123,15 +130,15 @@ label {
 
 <?php
 // define variables and set to empty values
-$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = "";
-$author = $title = $description = $article = $tags = $id = "";
+$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
+$author = $title = $description = $article = $tags = $id = $thumbnail = $category = "";
 $user_name = "root";
 $password = "";
 $database = "simplecms";
 $server = "127.0.0.1";
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database);
-$author_pass = $galleryid_pass = $title_pass = $description_pass = $article_pass = $tags_pass = false;
+$authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = false;
 
 if ($_GET){
 	$id = htmlspecialchars($_GET["id"]);	
@@ -143,8 +150,10 @@ if ($_GET){
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
 		$description = html_entity_decode($db_field['description']);
+		$thumbnail = html_entity_decode($db_field['thumbnail']);
 		$article = html_entity_decode($db_field['article']);
 		$tags = html_entity_decode($db_field['tags']);
+		$category = html_entity_decode($db_field['category']);
 	}
 	
 }
@@ -155,42 +164,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	if(empty($_POST["author"])){		
 		$authorErr = "author is required";
-		$author_pass = false;
+		$authorPass = false;
 	}else{
 		$author = test_input($_POST["author"]);
-		$author_pass = true;
+		$authorPass = true;
 	}
 	
 	if(empty($_POST["title"])){		
 		$titleErr = "title is required";
-		$title_pass = false;
+		$titlePass = false;
 	}else{
 		$title = test_input($_POST["title"]);
-		$title_pass = true;
+		$titlePass = true;
 	}
 	
 	if(empty($_POST["description"])){		
 		$descriptionErr = "description is required";
-		$description_pass = false;
+		$descriptionPass = false;
 	}else{
 		$description = test_input($_POST["description"]);
-		$description_pass = true;
+		$descriptionPass = true;
 	}
+	
+	if(empty($_POST["category"])){		
+		$categoryErr = "category is required";
+		$categoryPass = false;
+	}else{
+		$category = test_input($_POST["category"]);
+		$categoryPass = true;
+	}
+	
+	$thumbnail = test_input($_POST["thumbnail"]);
 	
 	if(empty($_POST["article"])){		
 		$articleErr = "article is required";
-		$article_pass = false;
+		$articlePass = false;
 	}else{
 		$article = test_input($_POST["article"]);
-		$article_pass = true;
+		$articlePass = true;
 	}
 	
 	if(empty($_POST["tags"])){		
 		$tagsErr = "tags is required";
-		$tags_pass = false;
+		$tagsPass = false;
 	}else{
 		$tags = test_input($_POST["tags"]);
-		$tags_pass = true;
+		$tagsPass = true;
 	}
 
 	if($db_found){
@@ -199,22 +218,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		
 		
 		
-		if($author_pass == true && $title_pass == true && $description_pass == true && $article_pass == true && $tags_pass == true){
+		if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
 		
 			if ($_POST["id"] != ""){
 			
 				$id = test_input($_POST["id"]);							
-				$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', description='$description', article='$article', tags='$tags' WHERE id = '$id'";	
+				$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags' WHERE id = '$id'";	
 				$result = mysql_query($SQL);
 				
 			} else {
-				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
+				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$thumbnail', '$category', '$article','$tags' )";	
 				$result = mysql_query($SQL);
 				mysql_close($db_handle);
 			}
 			
 			if( $result == 1){
-				print '<div class="alert">Success!</div>';
+				print '<div class="alert">Success! The article has been saved.</div>';
 			}else{
 				print '<div class="alert">Sorry something went wrong!</div>';
 			}
@@ -240,7 +259,7 @@ function test_input($data){
 	<?php
 		if ($db_found) {
 
-			$SQL = "SELECT * FROM content";
+			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
 			$result = mysql_query($SQL);
 			print "<ul>";
 			while ( $db_field = mysql_fetch_assoc($result) ) {
@@ -272,6 +291,22 @@ function test_input($data){
 					<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
 					<input type="text" name="tags" value="<?php echo htmlentities($tags); ?>">			
 				</div>
+				
+				<div class="inline left">
+					<label for="thumbnail">thumbnail:</label>
+					<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
+				</div>
+				
+				<div class="inline right">
+					<label for="category">category:</label>
+					<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
+					<select name="categorydrop" id="categorydrop">
+						<option>select a category</option>
+						<option value="news">news</option>
+						<option value="reviews">reviews</option>
+					</select>
+				</div>
+				
 				<div>
 					<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
 					<br>
@@ -335,11 +370,37 @@ var article = new TINY.editor.edit('article', {
 	toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
 	resize: {cssclass: 'resize'}
 });
-$('.submit').on('click', function(){
+
+
+$(function() {
+
+
+	$('.submit').on('click', function(){
 	description.post();
 	article.post();
 	setTimeout(function(){$( "#formPost" ).submit();}, 800);
 });
+
+if( $('#category').val().length > 0 ){
+
+	//$("#categorydrop option[value="+$('#category').val()+"]").index();
+	
+	$("#categorydrop").val( $('#category').val() );
+	
+
+}
+
+
+$('#categorydrop').on('change', function(e){
+
+	var val = $("#categorydrop option:selected").index() > 0?$(this).val():'';
+
+	$('#category').val( val );
+
+});
+
+});
+
 </script>
 </body>
 </html>

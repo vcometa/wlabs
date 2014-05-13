@@ -19,7 +19,7 @@ $db_found = mysql_select_db($database);
 
 if ($db_found) {
 
-	$SQL = "SELECT * FROM content";
+	$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
 	$result = mysql_query($SQL);
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
