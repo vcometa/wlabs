@@ -13,7 +13,7 @@ body{
 	color: #333;
 }
 .page{	
-	width: 100%;
+	width: 1200px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -71,27 +71,51 @@ label {
 	font-weight: bold;
 	text-transform: uppercase;
 	border:1px solid #eee;	
-	margin: 0 auto 20px;
+	margin: 0 auto;
 }
 
 .leftpanel{
-	width:56%;	
-	padding:2%;
+	width:22%;
+	height: 900px;
+	padding:0 1%;
 	float:left;
+	background: #eee;
+	overflow: hidden;
 }
 .rightpanel{
-	width:36%;
-	padding:2%;
-	background: #eee;
+	width:75%;
+	padding:0 0 0 1%;	
 	float:right;
 }
-.rightpanel ul {
+.leftpanel ul {
 	list-style:none;
 	margin: 0;
 	padding: 0;
 }
-.rightpanel ul li{
+.leftpanel ul li{
 	margin: 10px;
+}
+.leftpanel span {
+    display: block;
+    float: left;
+	margin: 0 10px 0 0;
+}
+.leftpanel a {
+	text-decoration: none;
+	color: #3e8bd7;
+}
+.leftpanel a:hover {
+	text-decoration: underline;
+	color: #333;
+}
+.alert{
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	background: #eee;
+	border: 1px solid #333;
+	width: 200px;
+	height: 100px;
 }
 </style>
 </head>
@@ -183,15 +207,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', description='$description', article='$article', tags='$tags' WHERE id = '$id'";	
 				$result = mysql_query($SQL);
 				
-				
 			} else {
 				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$article','$tags' )";	
 				$result = mysql_query($SQL);
 				mysql_close($db_handle);
 			}
 			
-			print $result;
-			print "Success!";
+			if( $result == 1){
+				print '<div class="alert">Success!</div>';
+			}else{
+				print '<div class="alert">Sorry something went wrong!</div>';
+			}
 		}
 	}else{
 		print "Database NOT Found " . $db_handle;
@@ -211,11 +237,28 @@ function test_input($data){
 
 <div class="page">
 	<div class="leftpanel">
+	<?php
+		if ($db_found) {
+
+			$SQL = "SELECT * FROM content";
+			$result = mysql_query($SQL);
+			print "<ul>";
+			while ( $db_field = mysql_fetch_assoc($result) ) {
+
+				print '<li><span>('.  date('d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
+			}
+			print "</ul>";
+			mysql_close($db_handle);
+
+		}
+	?>
+	</div>
+	<div class="rightpanel">
 		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 		<button class="submit"> SAVE ARTICLE</button>
 			<div class="form-body">
-				<input type="text" name="id" value="<?php echo htmlentities($id); ?>">
+				<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
 				<div class="full">
 					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
 					<input type="text" name="title" value="<?php echo htmlentities($title); ?>">			
@@ -245,30 +288,14 @@ function test_input($data){
 			
 		</form>
 	</div>
-	<div class="rightpanel">
-	<?php
-		if ($db_found) {
-
-			$SQL = "SELECT * FROM content";
-			$result = mysql_query($SQL);
-			print "<ul>";
-			while ( $db_field = mysql_fetch_assoc($result) ) {
-
-				print '<li><span>'.  date('Y - m - d', strtotime($db_field['lastupdated']) ) .'</span> | <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
-			}
-			print "</ul>";
-			mysql_close($db_handle);
-
-		}
-	?>
-	</div>
+	
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
-var description = new TINY.editor.edit('editor', {
+var description = new TINY.editor.edit('description', {
 	id: 'edt-description',
-	width: 926,
+	width: 894,
 	height: 80,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
@@ -287,10 +314,10 @@ var description = new TINY.editor.edit('editor', {
 	toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
 	resize: {cssclass: 'resize'}
 });
-var article = new TINY.editor.edit('editor', {
+var article = new TINY.editor.edit('article', {
 	id: 'edt-article',
-	width: 926,
-	height: 480,
+	width: 894,
+	height: 360,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
 	rowclass: 'tinyeditor-header',
