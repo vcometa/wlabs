@@ -161,7 +161,7 @@ label {
 <?php
 // define variables and set to empty values
 $authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
-$author = $title = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
+$author = $title = $articlename = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
 $user_name = "root";
 $delete = false;
 $password = "";
@@ -180,6 +180,7 @@ if ($_GET){
 	
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
+		$articlename = html_entity_decode($db_field['articlename']);
 		$description = html_entity_decode($db_field['description']);
 		$thumbnail = html_entity_decode($db_field['thumbnail']);
 		$article = html_entity_decode($db_field['article']);
@@ -296,9 +297,9 @@ function test_input($data){
 		if ($db_found) {
 
 			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
-			$result = mysql_query($SQL);
+			$fetchresult = mysql_query($SQL);
 			print "<ul>";
-			while ( $db_field = mysql_fetch_assoc($result) ) {
+			while ( $db_field = mysql_fetch_assoc($fetchresult) ) {
 
 				print '<li><span>('.  date('d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
 			}
@@ -320,7 +321,8 @@ function test_input($data){
 				<input type="hidden" id="delete" name="delete" value="">
 				<div class="full">
 					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
-					<input type="text" name="title" value="<?php echo htmlentities($title); ?>">			
+					<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
+					<input type="text" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
 				</div>
 				<div class="inline left">
 					<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
@@ -443,6 +445,12 @@ $(function() {
 		$("#categorydrop").val( $('#category').val() );
 
 	}
+	
+	$('#title').change(function(){
+		var str = $(this).val().toLowerCase();
+			str = str.replace(/[^a-z0-9\s]/gi, '').replace(/[-\s]/g, '_').replace(/ /g, '_');
+		$('#articlename').val(str);
+	});
 
 
 	$('#categorydrop').on('change', function(e){
