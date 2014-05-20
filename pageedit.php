@@ -66,18 +66,33 @@ label {
 	width: 98.5%;
 	
 }
+.toolbar{
+	width: 100%;
+	height: 40px;
+	background: #333;
+}
+.delete{
+	width: 19%;
+	height: 40px;
+	cursor: pointer;
+	background: red;
+	color: #fff;
+	border:1px solid #eee;
+	border-width: 0 1px 0 0;
+	font-weight: bold;
+}
 .submit{	
 	/*position: fixed;
 	top: 0;
 	left: 0;*/
-	width: 100%;
+	width: 80%;
 	height: 40px;
 	cursor: pointer;
 	background: #333;
 	color: #fff;
 	font-weight: bold;
 	text-transform: uppercase;
-	border:1px solid #eee;	
+	border:0;
 	margin: 0 auto;
 }
 
@@ -116,13 +131,28 @@ label {
 	color: #333;
 }
 .alert{
-	position: absolute;
-	top: 20%;
-	left: 20%;
+	position: fixed;
+	top: 30%;
+	left: 50%;
 	background: #eee;
 	border: 1px solid #333;
 	width: 200px;
 	height: 100px;
+	padding: 20px 40px;
+	text-align: center;
+}
+
+.alert .close {
+	background: #333;
+	border: 0 none;
+    clear: both;
+    color: #fff;
+	cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 20px auto 0;
+    padding: 5px 10px;
+    text-align: center;
 }
 </style>
 </head>
@@ -131,8 +161,9 @@ label {
 <?php
 // define variables and set to empty values
 $authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
-$author = $title = $description = $article = $tags = $id = $thumbnail = $category = "";
+$author = $title = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
 $user_name = "root";
+$delete = false;
 $password = "";
 $database = "simplecms";
 $server = "127.0.0.1";
@@ -157,8 +188,6 @@ if ($_GET){
 	}
 	
 }
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -213,17 +242,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 
 	if($db_found){
-	
-		//mysql_query("UPDATE blogEntry SET content = '$udcontent', title = '$udtitle' WHERE id = $id");
-		
-		
-		
+			
 		if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
 		
 			if ($_POST["id"] != ""){
 			
-				$id = test_input($_POST["id"]);							
-				$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags' WHERE id = '$id'";	
+				$id = test_input($_POST["id"]);	
+				
+				if(empty($_POST["delete"])){
+					$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags' WHERE id = '$id'";
+				} else {
+					$SQL = "DELETE FROM content WHERE id='$id'";
+				}			
 				$result = mysql_query($SQL);
 				
 			} else {
@@ -233,10 +263,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			}
 			
 			if( $result == 1){
-				print '<div class="alert">Success! The article has been saved.</div>';
+				if(empty($_POST["delete"])){
+					$alertmsg = 'The article has been succesfully saved!';
+				}else{
+					$alertmsg = 'The article has been deleted.';
+				}
 			}else{
-				print '<div class="alert">Sorry something went wrong!</div>';
+				$alertmsg = 'An error has occurred upon submission!';
 			}
+			
+			print '<div class="alert">'.$alertmsg.' <button class="close">close</button></div>';
 		}
 	}else{
 		print "Database NOT Found " . $db_handle;
@@ -275,9 +311,13 @@ function test_input($data){
 	<div class="rightpanel">
 		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-		<button class="submit"> SAVE ARTICLE</button>
+		<div class="toolbar">
+			<button class="delete"> DELETE</button>
+			<button class="submit"> SAVE ARTICLE</button>			
+		</div>
 			<div class="form-body">
 				<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
+				<input type="hidden" id="delete" name="delete" value="">
 				<div class="full">
 					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
 					<input type="text" name="title" value="<?php echo htmlentities($title); ?>">			
@@ -374,30 +414,44 @@ var article = new TINY.editor.edit('article', {
 
 $(function() {
 
+	$('.delete').on('click', function(){
+		$('#delete').val('true');
+		
+		var clearInputs = function(data){
+		$("#formPost input").each(function(){
+			$(this).val('');
+		});};
+		setTimeout(function(){$( "#formPost" ).submit();clearInputs();}, 800);
+	});
+	
+	$('.alert .close').on('click', function(){
+	
+		$($(this).parent()).hide();
+	});
+
 
 	$('.submit').on('click', function(){
-	description.post();
-	article.post();
-	setTimeout(function(){$( "#formPost" ).submit();}, 800);
-});
+		description.post();
+		article.post();
+		setTimeout(function(){$( "#formPost" ).submit();}, 800);
+	});
 
-if( $('#category').val().length > 0 ){
+	if( $('#category').val().length > 0 ){
 
-	//$("#categorydrop option[value="+$('#category').val()+"]").index();
-	
-	$("#categorydrop").val( $('#category').val() );
-	
+		//$("#categorydrop option[value="+$('#category').val()+"]").index();
+		
+		$("#categorydrop").val( $('#category').val() );
 
-}
+	}
 
 
-$('#categorydrop').on('change', function(e){
+	$('#categorydrop').on('change', function(e){
 
-	var val = $("#categorydrop option:selected").index() > 0?$(this).val():'';
+		var val = $("#categorydrop option:selected").index() > 0?$(this).val():'';
 
-	$('#category').val( val );
+		$('#category').val( val );
 
-});
+	});
 
 });
 
