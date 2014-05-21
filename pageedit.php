@@ -336,7 +336,7 @@ function test_input($data){
 				<div class="full">
 					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
 					<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
-					<input type="text" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
+					<input type="hidden" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
 				</div>
 				<div class="inline left">
 					<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
@@ -468,7 +468,7 @@ $(function() {
 
 	}
 	
-	$('#title').change(function(){
+	$('#title').on('keyup change',function(){
 		var str = $(this).val().toLowerCase();
 			str = str.replace(/[^a-z0-9\s]/gi, '').replace(/[-\s]/g, '_').replace(/ /g, '_');
 		$('#articlename').val(str);
