@@ -85,7 +85,7 @@ label {
 	/*position: fixed;
 	top: 0;
 	left: 0;*/
-	width: 80%;
+	width: 61%;
 	height: 40px;
 	cursor: pointer;
 	background: #333;
@@ -95,7 +95,16 @@ label {
 	border:0;
 	margin: 0 auto;
 }
-
+.clear{
+	width: 19%;
+	height: 40px;
+	cursor: pointer;
+	background: #000;
+	color: #fff;
+	border:1px solid #eee;
+	border-width: 0 0 0 1px;
+	font-weight: bold;
+}
 .leftpanel{
 	width:22%;
 	height: 900px;
@@ -246,19 +255,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			
 		if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
 		
+			$articlename = test_input($_POST["articlename"]);
+		
 			if ($_POST["id"] != ""){
 			
 				$id = test_input($_POST["id"]);	
 				
 				if(empty($_POST["delete"])){
-					$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags' WHERE id = '$id'";
+					$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
 				} else {
 					$SQL = "DELETE FROM content WHERE id='$id'";
 				}			
 				$result = mysql_query($SQL);
 				
 			} else {
-				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$thumbnail', '$category', '$article','$tags' )";	
+				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
 				$result = mysql_query($SQL);
 				mysql_close($db_handle);
 			}
@@ -294,12 +305,14 @@ function test_input($data){
 <div class="page">
 	<div class="leftpanel">
 	<?php
+		$db_handle = mysql_connect($server, $user_name, $password);
+		$db_found = mysql_select_db($database);
 		if ($db_found) {
 
 			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
-			$fetchresult = mysql_query($SQL);
+			$result = mysql_query($SQL);
 			print "<ul>";
-			while ( $db_field = mysql_fetch_assoc($fetchresult) ) {
+			while ( $db_field = mysql_fetch_assoc($result) ) {
 
 				print '<li><span>('.  date('d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
 			}
@@ -314,7 +327,8 @@ function test_input($data){
 
 		<div class="toolbar">
 			<button class="delete"> DELETE</button>
-			<button class="submit"> SAVE ARTICLE</button>			
+			<button class="submit"> SAVE ARTICLE</button>	
+			<button class="clear"> CLEAR</button>			
 		</div>
 			<div class="form-body">
 				<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
@@ -416,19 +430,27 @@ var article = new TINY.editor.edit('article', {
 
 $(function() {
 
+	function clearInputs(){
+	
+		$( "#formPost input" ).val('');
+		$( "#formPost select" )[0].selectedIndex = 0;
+		$( "#formPost textarea" ).text('');
+		$('#formPost iframe').contents().find('body').html('');
+	}	
+
 	$('.delete').on('click', function(){
 		$('#delete').val('true');
-		
-		var clearInputs = function(data){
-		$("#formPost input").each(function(){
-			$(this).val('');
-		});};
 		setTimeout(function(){$( "#formPost" ).submit();clearInputs();}, 800);
-	});
+	});	
 	
-	$('.alert .close').on('click', function(){
+	$('.clear').on('click', function(){
+		clearInputs();
+		return false;
+	});	
 	
+	$('.alert .close').on('click', function(){	
 		$($(this).parent()).hide();
+		clearInputs();
 	});
 
 
