@@ -262,14 +262,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				$id = test_input($_POST["id"]);	
 				
 				if(empty($_POST["delete"])){
-					$SQL = "UPDATE content SET author='$author', lastupdated=CURRENT_TIMESTAMP, title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
+					$SQL = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
 				} else {
 					$SQL = "DELETE FROM content WHERE id='$id'";
 				}			
 				$result = mysql_query($SQL);
 				
 			} else {
-				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
+				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
 				$result = mysql_query($SQL);
 				mysql_close($db_handle);
 			}
@@ -314,7 +314,7 @@ function test_input($data){
 			print "<ul>";
 			while ( $db_field = mysql_fetch_assoc($result) ) {
 
-				print '<li><span>('.  date('d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
+				print '<li><span>('.  date('h:m - d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
 			}
 			print "</ul>";
 			mysql_close($db_handle);
