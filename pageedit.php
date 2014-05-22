@@ -204,6 +204,7 @@ ul {
     padding: 5px 10px;
     text-align: center;
 }
+.tagDelete,
 .categoryDelete{
     display:block;
 	float:right;
@@ -217,30 +218,37 @@ ul {
 	cursor:pointer;
 	margin: 0 10px 0 0;
 }
+.taglist input[type=checkbox],
 .categorylist input[type=radio]{
 	float: left;
 }
+.taglist label,
 .categorylist label{
 	clear: none;
 	margin:0 0 0 5px;
 }
+.taglist li,
 .categorylist li{
 	line-height: 18px;
 	overflow: hidden;
 	clear:both;
 }
+.addtag,
 .addcategory{
 	margin: 10px;
 }
+.addtag input,
 .addcategory input {
 	border:1px solid #ccc;
 	padding: 5px;
 }
+.addtag input,
 .addcategory input{
 	border:1px solid #ccc;
 	padding: 6px 10px;
 	width: 56%;
 }
+.addtag .tagSubmit,
 .addcategory .categorySubmit{
 	background: #ccc;
 	color: #333;
@@ -286,7 +294,7 @@ if ($_GET){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	if(empty($_POST["categorySubmit"]) && empty($_POST["categoryDelete"])){
+	if(empty($_POST["categorySubmit"]) && empty($_POST["categoryDelete"]) && empty($_POST["tagSubmit"]) && empty($_POST["tagDelete"]) ){
 
 		if(empty($_POST["author"])){		
 			$authorErr = "author is required";
@@ -330,7 +338,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$articlePass = true;
 		}
 		
-		if(empty($_POST["tags"])){		
+		if(empty($_POST["tags"])){
 			$tagsErr = "tags is required";
 			$tagsPass = false;
 		}else{
@@ -378,7 +386,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			mysql_close($db_handle);
 		}	
 	
-	} else if(empty($_POST["categorySubmit"])){
+	} else if( !empty($_POST["categoryDelete"])){
 	
 		$cid = test_input($_POST["categoryDelete"]);
 		if($db_found){	
@@ -389,7 +397,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			print '<div class="alert">The category has been successfully deleted. <button class="close">close</button></div>';
 		}
 	
-	} else{
+	} else if(!empty($_POST["categorySubmit"])) {
 	
 		$newcategory = $newcategoryErr = "";
 		$newcategoryPass = false;
@@ -410,6 +418,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				
 				print '<div class="alert">A new category has been added. <button class="close">close</button></div>';
 			}		
+		}
+	
+	}else if(!empty($_POST["tagSubmit"])) {
+	
+		$newtag = $newtagErr = "";
+		$newtagPass = false;
+	
+		if(empty($_POST["newtag"])){		
+			$newtagErr = "Tag is required";
+			$newtagPass = false;
+		}else{
+			$newtag = test_input($_POST["newtag"]);
+			$newtagPass = true;
+		}
+		
+		if($db_found){		
+			if($newtagPass){			
+				$SQL = "INSERT INTO tags (tag) VALUES ('$newtag' )";	
+				$result = mysql_query($SQL);
+				mysql_close($db_handle);
+				
+				print '<div class="alert">A new tag has been added. <button class="close">close</button></div>';
+			}		
+		}
+	
+	} else if( !empty($_POST["tagDelete"])){
+	
+		$tid = test_input($_POST["tagDelete"]);
+		if($db_found){	
+			$SQL = "DELETE FROM tags WHERE id='$tid'";
+			$result = mysql_query($SQL);
+			mysql_close($db_handle);
+			
+			print '<div class="alert">The tag has been successfully deleted. <button class="close">close</button></div>';
 		}
 	
 	}
@@ -470,12 +512,7 @@ function test_input($data){
 				<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
 				<input type="text" name="author" value="<?php echo htmlentities($author); ?>">			
 			</div>
-			
-			<div class="inline right">
-				<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
-				<input type="text" name="tags" value="<?php echo htmlentities($tags); ?>">			
-			</div>
-			
+						
 			<div class="inline left">
 				<label for="thumbnail">thumbnail:</label>
 				<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
@@ -491,8 +528,8 @@ function test_input($data){
 				<br/>
 				<textarea name="article" id="edt-article"><?php echo htmlentities($article); ?></textarea>			
 			</div>
-			
-
+			<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
+			<input type="text" id="tags" name="tags" value="<?php echo htmlentities($tags); ?>">
 		</div>
 		
 		
@@ -507,7 +544,7 @@ function test_input($data){
 				<input type="submit" name="categorySubmit" class="categorySubmit" value="Add A Category">			
 			</div>
 			<div class="sectionlistbody">
-			<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
+			
 			<?php
 				$db_handle = mysql_connect($server, $user_name, $password);
 				$db_found = mysql_select_db($database);
@@ -519,6 +556,38 @@ function test_input($data){
 					while ( $db_field = mysql_fetch_assoc($result) ) {
 
 						print '<li><input type="radio" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
+					}
+					print "</ul>";
+					mysql_close($db_handle);
+
+				}
+			?></form>
+			</div>
+			
+		</div>
+		
+		<div class="sectionlist">
+			<h3 class="sectionheader">Select Tags <span class="error">*</span> <span class="error"><?php echo $tagsErr?></span></h3>
+			
+			<div class="addtag">
+			<form method="post" id="formTags" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<input type="text" name="newtag" value="">
+				<input type="submit" name="tagSubmit" class="tagSubmit" value="Add A Tag">			
+			</div>
+			<div class="sectionlistbody">
+				
+			
+			<?php
+				$db_handle = mysql_connect($server, $user_name, $password);
+				$db_found = mysql_select_db($database);
+				if ($db_found) {
+
+					$SQL = "SELECT * FROM tags";
+					$result = mysql_query($SQL);
+					print "<ul class='taglist'>";
+					while ( $db_field = mysql_fetch_assoc($result) ) {
+
+						print '<li><input type="checkbox" name="taglist" id="tag'.$db_field['id'].'" value="'.$db_field['tag'].'"> <label for="tag'.$db_field['id'].'">'.$db_field['tag'].'</label> <input type="submit" name="tagDelete" class="tagDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
 					mysql_close($db_handle);
