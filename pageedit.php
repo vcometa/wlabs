@@ -187,6 +187,7 @@ ul {
 	border: 1px solid #333;
 	width: 200px;
 	height: 100px;
+	margin: -50px 0 0 -100px;
 	padding: 20px 40px;
 	text-align: center;
 }
@@ -241,95 +242,122 @@ if ($_GET){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	if(empty($_POST["author"])){		
-		$authorErr = "author is required";
-		$authorPass = false;
-	}else{
-		$author = test_input($_POST["author"]);
-		$authorPass = true;
-	}
-	
-	if(empty($_POST["title"])){		
-		$titleErr = "title is required";
-		$titlePass = false;
-	}else{
-		$title = test_input($_POST["title"]);
-		$titlePass = true;
-	}
-	
-	if(empty($_POST["description"])){		
-		$descriptionErr = "description is required";
-		$descriptionPass = false;
-	}else{
-		$description = test_input($_POST["description"]);
-		$descriptionPass = true;
-	}
-	
-	if(empty($_POST["category"])){		
-		$categoryErr = "category is required";
-		$categoryPass = false;
-	}else{
-		$category = test_input($_POST["category"]);
-		$categoryPass = true;
-	}
-	
-	$thumbnail = test_input($_POST["thumbnail"]);
-	
-	if(empty($_POST["article"])){		
-		$articleErr = "article is required";
-		$articlePass = false;
-	}else{
-		$article = test_input($_POST["article"]);
-		$articlePass = true;
-	}
-	
-	if(empty($_POST["tags"])){		
-		$tagsErr = "tags is required";
-		$tagsPass = false;
-	}else{
-		$tags = test_input($_POST["tags"]);
-		$tagsPass = true;
-	}
+	if(empty($_POST["categorySubmit"])){
 
-	if($db_found){
-			
-		if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
+		if(empty($_POST["author"])){		
+			$authorErr = "author is required";
+			$authorPass = false;
+		}else{
+			$author = test_input($_POST["author"]);
+			$authorPass = true;
+		}
 		
-			$articlename = test_input($_POST["articlename"]);
+		if(empty($_POST["title"])){		
+			$titleErr = "title is required";
+			$titlePass = false;
+		}else{
+			$title = test_input($_POST["title"]);
+			$titlePass = true;
+		}
 		
-			if ($_POST["id"] != ""){
-			
-				$id = test_input($_POST["id"]);	
+		if(empty($_POST["description"])){		
+			$descriptionErr = "description is required";
+			$descriptionPass = false;
+		}else{
+			$description = test_input($_POST["description"]);
+			$descriptionPass = true;
+		}
+		
+		if(empty($_POST["category"])){		
+			$categoryErr = "category is required";
+			$categoryPass = false;
+		}else{
+			$category = test_input($_POST["category"]);
+			$categoryPass = true;
+		}
+		
+		$thumbnail = test_input($_POST["thumbnail"]);
+		
+		if(empty($_POST["article"])){		
+			$articleErr = "article is required";
+			$articlePass = false;
+		}else{
+			$article = test_input($_POST["article"]);
+			$articlePass = true;
+		}
+		
+		if(empty($_POST["tags"])){		
+			$tagsErr = "tags is required";
+			$tagsPass = false;
+		}else{
+			$tags = test_input($_POST["tags"]);
+			$tagsPass = true;
+		}
+
+		if($db_found){
 				
-				if(empty($_POST["delete"])){
-					$SQL = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
+			if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
+			
+				$articlename = test_input($_POST["articlename"]);
+			
+				if ($_POST["id"] != ""){
+				
+					$id = test_input($_POST["id"]);	
+					
+					if(empty($_POST["delete"])){
+						$SQL = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
+					} else {
+						$SQL = "DELETE FROM content WHERE id='$id'";
+					}			
+					$result = mysql_query($SQL);
+					
 				} else {
-					$SQL = "DELETE FROM content WHERE id='$id'";
-				}			
-				$result = mysql_query($SQL);
+					$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
+					$result = mysql_query($SQL);
+					mysql_close($db_handle);
+				}
 				
-			} else {
-				$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
+				if( $result == 1){
+					if(empty($_POST["delete"])){
+						$alertmsg = 'The article has been succesfully saved!';
+					}else{
+						$alertmsg = 'The article has been deleted.';
+					}
+				}else{
+					$alertmsg = 'An error has occurred upon submission!';
+				}
+				
+				print '<div class="alert">'.$alertmsg.' <button class="close">close</button></div>';
+			}
+		}else{
+			print "Database NOT Found " . $db_handle;
+			mysql_close($db_handle);
+		}	
+	
+	} else {
+	
+		$newcategory = $newcategoryErr = "";
+		$newcategoryPass = false;
+	
+		if(empty($_POST["newcategory"])){		
+			$newcategoryErr = "Category is required";
+			$newcategoryPass = false;
+		}else{
+			$newcategory = test_input($_POST["newcategory"]);
+			$newcategoryPass = true;
+		}
+		
+		if($db_found){		
+			if($newcategoryPass){			
+				$SQL = "INSERT INTO categories (category) VALUES ('$newcategory' )";	
 				$result = mysql_query($SQL);
 				mysql_close($db_handle);
-			}
-			
-			if( $result == 1){
-				if(empty($_POST["delete"])){
-					$alertmsg = 'The article has been succesfully saved!';
-				}else{
-					$alertmsg = 'The article has been deleted.';
-				}
-			}else{
-				$alertmsg = 'An error has occurred upon submission!';
-			}
-			
-			print '<div class="alert">'.$alertmsg.' <button class="close">close</button></div>';
+				
+				print '<div class="alert">A new category has been added. <button class="close">close</button></div>';
+			}		
 		}
-	}else{
-		print "Database NOT Found " . $db_handle;
-		mysql_close($db_handle);
-	}	
+	
+	}
 
 }
 
@@ -425,6 +453,13 @@ function test_input($data){
 	<div class="rightpanel">
 		<div class="sectionlist">
 			<h3 class="sectionheader">Categories</h3>
+			<div class="addcategory">
+			<form method="post" id="formCategory" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<label for="category">New category:</label>
+				<input type="text" name="newcategory" value="">
+				<input type="submit" name="categorySubmit" value="Add category">
+			</form>
+			</div>
 			<div class="sectionlistbody">
 			<?php
 				$db_handle = mysql_connect($server, $user_name, $password);
@@ -444,6 +479,7 @@ function test_input($data){
 				}
 			?>
 			</div>
+			
 		</div>
 	</div>
 </div>
@@ -505,8 +541,12 @@ $(function() {
 	}	
 
 	$('.delete').on('click', function(){
-		$('#delete').val('true');
-		setTimeout(function(){$( "#formPost" ).submit();clearInputs();}, 800);
+		var d = confirm('Are you sure you want to delete this article?');
+		if(d){
+			$('#delete').val('true');
+			setTimeout(function(){$( "#formPost" ).submit();clearInputs();}, 800);
+		}
+		return false;
 	});	
 	
 	$('.clear').on('click', function(){
@@ -540,11 +580,15 @@ $(function() {
 		$('#articlename').val(str);
 	});
 	
-	$('.categorylist li').each(function(){
-		var li = $(this);
-		$('#categorydrop').append('<option>'+li.text()+'</option>');
-	});
+	
+	function updateCategoryDropdown(){
+		$('.categorylist li').each(function(){
+			var li = $(this);
+			$('#categorydrop').append('<option>'+li.text()+'</option>');
+		});
+	}
 
+	updateCategoryDropdown();
 
 	$('#categorydrop').on('change', function(e){
 
