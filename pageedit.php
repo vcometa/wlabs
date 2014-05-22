@@ -206,7 +206,7 @@ ul {
 }
 .categoryDelete{
     display:block;
-	float:left;
+	float:right;
     width:25px; 
 	height:25px;
     background:red;
@@ -217,8 +217,17 @@ ul {
 	cursor:pointer;
 	margin: 0 10px 0 0;
 }
+.categorylist input[type=radio]{
+	float: left;
+}
+.categorylist label{
+	clear: none;
+	margin:0 0 0 5px;
+}
 .categorylist li{
-	line-height: 25px;
+	line-height: 18px;
+	overflow: hidden;
+	clear:both;
 }
 .addcategory{
 	margin: 10px;
@@ -472,14 +481,6 @@ function test_input($data){
 				<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
 			</div>
 			
-			<div class="inline right">
-				<label for="category">category:</label>
-				<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
-				<select name="categorydrop" id="categorydrop">
-					<option>select a category</option>
-				</select>
-			</div>
-			
 			<div>
 				<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
 				<br>
@@ -494,17 +495,19 @@ function test_input($data){
 
 		</div>
 		
-		</form>
+		
 	</div>
 	<div class="rightpanel">
 		<div class="sectionlist">
-			<h3 class="sectionheader">Categories</h3>
+			<h3 class="sectionheader">Select a category <span class="error">*</span> <span class="error"><?php echo $categoryErr?></span></h3>
+			
 			<div class="addcategory">
 			<form method="post" id="formCategory" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<input type="text" name="newcategory" value="">
 				<input type="submit" name="categorySubmit" class="categorySubmit" value="Add A Category">			
 			</div>
 			<div class="sectionlistbody">
+			<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
 			<?php
 				$db_handle = mysql_connect($server, $user_name, $password);
 				$db_found = mysql_select_db($database);
@@ -515,7 +518,7 @@ function test_input($data){
 					print "<ul class='categorylist'>";
 					while ( $db_field = mysql_fetch_assoc($result) ) {
 
-						print '<li><input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"> '.$db_field['category'].'</li>';
+						print '<li><input type="radio" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
 					mysql_close($db_handle);
@@ -526,6 +529,7 @@ function test_input($data){
 			
 		</div>
 	</div>
+	</form>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -611,12 +615,19 @@ $(function() {
 	});
 
 	if( $('#category').val().length > 0 ){
-
-		//$("#categorydrop option[value="+$('#category').val()+"]").index();
 		
-		$("#categorydrop").val( $('#category').val() );
+		var $radios = $('input:radio[name=categorylist]');
+		if($radios.is(':checked') === false) {
+			$radios.filter('[value='+$('#category').val()+']').prop('checked', true);
+		}
 
 	}
+	
+	$( ".categorylist input:radio" ).on('click', function(){
+	
+		$('#category').val( $('input[name=categorylist]:checked').val() );
+		
+	});
 	
 	$('#title').on('keyup change',function(){
 		var str = $(this).val().toLowerCase();
