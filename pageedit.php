@@ -10,10 +10,10 @@ body{
 	margin: 0;
 	padding: 0;
 	font: 14px Arial;
-	color: #333;
+	color: #666;
 }
 .page{	
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -26,6 +26,7 @@ label {
 }
 .form-body{
 	margin: 20px auto 0;
+	padding: 5px 10px;
 }
 .form-body > div {
 	margin: 10px 0;	
@@ -68,12 +69,11 @@ label {
 }
 .toolbar{
 	width: 100%;
-	height: 40px;
 	background: #333;
 }
 .delete{
 	width: 19%;
-	height: 40px;
+	height: 30px;
 	cursor: pointer;
 	background: red;
 	color: #fff;
@@ -81,12 +81,9 @@ label {
 	border-width: 0 1px 0 0;
 	font-weight: bold;
 }
-.submit{	
-	/*position: fixed;
-	top: 0;
-	left: 0;*/
+.submit{
 	width: 61%;
-	height: 40px;
+	height: 30px;
 	cursor: pointer;
 	background: #333;
 	color: #fff;
@@ -97,7 +94,7 @@ label {
 }
 .clear{
 	width: 19%;
-	height: 40px;
+	height: 30px;
 	cursor: pointer;
 	background: #000;
 	color: #fff;
@@ -105,25 +102,36 @@ label {
 	border-width: 0 0 0 1px;
 	font-weight: bold;
 }
-.leftpanel{
-	width:22%;
-	height: 900px;
-	padding:0 1%;
-	float:left;
-	background: #eee;
-	overflow: hidden;
-}
-.rightpanel{
-	width:75%;
-	padding:0 0 0 1%;	
-	float:right;
-}
-.leftpanel ul {
+ul {
 	list-style:none;
 	margin: 0;
 	padding: 0;
 }
-.leftpanel ul li{
+.leftpanel{
+	width:18%;
+	height: 900px;
+	padding:0;
+	float:left;
+	background: #fff;
+	overflow: hidden;
+	border-right: 1px solid #999;
+}
+.centerpanel{
+	width:59.85%;
+	padding:0;	
+	float:left;
+	background: #fff;
+	border-right: 1px solid #999;
+}
+.rightpanel{
+	width:22%;
+	padding:0;
+	height: 100%;
+	float:right;
+	background: #fff;
+	overflow: hidden;
+}
+.rightpanel ul li{
 	margin: 10px;
 }
 .leftpanel span {
@@ -138,6 +146,38 @@ label {
 .leftpanel a:hover {
 	text-decoration: underline;
 	color: #333;
+}
+.sectionlist {
+	width: 100%;
+	height: 480px;
+	padding: 0;
+	
+}
+.sectionheader{
+	margin: 0;
+	background: #ccc;
+	color: #333;
+	padding: 5px 10px;
+}
+.sectionlist .sectionlistbody{
+	overflow: auto;	
+	width: 100%;
+	height: 480px;
+}
+.sectionlist .sectionlistbody td:first-child{
+	width: 20%;
+}
+.sectionlist .sectionlistbody td:first-child span:first-child{
+	font-weight: bold;
+}
+.sectionlist .sectionlistbody td:first-child span:last-child{
+	font-size:12px;
+}
+.sectionlist .sectionlistbody td{
+	padding: 5px;
+}
+.sectionlist .sectionlistbody tr:nth-child(odd){
+	background: #eee;
 }
 .alert{
 	position: fixed;
@@ -304,25 +344,30 @@ function test_input($data){
 
 <div class="page">
 	<div class="leftpanel">
-	<?php
-		$db_handle = mysql_connect($server, $user_name, $password);
-		$db_found = mysql_select_db($database);
-		if ($db_found) {
+		<div class="sectionlist">
+			<h3 class="sectionheader">Article Listing</h3>
+			<div class="sectionlistbody">
+			<?php
+				$db_handle = mysql_connect($server, $user_name, $password);
+				$db_found = mysql_select_db($database);
+				if ($db_found) {
 
-			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
-			$result = mysql_query($SQL);
-			print "<ul>";
-			while ( $db_field = mysql_fetch_assoc($result) ) {
+					$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+					$result = mysql_query($SQL);
+					print "<table>";
+					while ( $db_field = mysql_fetch_assoc($result) ) {
 
-				print '<li><span>('.  date('h:m - d/m/Y', strtotime($db_field['lastupdated']) ) .')</span> <a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a>';
-			}
-			print "</ul>";
-			mysql_close($db_handle);
+						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
+					}
+					print "</table>";
+					mysql_close($db_handle);
 
-		}
-	?>
+				}
+			?>
+			</div>
+		</div>
 	</div>
-	<div class="rightpanel">
+	<div class="centerpanel">
 		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 		<div class="toolbar">
@@ -330,64 +375,85 @@ function test_input($data){
 			<button class="submit"> SAVE ARTICLE</button>	
 			<button class="clear"> CLEAR</button>			
 		</div>
-			<div class="form-body">
-				<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
-				<input type="hidden" id="delete" name="delete" value="">
-				<div class="full">
-					<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
-					<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
-					<input type="hidden" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
-				</div>
-				<div class="inline left">
-					<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
-					<input type="text" name="author" value="<?php echo htmlentities($author); ?>">			
-				</div>
-				
-				<div class="inline right">
-					<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
-					<input type="text" name="tags" value="<?php echo htmlentities($tags); ?>">			
-				</div>
-				
-				<div class="inline left">
-					<label for="thumbnail">thumbnail:</label>
-					<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
-				</div>
-				
-				<div class="inline right">
-					<label for="category">category:</label>
-					<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
-					<select name="categorydrop" id="categorydrop">
-						<option>select a category</option>
-						<option value="news">news</option>
-						<option value="reviews">reviews</option>
-					</select>
-				</div>
-				
-				<div>
-					<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
-					<br>
-					<textarea name="description" id="edt-description"><?php echo htmlentities($description); ?></textarea>			
-				</div>
-				<div>
-					<label for="article">article<span class="error">*</span>: </label> <span class="error"><?php echo $articleErr;?></span>
-					<br/>
-					<textarea name="article" id="edt-article"><?php echo htmlentities($article); ?></textarea>			
-				</div>
-				
-
+		<div class="form-body">
+			<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
+			<input type="hidden" id="delete" name="delete" value="">
+			<div class="full">
+				<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
+				<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
+				<input type="hidden" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
+			</div>
+			<div class="inline left">
+				<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
+				<input type="text" name="author" value="<?php echo htmlentities($author); ?>">			
 			</div>
 			
+			<div class="inline right">
+				<label for="tags">tags<span class="error">*</span>:</label> <span class="error"><?php echo $tagsErr;?></span>
+				<input type="text" name="tags" value="<?php echo htmlentities($tags); ?>">			
+			</div>
+			
+			<div class="inline left">
+				<label for="thumbnail">thumbnail:</label>
+				<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
+			</div>
+			
+			<div class="inline right">
+				<label for="category">category:</label>
+				<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
+				<select name="categorydrop" id="categorydrop">
+					<option>select a category</option>
+				</select>
+			</div>
+			
+			<div>
+				<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
+				<br>
+				<textarea name="description" id="edt-description"><?php echo htmlentities($description); ?></textarea>			
+			</div>
+			<div>
+				<label for="article">article<span class="error">*</span>: </label> <span class="error"><?php echo $articleErr;?></span>
+				<br/>
+				<textarea name="article" id="edt-article"><?php echo htmlentities($article); ?></textarea>			
+			</div>
+			
+
+		</div>
+		
 		</form>
 	</div>
-	
+	<div class="rightpanel">
+		<div class="sectionlist">
+			<h3 class="sectionheader">Categories</h3>
+			<div class="sectionlistbody">
+			<?php
+				$db_handle = mysql_connect($server, $user_name, $password);
+				$db_found = mysql_select_db($database);
+				if ($db_found) {
+
+					$SQL = "SELECT * FROM categories ORDER BY category ASC";
+					$result = mysql_query($SQL);
+					print "<ul class='categorylist'>";
+					while ( $db_field = mysql_fetch_assoc($result) ) {
+
+						print '<li>'.$db_field['category'].'</li>';
+					}
+					print "</ul>";
+					mysql_close($db_handle);
+
+				}
+			?>
+			</div>
+		</div>
+	</div>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
 var description = new TINY.editor.edit('description', {
 	id: 'edt-description',
-	width: 894,
-	height: 80,
+	width: 970,
+	height: 60,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
 	rowclass: 'tinyeditor-header',
@@ -407,8 +473,8 @@ var description = new TINY.editor.edit('description', {
 });
 var article = new TINY.editor.edit('article', {
 	id: 'edt-article',
-	width: 894,
-	height: 360,
+	width: 970,
+	height: 300,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
 	rowclass: 'tinyeditor-header',
@@ -472,6 +538,11 @@ $(function() {
 		var str = $(this).val().toLowerCase();
 			str = str.replace(/[^a-z0-9\s]/gi, '').replace(/[-\s]/g, '_').replace(/ /g, '_');
 		$('#articlename').val(str);
+	});
+	
+	$('.categorylist li').each(function(){
+		var li = $(this);
+		$('#categorydrop').append('<option>'+li.text()+'</option>');
 	});
 
 
