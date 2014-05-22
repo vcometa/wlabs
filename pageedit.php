@@ -204,6 +204,41 @@ ul {
     padding: 5px 10px;
     text-align: center;
 }
+.categoryDelete{
+    display:block;
+	float:left;
+    width:25px; 
+	height:25px;
+    background:red;
+	border: 0;
+    text-indent:-999px;
+    font-size:0px; 
+	line-height:0;
+	cursor:pointer;
+	margin: 0 10px 0 0;
+}
+.categorylist li{
+	line-height: 25px;
+}
+.addcategory{
+	margin: 10px;
+}
+.addcategory input {
+	border:1px solid #ccc;
+	padding: 5px;
+}
+.addcategory input{
+	border:1px solid #ccc;
+	padding: 6px 10px;
+	width: 56%;
+}
+.addcategory .categorySubmit{
+	background: #ccc;
+	color: #333;
+	font-weight:bold;
+	width: 35%;
+	padding: 5px 10px;
+}
 </style>
 </head>
 <body>
@@ -242,7 +277,7 @@ if ($_GET){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	if(empty($_POST["categorySubmit"])){
+	if(empty($_POST["categorySubmit"]) && empty($_POST["categoryDelete"])){
 
 		if(empty($_POST["author"])){		
 			$authorErr = "author is required";
@@ -334,7 +369,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			mysql_close($db_handle);
 		}	
 	
-	} else {
+	} else if(empty($_POST["categorySubmit"])){
+	
+		$cid = test_input($_POST["categoryDelete"]);
+		if($db_found){	
+			$SQL = "DELETE FROM categories WHERE id='$cid'";
+			$result = mysql_query($SQL);
+			mysql_close($db_handle);
+			
+			print '<div class="alert">The category has been successfully deleted. <button class="close">close</button></div>';
+		}
+	
+	} else{
 	
 		$newcategory = $newcategoryErr = "";
 		$newcategoryPass = false;
@@ -455,10 +501,8 @@ function test_input($data){
 			<h3 class="sectionheader">Categories</h3>
 			<div class="addcategory">
 			<form method="post" id="formCategory" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<label for="category">New category:</label>
 				<input type="text" name="newcategory" value="">
-				<input type="submit" name="categorySubmit" value="Add category">
-			</form>
+				<input type="submit" name="categorySubmit" class="categorySubmit" value="Add A Category">			
 			</div>
 			<div class="sectionlistbody">
 			<?php
@@ -471,13 +515,13 @@ function test_input($data){
 					print "<ul class='categorylist'>";
 					while ( $db_field = mysql_fetch_assoc($result) ) {
 
-						print '<li>'.$db_field['category'].'</li>';
+						print '<li><input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"> '.$db_field['category'].'</li>';
 					}
 					print "</ul>";
 					mysql_close($db_handle);
 
 				}
-			?>
+			?></form>
 			</div>
 			
 		</div>

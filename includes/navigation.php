@@ -1,10 +1,25 @@
 <nav class="content">
 	<ul>
-		<li>item 0</li>
-		<li>item 1</li>
-		<li>item 2</li>
-		<li>item 3</li>
-		<li>item 4</li>
-		<li>item 5</li>
+		<?php
+			$user_name = "root";
+			$password = "";
+			$database = "simplecms";
+			$server = "127.0.0.1";
+			$db_handle = mysql_connect($server, $user_name, $password);
+			$db_found = mysql_select_db($database);
+			$db_handle = mysql_connect($server, $user_name, $password);
+			$db_found = mysql_select_db($database);
+			if ($db_found) {
+
+				$SQL = "SELECT * FROM categories ORDER BY category ASC";
+				$result = mysql_query($SQL);
+				while ( $db_field = mysql_fetch_assoc($result) ) {
+
+					print '<li><a href="#">'.$db_field['category'].'</a></li>';
+				}
+				mysql_close($db_handle);
+
+			}
+		?>
 	</ul>
 </nav>
