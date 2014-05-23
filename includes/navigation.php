@@ -13,9 +13,10 @@
 
 				$SQL = "SELECT * FROM categories ORDER BY category ASC";
 				$result = mysql_query($SQL);
+				print '<li><a href="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?cat=Home">Home</a></li>';
 				while ( $db_field = mysql_fetch_assoc($result) ) {
 
-					print '<li><a href="#">'.$db_field['category'].'</a></li>';
+					print '<li><a href="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?cat='.$db_field['category'].'">'.$db_field['category'].'</a></li>';
 				}
 				mysql_close($db_handle);
 

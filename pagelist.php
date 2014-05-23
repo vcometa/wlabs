@@ -12,14 +12,23 @@ $user_name = "root";
 $password = "";
 $database = "simplecms";
 $server = "127.0.0.1";
-
 $db_handle = mysql_connect($server, $user_name, $password);
-
 $db_found = mysql_select_db($database);
 
 if ($db_found) {
 
-	$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+	if ($_GET){
+		$cat = htmlspecialchars($_GET["cat"]);
+		if($cat != 'Home'){
+			$SQL = "SELECT * FROM content WHERE category='$cat'ORDER BY lastupdated DESC";
+		}else{
+			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+		}
+	} else {
+		$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+	}
+
+	
 	$result = mysql_query($SQL);
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
