@@ -149,7 +149,6 @@ ul {
 }
 .sectionlist {
 	width: 100%;
-	height: 480px;
 	padding: 0;
 	
 }
@@ -163,6 +162,10 @@ ul {
 	overflow: auto;	
 	width: 100%;
 	height: 480px;
+}
+
+.rightpanel .sectionlist .sectionlistbody{
+	height: 360px;
 }
 .sectionlist .sectionlistbody td:first-child{
 	width: 20%;
@@ -627,7 +630,7 @@ var description = new TINY.editor.edit('description', {
 var article = new TINY.editor.edit('article', {
 	id: 'edt-article',
 	width: 970,
-	height: 300,
+	height: 360,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
 	rowclass: 'tinyeditor-header',
@@ -720,6 +723,22 @@ $(function() {
 
 		$('#category').val( val );
 
+	});
+	
+	$( ".taglist input:checkbox" ).on('click', function(){
+	
+		var delim = ($('#tags').val().length==0)?'':', ';
+		
+		if( $(this)[0].checked ){
+	
+			$('#tags').val( $('#tags').val()+delim+ $(this).val() );
+		
+		} else {
+		
+			$('#tags').val($('#tags').val().replace(delim+$(this).val(),''));
+		
+		}
+		
 	});
 
 });
