@@ -19,7 +19,7 @@ if ($db_found) {
 
 	if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
-		if($cat != 'Home'){
+		if($cat != 'home'){
 			$SQL = "SELECT * FROM content WHERE category='$cat'ORDER BY lastupdated DESC";
 		}else{
 			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
