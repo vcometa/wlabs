@@ -1,0 +1,91 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<title>Swipe Gallery</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<link href='style.css' rel='stylesheet'/>
+<style>
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  width: 100%;
+  max-width:970px;
+  margin:0 auto
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap  li {
+	display:block;
+  float:left;
+  width:100%;
+  position: relative;
+  height: auto;
+  background: #fff;
+}
+
+.swipe-wrap li img {
+
+	width: 100%;
+	
+	height: auto;
+
+}
+
+/* END required styles */
+
+</style>
+
+</head>
+<body>
+
+<h1>Gallery</h1>
+
+
+
+<div id='gallery' class='swipe'>
+  <ul class='swipe-wrap'>
+    <li><img src="images/temporary/gallery-1.jpg?w=320&h=206" alt="Alt" data-author="John Frusciante" data-caption="This is the caption for image 1. Image 1 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi."/></li>
+	<li><img src="images/temporary/gallery-2.jpg?w=320&h=206" alt="Alt" data-author="Kenai Andrews" data-caption="This is the caption for image 2. Image 2 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-3.jpg?w=320&h=206" alt="Alt" data-author="John Dekel" data-caption="This is the caption for image 3. Image 3 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-4.jpg?w=320&h=206" alt="Alt" data-author="Stephen Mahar" data-caption="This is the caption for image 4. Image 4 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-5.jpg?w=320&h=206" alt="Alt" data-author="William Wolfe-Wyle" data-caption="This is the caption for image 5. Image 5 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-6.jpg?w=320&h=206" alt="Alt" data-author="Lee Berthiaume" data-caption="This is the caption for image 6. Image 6 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-7.jpg?w=320&h=206" alt="Alt" data-author="Jason Fekete" data-caption="This is the caption for image 7. Image 7 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-8.jpg?w=320&h=206" alt="Alt" data-author="John Frusciante" data-caption="This is the caption for image 8. Image 8 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+	<li><img src="images/temporary/gallery-9.jpg?w=320&h=206" alt="Alt" data-author="John Frusciante" data-caption="This is the caption for image 9. Image 9 ut orci adipiscing, facilisis ipsum semper, iaculis velit. Quisque tempor nisl et mi adipiscing blandit. Phasellus vitae lobortis mi." /></li>
+  </ul>
+</div>
+<div style='text-align:center;padding-top:20px;'>
+  
+  <button onclick='mySwipe.prev()'>prev</button> 
+  <button onclick='mySwipe.next()'>next</button>
+
+</div>
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src='swipe.js'></script>
+<script>
+// pure JS
+var elem = document.getElementById('gallery');
+window.mySwipe = Swipe(elem, {
+  // startSlide: 4,
+  // auto: 3000,
+  // continuous: true,
+  // disableScroll: true,
+  // stopPropagation: true,
+  // callback: function(index, element) {},
+  // transitionEnd: function(index, element) {}
+});
+// with jQuery
+// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+</script>
