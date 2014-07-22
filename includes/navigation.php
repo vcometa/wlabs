@@ -1,10 +1,11 @@
 <nav class="content">
 	<ul>
+	
 		<?php
-			$user_name = "root";
-			$password = "";
-			$database = "simplecms";
-			$server = "127.0.0.1";
+			$user_name = "vcometa_admin";
+			$password = "vc0m3t@";
+			$database = "vcometa_simplecms";
+			$server = "localhost";
 			$db_handle = mysql_connect($server, $user_name, $password);
 			$db_found = mysql_select_db($database);
 			$db_handle = mysql_connect($server, $user_name, $password);

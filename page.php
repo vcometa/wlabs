@@ -8,15 +8,15 @@
 <div class="content">
 <?PHP
 
-$user_name = "root";
-$password = "";
-$database = "simplecms";
-$server = "127.0.0.1";
+$user_name = "vcometa_admin";
+$password = "vc0m3t@";
+$database = "vcometa_simplecms";
+$server = "localhost";
 
 $db_handle = mysql_connect($server, $user_name, $password);
 
 $db_found = mysql_select_db($database);
-
+date_default_timezone_set('America/New_York');
 if ($db_found) {
 
 	$articlename = htmlspecialchars($_GET["articlename"]);	

@@ -267,15 +267,15 @@ ul {
 // define variables and set to empty values
 $authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
 $author = $title = $articlename = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
-$user_name = "root";
+$user_name = "vcometa_admin";
 $delete = false;
-$password = "";
-$database = "simplecms";
-$server = "127.0.0.1";
+$password = "vc0m3t@";
+$database = "vcometa_simplecms";
+$server = "localhost";
 $db_handle = mysql_connect($server, $user_name, $password);
 $db_found = mysql_select_db($database);
 $authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = false;
-
+date_default_timezone_set('America/New_York');
 if ($_GET){
 	$id = htmlspecialchars($_GET["id"]);	
 	$SQL = "SELECT * FROM content WHERE id='$id'";
@@ -485,7 +485,7 @@ function test_input($data){
 					print "<table>";
 					while ( $db_field = mysql_fetch_assoc($result) ) {
 
-						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="http://localhost/php/wlabs/pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
+						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
 					}
 					print "</table>";
 					mysql_close($db_handle);
