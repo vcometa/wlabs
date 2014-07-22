@@ -264,6 +264,11 @@ ul {
 <body>
 
 <?php
+
+$passphrase = htmlspecialchars($_GET["pass"]);
+
+if($passphrase == 'src123177'){
+
 // define variables and set to empty values
 $authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
 $author = $title = $articlename = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
@@ -468,6 +473,8 @@ function test_input($data){
 	$data = mysql_real_escape_string($data);
 	return $data;
 }
+
+
 ?>
 
 <div class="page">
@@ -485,7 +492,7 @@ function test_input($data){
 					print "<table>";
 					while ( $db_field = mysql_fetch_assoc($result) ) {
 
-						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="pageedit.php?id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
+						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="pageedit.php?pass='.$passphrase.'&id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
 					}
 					print "</table>";
 					mysql_close($db_handle);
@@ -596,7 +603,7 @@ function test_input($data){
 					mysql_close($db_handle);
 
 				}
-			?></form>
+			}?></form>
 			</div>
 			
 		</div>

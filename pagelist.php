@@ -33,7 +33,7 @@ if ($db_found) {
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
 
-		print '<h2><a href="page/'.html_entity_decode($db_field['articlename']).'">'.html_entity_decode($db_field['title']).'</a></h2>';		
+		print '<h2><a href="/page/'.html_entity_decode($db_field['articlename']).'">'.html_entity_decode($db_field['title']).'</a></h2>';		
 		print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
 		print '<p>'.html_entity_decode($db_field['description']).'</p>';		
