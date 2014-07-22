@@ -300,6 +300,15 @@ if ($_GET){
 	
 }
 
+function test_input($data){
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	$data = mysql_real_escape_string($data);
+	return $data;
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	if(empty($_POST["categorySubmit"]) && empty($_POST["categoryDelete"]) && empty($_POST["tagSubmit"]) && empty($_POST["tagDelete"]) ){
@@ -466,13 +475,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-function test_input($data){
-	$data = trim($data);
-	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
-	$data = mysql_real_escape_string($data);
-	return $data;
-}
 
 
 ?>
@@ -503,7 +505,7 @@ function test_input($data){
 		</div>
 	</div>
 	<div class="centerpanel">
-		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<form method="post" id="formPost" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?pass=<?php echo htmlentities($passphrase); ?>">
 
 		<div class="toolbar">
 			<button class="delete"> DELETE</button>
@@ -549,7 +551,7 @@ function test_input($data){
 			<h3 class="sectionheader">Select a category <span class="error">*</span> <span class="error"><?php echo $categoryErr?></span></h3>
 			
 			<div class="addcategory">
-			<form method="post" id="formCategory" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<form method="post" id="formCategory" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?pass=<?php echo htmlentities($passphrase); ?>">
 				<input type="text" name="newcategory" value="">
 				<input type="submit" name="categorySubmit" class="categorySubmit" value="Add A Category">			
 			</div>
@@ -580,7 +582,7 @@ function test_input($data){
 			<h3 class="sectionheader">Select Tags <span class="error">*</span> <span class="error"><?php echo $tagsErr?></span></h3>
 			
 			<div class="addtag">
-			<form method="post" id="formTags" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<form method="post" id="formTags" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?pass=<?php echo htmlentities($passphrase); ?>">
 				<input type="text" name="newtag" value="">
 				<input type="submit" name="tagSubmit" class="tagSubmit" value="Add A Tag">			
 			</div>
