@@ -8,8 +8,8 @@
 	}
 	.content {
 		margin: 0 auto;
-		width: 100%;
-		max-width: 1200px;
+		width: 90%;
+		padding: 0 5%;
 		height: 100%;
 		overflow: hidden;	
 	}
@@ -35,5 +35,24 @@
 		height: 30px;
 		background: #eee;
 	}	
+	
+	.ablock{
+		display:block;
+		float:left;
+		width:220px;
+		margin:10px;
+		text-decoration:none;
+		background:#fff;
+		padding:10px;
+		box-shadow: 3px 0px 10px 3px rgba(0, 0, 0, 0.2);
+		color:#666;
+		border-radius:10px;
+	}
+	
+	.ablock img {
+		width:100%;
+	}
+	
+	
 
 }

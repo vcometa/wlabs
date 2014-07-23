@@ -5,7 +5,7 @@
 </head>
 <body>
 <?PHP include ("includes/header.php"); ?>
-<div class="content">
+<div class="content js-masonry" data-masonry-options='{ "columnWidth": 80, "itemSelector": ".ablock" }'>
 <?PHP
 
 $user_name = "vcometa_admin";
@@ -32,11 +32,16 @@ if ($db_found) {
 	$result = mysql_query($SQL);
 
 	while ( $db_field = mysql_fetch_assoc($result) ) {
-
-		print '<h2><a href="/page/'.html_entity_decode($db_field['articlename']).'">'.html_entity_decode($db_field['title']).'</a></h2>';		
+		
+		$string = html_entity_decode($db_field['description']);
+		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
+	
+		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
+		print '<img src="'.html_entity_decode($db_field['thumbnail']).'"/>';
+		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
 		print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
-		print '<p>'.html_entity_decode($db_field['description']).'</p>';		
+		print '<p>'.$string.'</p></article></a>';		
 	}
 	mysql_close($db_handle);
 
@@ -51,5 +56,6 @@ else {
 ?>
 </div>
 <?PHP include ("includes/footer.php"); ?>
+<?PHP include ("includes/javascript.php"); ?>
 </body>
 </html>
