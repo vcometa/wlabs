@@ -4,6 +4,17 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body>
+<!-- fb begins -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- fb ends -->
+
 <?PHP include ("includes/header.php"); ?>
 <div class="content js-masonry" data-masonry-options='{ "itemSelector": ".ablock" }'>
 <?PHP
@@ -39,9 +50,9 @@ if ($db_found) {
 		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
 		print '<img src="'.html_entity_decode($db_field['thumbnail']).'"/>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
-		//print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
+		print '<span>from '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
-		print '<p>'.$string.'</p></article></a>';		
+		print '<p>'.$string.'</p><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></article></a>';		
 	}
 	mysql_close($db_handle);
 
