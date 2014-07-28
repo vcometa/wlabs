@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<title>Reverse Geocoding</title> 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script type="text/javascript"> 
+
+$(function() {
+	
+	function util_getUserLocation(callback){
+		var err='', geocoder = new google.maps.Geocoder(), locJSON={};
+		
+		if (navigator.geolocation) {
+			
+			navigator.geolocation.getCurrentPosition(function(position){
+				
+				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				
+				geocoder.geocode({'latLng': latlng}, function(results, status) {
+				  if (status == google.maps.GeocoderStatus.OK) {
+					var loc = results[6];				
+					
+					locJSON = {
+								location:{
+									latiture:position.coords.latitude,
+									longitude:position.coords.longitude,
+									city: loc.address_components[0].long_name,
+									province: loc.address_components[2].short_name
+								}
+							};
+					callback(locJSON);
+				  } else {
+					err = "Geocoder failed due to: " + status;
+					callback(err);
+				  }
+				});
+				
+			});
+				
+		} else {
+			err = "Geolocation is not supported by this browser.";
+			callback(err);
+		}
+	}
+	
+	if( $('div[data-getuserloc=true]').length > 0){
+	
+		var callback = function(json){$('div[data-getuserloc=true]').text( JSON.stringify(json) );}
+	
+		util_getUserLocation(callback);
+		
+	}
+	
+});
+
+
+</script> 
+</head> 
+<body> 
+	<div data-getuserloc="true"></div>
+</body> 
+</html> 
