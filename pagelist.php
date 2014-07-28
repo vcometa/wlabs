@@ -5,7 +5,7 @@
 </head>
 <body>
 <?PHP include ("includes/header.php"); ?>
-<div class="content js-masonry" data-masonry-options='{ "columnWidth": 80, "itemSelector": ".ablock" }'>
+<div class="content js-masonry" data-masonry-options='{ "itemSelector": ".ablock" }'>
 <?PHP
 
 $user_name = "vcometa_admin";
@@ -39,7 +39,7 @@ if ($db_found) {
 		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
 		print '<img src="'.html_entity_decode($db_field['thumbnail']).'"/>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
-		print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
+		//print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
 		print '<p>'.$string.'</p></article></a>';		
 	}
