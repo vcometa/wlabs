@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule ^pagelist/([^/\.]+)/?$ pagelist.php?cat=$1 [L]
+RewriteRule ^category/([^/\.]+)/?$ pagelist.php?cat=$1 [L]
 RewriteRule ^page/([^/\.]+)/?$ page.php?articlename=$1 [L]
 </IfModule>

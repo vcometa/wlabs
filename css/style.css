@@ -45,7 +45,11 @@
 	}	
 	footer nav ul li a{
 		color:#333;
-	}	
+	}
+	figure{
+		margin:0;
+		display:block;
+	}
 	.ablock{
 		display:block;
 		float:left;
@@ -58,6 +62,9 @@
 		border:1px solid #ccc;
 	}
 	
+	.ablock figure{
+		margin:-10px -10px 0;
+	}
 	.ablock img {
 		width:100%;
 	}

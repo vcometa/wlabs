@@ -48,7 +48,7 @@ if ($db_found) {
 		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
 	
 		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
-		print '<img src="'.html_entity_decode($db_field['thumbnail']).'"/>';
+		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
 		print '<span>from '.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';

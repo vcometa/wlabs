@@ -14,10 +14,10 @@
 
 				$SQL = "SELECT * FROM categories ORDER BY category ASC";
 				$result = mysql_query($SQL);
-				print '<li><a href="../pagelist/home">Home</a></li>';
+				print '<li><a href="http://www.pinstacular.com">Home</a></li>';
 				while ( $db_field = mysql_fetch_assoc($result) ) {
 
-					print '<li><a href="../pagelist/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
+					print '<li><a href="../category/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
 				}
 				mysql_close($db_handle);
 
