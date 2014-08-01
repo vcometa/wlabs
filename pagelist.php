@@ -50,8 +50,8 @@ if ($db_found) {
 		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
-		print '<span>from '.html_entity_decode($db_field['author']).'</span>';
-		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
+		print '<div class="byline">'.html_entity_decode($db_field['author']).'</div>';
+		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
 		print '<p>'.$string.'</p><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></article></a>';		
 	}
 	mysql_close($db_handle);

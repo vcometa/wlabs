@@ -1,7 +1,8 @@
 @media all{
 	.error {color: #FF0000;}
 	body{
-		font: 14px arial;
+		font-size: 16px ;
+		font-family: Arial, Helvetica, sans-serif;
 		color: #333;
 		margin:0;
 		padding: 0;
@@ -67,6 +68,12 @@
 	}
 	.ablock img {
 		width:100%;
+	}
+	.byline{
+		font-size:11px;
+	}
+	.dateline{
+		font-size:11px;
 	}
 	
 	
