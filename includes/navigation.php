@@ -6,20 +6,18 @@
 			$password = "vc0m3t@";
 			$database = "vcometa_simplecms";
 			$server = "localhost";
-			$db_handle = mysql_connect($server, $user_name, $password);
-			$db_found = mysql_select_db($database);
-			$db_handle = mysql_connect($server, $user_name, $password);
-			$db_found = mysql_select_db($database);
-			if ($db_found) {
+			$db_handle = mysqli_connect($server, $user_name, $password, $database);
+			//$db_found = mysql_select_db($database);
+			if ($db_handle) {
 
 				$SQL = "SELECT * FROM categories ORDER BY category ASC";
-				$result = mysql_query($SQL);
+				$result = mysqli_query($SQL);
 				print '<li><a href="http://www.pinstacular.com">Home</a></li>';
-				while ( $db_field = mysql_fetch_assoc($result) ) {
+				while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 					print '<li><a href="../category/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
 				}
-				mysql_close($db_handle);
+				mysqli_close($db_handle);
 
 			}
 		?>

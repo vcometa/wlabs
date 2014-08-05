@@ -23,26 +23,28 @@ $user_name = "vcometa_admin";
 $password = "vc0m3t@";
 $database = "vcometa_simplecms";
 $server = "localhost";
-$db_handle = mysql_connect($server, $user_name, $password);
-$db_found = mysql_select_db($database);
+//$db_handle = mysql_connect($server, $user_name, $password, $database);
+//$db_found = mysql_select_db($database);
+$db_handle = mysqli_connect($server, $user_name, $password, $database);
+//$db_found = mysql_select_db($database);
 date_default_timezone_set('America/New_York');
-if ($db_found) {
+if ($db_handle) {
 
 	if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
 		if($cat != 'home'){
-			$SQL = "SELECT * FROM content WHERE category='$cat'ORDER BY lastupdated DESC";
+			$query = "SELECT * FROM content WHERE category='$cat'ORDER BY lastupdated DESC";
 		}else{
-			$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+			$query = "SELECT * FROM content ORDER BY lastupdated DESC";
 		}
 	} else {
-		$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
+		$query = "SELECT * FROM content ORDER BY lastupdated DESC";
 	}
 
 	
-	$result = mysql_query($SQL);
+	$result = $db_handle->query($query); //mysql_query($SQL);
 
-	while ( $db_field = mysql_fetch_assoc($result) ) {
+	while ( $db_field = mysqli_fetch_assoc($result) ) {
 		
 		$string = html_entity_decode($db_field['description']);
 		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
@@ -54,13 +56,13 @@ if ($db_found) {
 		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
 		print '<p>'.$string.'</p><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></article></a>';		
 	}
-	mysql_close($db_handle);
+	mysqli_close($db_handle);
 
 }
 else {
 
 	print "Database NOT Found " . $db_handle;
-	mysql_close($db_handle);
+	mysqli_close($db_handle);
 
 }
 
