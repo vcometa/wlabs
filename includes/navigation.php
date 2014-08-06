@@ -10,8 +10,9 @@
 			//$db_found = mysql_select_db($database);
 			if ($db_handle) {
 
-				$SQL = "SELECT * FROM categories ORDER BY category ASC";
-				$result = mysqli_query($SQL);
+				$query = "SELECT * FROM categories ORDER BY category ASC";
+				//$result = mysqli_query($SQL);
+				$result = $db_handle->query($query);
 				print '<li><a href="http://www.pinstacular.com">Home</a></li>';
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 

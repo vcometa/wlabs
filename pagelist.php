@@ -1,6 +1,7 @@
  <!DOCTYPE HTML>
 <html>
 <head>
+<title>Pinstacular</title>
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body>

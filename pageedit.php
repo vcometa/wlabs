@@ -277,16 +277,18 @@ $delete = false;
 $password = "vc0m3t@";
 $database = "vcometa_simplecms";
 $server = "localhost";
-$db_handle = mysql_connect($server, $user_name, $password);
-$db_found = mysql_select_db($database);
+//$db_handle = mysql_connect($server, $user_name, $password);
+//$db_found = mysql_select_db($database);
+$db_handle = mysqli_connect($server, $user_name, $password, $database);
 $authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = false;
 date_default_timezone_set('America/New_York');
 if ($_GET){
 	$id = htmlspecialchars($_GET["id"]);	
-	$SQL = "SELECT * FROM content WHERE id='$id'";
-	$result = mysql_query($SQL);
+	$query = "SELECT * FROM content WHERE id='$id'";
+	//$result = mysql_query($SQL);
+	$result = $db_handle->query($query);
 	
-	while ( $db_field = mysql_fetch_assoc($result) ) {
+	while ( $db_field = mysqli_fetch_assoc($result) ) {
 	
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
@@ -304,7 +306,8 @@ function test_input($data){
 	$data = trim($data);
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data);
-	$data = mysql_real_escape_string($data);
+	//$data = mysqli_real_escape_string($data);
+	//$data = $mysqli->real_escape_string($data);
 	return $data;
 }
 
@@ -363,7 +366,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$tagsPass = true;
 		}
 
-		if($db_found){
+		if($db_handle){
 				
 			if($authorPass == true && $titlePass == true && $descriptionPass == true && $articlePass == true && $tagsPass == true){
 			
@@ -374,16 +377,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$id = test_input($_POST["id"]);	
 					
 					if(empty($_POST["delete"])){
-						$SQL = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
+						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
 					} else {
-						$SQL = "DELETE FROM content WHERE id='$id'";
+						$query = "DELETE FROM content WHERE id='$id'";
 					}			
-					$result = mysql_query($SQL);
+					//$result = mysql_query($SQL);
+					$result = $db_handle->query($query);
 					
 				} else {
-					$SQL = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
-					$result = mysql_query($SQL);
-					mysql_close($db_handle);
+					$query = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
+					//$result = mysql_query($SQL);
+					$result = $db_handle->query($query);
+					mysqli_close($db_handle);
 				}
 				
 				if( $result == 1){
@@ -400,16 +405,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			}
 		}else{
 			print "Database NOT Found " . $db_handle;
-			mysql_close($db_handle);
+			mysqli_close($db_handle);
 		}	
 	
 	} else if( !empty($_POST["categoryDelete"])){
 	
 		$cid = test_input($_POST["categoryDelete"]);
-		if($db_found){	
-			$SQL = "DELETE FROM categories WHERE id='$cid'";
-			$result = mysql_query($SQL);
-			mysql_close($db_handle);
+		if($db_handle){	
+			$query
+			= "DELETE FROM categories WHERE id='$cid'";
+			//$result = mysql_query($SQL);
+			$result = $db_handle->query($query);
+			mysqli_close($db_handle);
 			
 			print '<div class="alert">The category has been successfully deleted. <button class="close">close</button></div>';
 		}
@@ -427,11 +434,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$newcategoryPass = true;
 		}
 		
-		if($db_found){		
+		if($db_handle){		
 			if($newcategoryPass){			
-				$SQL = "INSERT INTO categories (category) VALUES ('$newcategory' )";	
-				$result = mysql_query($SQL);
-				mysql_close($db_handle);
+				$query = "INSERT INTO categories (category) VALUES ('$newcategory' )";	
+				//$result = mysql_query($SQL);
+				$result = $db_handle->query($query);
+				mysqli_close($db_handle);
 				
 				print '<div class="alert">A new category has been added. <button class="close">close</button></div>';
 			}		
@@ -450,11 +458,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$newtagPass = true;
 		}
 		
-		if($db_found){		
+		if($db_handle){		
 			if($newtagPass){			
-				$SQL = "INSERT INTO tags (tag) VALUES ('$newtag' )";	
-				$result = mysql_query($SQL);
-				mysql_close($db_handle);
+				$query = "INSERT INTO tags (tag) VALUES ('$newtag' )";	
+				//$result = mysql_query($SQL);
+				$result = $db_handle->query($query);
+				mysqli_close($db_handle);
 				
 				print '<div class="alert">A new tag has been added. <button class="close">close</button></div>';
 			}		
@@ -463,10 +472,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	} else if( !empty($_POST["tagDelete"])){
 	
 		$tid = test_input($_POST["tagDelete"]);
-		if($db_found){	
-			$SQL = "DELETE FROM tags WHERE id='$tid'";
-			$result = mysql_query($SQL);
-			mysql_close($db_handle);
+		if($db_handle){	
+			$query = "DELETE FROM tags WHERE id='$tid'";
+			//$result = mysql_query($SQL);
+			$result = $db_handle->query($query);
+			mysqli_close($db_handle);
 			
 			print '<div class="alert">The tag has been successfully deleted. <button class="close">close</button></div>';
 		}
@@ -485,19 +495,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			<h3 class="sectionheader">Article Listing</h3>
 			<div class="sectionlistbody">
 			<?php
-				$db_handle = mysql_connect($server, $user_name, $password);
-				$db_found = mysql_select_db($database);
-				if ($db_found) {
+				$db_handle = mysqli_connect($server, $user_name, $password, $database);
+				//$db_found = mysql_select_db($database);
+				if ($db_handle) {
 
-					$SQL = "SELECT * FROM content ORDER BY lastupdated DESC";
-					$result = mysql_query($SQL);
+					$query = "SELECT * FROM content ORDER BY lastupdated DESC";
+					//$result = mysql_query($SQL);
+					$result = $db_handle->query($query);
 					print "<table>";
-					while ( $db_field = mysql_fetch_assoc($result) ) {
+					while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="pageedit.php?pass='.$passphrase.'&id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
 					}
 					print "</table>";
-					mysql_close($db_handle);
+					mysqli_close($db_handle);
 
 				}
 			?>
@@ -558,19 +569,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			<div class="sectionlistbody">
 			
 			<?php
-				$db_handle = mysql_connect($server, $user_name, $password);
-				$db_found = mysql_select_db($database);
-				if ($db_found) {
+				$db_handle = mysqli_connect($server, $user_name, $password, $database);
+				//$db_found = mysql_select_db($database);
+				if ($db_handle) {
 
-					$SQL = "SELECT * FROM categories ORDER BY category ASC";
-					$result = mysql_query($SQL);
+					$query = "SELECT * FROM categories ORDER BY category ASC";
+					//$result = mysql_query($SQL);
+					$result = $db_handle->query($query);
 					print "<ul class='categorylist'>";
-					while ( $db_field = mysql_fetch_assoc($result) ) {
+					while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 						print '<li><input type="radio" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
-					mysql_close($db_handle);
+					mysqli_close($db_handle);
 
 				}
 			?></form>
@@ -590,19 +602,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				
 			
 			<?php
-				$db_handle = mysql_connect($server, $user_name, $password);
-				$db_found = mysql_select_db($database);
-				if ($db_found) {
+				$db_handle = mysqli_connect($server, $user_name, $password,$database);
+				//$db_found = mysql_select_db($database);
+				
+				if ($db_handle) {
 
-					$SQL = "SELECT * FROM tags";
-					$result = mysql_query($SQL);
+					$query = "SELECT * FROM tags";
+					//$result = mysql_query($SQL);
+					$result = $db_handle->query($query);
 					print "<ul class='taglist'>";
-					while ( $db_field = mysql_fetch_assoc($result) ) {
+					while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 						print '<li><input type="checkbox" name="taglist" id="tag'.$db_field['id'].'" value="'.$db_field['tag'].'"> <label for="tag'.$db_field['id'].'">'.$db_field['tag'].'</label> <input type="submit" name="tagDelete" class="tagDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
-					mysql_close($db_handle);
+					mysqli_close($db_handle);
 
 				}
 			}?></form>
