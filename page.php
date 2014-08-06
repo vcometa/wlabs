@@ -1,6 +1,7 @@
  <!DOCTYPE HTML>
 <html>
 <head>
+<title>Pinstacular.com - <?PHP echo $articlename; ?></title>
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body>
@@ -13,17 +14,18 @@ $password = "vc0m3t@";
 $database = "vcometa_simplecms";
 $server = "localhost";
 
-$db_handle = mysql_connect($server, $user_name, $password);
+$db_handle = mysqli_connect($server, $user_name, $password, $database);
 
-$db_found = mysql_select_db($database);
+//$db_found = mysql_select_db($database);
 date_default_timezone_set('America/New_York');
-if ($db_found) {
+if ($db_handle) {
 
 	$articlename = htmlspecialchars($_GET["articlename"]);	
-	$SQL = "SELECT * FROM content WHERE articlename='$articlename'";
-	$result = mysql_query($SQL);
+	$query = "SELECT * FROM content WHERE articlename='$articlename'";
+	//$result = mysql_query($SQL);
+	$result = $db_handle->query($query);
 
-	while ( $db_field = mysql_fetch_assoc($result) ) {
+	while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 		print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
 		print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
@@ -33,13 +35,13 @@ if ($db_found) {
 		print '<div>'.html_entity_decode($db_field['tags']). '</div>';
 
 	}
-	mysql_close($db_handle);
+	mysqli_close($db_handle);
 
 }
 else {
 
 	print "Database NOT Found " . $db_handle;
-	mysql_close($db_handle);
+	mysqli_close($db_handle);
 
 }
 
