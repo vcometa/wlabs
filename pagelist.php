@@ -4,7 +4,7 @@
 <title>Pinstacular</title>
 <?PHP include ("includes/css.php"); ?>
 </head>
-<body>
+<body class="home">
 <!-- fb begins -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -17,7 +17,7 @@
 <!-- fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div class="content js-masonry" data-masonry-options='{ "itemSelector": ".ablock" }'>
+<div class="content js-masonry">
 <?PHP
 
 $user_name = "vcometa_admin";
@@ -44,29 +44,36 @@ if ($db_handle) {
 
 	
 	$result = $db_handle->query($query); //mysql_query($SQL);
+	$rowCount = 0;
 
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
 		
 		$string = html_entity_decode($db_field['description']);
 		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
 	
-		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
+		
+		
+		if( $rowCount == 0){
+			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest"><article>';
+		}else{
+			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
+		}
+		
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';		
 		print '<div class="byline">'.html_entity_decode($db_field['author']).'</div>';
 		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
-		print '<p>'.$string.'</p><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></article></a>';		
-	}
-	mysqli_close($db_handle);
+		print '<p data-char-limit="60">'.$string.'</p></article></a>';	
 
-}
-else {
+		++$rowCount;
+	}
+	mysqli_free_result($result);
+} else {
 
 	print "Database NOT Found " . $db_handle;
-	mysqli_close($db_handle);
-
+	
 }
-
+mysqli_close($db_handle);
 ?>
 </div>
 <?PHP include ("includes/footer.php"); ?>

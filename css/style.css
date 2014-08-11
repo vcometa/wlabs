@@ -14,6 +14,9 @@
 		height: 100%;
 		overflow: hidden;	
 	}
+	.story .content{
+		padding: 20px;
+	}
 	header {
 		width: 100%;
 		height: 30px;
@@ -54,17 +57,26 @@
 	.ablock{
 		display:block;
 		float:left;
-		width:220px;
+		width:14%;
+		height: 400px;
 		margin:10px;
 		text-decoration:none;
 		background:#fff;
 		padding:10px;
 		color:#666;
 		border:1px solid #ccc;
+		overflow:hidden;
+	}	
+	.ablock.latest{
+		width: 30.7%;
 	}
-	
 	.ablock figure{
-		margin:-10px -10px 0;
+		height: 180px;
+		margin: -10px -10px 0;
+		overflow: hidden;
+	}
+	.ablock.latest figure{
+		height:auto;
 	}
 	.ablock img {
 		width:100%;
@@ -75,7 +87,43 @@
 	.dateline{
 		font-size:11px;
 	}
-	
-	
+	.article-modal{
+		position:absolute;
+		z-index:2147483647;
+		background:#fff;
+		box-shadow: 3px 3px 3px rgba(0,0,0,0.8);
+	}
+	.article-modal .modal-content{
+		height:100%;
+	}
+	.article-modal iframe{
+		overflow:auto;
+		display:block;
+		width:100%;
+		height:100%;
+		border:0;
+	}
+	.modal-overlay {
+		display:none;
+		background:rgba(0,0,0,0.4);
+		position:absolute;
+		z-index:2147483646;
+		width:100%;
+		height:100%;
+	}
+	.modal-overlay.active{
+		display:block;
+	}
+	.modal-close {
+		position:absolute;
+		top:-30px;
+		right:0;
+		background: transparent url(../images/close.png) 0 0 no-repeat;
+		width:25px;
+		height:25px;
+		cursor:pointer;
+		border:0;
+		z-index:2147483647;
+	}
 
 }
