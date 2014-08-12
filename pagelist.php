@@ -18,7 +18,7 @@
 <!-- fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div class="content">
+<div class="content" id="container">
 <?PHP
 
 $user_name = "vcometa_admin";

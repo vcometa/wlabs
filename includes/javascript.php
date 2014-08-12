@@ -1,8 +1,14 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
 <script src="js/pinvise.js"></script>
 <script>
 $(function() {
+
+	$('#container').masonry({
+	  columnWidth: 120,
+	  itemSelector: '.ablock'
+	});
 
 	var params = {
 			id:'modal',
