@@ -4,7 +4,7 @@
 <title>Pinstacular.com - <?PHP echo $articlename; ?></title>
 <?PHP include ("includes/css.php"); ?>
 </head>
-<body class="story">
+<body class="story" id="story">
 <div id="fb-root"></div>
 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 <script>(function(d, s, id) {

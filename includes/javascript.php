@@ -5,39 +5,27 @@
 <script>
 $(function() {
 
-	$('#container').masonry({
+	var container = $('#container').masonry({
 	  columnWidth: 28,
 	  itemSelector: '.ablock'
 	});
-
-	var params = {
-			id:'modal',
-			width: 800,
-			height: 600,
-			xOffset:0,
-			yOffset:0,
-			styles:[],
-			classname:'article-modal',
-			msg:'<iframe></iframe>',
-			delay:0,		
-			nodelay:true,   
-			center:true,
-			showoverlay:true,
-			addclose:true,
-			hideonmouseout:false,
-			donotpersistcontent:true
-		};
-		
+	var prevHtml = '';
 	$('.ablock').on('click',function(e){
 		e.preventDefault();
 		var url = $(this).attr('href');
-		console.log(url);
-		params.event = e;		
-		params.msg = '<div id="article-holder"></div>';		
-		var modal = pinvise.Modal(params);
-		$( "#article-holder" ).load( url);
-		$('body').ajaxComplete(function(){ FB.XFBML.parse(document.body) });
-		
+		var article = $(this).find('article');
+		if( $(this).hasClass('active') ){
+			//article.html();
+			//$(this).append( prevHtml );
+			//$(this).removeClass('active');	
+		}else{
+			prevHtml = article;
+			console.log( url+' #story' );
+			$( article ).load( url+' #story');
+			$('body').ajaxComplete(function(){ FB.XFBML.parse(document.body) });
+			$(this).addClass('active');			
+		}
+		container.masonry();
 	});
 	
 	pinvise.LimitText($('.ablock article p'));
