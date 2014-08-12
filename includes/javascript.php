@@ -6,7 +6,7 @@
 $(function() {
 
 	$('#container').masonry({
-	  columnWidth: 120,
+	  columnWidth: 28,
 	  itemSelector: '.ablock'
 	});
 
@@ -42,7 +42,7 @@ $(function() {
 	
 	pinvise.LimitText($('.ablock article p'));
 	
-	pinvise.showWindowWidth(true);
+	pinvise.showWindowWidth(false);
 		
 });
 </script>

@@ -1,4 +1,4 @@
-<nav class="content">
+<nav>
 	<ul>
 	
 		<?php
