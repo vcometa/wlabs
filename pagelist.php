@@ -5,6 +5,7 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="home">
+
 <!-- fb begins -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -17,7 +18,7 @@
 <!-- fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div class="content js-masonry">
+<div class="content">
 <?PHP
 
 $user_name = "vcometa_admin";

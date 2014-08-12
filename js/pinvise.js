@@ -368,7 +368,7 @@ var pinvise = {};
 		
 			var e, posX, posY, styles, modal=[], 
 				closebtn ='<button title="Close this" class="modal-close"></button>',
-				overlay ='<div class="modal-overlay active"></div>',
+				overlay ='<div class="modal-overlay active" style="height:'+$('body .content').outerHeight()+'"></div>',
 				
 			positionModal = function(){
 				if(!params.center || typeof params.event == 'undefined'){

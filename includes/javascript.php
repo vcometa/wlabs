@@ -26,14 +26,17 @@ $(function() {
 		e.preventDefault();
 		var url = $(this).attr('href');
 		console.log(url);
-		params.event = e;
-		params.msg = '<iframe src="'+url+'"></iframe>';
-		
+		params.event = e;		
+		params.msg = '<div id="article-holder"></div>';		
 		var modal = pinvise.Modal(params);
+		$( "#article-holder" ).load( url);
+		$('body').ajaxComplete(function(){ FB.XFBML.parse(document.body) });
 		
 	});
 	
 	pinvise.LimitText($('.ablock article p'));
+	
+	pinvise.showWindowWidth(true);
 		
 });
 </script>
