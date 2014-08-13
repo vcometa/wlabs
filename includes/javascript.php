@@ -4,33 +4,40 @@
 <script src="js/pinvise.js"></script>
 <script>
 $(function() {
-
-	var container = $('#container').masonry({
-	  columnWidth: 28,
-	  itemSelector: '.ablock'
-	});
-	var prevHtml = '';
+	var params = {
+		id:'modal',
+		width: 800,
+		height: 600,
+		xOffset:0,
+		yOffset:0,
+		styles:[],
+		classname:'article-modal',
+		msg:'<iframe></iframe>',
+		delay:0,	
+		nodelay:true,
+		center:true,
+		showoverlay:true,
+		addclose:true,
+		hideonmouseout:false,
+		donotpersistcontent:true
+	};
+	
 	$('.ablock').on('click',function(e){
 		e.preventDefault();
 		var url = $(this).attr('href');
-		var article = $(this).find('article');
-		if( $(this).hasClass('active') ){
-			//article.html();
-			//$(this).append( prevHtml );
-			//$(this).removeClass('active');	
-		}else{
-			prevHtml = article;
-			console.log( url+' #story' );
-			$( article ).load( url+' #story');
-			$('body').ajaxComplete(function(){ FB.XFBML.parse(document.body) });
-			$(this).addClass('active');			
-		}
-		container.masonry();
+		//console.log(url);
+		params.event = e;	
+		params.msg = '<div id="article-holder"></div>';	
+		var modal = pinvise.Modal(params);
+		$( "#article-holder" ).load( url, function(e){
+			modal.modal.addClass('active');
+			setTimeout(function(){modal.overlay.addClass('active');},1000);
+			FB.XFBML.parse(document.body)
+		});
+		//$('body').ajaxComplete(function(){  });
 	});
 	
 	pinvise.LimitText($('.ablock article p'));
-	
 	pinvise.showWindowWidth(false);
-		
 });
 </script>

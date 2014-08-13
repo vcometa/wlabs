@@ -400,10 +400,11 @@ var pinvise = {};
 			var newModal = $('#'+params.id),
 				newOverlay = $('.modal-overlay'),
 				closeModal = function(){
-					newModal.fadeOut();
+					newModal.removeClass('active');
 					newOverlay.removeClass('active');
 					if(params.donotpersistcontent){
 						newModal.remove();
+						newOverlay.remove();
 					}
 				},
 				bindModal = function(){
@@ -437,7 +438,6 @@ var pinvise = {};
 				if(params.addclose){
 					bindModal();
 				}
-				
 				if( !params.nodelay ){
 				
 					setTimeout(function(){ closeModal(); }, params.delay);			
@@ -448,12 +448,15 @@ var pinvise = {};
 					positionModal();
 					newModal.css({'top':posY,'left':posX});
 				}
-				newModal.fadeIn();
+				
 				if(params.showoverlay){
-					newOverlay.addClass('active');
+					//newOverlay.addClass('active');
 				}
 			}
-			return newModal;
+			return {
+				modal:newModal,
+				overlay:newOverlay
+			};
 		}
 
 	},

@@ -55,9 +55,9 @@ if ($db_handle) {
 		
 		
 		if( $rowCount == 0){
-			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest"><article>';
+			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest"><article id="article_'.html_entity_decode($db_field['id']).'">';
 		}else{
-			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article>';
+			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock"><article id="article_'.html_entity_decode($db_field['id']).'">';
 		}
 		
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
