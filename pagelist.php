@@ -18,7 +18,8 @@
 <!-- fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div class="content" id="container">
+<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":3, "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
+
 <?PHP
 
 $user_name = "vcometa_admin";

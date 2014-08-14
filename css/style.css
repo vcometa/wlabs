@@ -1,4 +1,12 @@
 @media all{
+	* {
+	  -webkit-box-sizing: border-box;
+		 -moz-box-sizing: border-box;
+			  box-sizing: border-box;
+	}
+
+	/* inherit height from window */
+	html, body { height: 100%; }
 	.error {color: #FF0000;}
 	body{
 		font-size: 16px ;
@@ -8,6 +16,7 @@
 		padding: 0;
 		background:#eee;
 	}
+	
 	h1,h2,h3,h4,h5,h6{
 		display:block;
 		margin:0;
@@ -19,11 +28,15 @@
 		font-size:20px;
 	}
 	.content {
-		margin: 0 auto;
-		width: 90%;
+		margin: 0 auto;		
+		width:90%;
 		padding: 0;
 		height: 100%;
-		overflow: hidden;	
+	}
+	.content:after {
+	  content: '';
+	  display: block;
+	  clear: both;
 	}
 	.story .content{
 		padding: 20px;
@@ -76,7 +89,7 @@
 	}
 	.ablock{
 		display:block;
-		float:left;
+		position:absolute;
 		width:14.3%;
 		margin:0 0 12px;
 		text-decoration:none;
@@ -87,8 +100,7 @@
 		overflow:hidden;
 		box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 	}	
-	.ablock > article{		
-		width:215px;
+	.ablock > article{
 		min-height:300px;
 		-webkit-transition: all 1s ease-in-out;
 		-moz-transition: all 1s ease-in-out;

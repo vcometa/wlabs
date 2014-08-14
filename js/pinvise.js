@@ -765,6 +765,35 @@ var pinvise = {};
 			err = "Geolocation is not supported by this browser.";
 			callback(err);
 		}
+	},
+	
+	Layout: function(options){
+
+		var count = options.columnCount,
+			item = $(options.itemSelector),
+			container = $(options.containerSelector),
+			itemW = (container.width()/count)-( (options.itemBorderWidth*2)+(options.itemGutterWidth*2));
+			
+		item.css({'width':itemW, 'border-width':options.itemBorderWidth,'margin':options.itemGutterWidth});
+		var rowCount = count-1;
+		for( var i=0, j=item.length;i<j;i++){
+			var t = i-count;
+			var o = $(item[i]);
+			var p = $(item[t]);
+			var x = y = 0;
+			
+			if( i>rowCount ){
+				rowCount+=count;				
+				x = 0;
+			}else{
+				x = itemW*i;
+			}
+			y = o.position().top+ p.height();
+			
+			o.css({'left':x,'top':y});
+			console.log( i+' :: x:'+x+' :: y:'+y);
+		}
+		
 	}
 	
 
@@ -792,6 +821,11 @@ $(function() {
 			GeoCoder(callback);
 		}
 		
+	}
+	
+	if( $('div[data-layout=true]').length > 0){
+	
+		pinvise.Layout($('div[data-layout=true]').data('layout-options'));
 	}
 	
 });
