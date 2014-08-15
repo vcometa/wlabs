@@ -784,7 +784,7 @@ var pinvise = {};
 				p = $(item[t]),
 				x = y = 0;						
 			if( i>rowCount ){
-			console.log(i);
+			
 				rowCount+=count;				
 				x = 0;
 				z = 0;
@@ -792,11 +792,12 @@ var pinvise = {};
 			x = (itemW*z)+( (options.itemBorderWidth*z)+(options.itemGutterWidth*z));
 			z++;			
 			if(t>=0){
-				y = o.position().top+p.position().top+p.outerHeight();
+				//y = o.offset().top+p.offset().top+p.innerHeight()-45;
+				y = (p.offset().top+p.innerHeight());
 			}else{
 				y = 0;
 			}
-			//console.log(itemW+' :: x: '+x);
+			
 			o.css({'left':x,'top':y});
 		}
 		
