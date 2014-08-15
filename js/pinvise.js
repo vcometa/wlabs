@@ -774,24 +774,30 @@ var pinvise = {};
 			container = $(options.containerSelector),
 			itemW = (container.width()/count)-( (options.itemBorderWidth*2)+(options.itemGutterWidth*2));
 			
-		item.css({'width':itemW, 'border-width':options.itemBorderWidth,'margin':options.itemGutterWidth});
-		var rowCount = count-1;
+		item.css({'width':itemW});
+		var rowCount = count-1, z = 0;
 		for( var i=0, j=item.length;i<j;i++){
 			var t = i-count;
 			var o = $(item[i]);
 			var p = $(item[t]);
 			var x = y = 0;
 			
+			//console.log(i+' :: '+t);
+			
 			if( i>rowCount ){
 				rowCount+=count;				
 				x = 0;
-			}else{
-				x = itemW*i;
+				z = 0;
 			}
-			y = o.position().top+ p.height();
+			x = (itemW*z++)+((options.itemGutterWidth+options.itemBorderWidth)*2);
+			if(t>=0){
+				y = o.position().top+p.position().top+p.height();
+			}else{
+				y = 0;
+			}
 			
 			o.css({'left':x,'top':y});
-			console.log( i+' :: x:'+x+' :: y:'+y);
+			console.log( i+' :: y :'+y);
 		}
 		
 	}

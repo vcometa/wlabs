@@ -18,7 +18,7 @@
 <!-- fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":3, "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
+<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":6, "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
 
 <?PHP
 
