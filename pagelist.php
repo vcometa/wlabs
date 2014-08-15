@@ -77,6 +77,7 @@ if ($db_handle) {
 }
 mysqli_close($db_handle);
 ?>
+
 </div>
 <?PHP include ("includes/footer.php"); ?>
 <?PHP include ("includes/javascript.php"); ?>

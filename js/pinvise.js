@@ -4,6 +4,8 @@ pinvise v.01
 
 author: virgilio cometa
 
+This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+
 date: 2014
 
 **/
@@ -772,32 +774,30 @@ var pinvise = {};
 		var count = options.columnCount,
 			item = $(options.itemSelector),
 			container = $(options.containerSelector),
-			itemW = (container.width()/count)-( (options.itemBorderWidth*2)+(options.itemGutterWidth*2));
+			itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth));
 			
 		item.css({'width':itemW});
 		var rowCount = count-1, z = 0;
 		for( var i=0, j=item.length;i<j;i++){
-			var t = i-count;
-			var o = $(item[i]);
-			var p = $(item[t]);
-			var x = y = 0;
-			
-			//console.log(i+' :: '+t);
-			
+			var t = i-count,
+				o = $(item[i]),
+				p = $(item[t]),
+				x = y = 0;						
 			if( i>rowCount ){
+			console.log(i);
 				rowCount+=count;				
 				x = 0;
 				z = 0;
 			}
-			x = (itemW*z++)+((options.itemGutterWidth+options.itemBorderWidth)*2);
+			x = (itemW*z)+( (options.itemBorderWidth*z)+(options.itemGutterWidth*z));
+			z++;			
 			if(t>=0){
-				y = o.position().top+p.position().top+p.height();
+				y = o.position().top+p.position().top+p.outerHeight();
 			}else{
 				y = 0;
 			}
-			
+			//console.log(itemW+' :: x: '+x);
 			o.css({'left':x,'top':y});
-			console.log( i+' :: y :'+y);
 		}
 		
 	}
