@@ -5,15 +5,15 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="story" id="story">
-<div id="fb-root"></div>
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-<script>(function(d, s, id) {
+<!--div id="fb-root"></div>
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div-->
+<!--script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script-->
 <div class="content">
 <?PHP
 
@@ -57,6 +57,6 @@ else {
 ?>
 </div>
 
-<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/page/'.html_entity_decode($articlename) ?>" data-width="700px" data-numposts="7" data-colorscheme="light"></div>
+<!--div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/page/'.html_entity_decode($articlename) ?>" data-width="700px" data-numposts="7" data-colorscheme="light"></div-->
 </body>
 </html>

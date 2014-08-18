@@ -769,37 +769,78 @@ var pinvise = {};
 		}
 	},
 	
+	FinalEventCall: (function () {
+		var timers = {};
+		return function (callback, ms, uniqueId) {
+			if (!uniqueId) {
+			  uniqueId = "finalEventTimer";
+			}
+			if (timers[uniqueId]) {
+			  clearTimeout (timers[uniqueId]);
+			}
+			timers[uniqueId] = setTimeout(callback, ms);
+		};
+	})(),
+	
 	Layout: function(options){
 
-		var count = options.columnCount,
-			item = $(options.itemSelector),
+		var item = $(options.itemSelector),
 			container = $(options.containerSelector),
-			itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth));
+			colCount = function(){			
+				var w = pinvise.GetWindowDimension().width;						
+				if( w > 970 ){
+					return options.columnCount[0];
+				}else if( w > 480 && w <= 970){
+					return options.columnCount[1];
+				}else{
+					return options.columnCount[2];
+				}
+			},
+			count = colCount(),			
+			itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth)),		
+			z = 0,
+			setGrid = function(){
 			
-		item.css({'width':itemW});
-		var rowCount = count-1, z = 0;
-		for( var i=0, j=item.length;i<j;i++){
-			var t = i-count,
-				o = $(item[i]),
-				p = $(item[t]),
-				x = y = 0;						
-			if( i>rowCount ){
-			
-				rowCount+=count;				
-				x = 0;
+				rowCount = count-1;
+				item.css({'width':itemW});
+				for( var i=0, j=item.length;i<j;i++){
+					var t = i-count,
+						o = $(item[i]),
+						p = $(item[t]),
+						x = y = 0;						
+					if( i>rowCount ){
+					
+						rowCount+=count;				
+						x = 0;
+						z = 0;
+					}
+					x = (itemW*z)+( (options.itemBorderWidth*z)+(options.itemGutterWidth*z));
+					z++;			
+					if(t>=0){
+						//y = o.offset().top+p.offset().top+p.innerHeight()-45;
+						y = (p.offset().top+p.innerHeight());
+					}else{
+						y = 0;
+					}
+					
+					o.css({'left':x,'top':y});
+				}
+			},
+			resetX = function(){
 				z = 0;
-			}
-			x = (itemW*z)+( (options.itemBorderWidth*z)+(options.itemGutterWidth*z));
-			z++;			
-			if(t>=0){
-				//y = o.offset().top+p.offset().top+p.innerHeight()-45;
-				y = (p.offset().top+p.innerHeight());
+				count = colCount();
+				item.css({'left':0,'top':0});
+				itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth));
+				setTimeout(function(){setGrid();},100);
+			};
+		
+		$(window).on('load resize',function(e){
+			if( e.type == 'resize'){
+				pinvise.FinalEventCall(resetX, 500, 'resizeTimer');
 			}else{
-				y = 0;
+				setGrid();
 			}
-			
-			o.css({'left':x,'top':y});
-		}
+		});	
 		
 	}
 	

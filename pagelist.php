@@ -6,7 +6,7 @@
 </head>
 <body class="home">
 
-<!-- fb begins -->
+<!-- fb begins 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -15,10 +15,10 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<!-- fb ends -->
+fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":6, "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
+<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[6,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
 
 <?PHP
 

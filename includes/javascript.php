@@ -31,7 +31,7 @@ $(function() {
 		$( "#article-holder" ).load( url, function(e){
 			modal.modal.addClass('active');
 			setTimeout(function(){modal.overlay.addClass('active');},1000);
-			FB.XFBML.parse(document.body)
+			//FB.XFBML.parse(document.body)
 		});
 		//$('body').ajaxComplete(function(){  });
 	});
