@@ -823,6 +823,8 @@ var pinvise = {};
 						y = 0;
 					}
 					
+					console.log(i+' :: y: '+y);
+					
 					o.css({'left':x,'top':y});
 				}
 			},
