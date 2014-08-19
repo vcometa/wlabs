@@ -800,7 +800,7 @@ var pinvise = {};
 			itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth)),		
 			z = 0,
 			setGrid = function(){
-			
+						
 				rowCount = count-1;
 				item.css({'width':itemW});
 				for( var i=0, j=item.length;i<j;i++){
@@ -818,13 +818,12 @@ var pinvise = {};
 					z++;			
 					if(t>=0){
 						//y = o.offset().top+p.offset().top+p.innerHeight()-45;
-						y = (p.offset().top+p.innerHeight());
+						y = p.offset().top+p.outerHeight(true);						
+						
 					}else{
 						y = 0;
 					}
-					
-					console.log(i+' :: y: '+y);
-					
+									
 					o.css({'left':x,'top':y});
 				}
 			},
@@ -833,16 +832,18 @@ var pinvise = {};
 				count = colCount();
 				item.css({'left':0,'top':0});
 				itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth));
-				setTimeout(function(){setGrid();},100);
+				setGrid();
 			};
 		
 		$(window).on('load resize',function(e){
 			if( e.type == 'resize'){
-				pinvise.FinalEventCall(resetX, 500, 'resizeTimer');
+				pinvise.FinalEventCall(resetX, 100, 'resizeTimer');
 			}else{
 				setGrid();
 			}
 		});	
+		
+		
 		
 	}
 	
