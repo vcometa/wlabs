@@ -271,8 +271,8 @@ $passphrase = htmlspecialchars($_GET["pass"]);
 if($passphrase == 'src123177'){
 
 // define variables and set to empty values
-$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = "";
-$author = $title = $articlename = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
+$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = $sourceErr = "";
+$author = $title = $articlename = $source = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
 $user_name = "vcometa_admin";
 $delete = false;
 $password = "vc0m3t@";
@@ -281,7 +281,7 @@ $server = "localhost";
 //$db_handle = mysql_connect($server, $user_name, $password);
 //$db_found = mysql_select_db($database);
 $db_handle = mysqli_connect($server, $user_name, $password, $database);
-$authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = false;
+$authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = $sourcePass = false;
 date_default_timezone_set('America/New_York');
 if ($_GET){
 	$id = htmlspecialchars($_GET["id"]);	
@@ -293,6 +293,7 @@ if ($_GET){
 	
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
+		$source = html_entity_decode($db_field['source']);
 		$articlename = html_entity_decode($db_field['articlename']);
 		$description = html_entity_decode($db_field['description']);
 		$thumbnail = html_entity_decode($db_field['thumbnail']);
@@ -359,6 +360,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$articlePass = true;
 		}
 		
+		if(empty($_POST["source"])){		
+			$sourceErr = "source is required";
+			$sourcePass = false;
+		}else{
+			$source = test_input($_POST["source"]);
+			$sourcePass = true;
+		}
+		
 		if(empty($_POST["tags"])){
 			$tagsErr = "tags is required";
 			$tagsPass = false;
@@ -378,7 +387,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$id = test_input($_POST["id"]);	
 					
 					if(empty($_POST["delete"])){
-						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename' WHERE id = '$id'";
+						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename', source='$source' WHERE id = '$id'";
 					} else {
 						$query = "DELETE FROM content WHERE id='$id'";
 					}			
@@ -386,7 +395,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$result = $db_handle->query($query);
 					
 				} else {
-					$query = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename' )";	
+					$query = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename, source ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename', '$source' )";	
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
 					mysqli_close($db_handle);
@@ -532,16 +541,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
 				<input type="hidden" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
 			</div>
+			<div class="full">
+				<label for="source">source<span class="error">*</span>:</label> <span class="error"><?php echo $sourceErr;?></span>
+				<input type="text" name="source" value="<?php echo htmlentities($source); ?>">			
+			</div>
 			<div class="inline left">
 				<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
 				<input type="text" name="author" value="<?php echo htmlentities($author); ?>">			
 			</div>
-						
+				
 			<div class="inline left">
 				<label for="thumbnail">thumbnail:</label>
 				<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
-			</div>
-			
+			</div>			
 			<div>
 				<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
 				<br>
