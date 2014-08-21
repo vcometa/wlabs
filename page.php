@@ -37,10 +37,10 @@ if ($db_handle) {
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 		print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
-		//print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
-		//print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
-		//print '<span> By: '.html_entity_decode($db_field['author']).'</span>';
-		//print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
+		print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
+		print '<span>'.html_entity_decode($db_field['author']).'</span>';
+		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
 		print '<div>'.html_entity_decode($db_field['tags']). '</div>';
 
