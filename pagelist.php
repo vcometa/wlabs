@@ -54,16 +54,15 @@ if ($db_handle) {
 		$string = html_entity_decode($db_field['description']);
 		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
 	
-		print '<article class="ablock" id="article_'.html_entity_decode($db_field['id']).'">';
+		print '<article class="ablock" id="article_'.html_entity_decode($db_field['id']).'" data-href="/page/'.html_entity_decode($db_field['articlename']).'">';
 		
 		/*if( $rowCount == 0){
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest">';
 		}else{
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
 		}*/
-		print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
-		print '<h2>'.html_entity_decode($db_field['title']).'</h2></a>';
+		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['author']).'</a>';
 		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '</article>';

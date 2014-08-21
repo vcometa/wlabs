@@ -123,6 +123,7 @@
 		background:#fff;
 		padding:10px;
 		color:#666;
+		cursor:pointer;
 		border:1px solid #ccc;
 		overflow:hidden;
 		box-shadow: 0px 0px 10px rgba(0,0,0,0.3);

@@ -23,7 +23,7 @@ $(function() {
 	
 	$('.ablock').on('click',function(e){
 		e.preventDefault();
-		var url = $(this).attr('href');
+		var url = $(this).data('href');
 		//console.log(url);
 		params.event = e;	
 		params.msg = '<div id="article-holder"></div>';	
