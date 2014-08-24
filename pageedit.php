@@ -592,7 +592,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					print "<ul class='categorylist'>";
 					while ( $db_field = mysqli_fetch_assoc($result) ) {
 
-						print '<li><input type="radio" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
+						print '<li><input type="checkbox" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
 					mysqli_close($db_handle);
@@ -724,14 +724,14 @@ $(function() {
 
 	if( $('#category').val().length > 0 ){
 		
-		var $radios = $('input:radio[name=categorylist]');
+		var $radios = $('input:checkbox[name=categorylist]');
 		if($radios.is(':checked') === false) {
 			$radios.filter('[value='+$('#category').val()+']').prop('checked', true);
 		}
 
 	}
 	
-	$( ".categorylist input:radio" ).on('click', function(){
+	$( ".categorylist input:checkbox" ).on('click', function(){
 	
 		$('#category').val( $('input[name=categorylist]:checked').val() );
 		

@@ -13,7 +13,7 @@
 				$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
-				print '<li><a href="http://www.pinstacular.com">Home</a></li>';
+				print '<li><a href="http://www.pinstacular.com/pagelist.php">All</a></li>';
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 					print '<li><a href="../category/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
