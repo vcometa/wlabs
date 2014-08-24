@@ -307,7 +307,10 @@ if ($_GET){
 function test_input($data){
 	$data = trim($data);
 	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
+	//print '<br>before: '.$data;
+	//$data = htmlspecialchars($data);
+	$data = htmlspecialchars($data, ENT_COMPAT|ENT_SUBSTITUTE, "UTF-8");
+	//print '<br>after: '.$data.'<br><br>';
 	//$data = mysqli_real_escape_string($data);
 	//$data = $mysqli->real_escape_string($data);
 	return $data;

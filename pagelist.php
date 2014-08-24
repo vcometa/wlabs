@@ -63,7 +63,8 @@ if ($db_handle) {
 		}*/
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
-		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['author']).'</a>';
+		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
+		print '<br/><a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">Go to original aricle.</a>';
 		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '</article>';
 		//print '<p data-char-limit="60">'.$string.'</p>';	

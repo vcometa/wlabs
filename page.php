@@ -42,6 +42,7 @@ if ($db_handle) {
 		print '<span>'.html_entity_decode($db_field['author']).'</span>';
 		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
+		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">Go to original aricle.</a>';
 		print '<div>'.html_entity_decode($db_field['tags']). '</div>';
 
 	}

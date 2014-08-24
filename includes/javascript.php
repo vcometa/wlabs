@@ -22,7 +22,7 @@ $(function() {
 	};
 	
 	$('.ablock').on('click',function(e){
-		e.preventDefault();
+		//e.preventDefault();
 		var url = $(this).data('href');
 		//console.log(url);
 		params.event = e;	
