@@ -5,8 +5,8 @@
 $(function() {
 	var params = {
 		id:'modal',
-		width: 800,
-		height: 600,
+		width: '100%',
+		height: 800,
 		xOffset:0,
 		yOffset:0,
 		styles:[],
@@ -29,6 +29,7 @@ $(function() {
 		params.msg = '<div id="article-holder"></div>';	
 		var modal = pinvise.Modal(params);
 		$( "#article-holder" ).load( url, function(e){
+			$(document.body).addClass('disableOverflow');
 			modal.modal.addClass('active');
 			setTimeout(function(){modal.overlay.addClass('active');},1000);
 			FB.XFBML.parse(document.body)
