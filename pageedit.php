@@ -745,7 +745,19 @@ $(function() {
 	
 	$( ".categorylist input:checkbox" ).on('click', function(){
 	
-		$('#category').val( $('input[name=categorylist]:checked').val() );
+		var delim = ($('#category').val().length==0)?'':', ';
+		
+		if( $(this)[0].checked ){
+	
+			$('#category').val( $('#category').val()+delim+ $(this).val() );
+		
+		} else {
+		
+			$('#category').val($('#category').val().replace(delim+$(this).val(),''));
+		
+		}
+	
+		//$('#category').val( $('input[name=categorylist]:checked').val() );
 		
 	});
 	

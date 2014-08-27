@@ -5,7 +5,7 @@
 $(function() {
 	var params = {
 		id:'modal',
-		width: '100%',
+		width: 800,
 		height: 800,
 		xOffset:0,
 		yOffset:0,

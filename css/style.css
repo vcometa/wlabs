@@ -189,6 +189,7 @@
 		background:#fff;
 		box-shadow: 3px 3px 3px rgba(0,0,0,0.8);
 		overflow:auto;
+		padding:10px;
 		-webkit-transition: all 1s ease-in-out;
 		-moz-transition: all 1s ease-in-out;
 		-o-transition: all 1s ease-in-out;
@@ -219,8 +220,8 @@
 	}
 	.modal-close {
 		position:absolute;
-		top:0px;
-		right:0;
+		top:10px;
+		left:10px;
 		background: transparent url(../images/close.png) 0 0 no-repeat;
 		width:25px;
 		height:25px;
@@ -240,6 +241,25 @@
 		line-height:40px;
 		color:#fff;
 		z-index:999999999;
+	}
+	.tags{
+		font-size:12px;
+		font-weight:bold;
+		padding:10px;
+		width:100%;
+		height:auto;
+		border-top:1px solid #ccc;
+		background:#eee;
+		margin:10px 0 20px;
+	}
+	.modal-content .content h1{
+		margin: 0 0 20px;
+	}
+	.modal-content .content h2{
+		margin: 15px 0;
+	}
+	.modal-content .content article{
+		margin: 15px 0;
 	}
 
 }

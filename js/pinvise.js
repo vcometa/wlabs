@@ -388,13 +388,13 @@ var pinvise = {};
 			}
 			positionModal();
 			styles = 'width:'+params.width+'px; height:'+params.height+'px;top:'+posY+'px;left:'+posX+'px;'+params.styles.join(';');
-			modal = ['<div id="',params.id,'" class="',params.classname,'" style="',styles,'"><div class="modal-content">'];
+			modal = ['<div id="',params.id,'" class="',params.classname,'" style="',styles,'">'];
 			
 			if(params.addclose){
 				modal.push(closebtn);
 			}
-			modal.push(params.msg);
-			modal.push('</div></div>');
+			modal.push('<div class="modal-content">'+params.msg+'</div></div>');
+			
 			if(params.showoverlay){
 				modal.push(overlay);
 			}
