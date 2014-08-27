@@ -14,7 +14,7 @@ body{
 	color: #666;
 }
 .page{	
-	width: 100%;
+	width: 98%;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -110,7 +110,6 @@ ul {
 }
 .leftpanel{
 	width:18%;
-	height: 900px;
 	padding:0;
 	float:left;
 	background: #fff;
@@ -149,9 +148,10 @@ ul {
 	color: #333;
 }
 .sectionlist {
-	width: 100%;
-	padding: 0;
-	
+	border-bottom: 1px solid #999;
+    margin: 0 auto 20px;
+    padding: 0;
+    width: 100%;
 }
 .sectionheader{
 	margin: 0;
@@ -166,7 +166,7 @@ ul {
 }
 
 .rightpanel .sectionlist .sectionlistbody{
-	height: 360px;
+	height: 320px;
 }
 .sectionlist .sectionlistbody td:first-child{
 	width: 20%;
@@ -208,20 +208,7 @@ ul {
     padding: 5px 10px;
     text-align: center;
 }
-.tagDelete,
-.categoryDelete{
-    display:block;
-	float:right;
-    width:25px; 
-	height:25px;
-    background:red;
-	border: 0;
-    text-indent:-999px;
-    font-size:0px; 
-	line-height:0;
-	cursor:pointer;
-	margin: 0 10px 0 0;
-}
+
 .taglist input[type=checkbox],
 .categorylist input[type=radio]{
 	float: left;
@@ -236,6 +223,10 @@ ul {
 	line-height: 18px;
 	overflow: hidden;
 	clear:both;
+}
+.taglist li input,
+.categorylist li input{
+	float:left;
 }
 .addtag,
 .addcategory{
@@ -259,6 +250,24 @@ ul {
 	font-weight:bold;
 	width: 35%;
 	padding: 5px 10px;
+}
+
+.taglist li input.tagDelete,
+.categorylist li input.categoryDelete,
+.tagDelete,
+.categoryDelete{
+    display:block;
+	float:right;
+    width:25px; 
+	height:25px;
+    background:transparent url(images/delete.png) center center no-repeat;
+	border: 0;
+    text-indent:-999px;
+    font-size:0px; 
+	line-height:0;
+	cursor:pointer;
+	margin: 0 10px 0 0;
+	cursor:pointer;
 }
 </style>
 </head>
@@ -623,7 +632,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				
 				if ($db_handle) {
 
-					$query = "SELECT * FROM tags";
+					$query = "SELECT * FROM tags ORDER BY tag ASC";
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
 					print "<ul class='taglist'>";
@@ -647,7 +656,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <script>
 var description = new TINY.editor.edit('description', {
 	id: 'edt-description',
-	width: 970,
+	width: 950,
 	height: 60,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
@@ -668,8 +677,8 @@ var description = new TINY.editor.edit('description', {
 });
 var article = new TINY.editor.edit('article', {
 	id: 'edt-article',
-	width: 970,
-	height: 360,
+	width: 950,
+	height: 240,
 	cssclass: 'tinyeditor',
 	controlclass: 'tinyeditor-control',
 	rowclass: 'tinyeditor-header',
