@@ -706,6 +706,7 @@ $(function() {
 		$( "#formPost select" )[0].selectedIndex = 0;
 		$( "#formPost textarea" ).text('');
 		$('#formPost iframe').contents().find('body').html('');
+		$( "#formPost" ).reset();
 	}	
 
 	$('.delete').on('click', function(){
@@ -724,7 +725,8 @@ $(function() {
 	
 	$('.alert .close').on('click', function(){	
 		$($(this).parent()).hide();
-		//clearInputs();
+		clearInputs();
+		//location.reload(true);
 	});
 
 

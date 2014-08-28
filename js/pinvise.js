@@ -408,6 +408,7 @@ var pinvise = {};
 						newModal.remove();
 						newOverlay.remove();
 					}
+					$(document.body).removeClass('disableOverflow');
 				},
 				bindModal = function(){
 					var closebtn = $(newModal.find('.modal-close'));					
@@ -415,6 +416,8 @@ var pinvise = {};
 						closeModal();
 					});
 				}
+				
+				$(document.body).addClass('disableOverflow');
 				
 			if(params.hideonmouseout){
 				var node = newModal;
@@ -877,6 +880,8 @@ $(function() {
 	if( $('div[data-layout=true]').length > 0){
 	
 		pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+		
+		$('.ablock').css('opacity',1);
 	}
 	
 });

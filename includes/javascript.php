@@ -28,8 +28,7 @@ $(function() {
 		params.event = e;	
 		params.msg = '<div id="article-holder"></div>';	
 		var modal = pinvise.Modal(params);
-		$( "#article-holder" ).load( url, function(e){
-			$(document.body).addClass('disableOverflow');
+		$( "#article-holder" ).load( url, function(e){			
 			modal.modal.addClass('active');
 			setTimeout(function(){modal.overlay.addClass('active');},1000);
 			FB.XFBML.parse(document.body)
@@ -39,5 +38,7 @@ $(function() {
 	
 	pinvise.LimitText($('.ablock article p'));
 	pinvise.showWindowWidth(false);
+	
+	
 });
 </script>
