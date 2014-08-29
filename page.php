@@ -39,11 +39,12 @@ if ($db_handle) {
 		print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
-		print '<span>'.html_entity_decode($db_field['author']).'</span>';
-		print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
-		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
+		print '<div class="source">'.html_entity_decode($db_field['author']).'</div>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">Go to original aricle.</a>';
-		print '<div>'.html_entity_decode($db_field['tags']). '</div>';
+		//print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
+		
+		print '<div class="tags">'.html_entity_decode($db_field['tags']). '</div>';
 
 	}
 	mysqli_close($db_handle);

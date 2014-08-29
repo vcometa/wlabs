@@ -37,7 +37,7 @@ if ($db_handle) {
 	if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
 		if($cat != 'home'){
-			$query = "SELECT * FROM content WHERE category='$cat'ORDER BY lastupdated DESC";
+			$query = "SELECT * FROM content WHERE category LIKE '%$cat%' ORDER BY lastupdated DESC";
 		}else{
 			$query = "SELECT * FROM content ORDER BY lastupdated DESC";
 		}
