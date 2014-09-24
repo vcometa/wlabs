@@ -19,7 +19,7 @@
 <!--fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[6,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":10}'>
+<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[5,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":0, "itemGutterWidth":0}'>
 
 <?PHP
 
@@ -62,10 +62,10 @@ if ($db_handle) {
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
 		}*/
 		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
-		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
+		print '<div class="caption-block"><h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
 		print '<br/><a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">Go to original aricle.</a>';
-		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div></div>';		
 		print '</article>';
 		//print '<p data-char-limit="60">'.$string.'</p>';	
 		

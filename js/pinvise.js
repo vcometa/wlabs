@@ -821,7 +821,15 @@ var pinvise = {};
 					z++;			
 					if(t>=0){
 						//y = o.offset().top+p.offset().top+p.innerHeight()-45;
-						y = p.offset().top+p.outerHeight(true);						
+						y = p.offset().top+p.outerHeight(true);		
+						
+						//y = p.find('figure img').outerHeight()+p.find('.caption-block').outerHeight();
+						
+						//y = p.outerHeight(true).top+o.outerHeight(true);
+
+						//$(o.find('.caption-block')).prepend( '<div>t= '+item[t]+' :: i= '+i+'</div>' );
+						
+						console.log( item[t].children[0].children[0].height+' :: '+ p.find('figure').outerHeight() );
 						
 					}else{
 						y = 0;
@@ -879,7 +887,15 @@ $(function() {
 	
 	if( $('div[data-layout=true]').length > 0){
 	
-		pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+		var l = $('img').length-1;
+		
+		console.log(l);
+	
+		$($('img')[l]).on('load', function(){
+	
+			pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+		
+		});
 		
 		$('.ablock').css('opacity',1);
 	}
