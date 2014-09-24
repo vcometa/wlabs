@@ -829,7 +829,7 @@ var pinvise = {};
 
 						//$(o.find('.caption-block')).prepend( '<div>t= '+item[t]+' :: i= '+i+'</div>' );
 						
-						console.log( item[t].children[0].children[0].height+' :: '+ p.find('figure').outerHeight() );
+						//console.log( item[t].children[0].children[1].height+' :: '+ p.find('.caption-block').outerHeight() );
 						
 					}else{
 						y = 0;
