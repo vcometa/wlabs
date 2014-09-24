@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css" />
+<style>
+	.book{
+		display:block;
+		position:relative;
+		width:253px;
+		height:253px;
+		float:left;
+		margin:5px;
+		background:#eee;
+		overflow:hidden;
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
+	}
+	.book.active{
+		width:799px;
+		height:755px;
+	}
+	.book_spine{
+		position:absolute;
+		z-index:12;
+		background:#ccc;
+		width:36px;
+		height:100%;
+	}
+	.book_pages{
+		position:relative;
+		width:799px;
+		height:100%;
+	}
+	.book_leaf{
+		position:absolute;
+		top:0;
+		left:-799px;
+		background:#ddd;
+		width:96%;
+		height:100%;
+		z-index:0;
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
+	}
+	.book_mark{
+		position:relative;
+		cursor:pointer;
+		width:auto;
+		height:50px;
+		transform: rotate(-90deg);
+		transform-origin: left top 0;
+		margin: 100px 20px 0 0;
+	}
+	.book_mark.active span{
+		background:red;
+	}
+	.book_mark span{
+		display:block;
+		white-space:nowrap;
+		padding:10px;
+		width:100px;
+	}
+	.book_leaf.active{
+		left:43px;
+		z-index:10;
+	}
+	.book_item{
+		position:relative;
+		width:178px;
+		height:178px;
+		float:left;
+		background:#999;
+		margin: 5px;
+	}
+	.book_cover{
+		position:absolute;
+		width:253px;
+		height:253px;
+		background:#ccc;
+		z-index:15;
+		opacity:1;
+		cursor:pointer;		
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
+	}
+	
+	.book.active .book_cover{
+		opacity:0;
+		z-index:0;
+	}
+</style>
+<body class="drv">
+
+	<div class="page">
+	
+		<div class="left">
+			<h1>CB1</h1>
+			
+			<div class="book">
+				<div class="book_cover">Convertible</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_convertible"><span>Convertibles</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_convertible">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Coupe</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_coupe_entry"><span>Entry Sports</span></div>
+					<div class="book_mark" data-target="leaf_coupe_midrange"><span>Midrange Sports</span></div>
+					<div class="book_mark" data-target="leaf_coupe_luxury"><span>Luxury Sports</span></div>
+					<div class="book_mark" data-target="leaf_coupe_premium"><span>Premium Performance</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_coupe_entry">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_coupe_midrange">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_coupe_luxury">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_coupe_premium">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Hatchback</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_hatchback_entry"><span>Entry</span></div>
+					<div class="book_mark" data-target="leaf_hatchback_luxury"><span>Luxury</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_hatchback_entry">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_hatchback_luxury">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+				</div>
+			</div>
+		
+			
+			<div class="book">
+				<div class="book_cover">Sedan</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_sedan_small"><span>Small</span></div>
+					<div class="book_mark" data-target="leaf_sedan_family"><span>Family</span></div>
+					<div class="book_mark" data-target="leaf_sedan_fullsize"><span>Full-size</span></div>
+					<div class="book_mark" data-target="leaf_sedan_entryluxury"><span>Entry Luxury</span></div>
+					<div class="book_mark" data-target="leaf_sedan_premiumluxury"><span>Premium Luxury</span></div>
+					<div class="book_mark" data-target="leaf_sedan_sports"><span>Sports</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_sedan_small">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_sedan_family">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf active" id="leaf_sedan_fullsize">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_sedan_entryluxury">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf active" id="leaf_sedan_premiumluxury">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_sedan_sports">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Pickup</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_pickup_compact"><span>Compact</span></div>
+					<div class="book_mark" data-target="leaf_pickup_fullsize"><span>Full-size</span></div>
+					<div class="book_mark" data-target="leaf_pickup_heavyduty"><span>Heavyduty</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_pickup_compact">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_pickup_fullsize">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_pickup_heavyduty">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Station Wagon</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_stationwagon_crossover"><span>Crossover</span></div>
+					<div class="book_mark" data-target="leaf_stationwagon_midsize"><span>Midsize</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_stationwagon_crossover">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf_stationwagon_midsize">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+				</div>
+			</div>
+		
+			
+			<div class="book">
+				<div class="book_cover">Cargo Van</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf_cargovan"><span>Cargo Vans</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf_cargovan">
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Book 8</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf1-8"><span>Leaf 1-8</span></div>
+					<div class="book_mark" data-target="leaf2-8"><span>Leaf 2-8</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf1-8">
+						<div class="book_item">leaf1</div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf2-8">
+						<div class="book_item">leaf2</div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="book">
+				<div class="book_cover">Book 9</div>
+				<div class="book_spine">
+					<div class="book_mark active" data-target="leaf1-9"><span>Leaf 1-9</span></div>
+					<div class="book_mark" data-target="leaf2-9"><span>Leaf 2-9</span></div>
+				</div>
+				<div class="book_pages">
+					<div class="book_leaf active" id="leaf1-9">
+						<div class="book_item">leaf1</div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+					
+					<div class="book_leaf" id="leaf2-9">
+						<div class="book_item">leaf2</div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+						<div class="book_item"></div>
+					</div>
+				</div>
+			</div>
+		
+				
+		</div>
+		<div class="right">
+			<div class="big-box-ad">
+				<img src="images/temporary/ad300x600.jpg" />
+			</div>
+		</div>
+	
+	</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+
+$(function() {
+	$('.book').on('click', function(){
+		$(this).toggleClass('active');
+	});
+
+	$('.book_mark').on('click', function(e){
+		e.stopImmediatePropagation();
+		var node =$(this),
+			target = $('#'+node.data('target'));
+		
+		$('.book_mark').removeClass('active');
+		$('.book_leaf').removeClass('active');
+			
+		if( !node.hasClass('active') ){
+			setTimeout(function(){
+				node.addClass('active');
+				target.addClass('active');
+			},600);
+		}
+			
+		
+	});
+});
+</script>
+</body>
+
+</html> 
