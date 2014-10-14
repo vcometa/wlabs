@@ -803,7 +803,7 @@ var pinvise = {};
 			itemW = (container.width()/count)+( (options.itemBorderWidth*2)-(options.itemGutterWidth)),		
 			z = 0,
 			setGrid = function(){
-						
+			
 				rowCount = count-1;
 				item.css({'width':itemW});
 				for( var i=0, j=item.length;i<j;i++){
@@ -834,7 +834,7 @@ var pinvise = {};
 					}else{
 						y = 0;
 					}
-									
+					
 					o.css({'left':x,'top':y});
 				}
 			},
@@ -889,15 +889,16 @@ $(function() {
 	
 		var l = $('img').length-1;
 		
-		console.log(l);
+		//console.log(l);
 	
 		$($('img')[l]).on('load', function(){
 	
-			pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+			//pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+			$('.ablock').css('opacity',1);
 		
 		});
 		
-		$('.ablock').css('opacity',1);
+		
 	}
 	
 });

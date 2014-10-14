@@ -53,19 +53,20 @@ if ($db_handle) {
 		
 		$string = html_entity_decode($db_field['description']);
 		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
+		
+		$category = strtolower(str_replace(', ', ' ', html_entity_decode($db_field['category'])));
 	
-		print '<article class="ablock" id="article_'.html_entity_decode($db_field['id']).'" data-href="/page/'.html_entity_decode($db_field['articlename']).'">';
+		print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/page/'.html_entity_decode($db_field['articlename']).'">';
 		
 		/*if( $rowCount == 0){
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest">';
 		}else{
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
 		}*/
-		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
-		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
+		print '<h2>'.html_entity_decode($db_field['title']).'</h2><figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
+		print '<div class="caption-block">';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
-		print '<br/><a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">Go to original aricle.</a>';
-		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div></div>';		
 		print '</article>';
 		//print '<p data-char-limit="60">'.$string.'</p>';	
 		
