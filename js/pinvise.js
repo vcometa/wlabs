@@ -885,7 +885,11 @@ $(function() {
 		
 	}
 	
-	if( $('div[data-layout=true]').length > 0){
+	$('.slideIn_hdr span').on('click',function(){
+		$(this).parent().toggleClass('hidden');
+	});
+	
+	/*if( $('div[data-layout=true]').length > 0){
 	
 		var l = $('img').length-1;
 		
@@ -893,12 +897,12 @@ $(function() {
 	
 		$($('img')[l]).on('load', function(){
 	
-			//pinvise.Layout($('div[data-layout=true]').data('layout-options'));
+			pinvise.Layout($('div[data-layout=true]').data('layout-options'));
 			$('.ablock').css('opacity',1);
 		
 		});
 		
 		
-	}
+	}*/
 	
 });
