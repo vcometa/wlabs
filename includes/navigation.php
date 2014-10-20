@@ -9,14 +9,22 @@
 			$db_handle = mysqli_connect($server, $user_name, $password, $database);
 			//$db_found = mysql_select_db($database);
 			if ($db_handle) {
+			
+				$cat = htmlspecialchars($_GET["cat"]);
 
 				$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
 				print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
+				
+					if($cat == strtolower($db_field['category']) ){
+						print '<li><a href="../category/'.strtolower($db_field['category']).'" class="selected">'.$db_field['category'].'</a></li>';
+					}else{
+						print '<li><a href="../category/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
+					}
 
-					print '<li><a href="../category/'.strtolower($db_field['category']).'">'.$db_field['category'].'</a></li>';
+					
 				}
 				mysqli_close($db_handle);
 

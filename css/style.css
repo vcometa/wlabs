@@ -100,21 +100,30 @@
 	}
 	nav ul li{
 		list-style:none;
-		float: left;
-		padding: 10px 15px;		
+		float: left;			
 		border:1px solid #cfcfcf;
 		border-width:0 1px 1px 0;
-		background:#eee;
-		height:24px;
+		background:#fff;		
 	}
-	
+	nav ul li:first-child{
+		border-left-width:1px;
+	}
 	nav ul li a{
-		color: #333;
+		display:block;
+		color: #4774CF;
 		font-size: 14px;
 		font-weight:bold;
 		text-decoration: none;
 		text-transform: uppercase;
 		font-family:Tahoma, Geneva, sans-serif;
+		padding: 10px 15px;	
+		height:24px;
+	}
+	nav ul li a.selected,
+	nav ul li a:hover{
+		background:#4774CF;
+		color:#fff;
+		text-decoration:none;
 	}
 
 	footer nav ul li a{
@@ -126,13 +135,17 @@
 		clear:both;
 		overflow:hidden;
 	}
+	.logo-small{
+		float:left;
+	}
 	.slideIn_hdr{
 		display: inline-block;
-		width: 76.5%;
+		width: 79.4%;
 		height:45px;
 		background:#fff;
 		overflow:hidden;
 		padding:0;
+		box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
@@ -146,20 +159,22 @@
 		transition: all 0.3s ease-in-out;
 	}
 	.slideIn_hdr.hidden{
-		width:45px;
+		width:105px;
 	}
 	.slideIn_hdr.hidden nav{
 		display:none;
 	}
 	.slideIn_hdr span{
-		background:#fff url(../images/hamburger-sprite.png) 0 0 no-repeat;
-		width:45px;
+		background:#fff url(../images/hamburger-sprite.png) 0 2px no-repeat;
+		width:44px;
 		height:45px;
 		cursor:pointer;
 		float:right;
+		border:1px solid #cfcfcf;
+		border-width: 0 1px 1px 0;
 	}
 	.slideIn_hdr span:hover{
-		background-position: 0 -48px;
+		background-position: 0 -46px;
 	}
 	.ablock{
 		background: #fff;
@@ -197,11 +212,13 @@
 	
 	.ablock.latest figure{
 		height:auto;
+		text-align:center;
 	}
 	.ablock img {
 		width:100%;
-		min-height:140px;
+		min-width:200px;
 		display:block;
+		margin:0 auto;
 	}
 	.ablock p{
 		display:block;
@@ -213,7 +230,7 @@
 		color: #333;
 		font-size: 12px;
 		font-weight: bold;
-		padding: 5px 0;
+		padding: 0;
 		width: 100%;
 	}
 	/*
