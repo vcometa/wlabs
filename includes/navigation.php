@@ -12,7 +12,8 @@
 			
 				$cat = htmlspecialchars($_GET["cat"]);
 
-				$query = "SELECT * FROM categories ORDER BY category ASC";
+				$query = 'SELECT category FROM content GROUP BY category ';
+				//$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
 				print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
