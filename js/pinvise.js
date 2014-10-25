@@ -820,8 +820,8 @@ var pinvise = {};
 					x = (itemW*z)+( (options.itemBorderWidth*z)+(options.itemGutterWidth*z));
 					z++;			
 					if(t>=0){
-						//y = o.offset().top+p.offset().top+p.innerHeight()-45;
-						y = p.offset().top+p.outerHeight(true);		
+						y = o.offset().top+p.offset().top+p.innerHeight()-100;
+						//y = p.offset().top+p.outerHeight(true);		
 						
 						//y = p.find('figure img').outerHeight()+p.find('.caption-block').outerHeight();
 						
@@ -889,7 +889,7 @@ $(function() {
 		$(this).parent().toggleClass('hidden');
 	});
 	
-	/*if( $('div[data-layout=true]').length > 0){
+	if( $('div[data-layout=true]').length > 0){
 	
 		var l = $('img').length-1;
 		
@@ -903,6 +903,6 @@ $(function() {
 		});
 		
 		
-	}*/
+	}
 	
 });

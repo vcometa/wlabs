@@ -3,6 +3,7 @@
 <head>
 <title>Pinstacular</title>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="home">
@@ -68,7 +69,9 @@ if ($db_handle) {
 		print '<div class="caption-block">';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
-		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div></div>';		
+		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
+		//print '<p>'. html_entity_decode($db_field['description'], ENT_QUOTES, "UTF-8")  .'</p></div>';
+		print '<p>'.	 preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p></div>';
 		print '</article>';
 		//print '<p data-char-limit="60">'.$string.'</p>';	
 		

@@ -76,7 +76,9 @@
 		transition: all 0.3s ease-in-out;
 	}
 	footer{
-		position:relative;
+		position:fixed;
+		bottom:0;
+		background:#fff;
 		clear:both;
 		display:block;
 		z-index:999;
@@ -184,18 +186,17 @@
 		cursor: pointer;
 		display: block;
 		float: left;
-		height: 250px;
 		margin: 20px 15px;
 		opacity: 1;
 		overflow: hidden;
 		padding: 0;
-		position: relative;
+		position: absolute;
 		text-decoration: none;
-		width: 202px;
+		width: 300px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 	}	
 	.caption-block{
-		position:absolute;
+		position:relative;
 		bottom:0;
 		background:#fff;
 		color: #666;
@@ -221,17 +222,20 @@
 		margin:0 auto;
 	}
 	.ablock p{
-		display:block;
-		margin:0;
-		padding:10px 0 0;
+		display: block;
+		font-size: 14px;
+		line-height: 18px;
+		margin: 0;
+		padding: 10px 0 0;
 	}
 	.ablock h2{		
 		background: transparent;
-		color: #333;
-		font-size: 12px;
+		color: #000;
+		font-size: 16px;
 		font-weight: bold;
 		padding: 0;
 		width: 100%;
+		margin: 10px 0;
 	}
 	/*
 	.ablock.technology h2,
@@ -253,14 +257,11 @@
 	.ablock.autos h2{
 		background:#b1062e;
 	}*/
-	.byline{
-		font-size:11px;
-	}
-	.dateline{
-		font-size:11px;
-	}
+	.byline,
+	.dateline,
 	.source{
 		font-size:11px;
+		color:#999;
 	}
 	.article-modal{
 		position:absolute;
