@@ -224,6 +224,11 @@ ul {
 	overflow: hidden;
 	clear:both;
 }
+.taglist li.selected,
+.categorylist li.selected{
+	background:#cfcfcf;
+	color:#000;
+}
 .taglist li input,
 .categorylist li input{
 	float:left;
@@ -280,8 +285,8 @@ $passphrase = htmlspecialchars($_GET["pass"]);
 if($passphrase == 'src123177'){
 
 // define variables and set to empty values
-$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = $sourceErr = "";
-$author = $title = $articlename = $source = $description = $article = $tags = $id = $thumbnail = $category = $alertmsg = "";
+$authorErr = $titleErr = $descriptionErr = $articleErr = $tagsErr = $categoryErr = $sourceErr = $sourceNameErr ="";
+$author = $title = $articlename = $source = $sourcename = $description = $article = $tags = $id = $imgname = $category = $alertmsg = "";
 $user_name = "vcometa_admin";
 $delete = false;
 $password = "vc0m3t@";
@@ -290,7 +295,7 @@ $server = "localhost";
 //$db_handle = mysql_connect($server, $user_name, $password);
 //$db_found = mysql_select_db($database);
 $db_handle = mysqli_connect($server, $user_name, $password, $database);
-$authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = $sourcePass = false;
+$authorPass = $galleryidPass = $titlePass = $descriptionPass = $categoryPass = $articlePass = $tagsPass = $sourcePass = $sourceNamePass = false;
 date_default_timezone_set('America/New_York');
 if ($_GET){
 	$id = htmlspecialchars($_GET["id"]);	
@@ -303,9 +308,10 @@ if ($_GET){
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
 		$source = html_entity_decode($db_field['source']);
+		$sourceName = html_entity_decode($db_field['sourcename']);
 		$articlename = html_entity_decode($db_field['articlename']);
 		$description = html_entity_decode($db_field['description']);
-		$thumbnail = html_entity_decode($db_field['thumbnail']);
+		$imgname = html_entity_decode($db_field['imgname']);
 		$article = html_entity_decode($db_field['article']);
 		$tags = html_entity_decode($db_field['tags']);
 		$category = html_entity_decode($db_field['category']);
@@ -362,7 +368,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$categoryPass = true;
 		}
 		
-		$thumbnail = test_input($_POST["thumbnail"]);
+		$imgname = test_input($_POST["imgname"]);
 		
 		if(empty($_POST["article"])){		
 			$articleErr = "article is required";
@@ -378,6 +384,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		}else{
 			$source = test_input($_POST["source"]);
 			$sourcePass = true;
+		}
+		
+		if(empty($_POST["sourcename"])){		
+			$sourceNameErr = "source name is required";
+			$sourceNamePass = false;
+		}else{
+			$sourceName = test_input($_POST["sourcename"]);
+			$sourceNamePass = true;
 		}
 		
 		if(empty($_POST["tags"])){
@@ -399,7 +413,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$id = test_input($_POST["id"]);	
 					
 					if(empty($_POST["delete"])){
-						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', thumbnail='$thumbnail', article='$article', tags='$tags', articlename='$articlename', source='$source' WHERE id = '$id'";
+						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', imgname='$imgname', article='$article', tags='$tags', articlename='$articlename', source='$source', sourcename='$sourceName' WHERE id = '$id'";
 					} else {
 						$query = "DELETE FROM content WHERE id='$id'";
 					}			
@@ -407,7 +421,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$result = $db_handle->query($query);
 					
 				} else {
-					$query = "INSERT INTO content (author, created, lastupdated, title, description, thumbnail, category, article, tags, articlename, source ) VALUES ('$author', now(),now(),'$title','$description','$thumbnail', '$category', '$article','$tags', '$articlename', '$source' )";	
+					$query = "INSERT INTO content (author, created, lastupdated, title, description, imgname, category, article, tags, articlename, source ) VALUES ('$author', now(),now(),'$title','$description','$imgname', '$category', '$article','$tags', '$articlename', '$source', '$sourcename' )";	
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
 					mysqli_close($db_handle);
@@ -553,9 +567,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
 				<input type="hidden" name="articlename" id="articlename" value="<?php echo htmlentities($articlename); ?>">					
 			</div>
-			<div class="full">
+			<div class="inline left">
 				<label for="source">source<span class="error">*</span>:</label> <span class="error"><?php echo $sourceErr;?></span>
 				<input type="text" name="source" value="<?php echo htmlentities($source); ?>">			
+			</div>
+			<div class="inline left">
+				<label for="sourcename">source name<span class="error">*</span>:</label> <span class="error"><?php echo $sourceNameErr;?></span>
+				<input type="text" name="sourcename" value="<?php echo htmlentities($sourceName); ?>">			
 			</div>
 			<div class="inline left">
 				<label for="author">author<span class="error">*</span>:</label> <span class="error"><?php echo $authorErr;?></span>
@@ -563,8 +581,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			</div>
 				
 			<div class="inline left">
-				<label for="thumbnail">thumbnail:</label>
-				<input type="text" name="thumbnail" value="<?php echo htmlentities($thumbnail); ?>">			
+				<label for="imgname">imgname:</label>
+				<input type="text" name="imgname" value="<?php echo htmlentities($imgname); ?>">			
 			</div>			
 			<div>
 				<label for="description">description<span class="error">*</span>: </label> <span class="error"><?php echo $descriptionErr;?></span>
@@ -604,7 +622,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					print "<ul class='categorylist'>";
 					while ( $db_field = mysqli_fetch_assoc($result) ) {
 
-						print '<li><input type="checkbox" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
+						print '<li><input type="radio" name="categorylist" id="category'.$db_field['id'].'" value="'.$db_field['category'].'"> <label for="category'.$db_field['id'].'">'.$db_field['category'].'</label> <input type="submit" name="categoryDelete" class="categoryDelete" value="'.$db_field['id'].'"></li>';
 					}
 					print "</ul>";
 					mysqli_close($db_handle);
@@ -738,10 +756,51 @@ $(function() {
 
 	if( $('#category').val().length > 0 ){
 		
-		var $radios = $('input:checkbox[name=categorylist]');
-		if($radios.is(':checked') === false) {
-			$radios.filter('[value='+$('#category').val()+']').prop('checked', true);
+		var rdo = $('input:radio[name=categorylist]');
+		if(rdo.is(':checked') === false) {
+			var rdoNode = $(rdo.filter('[value='+$('#category').val()+']'));
+			
+			rdoNode.prop('checked', true);
+			rdoNode.parent().addClass('selected');
 		}
+
+	}
+	
+	if( $('#tags').val().length > 0 ){
+	
+		var tagsArr = $('#tags').val().split(', '),
+			chkboxArr = $('input:checkbox[name=taglist]');
+			
+			//console.log( tagsArr.length );
+		
+		for( var i=0, j=chkboxArr.length;i<j;i++ ){
+		
+			var val = $(chkboxArr[i]).attr('value');
+			
+			for( var k=0, l=tagsArr.length;k<l;k++ ){
+			
+				var bx = $(chkboxArr[i]),
+					bx_li = $(bx.parent());
+				if(tagsArr[k]==val){
+					bx.prop('checked', true);
+					bx_li.addClass('selected');
+				}
+				
+			}
+		
+		}
+		
+		/*for( var i=0, j=tagsArr.length;i<j;i++ ){
+		
+			var chkbox = $('input:checkbox[name=taglist]');
+			
+			console.log( chkbox );
+			
+			if(chkbox.is(':checked') === false && tagsArr[i] == chkbox.attr('value') ) {
+				chkbox.filter('[value='+tagsArr[i]+']').prop('checked', true);
+			}
+		
+		}*/
 
 	}
 	

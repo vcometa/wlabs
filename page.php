@@ -7,7 +7,7 @@
 </head>
 <body class="story" id="story">
 <div id="fb-root"></div>
-<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div-->
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -15,6 +15,9 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<?PHP include ("includes/header.php"); ?>
+
 <div class="content">
 <?PHP
 
@@ -37,10 +40,10 @@ if ($db_handle) {
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 		print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
-		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
+		print '<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
 		print '<div class="source">'.html_entity_decode($db_field['author']).'</div>';
-		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">Go to original aricle.</a>';
+		print '<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['sourcename']).'</a>';
 		//print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<article>'.html_entity_decode($db_field['article']) . '</article>';
 		
@@ -58,8 +61,12 @@ else {
 }
 
 ?>
+	<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/page/'.html_entity_decode($articlename) ?>" data-width="700px" data-numposts="7" data-colorscheme="light"></div>
+
 </div>
 
-<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/page/'.html_entity_decode($articlename) ?>" data-width="700px" data-numposts="7" data-colorscheme="light"></div>
+
+<?PHP include ("includes/footer.php"); ?>
+<?PHP include ("includes/javascript.php"); ?>
 </body>
 </html>

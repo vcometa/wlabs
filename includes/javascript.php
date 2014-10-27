@@ -25,14 +25,15 @@ $(function() {
 		//e.preventDefault();
 		var url = $(this).data('href');
 		//console.log(url);
-		params.event = e;	
+		/*params.event = e;	
 		params.msg = '<div id="article-holder"></div>';	
 		var modal = pinvise.Modal(params);
 		$( "#article-holder" ).load( url, function(e){			
 			modal.modal.addClass('active');
 			setTimeout(function(){modal.overlay.addClass('active');},1000);
 			FB.XFBML.parse(document.body)
-		});
+		});*/
+		document.location.href = url;
 		//$('body').ajaxComplete(function(){  });
 	});
 	

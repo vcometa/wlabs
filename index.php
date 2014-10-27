@@ -57,7 +57,7 @@ if ($db_handle) {
 		
 		$category = strtolower(str_replace(', ', ' ', html_entity_decode($db_field['category'])));
 	
-		print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/page/'.html_entity_decode($db_field['articlename']).'">';
+		print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
 		
 		/*if( $rowCount == 0){
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest">';
@@ -65,13 +65,13 @@ if ($db_handle) {
 			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
 		}*/
 		
-		print '<figure><img src="'.html_entity_decode($db_field['thumbnail']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';		
+		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';		
 		print '<div class="caption-block">';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
-		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
-		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';
-		//print '<p>'. html_entity_decode($db_field['description'], ENT_QUOTES, "UTF-8")  .'</p></div>';
-		print '<p>'.	 preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p></div>';
+		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).' '.html_entity_decode($db_field['sourcename']).'</a>';
+		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<p>'.	 preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p>';
+		print '<div class="tags">'. $db_field['tags']  .'</div></div>';
 		print '</article>';
 		//print '<p data-char-limit="60">'.$string.'</p>';	
 		

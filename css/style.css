@@ -67,7 +67,7 @@
 		position:fixed;
 		top:0;
 		z-index:999;
-		width: 100%;
+		width: 320px;
 		margin: 0 auto 20px;
 		background: none;
 		-webkit-transition: all 0.3s ease-in-out;
@@ -92,23 +92,30 @@
 		float:left;
 	}
 	nav{
-		display:inline-block;
+		display:block;
+		clear:both;
 		margin:0 auto;
 		width:auto;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
 	}
 	nav ul {
 		margin: 0 auto;
-		padding: 0;
+		padding: 60px 0 0;
+		clear:both;
+		background:#fff;
 	}
 	nav ul li{
+		display:block;
 		list-style:none;
-		float: left;			
-		border:1px solid #cfcfcf;
-		border-width:0 1px 1px 0;
+		clear:both;
+		border-bottom:1px solid #cfcfcf;
 		background:#fff;		
 	}
 	nav ul li:first-child{
-		border-left-width:1px;
+		border-top:1px solid #cfcfcf;
 	}
 	nav ul li a{
 		display:block;
@@ -120,6 +127,7 @@
 		font-family:Tahoma, Geneva, sans-serif;
 		padding: 10px 15px;	
 		height:24px;
+		line-height:24px;
 	}
 	nav ul li a.selected,
 	nav ul li a:hover{
@@ -137,17 +145,16 @@
 		clear:both;
 		overflow:hidden;
 	}
+	.logo,
 	.logo-small{
-		float:left;
+		margin: 5px 0 0 10px;
 	}
 	.slideIn_hdr{
-		display: inline-block;
-		width: 79.4%;
-		height:45px;
-		background:#fff;
+		display: block;
+		width: 300px;
+		height:480px;
 		overflow:hidden;
-		padding:0;
-		box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+		padding:0 20px 0 0;
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
@@ -155,28 +162,44 @@
 	}
 	.slideIn_hdr nav{
 		display:block;
+		margin:-53px 0 0;
+		box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
 	}
 	.slideIn_hdr.hidden{
-		width:105px;
+		height:60px;
 	}
 	.slideIn_hdr.hidden nav{
-		display:none;
+		height:0;
+		box-shadow: none;
 	}
 	.slideIn_hdr span{
-		background:#fff url(../images/hamburger-sprite.png) 0 2px no-repeat;
+		background:#FEA134 url(../images/hamburger-sprite.png) 0 -93px no-repeat;
 		width:44px;
-		height:45px;
+		height:44px;
 		cursor:pointer;
 		float:right;
-		border:1px solid #cfcfcf;
-		border-width: 0 1px 1px 0;
+		margin: 0;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+	}
+	.slideIn_hdr.hidden  span{
+		background-position: 0 0;
+		background-color:#fff;
+		box-shadow: none;
+		margin: 8px 0 0;
+	}
+	.slideIn_hdr.hidden span:hover{
+		background-position: 0 -46px;
 	}
 	.slideIn_hdr span:hover{
-		background-position: 0 -46px;
+		background-position: 0 -138px;
 	}
 	.ablock{
 		background: #fff;
@@ -331,9 +354,8 @@
 		font-size:12px;
 		font-weight:bold;
 		padding:10px;
-		width:100%;
+		width:95%;
 		height:auto;
-		border-top:1px solid #ccc;
 		background:#eee;
 		margin:10px 0 20px;
 	}
@@ -345,6 +367,11 @@
 	}
 	.modal-content .content article{
 		margin: 15px 0;
+	}
+	.story .content{
+		margin:0 auto;
+		width:100%;
+		max-width:1200px;
 	}
 
 }
