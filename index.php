@@ -20,8 +20,8 @@
 <!--fb ends -->
 
 <?PHP include ("includes/header.php"); ?>
-<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[5,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":25}'>
 
+<div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[5,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":25}'>
 <?PHP
 
 $user_name = "vcometa_admin";
@@ -57,22 +57,26 @@ if ($db_handle) {
 		
 		$category = strtolower(str_replace(', ', ' ', html_entity_decode($db_field['category'])));
 	
-		print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
+		//print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
 		
-		/*if( $rowCount == 0){
-			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" class="ablock latest">';
+		if( $rowCount == 0){
+		
+			print '<article class="ablock latest '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
+		
 		}else{
-			print '<a href="/page/'.html_entity_decode($db_field['articlename']).'" >';
-		}*/
+			//print '<a href="/article/'.html_entity_decode($db_field['articlename']).'" class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'">';
+			print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
 		
+		}
 		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';		
 		print '<div class="caption-block">';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).' '.html_entity_decode($db_field['sourcename']).'</a>';
-		print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
-		print '<p>'.	 preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p>';
+		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
+		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p>';
 		print '<div class="tags">'. $db_field['tags']  .'</div></div>';
 		print '</article>';
+		
 		//print '<p data-char-limit="60">'.$string.'</p>';	
 		
 

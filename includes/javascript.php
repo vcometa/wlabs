@@ -37,6 +37,10 @@ $(function() {
 		//$('body').ajaxComplete(function(){  });
 	});
 	
+	$(window).on('load scroll', function(){
+		setTimeout(function(){$('.slideIn_hdr').addClass('hidden')},1200);
+	});
+	
 	pinvise.LimitText($('.ablock article p'));
 	pinvise.showWindowWidth(false);
 	
