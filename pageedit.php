@@ -421,7 +421,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$result = $db_handle->query($query);
 					
 				} else {
-					$query = "INSERT INTO content (author, created, lastupdated, title, description, imgname, category, article, tags, articlename, source ) VALUES ('$author', now(),now(),'$title','$description','$imgname', '$category', '$article','$tags', '$articlename', '$source', '$sourcename' )";	
+					$query = "INSERT INTO content (author, created, lastupdated, title, description, imgname, category, article, tags, articlename, source, sourcename ) VALUES ('$author', now(),now(),'$title','$description','$imgname', '$category', '$article','$tags', '$articlename', '$source', '$sourcename' )";	
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
 					mysqli_close($db_handle);
@@ -434,7 +434,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 						$alertmsg = 'The article has been deleted.';
 					}
 				}else{
-					$alertmsg = 'An error has occurred upon submission!';
+					$alertmsg = 'An error has occurred upon submission! ';
 				}
 				
 				print '<div class="alert">'.$alertmsg.' <button class="close">close</button></div>';
@@ -594,7 +594,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				<br/>
 				<textarea name="article" id="edt-article"><?php echo htmlentities($article); ?></textarea>			
 			</div>
-			<input type="hidden" id="category" name="category" value="<?php echo htmlentities($category); ?>">
+			<input type="text" id="category" name="category" value="<?php echo htmlentities($category); ?>">
 			<input type="text" id="tags" name="tags" value="<?php echo htmlentities($tags); ?>">
 		</div>
 		
@@ -743,7 +743,7 @@ $(function() {
 	
 	$('.alert .close').on('click', function(){	
 		$($(this).parent()).hide();
-		clearInputs();
+		//clearInputs();
 		//location.reload(true);
 	});
 
@@ -804,7 +804,7 @@ $(function() {
 
 	}
 	
-	$( ".categorylist input:checkbox" ).on('click', function(){
+	$( ".categorylist input:radio" ).on('click', function(){
 	
 		var delim = ($('#category').val().length==0)?'':', ';
 		
