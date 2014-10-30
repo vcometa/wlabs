@@ -60,9 +60,7 @@
 	  display: block;
 	  clear: both;
 	}
-	.story .content{
-		padding: 20px;
-	}
+	
 	header {
 		position:fixed;
 		top:0;
@@ -144,6 +142,43 @@
 		display:block;
 		clear:both;
 		overflow:hidden;
+		width:100%;
+	}
+	figure img{
+		width:100%;
+		height:auto;
+	}
+	.page{
+		display:block;
+		width:100%;
+		max-width:1200px;
+		margin:0 auto;
+		background:#fff;
+	}
+	.page header{
+		position:absolute;
+	}
+	.page footer{
+		clear:both;
+		position:relative;
+	}
+	.page h1,
+	.page h2{
+		margin:20px 0;
+	}
+	.page .right-rail{
+		width:30%;
+		max-width:300px;
+		height:100%;
+		padding:10px;
+		float:right;
+		background:#eee;
+	}
+	.story .content{
+		margin:60px auto 0;
+		width:70%;
+		overflow:hidden;
+		float:left;
 	}
 	.logo,
 	.logo-small{
@@ -368,11 +403,11 @@
 	.modal-content .content article{
 		margin: 15px 0;
 	}
-	.story .content{
-		margin:0 auto;
-		width:100%;
-		max-width:1200px;
+	
+	.fb_iframe_widget{
+		display:block !important;
 	}
+	
 
 }
 
