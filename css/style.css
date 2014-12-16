@@ -49,7 +49,7 @@
 	}
 	.content {
 		position:relative;
-		margin: 45px auto 0;		
+		margin: 0 auto;		
 		width:98%;
 		padding: 0;
 		height: 100%;
@@ -237,8 +237,7 @@
 		background-position: 0 -138px;
 	}
 	.ablock{
-		clear:both;
-		float:left;
+		float:right;
 		background: #fff;
 		border: 0 none;
 		border-radius:0;
@@ -251,17 +250,17 @@
 		position: relative;
 		text-decoration: none;
 		width: 600px;
+		height:225px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
 	}
-	.ablock.latest{
-		position:absolute;
-		right:0;
-		width:60%;
-	}
+	/*.ablock.latest{
+		float:left;
+		width:58%;
+	}*/
 	.caption-block{
 		position:relative;
 		float:right;
@@ -271,10 +270,10 @@
 		padding: 5px 10px 10px;
 		width: 45%;
 	}
-	
+	/*
 	.ablock.latest .caption-block{
 		width: 65%;
-	}
+	}*/
 	
 	.ablock.active{
 		width: 62%;
@@ -289,9 +288,9 @@
 		text-align:center;
 		float:left;
 	}
-	.ablock.latest figure{
+	/*.ablock.latest figure{
 		height: auto;
-	}
+	}*/
 	.ablock img {
 		width:auto;
 		height:auto;
