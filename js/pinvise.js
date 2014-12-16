@@ -895,12 +895,12 @@ $(function() {
 		
 		//console.log(l);
 	
-		$($('img')[l]).on('load', function(){
+		/*$($('img')[l]).on('load', function(){
 	
 			pinvise.Layout($('div[data-layout=true]').data('layout-options'));
 			$('.ablock').css('opacity',1);
 		
-		});
+		});*/
 		
 		
 	}
