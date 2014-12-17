@@ -45,7 +45,7 @@ if ($db_handle) {
 		
 			$query = "SELECT * FROM content WHERE tags LIKE '%$tag%' ORDER BY lastupdated DESC";
 			
-			print '<h3 class="topic-tag">About '.$tag.'</h3>';
+			print '<h3 class="topic-tag">All about '.$tag.'</h3>';
 					
 		}else{
 		
