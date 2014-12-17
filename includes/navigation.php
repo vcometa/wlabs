@@ -16,7 +16,11 @@
 				//$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
-				print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
+				if($cat == null ){
+					print '<li><a href="http://www.pinstacular.com/index.php" class="selected">All</a></li>';
+				}else{
+					print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
+				}
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
 					if($cat == strtolower($db_field['category']) ){

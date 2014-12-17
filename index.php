@@ -73,7 +73,7 @@ if ($db_handle) {
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).' '.html_entity_decode($db_field['sourcename']).'</a>';
 		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
-		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $db_field['description']).'</p>';
+		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $string).'</p>';
 		print '<div class="tags">'. $db_field['tags']  .'</div></div>';
 		print '</article>';
 		
