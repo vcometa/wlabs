@@ -153,6 +153,7 @@
 		width:100%;
 		height:auto;
 	}
+	/*
 	.page{
 		display:block;
 		width:100%;
@@ -160,6 +161,7 @@
 		margin:0 auto;
 		background:#fff;
 	}
+	
 	.page header{
 		position:absolute;
 	}
@@ -184,6 +186,14 @@
 		width:70%;
 		overflow:hidden;
 		float:left;
+	}*/
+	
+	.story .content{
+		margin:80px auto 0;
+	}
+	
+	.story h1{
+		margin: 20px 0;
 	}
 	.logo,
 	.logo-small{
