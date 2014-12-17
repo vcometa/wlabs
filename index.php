@@ -37,10 +37,24 @@ if ($db_handle) {
 
 	if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
-		if($cat != 'home'){
-			$query = "SELECT * FROM content WHERE category LIKE '%$cat%' ORDER BY lastupdated DESC";
+		$tag = htmlspecialchars($_GET["tag"]);
+		
+		
+		
+		if( $tag != null){
+		
+			$query = "SELECT * FROM content WHERE tags LIKE '%$tag%' ORDER BY lastupdated DESC";
+			
+			print '<h3 class="topic-tag">About '.$tag.'</h3>';
+					
 		}else{
-			$query = "SELECT * FROM content ORDER BY lastupdated DESC";
+		
+			if($cat != 'home'){
+				$query = "SELECT * FROM content WHERE category LIKE '%$cat%' ORDER BY lastupdated DESC";
+			}else{
+				$query = "SELECT * FROM content ORDER BY lastupdated DESC";
+			}
+		
 		}
 	} else {
 		$query = "SELECT * FROM content ORDER BY lastupdated DESC";
@@ -68,13 +82,22 @@ if ($db_handle) {
 			print '<article class="ablock '.$category.'" id="article_'.html_entity_decode($db_field['id']).'" data-href="/article/'.html_entity_decode($db_field['articlename']).'">';
 		
 		}
+		
+		$tags = explode(", ", $db_field['tags']);
+		
 		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';		
 		print '<div class="caption-block">';
 		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).' '.html_entity_decode($db_field['sourcename']).'</a>';
 		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $string).'</p>';
-		print '<div class="tags">'. $db_field['tags']  .'</div></div>';
+		print '<div class="tags">';
+		
+		for ($i = 0; $i < count($tags); ++$i) {
+			print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>, ';
+		}
+		
+		print '</div></div>';
 		print '</article>';
 		
 		//print '<p data-char-limit="60">'.$string.'</p>';	
