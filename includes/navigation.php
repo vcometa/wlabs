@@ -17,9 +17,9 @@
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
 				if($cat == null ){
-					print '<li><a href="http://www.pinstacular.com/index.php" class="selected">All</a></li>';
+					print '<li><a href="http://www.pinstacular.com/index.php" class="selected">List All</a></li>';
 				}else{
-					print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
+					print '<li><a href="http://www.pinstacular.com/index.php">List All</a></li>';
 				}
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
@@ -36,4 +36,10 @@
 			}
 		?>
 	</ul>
+	<?PHP
+		if ($_GET){
+			$tag = htmlspecialchars($_GET["tag"]);
+			print '<h3 class="topic-tag">All about '.$tag.'</h3>';
+		}
+	?>
 </nav>

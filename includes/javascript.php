@@ -43,6 +43,7 @@ $(function() {
 	
 	pinvise.LimitText($('.ablock article p'));
 	pinvise.showWindowWidth(false);
+	pinvise.FixPositionAt($('header'), $('.feature-box').outerHeight());
 	
 	
 });

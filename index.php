@@ -19,6 +19,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--fb ends -->
 
+<?PHP include ("includes/feature.php"); ?>
+
 <?PHP include ("includes/header.php"); ?>
 
 <div id="container" class="content" data-layout="true" data-layout-options='{"columnCount":[5,3,1], "containerSelector":".content", "itemSelector":".ablock", "itemBorderWidth":1, "itemGutterWidth":25}'>
@@ -45,7 +47,7 @@ if ($db_handle) {
 		
 			$query = "SELECT * FROM content WHERE tags LIKE '%$tag%' ORDER BY lastupdated DESC";
 			
-			print '<h3 class="topic-tag">All about '.$tag.'</h3>';
+			
 					
 		}else{
 		
@@ -94,7 +96,12 @@ if ($db_handle) {
 		print '<div class="tags">';
 		
 		for ($i = 0; $i < count($tags); ++$i) {
-			print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>, ';
+		
+			if( $i == count($tags)-1 ){
+				print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>';
+			}else{
+				print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>, ';
+			}
 		}
 		
 		print '</div></div>';
