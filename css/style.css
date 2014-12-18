@@ -208,8 +208,7 @@
 		z-index:999;
 	}
 	.tag-block{		
-		background:transparent;
-		margin:18px 0 0 20px;
+		background:transparent;		
 		display:block;
 		float:right;
 		text-transform:capitalize;
@@ -219,20 +218,24 @@
 	}
 	.tag-block:nth-child(n+1){
 		font-size:18px;
-		font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;		
+		font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;	
+		margin:18px 0 0 20px;		
 	}
 	.tag-block:nth-child(2n+2){
 		font-family: Copperplate,Copperplate Gothic Light,fantasy;				
 		font-size:30px;
+		margin:10px;
 	}
 	.tag-block:nth-child(3n+3){
 		font-size:16px;
 		font-family: Papyrus,fantasy;
 		font-weight:bold;
+		margin:25px 10px 0;
 	}
 	.tag-block:nth-child(4n+4){
 		font-family: Herr Von Muellerhoff;	
 		font-size:30px;
+		margin:13px 15px;
 	}
 	/*.tag-block:nth-child(5n+5){
 		font-family: Copperplate,Copperplate Gothic Light,fantasy;				
