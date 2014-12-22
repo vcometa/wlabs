@@ -9,6 +9,8 @@
 			if ($db_handle) {
 			
 				$cat = htmlspecialchars($_GET["cat"]);
+				
+				$tag = htmlspecialchars($_GET["tag"]);
 
 				$query = 'SELECT tag FROM tags';
 				
@@ -17,9 +19,12 @@
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
 					//$color = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
-
-				
-					print '<a class="tag-block" href="../topic/'.strtolower($db_field['tag']).'" >'.$db_field['tag'].'</a>';
+					
+					if( $tag == strtolower($db_field['tag']) ){
+						print '<a class="tag-block selected" href="../topic/'.strtolower($db_field['tag']).'" >'.$db_field['tag'].'</a>';
+					}else{				
+						print '<a class="tag-block" href="../topic/'.strtolower($db_field['tag']).'" >'.$db_field['tag'].'</a>';
+					}
 					
 				}
 				mysqli_close($db_handle);

@@ -119,7 +119,7 @@
 	nav ul li a{
 		display:block;
 		color: #2c464f;
-		font-family:Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+		font-family:Jura;
 		font-size:14px;
 		font-weight:bold;
 		text-decoration: none;
@@ -127,6 +127,10 @@
 		padding: 10px 15px;	
 		height:18px;
 		line-height:18px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;	
 	}
 	
 	nav ul li a:hover{
@@ -194,13 +198,15 @@
 	.feature-box{
 		width:100%;
 		height:480px;
-		background:#eaeaea;
+		background:#eaeaea url(../images/photos/bgd.jpg) center center no-repeat;
 		overflow:hidden;
 	}
 	
 	.feature-box .content{
-		margin:0 auto;
-		width:100%;
+		float: right;
+		margin: 0 1% 0 0;
+		padding: 0 3%;
+		width: 60%
 	}
 	
 	.fixed{
@@ -211,40 +217,30 @@
 		background:transparent;		
 		display:block;
 		float:right;
+		font-size:20px;
+		font-family: Michroma;	
 		text-transform:capitalize;
 		text-align:center;
 		white-space: nowrap;
-		color:#b4b8b3;
+		color:#666;
+		padding:5px 10px;
+		border-radius:5px;
+		margin:5px 10px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;		
 	}
-	.tag-block:nth-child(n+1){
-		font-size:18px;
-		font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;	
-		margin:18px 0 0 20px;		
+	.tag-block.selected{
+		color:#fff;
+		background: rgba(239,62,91, 0.3);
+		box-shadow: inset 0 0 8px rgba(239, 62, 91, 0.9);
 	}
-	.tag-block:nth-child(2n+2){
-		font-family: Copperplate,Copperplate Gothic Light,fantasy;				
-		font-size:30px;
-		margin:10px;
+	.tag-block:hover{
+		color:#ef3e5b;
+		box-shadow: inset 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
 	}
-	.tag-block:nth-child(3n+3){
-		font-size:16px;
-		font-family: Papyrus,fantasy;
-		font-weight:bold;
-		margin:25px 10px 0;
-	}
-	.tag-block:nth-child(4n+4){
-		font-family: Herr Von Muellerhoff;	
-		font-size:30px;
-		margin:13px 15px;
-	}
-	/*.tag-block:nth-child(5n+5){
-		font-family: Copperplate,Copperplate Gothic Light,fantasy;				
-		font-size:30px;
-	}
-	.tag-block:nth-child(6n+6){
-		font-family: Copperplate,Copperplate Gothic Light,fantasy;				
-		font-size:30px;
-	}*/
+
 	.story .content{
 		margin:80px auto 0;
 	}
@@ -483,7 +479,7 @@
 		padding:10px;
 		width:95%;
 		height:auto;
-		background:#f3efe1;
+		background:#2c464f;
 		margin:10px 0 20px;
 	}
 	.topic-tag{
@@ -502,8 +498,10 @@
 		text-transform:uppercase;
 	}
 	.tags a{
-		color:#a3875f;
+		color:#fff;
+		font-family:Jura;
 	}
+	.tags a.selected,
 	.tags a:hover{
 		color:#ef3e5b;
 		text-decoration:underline;
