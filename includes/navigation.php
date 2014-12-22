@@ -40,7 +40,7 @@
 	<?PHP
 		if ($_GET){
 			$tag = htmlspecialchars($_GET["tag"]);
-			print '<h3 class="topic-tag">All about '.$tag.'</h3>';
+			print '<h1 class="topic-tag">All about '.$tag.'</h1>';
 		}
 	?>
 </nav>

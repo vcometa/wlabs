@@ -97,20 +97,22 @@ if ($db_handle) {
 		
 		for ($i = 0; $i < count($tags); ++$i) {
 		
+			$lowerTag = strtolower($tags[$i]);
+		
 			if( $i == count($tags)-1 ){
 			
-				if( $tag == strtolower($tags[$i]) ){
-					print '<a href="../topic/'.$tags[$i].'" class="selected">'.$tags[$i].'</a>';
+				if( $tag == $lowerTag ){
+					print '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>';
 				}else{
-					print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>';
+					print '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>';
 				}
 				
 			}else{
 			
-				if( $tag == strtolower($tags[$i]) ){
-					print '<a href="../topic/'.$tags[$i].'" class="selected">'.$tags[$i].'</a>, ';
+				if( $tag == $lowerTag ){
+					print '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>, ';
 				}else{
-					print '<a href="../topic/'.$tags[$i].'">'.$tags[$i].'</a>, ';
+					print '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>, ';
 				}
 				
 			}
