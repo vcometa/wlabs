@@ -12,15 +12,24 @@
 			
 				$cat = htmlspecialchars($_GET["cat"]);
 				$tag = htmlspecialchars($_GET["tag"]);
+				$articlename = htmlspecialchars($_GET["articlename"]);
 
 				$query = 'SELECT category FROM content GROUP BY category ';
 				//$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
+				
+				
 				if($cat == null && $tag == null){
-					print '<li><a href="http://www.pinstacular.com/index.php" class="selected">List All</a></li>';
+				
+					if( $articlename == null ){
+						print '<li><a href="http://www.pinstacular.com/index.php" class="selected">View All Posts</a></li>';					
+					}else{
+						print '<li><a href="http://www.pinstacular.com/index.php">Home</a></li>';
+					}
+					
 				}else{
-					print '<li><a href="http://www.pinstacular.com/index.php">List All</a></li>';
+					print '<li><a href="http://www.pinstacular.com/index.php">View All Posts</a></li>';
 				}
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
@@ -40,7 +49,9 @@
 	<?PHP
 		if ($_GET){
 			$tag = htmlspecialchars($_GET["tag"]);
-			print '<h1 class="topic-tag">All about '.$tag.'</h1>';
+			if( $tag != null){
+				print '<h1 class="topic-tag">All about '.$tag.'</h1>';
+			}
 		}
 	?>
 </nav>

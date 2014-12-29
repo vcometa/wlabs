@@ -23,6 +23,7 @@
 	<?PHP include ("includes/header.php"); ?>
 
 	<div class="content">
+	<div class="left-rail">
 	<?PHP
 
 	$user_name = "vcometa_admin";
@@ -44,8 +45,8 @@
 		while ( $db_field = mysqli_fetch_assoc($result) ) {
 
 			print '<h1>'.html_entity_decode($db_field['title']).'</h1>';
-			print '<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
-			print '<h2>'.html_entity_decode($db_field['description']).'</h2>';		
+			print '<h2>'.html_entity_decode($db_field['description']).'</h2>';
+			print '<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';			
 			print '<div class="source">'.html_entity_decode($db_field['author']).'</div>';
 			print '<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['sourcename']).'</a>';
 			//print '<div>'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
@@ -66,11 +67,12 @@
 
 	?>
 		<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-		<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/page/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
+		<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
+	</div>
+	<div class="right-rail">test</div>
 
 	</div>
-	<div class="right-rail">
-	</div>
+	
 	<?PHP include ("includes/footer.php"); ?>
 </div>
 
