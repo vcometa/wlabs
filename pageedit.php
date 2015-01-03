@@ -36,6 +36,16 @@ label {
 .form-body .inline{
 	width: 49%;
 }
+.form-body .full .inline{
+	width: auto;
+	float:left;
+	margin:0;
+}
+.form-body .full .inline input{
+	width:auto;
+	float:left;
+}
+
 .form-body .inline.left{
 	margin: 0 1% 20px 0;
 }
@@ -304,7 +314,7 @@ if ($_GET){
 	$result = $db_handle->query($query);
 	
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
-	
+		$featured = html_entity_decode($db_field['featured']);
 		$author = html_entity_decode($db_field['author']);
 		$title = html_entity_decode($db_field['title']);
 		$source = html_entity_decode($db_field['source']);
@@ -369,6 +379,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 		
 		$imgname = test_input($_POST["imgname"]);
+		$featured = test_input($_POST["featured"]);
 		
 		if(empty($_POST["article"])){		
 			$articleErr = "article is required";
@@ -413,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$id = test_input($_POST["id"]);	
 					
 					if(empty($_POST["delete"])){
-						$query = "UPDATE content SET author='$author', lastupdated=now(), title='$title', category='$category', description='$description', imgname='$imgname', article='$article', tags='$tags', articlename='$articlename', source='$source', sourcename='$sourceName' WHERE id = '$id'";
+						$query = "UPDATE content SET featured='$featured', author='$author', lastupdated=now(), title='$title', category='$category', description='$description', imgname='$imgname', article='$article', tags='$tags', articlename='$articlename', source='$source', sourcename='$sourceName' WHERE id = '$id'";
 					} else {
 						$query = "DELETE FROM content WHERE id='$id'";
 					}			
@@ -421,7 +432,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$result = $db_handle->query($query);
 					
 				} else {
-					$query = "INSERT INTO content (author, created, lastupdated, title, description, imgname, category, article, tags, articlename, source, sourcename ) VALUES ('$author', now(),now(),'$title','$description','$imgname', '$category', '$article','$tags', '$articlename', '$source', '$sourcename' )";	
+					$query = "INSERT INTO content (featured, author, created, lastupdated, title, description, imgname, category, article, tags, articlename, source, sourcename ) VALUES ('$featured','$author', now(),now(),'$title','$description','$imgname', '$category', '$article','$tags', '$articlename', '$source', '$sourcename' )";	
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
 					mysqli_close($db_handle);
@@ -562,6 +573,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		<div class="form-body">
 			<input type="hidden" name="id" value="<?php echo htmlentities($id); ?>">
 			<input type="hidden" id="delete" name="delete" value="">
+			<div class="full">
+				<label for="featured">featured:</label> 
+				<?php
+					$featuredTrue = '';
+					$featuredFalse = '';
+					if(htmlentities($featured) == 1){
+						$featuredTrue = 'checked';
+						$featuredFalse = '';
+					}else{
+						$featuredTrue = '';
+						$featuredFalse = 'checked';
+					}
+				
+				?>
+				
+				<div class="inline left">
+					<input type="radio" name="featured" value="0" <?php echo $featuredFalse; ?>> <span>false</span>
+				</div>
+				<div class="inline left">
+					<input type="radio" name="featured" value="1" <?php echo $featuredTrue; ?>> <span>true</span>
+				</div>
+			</div>
 			<div class="full">
 				<label for="title">title<span class="error">*</span>:</label> <span class="error"><?php echo $titleErr;?></span>
 				<input type="text" name="title" id="title" value="<?php echo htmlentities($title); ?>">
