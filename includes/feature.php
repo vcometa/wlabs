@@ -12,7 +12,7 @@
 				
 				$tag = htmlspecialchars($_GET["tag"]);
 
-				$query = 'SELECT tag FROM tags';
+				$query = 'SELECT t.tag FROM tags t';
 				
 				$result = $db_handle->query($query);
 				
