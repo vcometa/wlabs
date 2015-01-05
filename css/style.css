@@ -412,7 +412,9 @@
 		position:absolute;
 		top:0;
 	}
-	
+	.ablock:hover h2{
+		text-decoration:underline;
+	}
 	.ablock  figure{
 		height:225px;
 		width:52%;
