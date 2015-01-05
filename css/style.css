@@ -200,17 +200,63 @@
 	.feature-box{
 		width:100%;
 		height:480px;
-		background:#eaeaea url(../images/photos/bgd.jpg) center center no-repeat;
+		background:#eaeaea;
 		overflow:hidden;
 	}
 	
 	.feature-box .content{
-		float: right;
-		margin: 0 1% 0 0;
-		padding: 0 3%;
-		width: 60%
+		margin: 0;
+		padding: 0;
 	}
 	
+	.feature-box .content .ablock:first-child{
+		margin:0;
+		height:100%;
+		width:60%;
+	}
+	.feature-box .content .ablock{
+		margin:0 0 1px 1px;
+		height:50%;
+		width:35%;
+	}
+	.feature-box .content .ablock figure{
+		height:auto;
+		width:100%;
+	}
+	.feature-box .content .ablock figure img{
+		height:100%;
+		width:100%;
+	}
+	.feature-box .content .caption-block {
+		position:absolute;
+		bottom:3%;
+		left:1%;
+		width:80%;
+		background: -moz-linear-gradient(left,  rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.8)), color-stop(40%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 40%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 40%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 40%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: linear-gradient(to right,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 40%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+	}
+	
+	.feature-box .content .caption-block  h2 {
+		font-size: 18px;
+	}
+	.feature-box .content .caption-block  p {
+		font-size: 12px;
+		padding:0;
+		color:#333;
+	}
+	.feature-box .content .ablock:first-child .caption-block  h2 {
+		font-size: 26px;
+	}
+	.feature-box .content .ablock:first-child .caption-block  p {
+		font-size: 16px;
+		padding:5px 0 0;
+	}
 	.fixed{
 		position:fixed;
 		z-index:999;
