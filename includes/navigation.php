@@ -23,13 +23,13 @@
 				if($cat == null && $tag == null){
 				
 					if( $articlename == null ){
-						print '<li><a href="http://www.pinstacular.com/index.php" class="selected">View All Posts</a></li>';					
+						print '<li><a href="http://www.pinstacular.com/index.php" class="selected">All</a></li>';					
 					}else{
 						print '<li><a href="http://www.pinstacular.com/index.php">Home</a></li>';
 					}
 					
 				}else{
-					print '<li><a href="http://www.pinstacular.com/index.php">View All Posts</a></li>';
+					print '<li><a href="http://www.pinstacular.com/index.php">All</a></li>';
 				}
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
@@ -46,6 +46,7 @@
 			}
 		?>
 	</ul>
+	<?PHP include ("search.php"); ?>
 	<?PHP
 		if ($_GET){
 			$tag = htmlspecialchars($_GET["tag"]);

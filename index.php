@@ -37,18 +37,17 @@ $db_handle = mysqli_connect($server, $user_name, $password, $database);
 date_default_timezone_set('America/New_York');
 if ($db_handle) {
 
-	if ($_GET){
+	if ($_SERVER["REQUEST_METHOD"] == "POST"){
+		$searchTerm = $_POST["searchTerm"];
+		$query = "SELECT * FROM content WHERE title LIKE '%$searchTerm%' OR tags LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%' ORDER BY lastupdated DESC";
+	}else if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
 		$tag = htmlspecialchars($_GET["tag"]);
-		
-		
 		
 		if( $tag != null){
 		
 			$query = "SELECT * FROM content WHERE tags LIKE '%$tag%' ORDER BY lastupdated DESC";
 			
-			
-					
 		}else{
 		
 			if($cat != 'home'){
@@ -58,7 +57,7 @@ if ($db_handle) {
 			}
 		
 		}
-	} else {
+	}else {
 		$query = "SELECT * FROM content WHERE featured=0 ORDER BY lastupdated DESC";
 	}
 
