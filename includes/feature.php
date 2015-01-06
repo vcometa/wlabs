@@ -37,5 +37,6 @@
 
 			}
 		?>
+		<?PHP include ("taglist.php"); ?>
 	</div>	
 </div>

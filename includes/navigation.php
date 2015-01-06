@@ -51,7 +51,7 @@
 		if ($_GET){
 			$tag = htmlspecialchars($_GET["tag"]);
 			if( $tag != null){
-				print '<h1 class="topic-tag">All about '.$tag.'</h1>';
+				print '<h1 class="topic-tag">'.$tag.'</h1>';
 			}
 		}
 	?>

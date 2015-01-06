@@ -62,6 +62,19 @@
 	  clear: both;
 	}
 	
+	.logo{
+		display:block;
+		outline:0;
+		width:231px;
+		height:62px;
+		position:fixed;
+		background:#99ccff;
+		top:0;
+		left:0;
+		z-index:9999;
+		margin:0;
+	}
+	
 	header {
 		position:relative;
 		top:0;
@@ -155,12 +168,28 @@
 	
 	.search-box{
 		float:left;
-		margin: 10px 15px;
+		margin: 12px 15px;
 	}
 	
 	.search-box input{
 		border:1px solid #eee;
 		padding:10px;
+	}
+	
+	.search-box .search-btn{
+		border:0;
+		background:#9999ff;
+		color:#333366;		
+		font-weight:bold;
+		cursor:pointer;
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;	
+	}
+	.search-box .search-btn:hover{
+		background:#62a9e3;
+		color:#fff;
 	}
 
 	footer nav ul li a{
@@ -225,17 +254,18 @@
 	.feature-box .content{
 		margin: 0;
 		padding: 0;
+		max-width:100%;
 	}
 	
 	.feature-box .content .ablock:first-child{
 		margin:0;
 		height:100%;
-		width:60%;
+		width:46.95%;
 	}
 	.feature-box .content .ablock{
 		margin:0 0 1px 1px;
 		height:50%;
-		width:35%;
+		width:26.5%;
 	}
 	.feature-box .content .ablock figure{
 		height:auto;
@@ -279,28 +309,33 @@
 		position:fixed;
 		z-index:999;
 	}
+	.tag-list {
+		padding: 15px;
+		position: absolute;
+		right: 0;
+		width: 25%;
+	}
 	.tag-block{		
 		background:transparent;		
 		display:block;
 		float:right;
-		font-size:20px;
+		font-size:12px;
 		font-family: Michroma;	
 		text-transform:capitalize;
 		text-align:center;
 		white-space: nowrap;
 		color:#666;
-		padding:5px 10px;
+		padding:5px 15px;
 		border-radius:5px;
-		margin:5px 10px;
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;		
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;		
 	}
 	.tag-block.selected{
 		color:#fff;
-		background: rgba(239,62,91, 0.3);
-		box-shadow: inset 0 0 8px rgba(239, 62, 91, 0.9);
+		font-weight:bold;
+		background: #ef3e5b;
 	}
 	.tag-block:hover{
 		color:#ef3e5b;
@@ -325,10 +360,7 @@
 	.story article{
 		margin:20px auto 0;
 	}
-	.logo,
-	.logo-small{
-		margin: 5px 0 0 10px;
-	}
+	
 	.slideIn_hdr{
 		display: block;
 		width: 100%;
