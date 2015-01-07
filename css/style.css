@@ -74,6 +74,11 @@
 		z-index:9999;
 		margin:0;
 	}
+	.logo-spacer{
+		width:231px;
+		height:62px;
+		float:left;
+	}
 	
 	header {
 		position:relative;
@@ -97,7 +102,7 @@
 		z-index:999;
 		font-size:11px;
 		text-align:center;
-		padding: 5px 0;
+		padding: 5px 0 15px;
 		width:100%;
 		height: 30px;
 	}
@@ -105,9 +110,17 @@
 		float:left;
 	}
 	
+	footer a{
+		color:#009900;
+		font-weight:bold;
+	}
+	footer div{
+		margin:15px 0;
+	}
+	
 	nav{
 		display:block;
-		clear:both;
+		float:left;
 		margin:0 auto;
 		width:auto;
 		-webkit-transition: all 0.3s ease-in-out;
@@ -118,8 +131,7 @@
 	nav ul {
 		margin: 0 auto;
 		padding: 0;
-		clear:both;
-		background:#fff;
+		float:left;
 	}
 	nav ul li{
 		display:block;
@@ -131,6 +143,7 @@
 	}
 	nav ul li a{
 		display:block;
+		background:#333;
 		position:relative;
 		color: #ff6600;
 		font-family:Jura;
@@ -169,11 +182,13 @@
 	.search-box{
 		float:left;
 		margin: 12px 15px;
+		width:29%;
 	}
 	
 	.search-box input{
 		border:1px solid #eee;
 		padding:10px;
+		width:74%;
 	}
 	
 	.search-box .search-btn{
@@ -181,7 +196,9 @@
 		background:#9999ff;
 		color:#333366;		
 		font-weight:bold;
+		width:80px;
 		cursor:pointer;
+		position:absolute;
 		-webkit-transition: all 0.2s ease-in-out;
 		-moz-transition: all 0.2s ease-in-out;
 		-o-transition: all 0.2s ease-in-out;
@@ -374,8 +391,8 @@
 	.slideIn_hdr nav{
 		display:block;		
 		margin:0 auto;
-		max-width:1200px;
 		overflow:hidden;
+		width:85%;
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
@@ -634,14 +651,45 @@
 
 }
 
-@media all and (min-width: 1024px) {
+@media all and (max-width: 1557px) {
+	#sizeindicator{
+		background:red;
+	}	
+	.slideIn_hdr nav{
+		width:80%;
+	}
+}
+@media all and (max-width: 1154px) {
 	#sizeindicator{
 		background:red;
 	}
-	.content {
-		
+	
+	.slideIn_hdr nav{
+		width:75%;
+	}
+	.search-box {
+		width: 25%;
 	}
 }
+
+@media all and (max-width: 1024px) {
+	#sizeindicator{
+		background:red;
+	}
+	.search-box {
+		width: 20%;
+	}
+}
+
+@media all and (max-width: 970px) {
+	#sizeindicator{
+		background:red;
+	}
+	.slideIn_hdr nav{
+		width:70%;
+	}
+}
+
 @media all and (max-width: 768px) {
 	#sizeindicator{
 		background:brown;

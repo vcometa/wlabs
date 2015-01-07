@@ -334,6 +334,7 @@ function test_input($data){
 	$data = stripslashes($data);
 	//print '<br>before: '.$data;
 	//$data = htmlspecialchars($data);
+	$data = addslashes($data);
 	$data = htmlspecialchars($data, ENT_COMPAT|ENT_SUBSTITUTE, "UTF-8");
 	//print '<br>after: '.$data.'<br><br>';
 	//$data = mysqli_real_escape_string($data);

@@ -42,7 +42,7 @@ $(function() {
 	});*/
 	
 	pinvise.LimitText($('.ablock article p'));
-	pinvise.showWindowWidth(false);
+	pinvise.showWindowWidth(true);
 	pinvise.FixPositionAt($('header'), $('.feature-box').outerHeight());
 	
 	
