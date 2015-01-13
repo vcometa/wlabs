@@ -69,7 +69,7 @@
 		<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 		<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
 	</div>
-	<div class="right-rail">test</div>
+	<div class="right-rail"></div>
 
 	</div>
 	
