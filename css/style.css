@@ -63,16 +63,21 @@
 	}
 	
 	.logo{
-		display:block;
-		outline:0;
-		width:231px;
-		height:62px;
-		position:fixed;
-		background:#99ccff;
-		top:0;
-		left:0;
-		z-index:9999;
-		margin:0;
+		background: none repeat scroll 0 0 #000;
+		color: #fff;
+		display: block;
+		font-family: Jura;
+		font-size: 40px;
+		height: 58px;
+		left: 0;
+		line-height: 50px;
+		margin: 0;
+		outline: 0 none;
+		position: fixed;
+		text-align: center;
+		top: 0;
+		width: 231px;
+		z-index: 9999;
 	}
 	.logo-spacer{
 		width:231px;
