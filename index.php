@@ -4,6 +4,7 @@
 <title>Pinstacular</title>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?PHP include ("includes/metaindex.php"); ?>
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="home">
