@@ -82,9 +82,12 @@
 			<div class="socialmedia" style="display:none;">
 				<ul>
 					<li class="facebook">
-						<a title="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpinstacular.com%2Farticle%2F<?PHP echo $articlename ?>&amp;t=<?PHP echo $articleTitle ?>"></a>
+						<!--a title="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpinstacular.com%2Farticle%2F<?PHP echo $articlename ?>&amp;t=<?PHP echo $articleTitle ?>"></a-->
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon"></div>					
 					</li>
-					<li class="twitter"><a title="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Land+Rover+gives+closer+look+at+upcoming+Discovery%C2%A0Sport - http://driving.wpdev5.canada.com/land-rover/auto-news/news/land-rover-gives-closer-look-at-upcoming-discovery-sport - via @drivingdotca"></a></li>
+					<li class="twitter"><a title="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Land+Rover+gives+closer+look+at+upcoming+Discovery%C2%A0Sport - http://driving.wpdev5.canada.com/land-rover/auto-news/news/land-rover-gives-closer-look-at-upcoming-discovery-sport - via @drivingdotca"></a>
+					
+					</li>
 					<li class="pinterest"><a class="addthis_button_pinterest_pinit"><span class="at_PinItButton"></span></a></li>
 					<li class="email"><a class="addthis_button_email" target="_blank" title="Email" href="#"></a></li>
 				</ul>
