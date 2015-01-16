@@ -15,14 +15,16 @@
 		while ( $db_field = mysqli_fetch_assoc($result) ) {
 		
 	
-				$keywords = $keywords. ', '.strtolower($db_field['tag']);
+				$keywords = $keywords . strtolower($db_field['tag']) . ', ';
 			
 		}
 		mysqli_close($db_handle);
 
 	}
 ?>
-<meta name="description" content="Latest news articles">
+<meta name="description" content="Latest articles from various topics about <?PHP print $keywords ?>">
 <meta name="keywords" content="<?PHP print $keywords ?>">
-<meta name="author" content="V.Cometa">
+<meta name="author" content="VBC Consulting INC">
+<meta itemprop="copyrightYear" content="<?php echo date("Y"); ?>"/>		
+<meta name="robots" content="index, follow">
 

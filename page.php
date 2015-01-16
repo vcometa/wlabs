@@ -22,16 +22,17 @@
 			$articleTags = html_entity_decode($db_field['tags']);
 			$articleDesc = html_entity_decode($db_field['description']);
 			$articleTitle = html_entity_decode($db_field['title']);
+			$articleAuthor = html_entity_decode($db_field['author']);
+			$articleLastUpdate = html_entity_decode($db_field['lastupdated']);
+			$articlePublished = html_entity_decode($db_field['created']);
 			
 			$contentBlock = '<h1>'.$articleTitle.'</h1>'.
 			'<h2>'.$articleDesc.'</h2>'.
 			'<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>'.			
-			'<div class="source">'.html_entity_decode($db_field['author']).'</div>'.
+			'<div class="source">'.$articleAuthor.'</div>'.
 			'<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['sourcename']).'</a>'.
 			'<article>'.html_entity_decode($db_field['article']) . '</article>'.
 			'<div class="tags">'.$articleTags. '</div>';
-			
-			
 
 		}
 		mysqli_close($db_handle);
@@ -51,7 +52,11 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta name="description" content="<?PHP echo $articleTitle.' : '.$articleDesc; ?>">
 <meta name="keywords" content="<?PHP echo $articleTags ?>">
-<meta name="author" content="V.Cometa">
+<meta itemprop="dateModified" content="<?PHP echo $articleLastUpdate ?>">
+<meta itemprop="datePublished" content="<?PHP echo $articlePublished ?>">
+<meta itemprop="copyrightYear" content="<?php echo date("Y"); ?>"/>		
+<meta name="robots" content="index, follow">
+<meta name="author" content="<?PHP echo $articleAuthor ?>">
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="story" id="story">

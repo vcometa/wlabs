@@ -79,6 +79,10 @@
 		width: 231px;
 		z-index: 9999;
 	}
+	
+	.logo span{
+		color:#ff6600;
+	}
 	.logo-spacer{
 		width:231px;
 		height:62px;
