@@ -47,9 +47,9 @@
 	?>
 <html>
 <head>
-<title>Pinstacular.com - <?PHP echo $articlename; ?></title>
+<title>Pinstacular.com - <?PHP echo $articleTitle; ?></title>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<meta name="description" content="<?PHP echo $articleDesc; ?>">
+<meta name="description" content="<?PHP echo $articleTitle.' : '.$articleDesc; ?>">
 <meta name="keywords" content="<?PHP echo $articleTags ?>">
 <meta name="author" content="V.Cometa">
 <?PHP include ("includes/css.php"); ?>
@@ -74,7 +74,7 @@
 	<div class="content">
 		<div class="left-rail">
 		
-			<div class="socialmedia">
+			<div class="socialmedia" style="display:none;">
 				<ul>
 					<li class="facebook">
 						<a title="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpinstacular.com%2Farticle%2F<?PHP echo $articlename ?>&amp;t=<?PHP echo $articleTitle ?>"></a>
