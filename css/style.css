@@ -44,6 +44,11 @@
 		text-decoration:underline;
 		color:#666;
 	}
+	
+	.leaderboard {
+		margin:0 auto;
+		text-align:center;
+	}
 	.disableOverflow{
 		overflow:hidden;
 	}
@@ -264,17 +269,23 @@
 		height:100%;
 		padding:10px;
 		float:right;
-		background:#eee;
+		background:#fff;
 	}
 	.page .left-rail{
-		width:72%;
+		width:70%;
 		float:left;
+	}
+	.bigbox{
+		margin:0 auto 20px;
+		width:320px;
+		height:250px;
+		overflow:hidden;
 	}
 	
 	.page .left-rail img{
-		max-width:720px;
 		clear:both;
 		margin: 10px auto;
+		display:block;
 	}
 	
 	.feature-box{
@@ -339,6 +350,51 @@
 		font-size: 16px;
 		padding:5px 0 0;
 	}
+	
+	.page {
+		margin: 80px auto 0;
+	}
+	
+	.page header{
+		position:fixed;
+	}
+	
+	.page .feature-box{
+		width:320px;
+		height:auto;
+		background:#fff;
+	}
+	.page .tag-list {
+		display:none;
+	}
+	
+	.page .feature-box .ablock{
+		clear:both;
+		width:300px !important;
+		height:300px !important;
+		height:auto;
+		margin: 0 auto 15px !important;
+		border:1px solid #ccc;
+	}
+	
+	.page .feature-box .content .caption-block{
+		left:0;
+		bottom:0;
+		width:100%;
+		background:#000;
+		color:#fff;
+		clear:both;
+	}
+	
+	.page .feature-box .content .ablock .caption-block h2,
+	.page .feature-box .content .ablock .caption-block p{
+		color:#fff;
+		font-size:14px;
+	}
+	.page .feature-box .content .ablock .caption-block h2{
+		font-size:18px;
+	}
+	
 	.fixed{
 		position:fixed;
 		z-index:999;

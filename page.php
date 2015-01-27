@@ -27,10 +27,10 @@
 			$articlePublished = html_entity_decode($db_field['created']);
 			
 			$contentBlock = '<h1>'.$articleTitle.'</h1>'.
-			'<h2>'.$articleDesc.'</h2>'.
-			'<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>'.			
+			'<h2>'.$articleDesc.'</h2>'.	
 			'<div class="source">'.$articleAuthor.'</div>'.
 			'<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['sourcename']).'</a>'.
+			'<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>'.		
 			'<article>'.html_entity_decode($db_field['article']) . '</article>'.
 			'<div class="tags">'.$articleTags. '</div>';
 
@@ -75,6 +75,11 @@
 <div class="page">
 
 	<?PHP include ("includes/header.php"); ?>
+	
+	<div class="leaderboard">
+	<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=48&l=ur1&category=amazonhomepage&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+</div>
 
 	<div class="content">
 		<div class="left-rail">
@@ -97,7 +102,17 @@
 			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 			<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
 		</div>
-		<div class="right-rail"></div>
+		<div class="right-rail">
+			<div class="bigbox">
+			
+				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=amazonhomepage&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+			</div>
+			<?PHP include ("includes/feature.php"); ?>
+			<div class="bigbox">
+				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=dealsstore&banner=1VSBTE74K842BYNBX182&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+			</div>
+		</div>
 
 	</div>
 	
