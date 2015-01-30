@@ -1,4 +1,13 @@
 <footer>
-	<p><a href="mailto:info@pinstacular.com?subject=info">Click here!</a> If you wish to contact us or inquire about Ad placements.</p>
-	<div>&copy; 2015 Pinstacular.com. All Rights Reserved.</div>
+	<div class="content">
+		<ul>
+			<li>
+				<a href="privacy.php">Privacy</a>
+			</li>
+			<li>
+				<a href="contactus.php">Contact Us</a>
+			</li>
+		</ul>
+		<div class="copyright">&copy; 2015 Pinstacular.com. All Rights Reserved.</div>
+	</div>
 </footer>

@@ -128,10 +128,28 @@
 		color:#009900;
 		font-weight:bold;
 	}
-	footer div{
-		margin:15px 0;
+	footer .copyright{
+		margin:0 auto;
+		clear:both;
+	}
+	footer ul{
+		display:block;
+		margin:0 auto;
+		padding: 10px 0;
+		overflow:hidden;
+		width:200px;
+	}
+	footer ul li{
+		list-style:none;
+		float:left;
+		border:1px solid #eee;
+		border-width:0 1px;
+		padding:0 10px;
 	}
 	
+	footer .content{
+		margin:0 auto;
+	}
 	nav{
 		display:block;
 		float:left;
@@ -721,6 +739,72 @@
 		display:block !important;
 	}
 	
+	.privacy h4{
+		font-weight:bold;
+		font-style:italic;
+	}
+	.privacy .content{
+		margin-top:80px;
+	}
+	
+	.privacy .page > .content a{
+		color:#ff6600;
+	}
+	.privacy .privacy-date{
+		font-style:italic;
+		color:#999;
+	}
+	
+	.contact  .contact-body {
+		display:block;
+		margin:0;
+		padding:0;
+	}
+	.contact sup{
+		color:red;
+	}
+	.contact .contact-body li{
+		list-style:none;
+		margin:20px 0 0;
+	}
+	.contact  .contact-body  label{
+		width: 40%;
+		min-width:300px;
+		display:block;
+		font-weight:bold;
+	}
+	.contact  .contact-body input{
+		width: 40%;
+		min-width:300px;
+	}
+	.contact  .contact-body textarea{
+		width: 40%;
+		min-width:300px;
+		min-height:100px;
+	}
+	
+	.contact .error{
+		float:right;
+		font-weight:normal;
+		font-style:italic;
+		font-size:12px;
+	}
+	
+	.contact .submit-btn{
+		border:1px solid #ff6600;
+		background:#000;
+		color:#ff6600;
+		padding:15px 0;
+		cursor:pointer;
+		text-transform:uppercase;
+		font-weight:bold;
+		font-size:14px;
+	}
+	.contact .submit-btn:hover{
+		border:1px solid #000;
+		background:#ff6600;
+		color:#000;
+	}
 
 }
 
