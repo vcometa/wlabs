@@ -73,8 +73,11 @@ if ($db_handle) {
 
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
 		
-		$string = html_entity_decode($db_field['description']);
-		$string = (strlen($string) > 100) ? substr($string,0,97).'...' : $string;
+		$desc = html_entity_decode($db_field['description']);
+		$desc = (strlen($desc) > 100) ? substr($desc,0,97).'...' : $desc;
+		
+		$titleShort = html_entity_decode($db_field['title']);
+		$titleShort = (strlen($titleShort) > 60) ? substr($titleShort,0,57).'...' : $titleShort;
 		
 		$category = strtolower(str_replace(', ', ' ', html_entity_decode($db_field['category'])));
 	
@@ -94,10 +97,10 @@ if ($db_handle) {
 		
 		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';		
 		print '<div class="caption-block">';
-		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
+		print '<h2>'.$titleShort.'</h2>';
 		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).' '.html_entity_decode($db_field['sourcename']).'</a>';
 		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
-		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $string).'</p>';
+		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $desc).'</p>';
 		print '<div class="tags">';
 		
 		for ($i = 0; $i < count($tags); ++$i) {
@@ -126,7 +129,7 @@ if ($db_handle) {
 		print '</div></div>';
 		print '</article>';
 		
-		//print '<p data-char-limit="60">'.$string.'</p>';	
+		//print '<p data-char-limit="60">'.$desc.'</p>';	
 		
 
 		++$rowCount;
