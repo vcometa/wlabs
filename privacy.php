@@ -7,7 +7,7 @@
 <body class="privacy">
 	<div class="page">
 		<?PHP include ("includes/header.php"); ?>		
-		<div class="content">
+		<div class="content centered">
 			<h1>Privacy</h1>
 			<p>
 			This Privacy Policy governs the manner in which Pinstacular.com collects, uses, maintains and discloses information collected from users (each, a "User") of the <a href="Pinstacular.com">Pinstacular.com</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by Pinstacular.com.<p>

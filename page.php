@@ -25,14 +25,41 @@
 			$articleAuthor = html_entity_decode($db_field['author']);
 			$articleLastUpdate = html_entity_decode($db_field['lastupdated']);
 			$articlePublished = html_entity_decode($db_field['created']);
+			$tags = explode(", ", $db_field['tags']);
 			
 			$contentBlock = '<h1>'.$articleTitle.'</h1>'.
 			'<h2>'.$articleDesc.'</h2>'.	
 			'<div class="source">'.$articleAuthor.'</div>'.
 			'<a class="source" href="'.html_entity_decode($db_field['source']).'">'.html_entity_decode($db_field['sourcename']).'</a>'.
 			'<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>'.		
-			'<article>'.html_entity_decode($db_field['article']) . '</article>'.
-			'<div class="tags">'.$articleTags. '</div>';
+			'<article>'.html_entity_decode($db_field['article']) . '</article>';
+			
+		$tagblock = '<div class="tags">';
+		
+		for ($i = 0; $i < count($tags); ++$i) {
+		
+			$lowerTag = strtolower($tags[$i]);
+		
+			if( $i == count($tags)-1 ){
+			
+				if( $tag == $lowerTag ){
+					$tagblock .= '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>';
+				}else{
+					$tagblock .=  '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>';
+				}
+				
+			}else{
+			
+				if( $tag == $lowerTag ){
+					$tagblock .=  '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>, ';
+				}else{
+					$tagblock .=  '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>, ';
+				}
+				
+			}
+		}
+		
+		$tagblock .=  '</div>';
 
 		}
 		mysqli_close($db_handle);
@@ -81,7 +108,7 @@
 
 </div>
 
-	<div class="content">
+	<div class="content centered">
 		<div class="left-rail">
 		
 			<div class="socialmedia" style="display:none;">
@@ -99,6 +126,8 @@
 			</div>
 			
 			<?PHP echo $contentBlock ?>
+			<?PHP echo $tagblock ?>
+			
 			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 			<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
 		</div>
@@ -108,12 +137,13 @@
 				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=amazonhomepage&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 
 			</div>
+			<h3>Featured Articles</h3>
 			<?PHP include ("includes/feature.php"); ?>
 			<div class="bigbox">
 				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=dealsstore&banner=1VSBTE74K842BYNBX182&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 			</div>
 		</div>
-
+		<?PHP include ("includes/taglist.php"); ?>
 	</div>
 	
 	<?PHP include ("includes/footer.php"); ?>

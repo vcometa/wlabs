@@ -2,6 +2,9 @@
 	<div class="content">
 		<ul>
 			<li>
+				<a href="aboutus.php">About Us</a>
+			</li>
+			<li>
 				<a href="privacy.php">Privacy</a>
 			</li>
 			<li>

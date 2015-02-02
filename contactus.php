@@ -7,7 +7,7 @@
 <body class="contact">
 	<div class="page">
 	<?PHP include ("includes/header.php"); ?>
-	<div class="content">
+	<div class="content centered">
 	
 	<h1>Contact Us</h1>
 	
@@ -172,6 +172,7 @@
 		 
 		</form>
 		
+		<?PHP include ("includes/taglist.php"); ?>
 		
 	</div>
 	<?PHP include ("includes/footer.php"); ?>
