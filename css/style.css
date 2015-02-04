@@ -21,7 +21,7 @@
 		color: #000;
 		margin:0;
 		padding: 0;
-		background:#e5e5e5;
+		background:#d6d6d6;
 	}
 	
 	body.story{
@@ -58,7 +58,7 @@
 	}
 	.content {
 		position:relative;
-		margin: 38px auto 0;		
+		margin: 0 auto33;		
 		width:100%;
 		padding: 0;
 		height: 100%;
@@ -84,10 +84,11 @@
 		line-height: 50px;
 		margin: 0;
 		outline: 0 none;
-		position: fixed;
+		position: relative;
+		float:left;
 		text-align: center;
 		top: 0;
-		width: 231px;
+		width: 230px;
 		z-index: 9999;
 	}
 	
@@ -95,8 +96,8 @@
 		color:#ff6600;
 	}
 	.logo-spacer{
-		width:231px;
-		height:62px;
+		width:0;
+		height:0;
 		float:left;
 	}
 	
@@ -355,8 +356,16 @@
 		position:absolute;
 		bottom:0;
 		right:0;
-		width:90%;
-		background: #666;
+		background: #a3adb8;
+		padding: 10px 15px;
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 1);
+		-webkit-transition: all 0.6s ease-in-out;
+		-moz-transition: all 0.6s ease-in-out;
+		-o-transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;		
+	}
+	.feature-box .content .ablock:hover .caption-block{
+		bottom:0;
 	}
 	
 	.feature-box .content .caption-block  h2 {
@@ -366,8 +375,9 @@
 	}
 	.feature-box .content .caption-block  p {
 		font-size: 12px;
+		line-height:16px;
 		padding:0;
-		color:#fff;
+		color:#666;
 	}
 	.feature-box .content .ablock:first-child .caption-block  h2 {
 		font-size: 24px;		
@@ -375,9 +385,10 @@
 	.feature-box .content .ablock:first-child .caption-block  p {
 		font-size: 16px;
 		padding:5px 0 0;
+		line-height:18px;
 	}
 	.feature-box .source{
-		color:#fff;
+		color:#eee;
 	}
 	
 	.page {
@@ -489,7 +500,6 @@
 	
 	.slideIn_hdr{
 		display: block;
-		width: 100%;
 		overflow:hidden;
 		padding:0;
 		-webkit-transition: all 0.3s ease-in-out;
@@ -648,6 +658,7 @@
 	.dateline,
 	.source{
 		font-size:11px;
+		font-style:italic;
 		color:#999;
 	}
 	.article-modal{
@@ -713,10 +724,10 @@
 	.tags{
 		font-size:12px;
 		font-weight:bold;
-		padding:10px;
+		padding:5px 10px;
 		width:95%;
 		height:auto;
-		background:#ff6600;
+		background:#757778;
 		margin:10px 0 20px;
 		color:#fff;
 	}
