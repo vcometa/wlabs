@@ -617,6 +617,11 @@
 		display:block;
 		margin:0 auto;
 	}
+	.home .ablock img {
+		width:100%;
+		height:auto;
+		min-height:auto;
+	}
 	.ablock p{
 		display: block;
 		font-size: 14px;
