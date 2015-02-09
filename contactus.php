@@ -9,6 +9,8 @@
 	<?PHP include ("includes/header.php"); ?>
 	<div class="content centered">
 	
+	<div class="left-rail">
+	
 	<h1>Contact Us</h1>
 	
 	<?php
@@ -172,6 +174,19 @@
 		 
 		</form>
 		
+		</div>
+		<div class="right-rail">
+			<div class="bigbox">
+			
+				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=amazonhomepage&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+			</div>
+			<h3>Featured Articles</h3>
+			<?PHP include ("includes/feature.php"); ?>
+			<div class="bigbox">
+				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=dealsstore&banner=1VSBTE74K842BYNBX182&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+			</div>
+		</div>
 		<?PHP include ("includes/taglist.php"); ?>
 		
 	</div>

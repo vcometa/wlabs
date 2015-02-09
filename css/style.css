@@ -21,7 +21,7 @@
 		color: #000;
 		margin:0;
 		padding: 0;
-		background:#d6d6d6;
+		background:#fff;
 	}
 	
 	body.story{
@@ -66,6 +66,7 @@
 	}
 	.content.centered{
 		max-width: 1200px;
+		margin:0 auto;
 	}
 	.content:after {
 	  content: '';
@@ -483,6 +484,15 @@
 		margin:0 auto;
 	}
 	
+	.story .left-rail article a{
+		color:#ff6600;
+		text-decoration:none;
+	}
+	.story .left-rail article a:hover{
+		color:#688fad;
+		text-decoration:underline;
+	}
+	
 	.story h1{
 		margin: 20px 0;
 	}
@@ -809,11 +819,11 @@
 		font-weight:bold;
 	}
 	.contact  .contact-body input{
-		width: 40%;
+		width: 60%;
 		min-width:300px;
 	}
 	.contact  .contact-body textarea{
-		width: 40%;
+		width: 60%;
 		min-width:300px;
 		min-height:100px;
 	}
