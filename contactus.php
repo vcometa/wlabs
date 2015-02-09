@@ -5,6 +5,7 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="contact">
+<?php include_once("includes/analyticstracking.php") ?>
 	<div class="page">
 	<?PHP include ("includes/header.php"); ?>
 	<div class="content centered">

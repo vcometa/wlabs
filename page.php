@@ -87,6 +87,7 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="story" id="story">
+<?php include_once("includes/analyticstracking.php") ?>
 <div id="fb-root"></div>
 
 <script>(function(d, s, id) {

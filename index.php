@@ -8,7 +8,7 @@
 <?PHP include ("includes/css.php"); ?>
 </head>
 <body class="home">
-
+<?php include_once("includes/analyticstracking.php") ?>
 <!-- fb begins -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
