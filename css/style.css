@@ -273,6 +273,12 @@
 		height:auto;
 	}
 	
+	.page figure span{
+		font-size:12px;
+		font-style:italic;
+		color:#666;
+	}
+	
 	.page .right-rail{
 		width:30%;
 		max-width:300px;
@@ -296,6 +302,7 @@
 		clear:both;
 		margin: 10px auto;
 		display:block;
+		width:100%;
 	}
 	
 	.feature-box{
