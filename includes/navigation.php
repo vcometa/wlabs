@@ -46,7 +46,7 @@
 			}
 		?>
 	</ul>
-	<?PHP include ("search.php"); ?>
+	<button class="search-toggle" title="Click to open search box"></button>
 	<?PHP
 		if ($_GET){
 			$tag = htmlspecialchars($_GET["tag"]);

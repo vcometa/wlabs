@@ -5,6 +5,14 @@
 <div class="slideIn_hdr">
 	<div class="logo-spacer"></div>
 	<?PHP include ("navigation.php"); ?>
-	<span></span>
+	
+	<span class="social-media">
+		<ul>
+			<li>
+				<a class="facebook" href="http://www.facebook.com/pinstacular" title="http://www.facebook.com/pinstacular" target="_blank"></a>
+			</li>
+		</ul>
+	</span>
 </div>
+<?PHP include ("search.php"); ?>
 </header>

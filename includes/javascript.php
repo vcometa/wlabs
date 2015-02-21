@@ -22,25 +22,21 @@ $(function() {
 	};
 	
 	$('.ablock').on('click',function(e){
-		//e.preventDefault();
 		var url = $(this).data('href');
-		//console.log(url);
-		/*params.event = e;	
-		params.msg = '<div id="article-holder"></div>';	
-		var modal = pinvise.Modal(params);
-		$( "#article-holder" ).load( url, function(e){			
-			modal.modal.addClass('active');
-			setTimeout(function(){modal.overlay.addClass('active');},1000);
-			FB.XFBML.parse(document.body)
-		});*/
 		document.location.href = url;
-		//$('body').ajaxComplete(function(){  });
 	});
-	/*
-	$(window).on('load scroll', function(){
-		setTimeout(function(){$('.slideIn_hdr').addClass('hidden')},1200);
-	});*/
-	
+	$('.social-media a').on('click',function(e){
+		e.preventDefault();
+		var url = $(this).attr('href');
+		console.log(url);
+		window.open(url, 'facebook');
+		return false;
+	});
+	$('.search-toggle').on('click',function(e){
+		
+		$('.search-box').toggleClass('active');
+		$(this).toggleClass('active');
+	});
 	pinvise.LimitText($('.ablock article p'));
 	pinvise.showWindowWidth(false);
 	pinvise.FixPositionAt($('header'), $('.feature-box').outerHeight());
