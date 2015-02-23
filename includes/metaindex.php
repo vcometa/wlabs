@@ -22,6 +22,7 @@
 
 	}
 ?>
+<meta name="msvalidate.01" content="42695535BC22992387200DDBBDA26DED" />
 <meta name="description" content="Latest articles from various topics about <?PHP print $keywords ?>">
 <meta name="keywords" content="<?PHP print $keywords ?>">
 <meta name="author" content="VBC Consulting INC">

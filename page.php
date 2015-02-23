@@ -76,6 +76,7 @@
 <head>
 <title>Pinstacular.com - <?PHP echo $articleTitle; ?></title>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="msvalidate.01" content="42695535BC22992387200DDBBDA26DED" />
 <meta name="description" content="<?PHP echo $articleTitle.' : '.$articleDesc; ?>">
 <meta name="keywords" content="<?PHP echo $articleTags ?>">
 <meta itemprop="dateModified" content="<?PHP echo $articleLastUpdate ?>">

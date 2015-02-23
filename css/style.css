@@ -538,6 +538,7 @@
 		margin: 20px 0;
 	}
 	.story .tags{
+		position:relative;
 		background:#000;
 		margin:20px auto 40px;
 		width:100%;
