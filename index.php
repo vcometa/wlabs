@@ -98,7 +98,7 @@ if ($db_handle) {
 		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/><span>Courtesy Of '.html_entity_decode($db_field['sourcename']).'</span></figure>';		
 		print '<div class="caption-block">';
 		print '<h2>'.$titleShort.'</h2>';
-		print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
+		//print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
 		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $desc).'</p>';
 		print '<div class="tags">';

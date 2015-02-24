@@ -29,7 +29,7 @@
 			
 			$contentBlock = '<h1>'.$articleTitle.'</h1>'.
 			'<h2>'.$articleDesc.'</h2>'.	
-			'<div class="source">'.$articleAuthor.'</div>'.
+			//'<div class="source">'.$articleAuthor.'</div>'.
 			'<figure><img src="/images/photos/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/><span>Courtesy Of '.html_entity_decode($db_field['sourcename']).'</span></figure>'.		
 			'<article>'.html_entity_decode($db_field['article']) . '</article>';
 			
