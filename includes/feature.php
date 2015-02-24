@@ -1,4 +1,20 @@
-<div class="feature-box">
+<?php 
+
+if ($_GET){
+	$cat = htmlspecialchars($_GET["cat"]);
+	$tag = htmlspecialchars($_GET["tag"]);
+	
+	if( $tag != null || $cat != 'home' ){
+		$ishidden = 'hidden';		
+	}else{
+		$ishidden = '';		
+	}
+	
+}
+
+?>
+
+<div class="feature-box <?php echo $ishidden ?>">
 	<div class="content">
 		<?php
 			$user_name = "vcometa_admin";
@@ -7,10 +23,6 @@
 			$server = "localhost";
 			$db_handle = mysqli_connect($server, $user_name, $password, $database);
 			if ($db_handle) {
-			
-				$cat = htmlspecialchars($_GET["cat"]);
-				
-				$tag = htmlspecialchars($_GET["tag"]);
 
 				$query = "SELECT * FROM content WHERE featured=1 ORDER BY lastupdated DESC";
 				
