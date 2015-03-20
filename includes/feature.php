@@ -24,7 +24,7 @@ if ($_GET){
 			$db_handle = mysqli_connect($server, $user_name, $password, $database);
 			if ($db_handle) {
 
-				$query = "SELECT * FROM content WHERE featured=1 ORDER BY lastupdated DESC";
+				$query = "SELECT * FROM content WHERE published=1 AND featured=1 ORDER BY lastupdated DESC";
 				
 				$result = $db_handle->query($query);
 				

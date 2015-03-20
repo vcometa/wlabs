@@ -45,26 +45,26 @@ if ($db_handle) {
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$searchTerm = $_POST["searchTerm"];
-		$query = "SELECT * FROM content WHERE title LIKE '%$searchTerm%' OR tags LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%' ORDER BY lastupdated DESC";
+		$query = "SELECT * FROM content WHERE published=1 AND title LIKE '%$searchTerm%' OR tags LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%' ORDER BY lastupdated DESC";
 	}else if ($_GET){
 		$cat = htmlspecialchars($_GET["cat"]);
 		$tag = htmlspecialchars($_GET["tag"]);
 		
 		if( $tag != null){
 		
-			$query = "SELECT * FROM content WHERE tags LIKE '%$tag%' ORDER BY lastupdated DESC";
+			$query = "SELECT * FROM content WHERE published=1 AND tags LIKE '%$tag%' ORDER BY lastupdated DESC";
 			
 		}else{
 		
 			if($cat != 'home'){
-				$query = "SELECT * FROM content WHERE category LIKE '%$cat%' ORDER BY lastupdated DESC";
+				$query = "SELECT * FROM content WHERE published=1 AND category LIKE '%$cat%' ORDER BY lastupdated DESC";
 			}else{
-				$query = "SELECT * FROM content WHERE featured=0 ORDER BY lastupdated DESC";
+				$query = "SELECT * FROM content WHERE published=1 AND featured=0 ORDER BY lastupdated DESC";
 			}
 		
 		}
 	}else {
-		$query = "SELECT * FROM content WHERE featured=0 ORDER BY lastupdated DESC";
+		$query = "SELECT * FROM content WHERE published=1 AND featured=0 ORDER BY lastupdated DESC";
 	}
 
 	
