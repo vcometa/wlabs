@@ -550,17 +550,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 					$query = "SELECT * FROM content ORDER BY lastupdated DESC";
 					//$result = mysql_query($SQL);
 					$result = $db_handle->query($query);
+					
+					$articleCount = $result->num_rows;
 					print "<table>";
 					while ( $db_field = mysqli_fetch_assoc($result) ) {
-
+						
 						print '<tr><td><span>'. date('d-m-Y', strtotime($db_field['lastupdated']) ) .'</span><span>'.date('h:m', strtotime($db_field['lastupdated']) ).'</span></td> <td><a href="pageedit.php?pass='.$passphrase.'&id='.html_entity_decode($db_field['id']).'">'.html_entity_decode($db_field['title']).'</a></td></tr>';
 					}
 					print "</table>";
+					
 					mysqli_close($db_handle);
 
 				}
 			?>
 			</div>
+			<div class="articlecount">Total: <?php echo $articleCount ?></div>
 		</div>
 	</div>
 	<div class="centerpanel">
