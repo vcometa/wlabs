@@ -14,7 +14,7 @@
 				$tag = htmlspecialchars($_GET["tag"]);
 				$articlename = htmlspecialchars($_GET["articlename"]);
 
-				$query = 'SELECT category FROM content GROUP BY category ';
+				$query = 'SELECT category FROM content WHERE published=1 GROUP BY category ';
 				//$query = "SELECT * FROM categories ORDER BY category ASC";
 				//$result = mysqli_query($SQL);
 				$result = $db_handle->query($query);
