@@ -11,6 +11,6 @@
 				<a href="contactus.php">Contact Us</a>
 			</li>
 		</ul>
-		<div class="copyright">&copy; 2015 lifefare.com. All Rights Reserved.</div>
+		<div class="copyright">&copy; 2016 lifefare.com. All Rights Reserved.</div>
 	</div>
 </footer>
