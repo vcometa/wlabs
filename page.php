@@ -74,7 +74,7 @@
 	?>
 <html>
 <head>
-<title>Pinstacular.com - <?PHP echo $articleTitle; ?></title>
+<title>lifefare.com - <?PHP echo $articleTitle; ?></title>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta name="msvalidate.01" content="42695535BC22992387200DDBBDA26DED" />
 <meta name="description" content="<?PHP echo $articleTitle.' : '.$articleDesc; ?>">
@@ -105,7 +105,6 @@
 	<?PHP include ("includes/header.php"); ?>
 	
 	<div class="leaderboard">
-	<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=48&l=ur1&category=amazonhomepage&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 
 </div>
 
@@ -115,7 +114,7 @@
 			<div class="socialmedia" style="display:none;">
 				<ul>
 					<li class="facebook">
-						<!--a title="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpinstacular.com%2Farticle%2F<?PHP echo $articlename ?>&amp;t=<?PHP echo $articleTitle ?>"></a-->
+						<!--a title="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Flifefare.com%2Farticle%2F<?PHP echo $articlename ?>&amp;t=<?PHP echo $articleTitle ?>"></a-->
 						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon"></div>					
 					</li>
 					<li class="twitter"><a title="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Land+Rover+gives+closer+look+at+upcoming+Discovery%C2%A0Sport - http://driving.wpdev5.canada.com/land-rover/auto-news/news/land-rover-gives-closer-look-at-upcoming-discovery-sport - via @drivingdotca"></a>
@@ -130,18 +129,17 @@
 			<?PHP echo $tagblock ?>
 			
 			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-			<div class="fb-comments" data-href="<?php echo 'http://pinstacular.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
+			<div class="fb-comments" data-href="<?php echo 'http://lifefare.com/article/'.html_entity_decode($articlename) ?>" data-width="100%" data-numposts="7" data-colorscheme="light"></div>
 		</div>
 		<div class="right-rail">
 			<div class="bigbox">
-			
-				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=amazonhomepage&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
 
 			</div>
 			<h3>Featured Articles</h3>
 			<?PHP include ("includes/feature.php"); ?>
 			<div class="bigbox">
-				<iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=pinstacularco-20&o=15&p=12&l=ur1&category=dealsstore&banner=1VSBTE74K842BYNBX182&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
 			</div>
 		</div>
 		<?PHP include ("includes/taglist.php"); ?>
