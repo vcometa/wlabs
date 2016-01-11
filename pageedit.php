@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Editor - Pinstacular</title>
+<title>Editor</title>
 <link rel="stylesheet" href="tinyeditor/tinyeditor.css">
 <script src="tinyeditor/tiny.editor.packed.js"></script>
 <style>
