@@ -535,7 +535,16 @@
 		background:#ff6600;
 		border:1px solid #fff;
 	}
-
+	.bold{
+		font-weight:bold;
+	}
+	.italic{
+		font-style:italic;
+	}
+	.oblique{
+		font-style:italic;
+		font-weight:bold;
+	}
 	.story .content{
 		margin:0 auto;
 	}
