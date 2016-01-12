@@ -78,7 +78,7 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta name="msvalidate.01" content="42695535BC22992387200DDBBDA26DED" />
 <meta name="description" content="<?PHP echo $articleTitle.' : '.$articleDesc; ?>">
-<meta name="keywords" content="<?PHP echo $articleTags ?>">
+<meta name="news_keywords" content="<?PHP echo $articleTags ?>">
 <meta itemprop="dateModified" content="<?PHP echo $articleLastUpdate ?>">
 <meta itemprop="datePublished" content="<?PHP echo $articlePublished ?>">
 <meta itemprop="copyrightYear" content="<?php echo date("Y"); ?>"/>		
