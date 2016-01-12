@@ -1,6 +1,6 @@
 <header>
 <a href="http://www.lifefare.com/index.php" class="logo">
-<img src="/images/lifefare.png"/>
+<img src="../images/lifefare.png"/>
 </a>
 <div class="mobile-menu-toggle"><span></span></div>
 <div class="slideIn_hdr">

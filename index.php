@@ -19,10 +19,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--fb ends -->
-
-<?PHP include ("includes/feature.php"); ?>
-
 <?PHP include ("includes/header.php"); ?>
+<?PHP include ("includes/feature.php"); ?>
 
 <div class="leaderboard">
 
