@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUIZ - Prototype</title>
+<style>
+@font-face{
+	font-family:Oswald-Regular;
+	src:url(http://driving.wpdev5.canada.com/wp-content/themes/driving-wp/Oswald-Regular.ttf);
+}
+@font-face{
+	font-family:Oswald-Bold;
+	src:url(http://driving.wpdev5.canada.com/wp-content/themes/driving-wp/Oswald-Bold.ttf);
+}
+@font-face{
+	font-family:Oswald-Light;
+	src:url(http://driving.wpdev5.canada.com/wp-content/themes/driving-wp/Oswald-Light.ttf);
+}
+.quiz{
+	font:normal 14px Arial;
+	max-width:600px;
+	width:100%;
+	margin:0 auto 20px;
+	color:#666;
+	position:relative;
+}
+.quiz .format-gallery{
+	height: 440px;
+	overflow:hidden;
+}
+.quiz .question{
+	font: bold 18px Verdana;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    display: block;
+    overflow: hidden;
+    margin: 0 0 10px;
+}
+.quiz ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.quiz img{
+	display:block;
+	clear:both;
+	float:none;
+}
+.quiz .quiz-list-item{
+	clear:both;
+	display:block;
+	margin:0 auto 15px;	
+	overflow:hidden;
+}
+.quiz .format-gallery .quiz-list{
+	width:3000px;
+	display:block;
+	position:relative;
+	-webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+	-webkit-transform:translate3D(0px, 0px, 0px),
+	-moz-transform:translate3D(0px, 0px, 0px),
+	-o-transform:translate3D(0px, 0px, 0px),
+	transform:translate3D(0px, 0px, 0px)
+}
+.quiz .format-gallery .quiz-list-item{
+	float:left;
+	clear:none;
+	width:600px;
+	left:0;
+}
+.quiz .option-list-item{
+	position:relative;
+	float:left;
+	padding:10px 10px 30px;
+	cursor:pointer;
+	-webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+	-webkit-transform:translate3D(0px, 0px, 0px),
+	-moz-transform:translate3D(0px, 0px, 0px),
+	-o-transform:translate3D(0px, 0px, 0px),
+	transform:translate3D(0px, 0px, 0px)
+}
+.quiz .quiz-title{
+	margin:0 0 30px 10px;
+	font:normal 24px Verdana;
+	color:#333;
+}
+.quiz .option-list-item label{
+	display:block;
+	margin:0 auto 10px;
+	max-width:180px;
+	width:100%;
+	height:117px;
+	cursor:pointer;
+}
+.quiz .quiz-img{
+	width:100%;
+	height:auto;
+	margin:0 auto 10px;
+}
+.quiz .option-list-item.active,
+.quiz .option-list-item:hover{
+	background:#ccc;
+	color:#000;
+}
+.quiz .quiz-nav{
+	display:none;
+	position:absolute;
+	bottom:-50px;
+	left:10px;
+}
+.quiz .format-gallery .quiz-nav.active,
+.quiz .quiz-nav.active,
+.quiz .quiz-nav .active{
+	display:block
+}
+.quiz .quiz-nav button{
+	display:none;
+	border:0;
+	float:left;
+	margin:15px 15px 15px 0;
+	background:#339900;
+	color:#fff;
+	cursor:pointer;
+	font:normal 20px Arial;
+	width:120px;
+	height:40px;
+	border-radius: 5px;
+	text-transform:uppercase;
+	box-shadow: 0 -3px 0 #006600 inset;
+	-webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+}
+.quiz .quiz-submit:hover{
+	background:#66cc33;
+}
+.quiz .quiz-result{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:0;
+	background:#fff;
+	z-index:-1;
+	-webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+}
+.quiz .quiz-result.active{
+	opacity:1;
+	z-index:99999999;
+}
+.quiz .quiz-result .quiz-result-img{
+	float:left;
+	margin: 0 15px 0 0;
+}
+.quiz .quiz-result .quiz-result-h2{
+	font-size:normal 28px Oswald-Bold;
+}
+.quiz .quiz-result .quiz-result-p{
+	font-size:normal 18px Oswald-Light;
+	line-height: 24px;
+}
+.quiz .hidden{
+	visibility:hidden;
+}
+.quiz .format-list .quiz-nav{
+	position:relative;
+	margin:0 0 10px;
+	bottom:0;
+}
+.quiz .format-list .quiz-previous,
+.quiz .format-list .quiz-next{
+	display:none;
+}
+.quiz .format-list .quiz-submit{
+	display:block;
+	margin:0;
+}
+.quiz .format-list .quiz-result{
+	position:relative;
+}
+.quiz .share-url{
+	font:italic 16px Verdana;
+	color:#000;
+}
+.quiz .question-img{
+	max-width:180px;
+	margin: 0;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+/**
+driving.fe v.05
+author: virgilio cometa
+date: December 2015
+**/
+var driving = driving ||{};
+driving.fe =  driving.fe ||{};
+driving.fe.quiz = driving.fe.quiz ||{};
+
+driving.fe.quiz = (function(){
+  var qRoot = new Object(),
+	qHolder = null,
+	loadDisplay = function(q){
+		qHolder = $('.quiz');
+		qRoot.id = q.quiz.id;
+		qRoot.rresults = q.quiz.rangeresults;
+		qRoot.ftype = q.quiz.formattype;
+		qRoot.qtype = q.quiz.quiztype;
+		qRoot.itype = q.quiz.inputtype;
+		qRoot.rtype = q.quiz.resulttype;
+		qRoot.questiontype = q.quiz.questiontype;
+		qRoot.tresult = q.quiz.tallyresult;
+		qRoot.qurl = q.quiz.quizurl;
+		qRoot.body = $('<div>',{'id':qRoot.id, "class":"format-"+qRoot.ftype+" input-"+qRoot.itype}).append( $('<h2>',{'class':'quiz-title'}).text(q.quiz.title) );
+		qRoot.list = $('<ul>',{'class':'quiz-list'});
+		qRoot.nav = $('<div>',{'class':'quiz-nav active'}).append( $('<button>',{'class':'quiz-previous'}).text('previous'), $('<button>',{'class':'quiz-next active'}).text('next'),$('<button>',{'class':'quiz-submit'}).text('Submit'));
+		qRoot.result = $('<div>',{'class':'quiz-result'});
+		qRoot.shareurl = $('<div>',{'class':'share-url'});
+		qRoot.tallyArr = {};
+		qRoot.score = 0;
+		qRoot.left = 0;
+		qRoot.length = 0;
+		
+		$.each(q.quiz.questions, function(i,question){
+			var node = q.quiz.questions[i],
+				listItem = $('<li>',{'class':'quiz-list-item'}),
+				spanTxt = $('<span>',{'class':'question'}).text(node.text),
+				questionImg = $('<img>',{'src':node.qimgsrc,'class':'question-img'}),
+				optionList = $('<ul>');
+				
+			$.each(node.options, function(j,option){
+				var input = $('<input>',{'type':qRoot.itype,'value':node.options[j].value,'name':qRoot.id+'_Question_'+i,'id':'input_'+i+'_'+j,'data-question':i}),
+					text = $('<span>').text(node.options[j].text),
+					img = $('<img>',{'src':node.options[j].imgsrc,'class':'quiz-img'}),
+					label = $('<label>',{'for':'input_'+i+'_'+j});
+			
+				if( qRoot.qtype == "text"){
+					label.prepend(input,text);
+				}else if( qRoot.qtype == "text-img"){
+					label.prepend(img,input,text);
+				}else if( qRoot.qtype == "img"){
+					label.prepend(input,img);
+					input.addClass('hidden')
+				}
+				optionList.append( $('<li>',{'class':'option-list-item'}).prepend(label) );
+			});
+			
+			if(qRoot.questiontype=="img"){
+				spanTxt.text('').append(questionImg);
+			}
+			listItem.append(spanTxt,optionList);
+			qRoot.length++;
+			qRoot.list.append(listItem);
+		});
+		qRoot.result.append(qRoot.shareurl);
+		qRoot.body.append(qRoot.list, qRoot.nav, qRoot.result);
+		
+		qHolder.append( $(qRoot.body) );
+	},
+	
+	processResult = function(){
+		qRoot.score = 0;
+		var resultDiv = $( qRoot.body.find('.quiz-result')),
+			shareDiv = $( qRoot.body.find('.share-url'));
+		
+		$.each(qRoot.tallyArr, function(i,val){
+			qRoot.score += parseFloat(qRoot.tallyArr[i]);
+		});
+		
+		var rTitle = '',
+			rText = '',
+			rImgSrc = '',
+			shareURL = '';
+		
+		
+		$.each(qRoot.rresults, function(i,result){
+			var node = qRoot.rresults[i];
+			if(qRoot.rtype == 'range'){
+				if(qRoot.score >= node.min && qRoot.score <= node.max){
+					rTitle = node.title;
+					rText = node.text;
+					rImgSrc = node.imgsrc;
+					shareURL = qRoot.qurl+'?quizid='+qRoot.id+'&quiz-result='+node.sharetext;
+				}
+			}else{
+				rTitle = qRoot.tresult.title+qRoot.score;
+				rText = qRoot.tresult.text;
+				rImgSrc = qRoot.tresult.imgsrc;
+				shareURL = qRoot.qurl+'?quizid='+qRoot.id+'&quiz-result='+qRoot.score;
+			}
+		});
+		
+		shareDiv.text("SHARE: "+shareURL);
+		
+		var sHeader =  $('<h2>',{'class':'quiz-result-h2'}).text( rTitle ),
+			sText = $('<p>', {'class':'quiz-result-p'}).text(rText),
+			sImg = $('<img>',{'class':'quiz-result-img','src':rImgSrc});
+		
+		
+		if( qRoot.score > 0){
+			resultDiv.addClass('active').prepend(sHeader,sImg,sText);
+			$( qRoot.body.find('.quiz-nav')).removeClass('active');
+			if( qRoot.ftype == 'list'){
+				$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+			}
+		}else{
+			$( qRoot.body.find('.quiz-submit')).removeClass('active');
+		}
+	},
+	
+	moveList = function(d){
+		var list = $( qRoot.body.find('.quiz-list')),
+			qWidth = qHolder.width();
+			scrollLimit = (qRoot.length-1)*qWidth,
+			xOffset = qWidth*d,
+			next = $( qRoot.body.find('.quiz-next')),
+			previous = $( qRoot.body.find('.quiz-previous')),
+			submit = $( qRoot.body.find('.quiz-submit'));
+			
+		qRoot.left = qRoot.left + xOffset;
+		
+		if(scrollLimit <= Math.abs(qRoot.left) ){
+			if(d<0){
+				xOffset = 0;
+				next.removeClass('active');
+				submit.addClass('active');
+			}
+		}else{
+			submit.removeClass('active');
+			if(qRoot.left==0 && d>0){
+				xOffset = 0;
+				previous.removeClass('active');
+			}else{
+				if(!next.hasClass('active')){
+					next.addClass('active');
+				}
+				if(!previous.hasClass('active')){
+					previous.addClass('active');
+				}
+			}
+		}
+		
+		
+		list.css({
+                '-webkit-transform':'translate3D('+qRoot.left+'px, 0px, 0px)',
+                '-moz-transform':'translate3D('+qRoot.left+'px, 0px, 0px)',
+                '-o-transform':'translate3D('+qRoot.left+'px, 0px, 0px)',
+                'transform':'translate3D('+qRoot.left+'px, 0px, 0px)',
+              });
+	},
+	
+	processClick = function(){	
+		var ctrls = $( qRoot.body.find('input') ),
+			submit = $( qRoot.body.find('.quiz-submit')),
+			next = $( qRoot.body.find('.quiz-next')),
+			previous = $( qRoot.body.find('.quiz-previous'));
+		ctrls.on('click', function() {
+			var ctrl = $(this),
+				q = ctrl.data('question').toString(),
+				ancestor = ctrl.parent().parent();
+			qRoot.tallyArr[q] = ctrl.val();
+			if(qRoot.itype=='radio'){
+				ancestor.siblings().removeClass('active');
+				ancestor.addClass('active');
+			}else{
+				if(ancestor.hasClass('active')){
+					ancestor.removeClass('active');
+				}else{
+					ancestor.addClass('active');
+				}
+			}
+			
+		});
+		submit.on('click',function(){
+			processResult();
+		});
+		next.on('click',function(){
+			moveList(-1);
+		});
+		previous.on('click',function(){
+			moveList(1);
+		});
+	},
+	
+    Init = function(q){	
+		loadDisplay(q);
+		processClick();
+  };
+  return{
+    Init:Init
+  };
+})();
+
+$(function(){
+  var jsonQuiz = {
+    "quiz": {
+        "title": "Quiz Title",
+		"id":"Quiz1",
+		"formattype":"gallery", //list, gallery
+		"quiztype":"text-img", //text, text-img, img
+		"inputtype":"radio", //radio, checkbox
+		"resulttype":"range", //range, tally
+		"questiontype":"text", //text, img
+		"quizurl":"http://www.driving.ca",
+		"tallyresult": {
+			"text":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+			"title":"Congratulations! You got ",
+			"imgsrc":"https://postmediadriving.files.wordpress.com/2015/11/evans-stig.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+			"sharetext":""
+		},
+		"rangeresults":{
+			"r1":{
+				"min":0,
+				"max":50,
+				"title":"You got Chevrolet Malibu",
+				"text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				"imgsrc":"http://wpmedia.driving.ca/2015/04/malibu.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+				"sharetext":"chevroletmalibu"
+			},
+			"r2":{
+				"min":51,
+				"max":100,
+				"title":"You got Honda Civic",
+				"text":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+				"imgsrc":"http://wpmedia.driving.ca/2015/11/civic.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+				"sharetext":"hondacivic"
+			},
+			"r3":{
+				"min":101,
+				"max":150,
+				"title":"You got Hyundai Elantra",
+				"text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				"imgsrc":"http://wpmedia.driving.ca/2015/12/elantra-15.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+				"sharetext":"hyundaielantra"
+			},
+			"r4":{
+				"min":151,
+				"max":200,
+				"title":"You got Scion FRS",
+				"text":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+				"imgsrc":"http://wpmedia.driving.ca/2014/04/scion_frs-01.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+				"sharetext":"scionfrs"
+			},
+			"r5":{
+				"min":201,
+				"max":250,
+				"title":"You got Subaru WRX",
+				"text":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+				"imgsrc":"http://wpmedia.driving.ca/2015/10/edit-img_2492.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+				"sharetext":"subaruwrx"
+			}
+		},
+		"questions": {
+			"q1": {
+				"text": "What is question 1?",
+				"qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/fastfive.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+				"options": {
+					"op1": {
+						"text":"Option 1",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/christmascar.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":10
+					},
+					"op2": {
+						"text":"Option 2",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/google-car-2.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":20
+					},
+					"op3": {
+						"text":"Option 3",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/seventh-content-image4.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":30
+					},
+					"op4": {
+						"text":"Option 4",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/gearheadgifts.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":40
+					},
+					"op5": {
+						"text":"Option 5",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/features.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":50
+					}
+				}
+            },
+			"q2": {
+				"text": "What is question 2?",
+				"qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/9999_alberta_wheel_1.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+				"options": {
+					"op1": {
+						"text":"Option 1",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/06/14.jpeg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":10
+					},
+					"op2": {
+						"text":"Option 2",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/jlrplant.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":20
+					},
+					"op3": {
+						"text":"Option 3",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/wp_000189.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":30
+					},
+					"op4": {
+						"text":"Option 4",
+						"imgsrc":"http://wpmedia.driving.ca/2014/07/audisq5-headlight.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":40
+					},
+					"op5": {
+						"text":"Option 5",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/used-car.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":50
+					}
+				}
+            },
+			"q3": {
+				"text": "What is question 3?",
+				"qimgsrc":"http://wpmedia.driving.ca/2015/11/fotolia_94589027_subscription_monthly_xxl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+				"options": {
+					"op1": {
+						"text":"Option 1",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/nhtsatest.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":10
+					},
+					"op2": {
+						"text":"Option 2",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/spot2_1000x7501.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":20
+					},
+					"op3": {
+						"text":"Option 3",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/e-interior2.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":30
+					},
+					"op4": {
+						"text":"Option 4",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/sixth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":40
+					},
+					"op5": {
+						"text":"Option 5",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/fourth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":50
+					}
+				}
+            },
+			"q4": {
+				"text": "What is question 4?",
+				"qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/fotolia_55813928_subscription_monthly_xxl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+				"options": {
+					"op1": {
+						"text":"Option 1",
+						"imgsrc":"http://wpmedia.driving.ca/2015/12/fifth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":10
+					},
+					"op2": {
+						"text":"Option 2",
+						"imgsrc":"http://wpmedia.driving.ca/2014/12/ratings-1.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":20
+					},
+					"op3": {
+						"text":"Option 3",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/gettyimages-470142579.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":30
+					},
+					"op4": {
+						"text":"Option 4",
+						"imgsrc":"http://wpmedia.driving.ca/2015/11/ieoachristmastrucks2014052xl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":40
+					},
+					"op5": {
+						"text":"Option 5",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/bcspeedlimit.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":50
+					}
+				}
+            },
+			"q5": {
+				"text": "What is question 5?",
+				"qimgsrc":"http://wpmedia.driving.ca/2015/11/car-sale-3.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+				"options": {
+					"op1": {
+						"text":"Option 1",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/fullsizerender-251.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":10
+					},
+					"op2": {
+						"text":"Option 2",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/porsche-ferdinand.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":20
+					},
+					"op3": {
+						"text":"Option 3",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/japan-toyota-robot.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":30
+					},
+					"op4": {
+						"text":"Option 4",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/09/gettyimages-488940100.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":40
+					},
+					"op5": {
+						"text":"Option 5",
+						"imgsrc":"https://postmediadriving.files.wordpress.com/2015/11/auto_sales.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+						"value":50
+					}
+				}
+            }
+        }
+    }
+};
+  driving.fe.quiz.Init(jsonQuiz);
+});
+</script>
+</head>
+
+<body>
+<div class="quiz"></div>
+</body>
+
+</html> 

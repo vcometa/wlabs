@@ -1,0 +1,217 @@
+var jsonQuiz = {
+    "quiz": {
+        "title": "New Quiz Title",
+        "id":"Quiz1",
+        "formattype":"gallery", //[list, gallery]
+        "quiztype":"text-img", //[text, text-img, img]
+        "inputtype":"radio", //[radio, checkbox]
+        "resulttype":"range", //[range, tally]
+        "questiontype":"text", //[text, img]
+        "quizurl":"http://www.driving.ca",
+        "tallyresult": {
+            "text":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+            "title":"Congratulations! You got ",
+            "imgsrc":"https://postmediadriving.files.wordpress.com/2015/11/evans-stig.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+            "sharetext":""
+        },
+        "rangeresults":{
+            "r1":{
+                "min":0,
+                "max":50,
+                "title":"You got Chevrolet Malibu",
+                "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "imgsrc":"http://wpmedia.driving.ca/2015/04/malibu.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+                "sharetext":"chevroletmalibu"
+            },
+            "r2":{
+                "min":51,
+                "max":100,
+                "title":"You got Honda Civic",
+                "text":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                "imgsrc":"http://wpmedia.driving.ca/2015/11/civic.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+                "sharetext":"hondacivic"
+            },
+            "r3":{
+                "min":101,
+                "max":150,
+                "title":"You got Hyundai Elantra",
+                "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "imgsrc":"http://wpmedia.driving.ca/2015/12/elantra-15.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+                "sharetext":"hyundaielantra"
+            },
+            "r4":{
+                "min":151,
+                "max":200,
+                "title":"You got Scion FRS",
+                "text":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+                "imgsrc":"http://wpmedia.driving.ca/2014/04/scion_frs-01.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+                "sharetext":"scionfrs"
+            },
+            "r5":{
+                "min":201,
+                "max":250,
+                "title":"You got Subaru WRX",
+                "text":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+                "imgsrc":"http://wpmedia.driving.ca/2015/10/edit-img_2492.jpg?quality=70&strip=all&w=385&h=250&crop=1",
+                "sharetext":"subaruwrx"
+            }
+        },
+        "questions": {
+            "q1": {
+                "text": "What is question 1?",
+                "qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/fastfive.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                "options": {
+                    "op1": {
+                        "text":"Option 1",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/christmascar.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":10
+                    },
+                    "op2": {
+                        "text":"Option 2",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/google-car-2.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":20
+                    },
+                    "op3": {
+                        "text":"Option 3",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/seventh-content-image4.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":30
+                    },
+                    "op4": {
+                        "text":"Option 4",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/gearheadgifts.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":40
+                    },
+                    "op5": {
+                        "text":"Option 5",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/features.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":50
+                    }
+                }
+            },
+            "q2": {
+                "text": "What is question 2?",
+                "qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/9999_alberta_wheel_1.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                "options": {
+                    "op1": {
+                        "text":"Option 1",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/06/14.jpeg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":10
+                    },
+                    "op2": {
+                        "text":"Option 2",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/jlrplant.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":20
+                    },
+                    "op3": {
+                        "text":"Option 3",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/wp_000189.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":30
+                    },
+                    "op4": {
+                        "text":"Option 4",
+                        "imgsrc":"http://wpmedia.driving.ca/2014/07/audisq5-headlight.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":40
+                    },
+                    "op5": {
+                        "text":"Option 5",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/used-car.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":50
+                    }
+                }
+            },
+            "q3": {
+                "text": "What is question 3?",
+                "qimgsrc":"http://wpmedia.driving.ca/2015/11/fotolia_94589027_subscription_monthly_xxl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                "options": {
+                    "op1": {
+                        "text":"Option 1",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/nhtsatest.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":10
+                    },
+                    "op2": {
+                        "text":"Option 2",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/spot2_1000x7501.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":20
+                    },
+                    "op3": {
+                        "text":"Option 3",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/e-interior2.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":30
+                    },
+                    "op4": {
+                        "text":"Option 4",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/sixth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":40
+                    },
+                    "op5": {
+                        "text":"Option 5",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/fourth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":50
+                    }
+                }
+            },
+            "q4": {
+                "text": "What is question 4?",
+                "qimgsrc":"https://postmediadriving.files.wordpress.com/2015/11/fotolia_55813928_subscription_monthly_xxl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                "options": {
+                    "op1": {
+                        "text":"Option 1",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/12/fifth-content-image.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":10
+                    },
+                    "op2": {
+                        "text":"Option 2",
+                        "imgsrc":"http://wpmedia.driving.ca/2014/12/ratings-1.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":20
+                    },
+                    "op3": {
+                        "text":"Option 3",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/gettyimages-470142579.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":30
+                    },
+                    "op4": {
+                        "text":"Option 4",
+                        "imgsrc":"http://wpmedia.driving.ca/2015/11/ieoachristmastrucks2014052xl.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":40
+                    },
+                    "op5": {
+                        "text":"Option 5",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/bcspeedlimit.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":50
+                    }
+                }
+            },
+            "q5": {
+                "text": "What is question 5?",
+                "qimgsrc":"http://wpmedia.driving.ca/2015/11/car-sale-3.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                "options": {
+                    "op1": {
+                        "text":"Option 1",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/fullsizerender-251.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":10
+                    },
+                    "op2": {
+                        "text":"Option 2",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/porsche-ferdinand.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":20
+                    },
+                    "op3": {
+                        "text":"Option 3",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/12/japan-toyota-robot.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":30
+                    },
+                    "op4": {
+                        "text":"Option 4",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/09/gettyimages-488940100.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":40
+                    },
+                    "op5": {
+                        "text":"Option 5",
+                        "imgsrc":"https://postmediadriving.files.wordpress.com/2015/11/auto_sales.jpg?quality=70&strip=all&w=185&h=125&crop=1",
+                        "value":50
+                    }
+                }
+            }
+        }
+    }
+};

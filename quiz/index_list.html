@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUIZ - Prototype</title>
+<link rel='stylesheet' id='style-css'  href='drv-quiz.css' type='text/css' media='all' />
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="quiz.json"></script>
+<script src="fe-quiz.js"></script>
+<script>
+$(function(){
+    driving.fe.quiz.Init(jsonQuiz);
+});
+</script>
+</head>
+
+<body>
+    <div class="quiz">
+        <div id="Quiz1">
+            <h2 class="quiz-title">New Quiz Title</h2>
+            <ul class="quiz-list">
+                <li class="quiz-list-item">
+                    <span class="question">What is question 1?</span>
+                    <ul>
+                        <li class="option-list-item">
+                            <label for="input_q1_op1">
+                                <img src="http://wpmedia.driving.ca/2015/12/christmascar.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="10" name="Quiz1_Question_q1" id="input_q1_op1" data-question="q1">
+                                <span>Option 1</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q1_op2">
+                                <img src="http://wpmedia.driving.ca/2015/12/google-car-2.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="20" name="Quiz1_Question_q1" id="input_q1_op2" data-question="q1">
+                                <span>Option 2</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q1_op3">
+                                <img src="http://wpmedia.driving.ca/2015/12/seventh-content-image4.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="30" name="Quiz1_Question_q1" id="input_q1_op3" data-question="q1">
+                                <span>Option 3</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q1_op4">
+                                <img src="http://wpmedia.driving.ca/2015/12/gearheadgifts.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="40" name="Quiz1_Question_q1" id="input_q1_op4" data-question="q1">
+                                <span>Option 4</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q1_op5">
+                                <img src="http://wpmedia.driving.ca/2015/12/features.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="50" name="Quiz1_Question_q1" id="input_q1_op5" data-question="q1">
+                                <span>Option 5</span>
+                            </label>
+                        </li>
+                    </ul>
+                </li>
+                <li class="quiz-list-item">
+                <span class="question">What is question 2?</span>
+                <ul>
+                    <li class="option-list-item">
+                        <label for="input_q2_op1">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/06/14.jpeg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="10" name="Quiz1_Question_q2" id="input_q2_op1" data-question="q2">
+                            <span>Option 1</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q2_op2">
+                            <img src="http://wpmedia.driving.ca/2015/12/jlrplant.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="20" name="Quiz1_Question_q2" id="input_q2_op2" data-question="q2">
+                            <span>Option 2</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q2_op3">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/12/wp_000189.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="30" name="Quiz1_Question_q2" id="input_q2_op3" data-question="q2">
+                            <span>Option 3</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q2_op4">
+                            <img src="http://wpmedia.driving.ca/2014/07/audisq5-headlight.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="40" name="Quiz1_Question_q2" id="input_q2_op4" data-question="q2">
+                            <span>Option 4</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q2_op5">
+                            <img src="http://wpmedia.driving.ca/2015/12/used-car.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="50" name="Quiz1_Question_q2" id="input_q2_op5" data-question="q2">
+                            <span>Option 5</span>
+                        </label>
+                    </li>
+                </ul>
+                </li>
+                <li class="quiz-list-item">
+                <span class="question">What is question 3?</span>
+                    <ul>
+                        <li class="option-list-item">
+                            <label for="input_q3_op1">
+                                <img src="https://postmediadriving.files.wordpress.com/2015/12/nhtsatest.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="10" name="Quiz1_Question_q3" id="input_q3_op1" data-question="q3">
+                                <span>Option 1</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q3_op2">
+                                <img src="http://wpmedia.driving.ca/2015/12/spot2_1000x7501.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="20" name="Quiz1_Question_q3" id="input_q3_op2" data-question="q3">
+                                <span>Option 2</span>
+                        </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q3_op3">
+                                <img src="http://wpmedia.driving.ca/2015/12/e-interior2.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="30" name="Quiz1_Question_q3" id="input_q3_op3" data-question="q3">
+                                <span>Option 3</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q3_op4">
+                                <img src="http://wpmedia.driving.ca/2015/12/sixth-content-image.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="40" name="Quiz1_Question_q3" id="input_q3_op4" data-question="q3">
+                                <span>Option 4</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q3_op5">
+                                <img src="http://wpmedia.driving.ca/2015/12/fourth-content-image.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="50" name="Quiz1_Question_q3" id="input_q3_op5" data-question="q3">
+                                <span>Option 5</span>
+                            </label>
+                        </li>
+                    </ul>
+                </li>
+                <li class="quiz-list-item">
+                    <span class="question">What is question 4?</span>
+                    <ul>
+                        <li class="option-list-item">
+                            <label for="input_q4_op1">
+                                <img src="http://wpmedia.driving.ca/2015/12/fifth-content-image.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="10" name="Quiz1_Question_q4" id="input_q4_op1" data-question="q4">
+                                <span>Option 1</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q4_op2">
+                                <img src="http://wpmedia.driving.ca/2014/12/ratings-1.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="20" name="Quiz1_Question_q4" id="input_q4_op2" data-question="q4">
+                                <span>Option 2</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q4_op3">
+                                <img src="https://postmediadriving.files.wordpress.com/2015/12/gettyimages-470142579.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="30" name="Quiz1_Question_q4" id="input_q4_op3" data-question="q4">
+                                <span>Option 3</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q4_op4">
+                                <img src="http://wpmedia.driving.ca/2015/11/ieoachristmastrucks2014052xl.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="40" name="Quiz1_Question_q4" id="input_q4_op4" data-question="q4">
+                                <span>Option 4</span>
+                            </label>
+                        </li>
+                        <li class="option-list-item">
+                            <label for="input_q4_op5">
+                                <img src="https://postmediadriving.files.wordpress.com/2015/12/bcspeedlimit.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                                <input type="radio" value="50" name="Quiz1_Question_q4" id="input_q4_op5" data-question="q4">
+                                <span>Option 5</span>
+                            </label>
+                        </li>
+                    </ul>
+                </li>
+                <li class="quiz-list-item">
+                <span class="question">What is question 5?</span>
+                <ul>
+                    <li class="option-list-item">
+                        <label for="input_q5_op1">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/12/fullsizerender-251.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="10" name="Quiz1_Question_q5" id="input_q5_op1" data-question="q5">
+                            <span>Option 1</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q5_op2">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/12/porsche-ferdinand.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="20" name="Quiz1_Question_q5" id="input_q5_op2" data-question="q5">
+                            <span>Option 2</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q5_op3">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/12/japan-toyota-robot.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="30" name="Quiz1_Question_q5" id="input_q5_op3" data-question="q5">
+                            <span>Option 3</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q5_op4">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/09/gettyimages-488940100.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="40" name="Quiz1_Question_q5" id="input_q5_op4" data-question="q5">
+                            <span>Option 4</span>
+                        </label>
+                    </li>
+                    <li class="option-list-item">
+                        <label for="input_q5_op5">
+                            <img src="https://postmediadriving.files.wordpress.com/2015/11/auto_sales.jpg?quality=70&amp;strip=all&amp;w=185&amp;h=125&amp;crop=1" class="quiz-img">
+                            <input type="radio" value="50" name="Quiz1_Question_q5" id="input_q5_op5" data-question="q5">
+                            <span>Option 5</span>
+                        </label>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            <div class="quiz-nav active">
+                <button class="quiz-previous">previous</button>
+                <button class="quiz-next active">next</button>
+                <button class="quiz-submit">Submit</button>
+            </div>
+            <div class="quiz-result">
+                <div class="quiz-result-content"></div>
+                <div class="share-url"></div>
+                <button class="quiz-retry">Retry</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 
