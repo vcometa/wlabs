@@ -1,0 +1,253 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<style>
+.gallery{
+	margin:0;
+	display:block;
+	position:relative;
+	width:1200px;
+	height:256px;
+	overflow:hidden;
+}
+.gallery ul{
+	margin:0 auto;
+	padding:0;
+	display:block;
+	position:relative;
+	overflow:hidden;
+	width:1600px;
+	height:256px;
+	margin:0 0 0 -400px;
+}
+.gallery li{
+	visibility:hidden;
+	list-style:none;
+	position:absolute;
+	left:0;
+	top:0;
+	width:400px;
+	cursor:pointer;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+	-webkit-transform:translate3D(0px, 0px, 0px),
+	-moz-transform:translate3D(0px, 0px, 0px),
+	-o-transform:translate3D(0px, 0px, 0px),
+	transform:translate3D(0px, 0px, 0px)
+}
+.gallery li:first-child{
+	visibility:visible;
+}
+.gallery li:nth-child(2),
+.gallery li:nth-child(3),
+.gallery li:nth-child(4){
+	visibility:visible;
+}
+.gallery figure{
+	margin:0 auto;
+	display:block;
+	width:100%;
+	height:auto;
+}
+.gallery img{
+	float:left;
+	width:100%;
+	height:auto;
+}
+.gallery figcaption{
+	position:absolute;
+	background:#000;
+	width:auto;
+	height:50px;
+	font-weight:bold;
+	font-family:arial;
+	font-size:30px;
+	color:#fff;
+	bottom:0;
+	left:0;
+	text-align:center;
+	line-height:50px;
+	padding:10px 15px;
+	opacity:0;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+}
+.gallery li:nth-child(3) figcaption{
+	opacity:1;
+}
+.loadmore{
+	background:#000;
+	display:none;
+	margin:10px 0;
+	border:0;
+	padding:10px 15px;
+	font-family:arial;
+	font-weight:bold;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+}
+.loadmore.active{
+	display:block;
+}
+.loadmore.disabled{
+	background:#999;
+	cursor:default;
+	color:#666;
+}
+.block{
+	position:absolute;
+	top:0;
+	width:400px;
+	height:256px;
+	background:rgba(0,0,0,0.6);
+	z-index:100;
+}
+.block.block-left{
+	left:0;
+}
+.block.block-right{
+	right:0;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="gallery">
+		<div class="block block-left"></div>
+		<div class="block block-right"></div>
+		<ul>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140011.jpg?quality=80&strip=all"/>
+					<figcaption>1. Fusce maximus, elit non</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140012.jpg?quality=80&strip=all"/>
+					<figcaption>2. Suspendisse sodales, justo</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140025.jpg?quality=80&strip=all"/>
+					<figcaption>3. Vivamus sit amet nulla</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140034.jpg?quality=80&strip=all"/>
+					<figcaption>4. Class aptent taciti </figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140035.jpg?quality=80&strip=all"/>
+					<figcaption>5. Curabitur euismod, quam eu</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140037.jpg?quality=80&strip=all"/>
+					<figcaption>6. Ut feugiat sem vel </figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+<button class="loadmore">load more</button>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+$(function() {
+	var gallery = {};
+		gallery.clickCount = gallery.listLength = 0,
+		initializeVar = function(){
+			gallery.m = $('.gallery');
+			gallery.ul = $(gallery.m.find('ul'));
+			gallery.li = $(gallery.m.find('li'));
+			gallery.load = $('.loadmore');
+			gallery.listLength = gallery.li.length-1;
+		},
+		setOrder = function(){
+			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){
+				var li = $(gallery.li[i]),
+					x = 400*i;
+				li.css({'z-index':k--,
+						'-webkit-transform':'translate3D('+x+'px, 0px, 0px)',
+						'-moz-transform':'translate3D('+x+'px, 0px, 0px)',
+						'-o-transform':'translate3D('+x+'px, 0px, 0px)',
+						'transform':'translate3D('+x+'px, 0px, 0px)'
+				});
+			}
+		},
+		clickTracker = function(){
+			gallery.clickCount = gallery.clickCount+1;
+			if(gallery.clickCount >= gallery.listLength){
+				gallery.clickCount = 0;
+				gallery.load.addClass('active');
+			}
+		},
+		bindClick = function(e){
+			gallery.li.on('click',function(e){
+				e.stopImmediatePropagation();
+				var li = $(gallery.li[0]);
+				li.appendTo(gallery.ul);
+				initializeVar();
+				setOrder();
+				clickTracker();
+			});
+		},
+		loadMore = function(){
+			gallery.load.on('click',function(e){
+				$.ajax({
+					method: "GET",
+					dataType: "json",
+					url: "imagelist.json",
+					success: function(data){
+						var images = data.images, liObj = $();
+						for(var i=0;i<images.length;i++){
+							
+							liObj = liObj.add( 
+								$('<li>',{'id':images[i].id}).append(
+									$('<figure>').append(
+										$('<img>',{'src':images[i].url}),
+										$('<figcaption>').text( images[i].caption)
+									)
+								) 
+							);
+						}
+						liObj.insertAfter('.gallery li:first-child');
+						gallery.clickCount = gallery.listLength;
+						initializeVar();
+						setOrder();
+						bindClick();
+						gallery.load.removeClass('active');
+					}
+				});
+			});
+		},
+		Init = function(){
+			initializeVar();
+			$(gallery.li[gallery.listLength]).prependTo(gallery.ul);
+			gallery.ul = $(gallery.m.find('ul'));
+			gallery.li = $(gallery.m.find('li'));
+			setOrder();
+			bindClick();
+			loadMore();
+		}
+	Init();
+	
+	
+});
+</script>
+</body>
+
+</html> 
