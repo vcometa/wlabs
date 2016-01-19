@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gallery</title>
+<title>rotator</title>
 <style>
-.gallery{
+.rotator{
 	margin:0;
 	display:block;
 	position:relative;
@@ -12,7 +12,7 @@
 	height:323px;
 	overflow:hidden;
 }
-.gallery ul{
+.rotator ul{
 	margin:0 auto;
 	padding:0;
 	display:block;
@@ -22,7 +22,7 @@
 	height:323px;
 	margin:0 0 0 -500px;
 }
-.gallery li{
+.rotator li{
 	visibility:hidden;
 	list-style:none;
 	position:absolute;
@@ -38,26 +38,26 @@
 	-o-transform:translate3D(0px, 0px, 0px),
 	transform:translate3D(0px, 0px, 0px)
 }
-.gallery li:first-child{
+.rotator li:first-child{
 	visibility:visible;
 }
-.gallery li:nth-child(2),
-.gallery li:nth-child(3),
-.gallery li:nth-child(4){
+.rotator li:nth-child(2),
+.rotator li:nth-child(3),
+.rotator li:nth-child(4){
 	visibility:visible;
 }
-.gallery figure{
+.rotator figure{
 	margin:0 auto;
 	display:block;
 	width:100%;
 	height:auto;
 }
-.gallery img{
+.rotator img{
 	float:left;
 	width:100%;
 	height:auto;
 }
-.gallery figcaption{
+.rotator figcaption{
 	position:absolute;
 	background:#000;
 	width:auto;
@@ -77,7 +77,7 @@
 	-o-transition:all 0.6s ease-in-out;
 	transition:all 0.6s ease-in-out;
 }
-.gallery li:nth-child(3) figcaption{
+.rotator li:nth-child(3) figcaption{
 	opacity:1;
 }
 .loadmore{
@@ -142,7 +142,7 @@
 
 <body>
 
-	<div class="gallery">
+	<div class="rotator">
 		<div class="block block-left"><span></span></div>
 		<div class="block block-right"><span></span></div>
 		<ul>
@@ -189,20 +189,20 @@
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
 $(function() {
-	var gallery = {};
-		gallery.clickCount = gallery.listLength = 0,
+	var rotator = {};
+		rotator.clickCount = rotator.listLength = 0,
 		initializeVar = function(){
-			gallery.m = $('.gallery');
-			gallery.ul = $(gallery.m.find('ul'));
-			gallery.li = $(gallery.m.find('li'));
-			gallery.buttons = $(gallery.m.find('.block span'));
-			gallery.load = $('.loadmore');
-			gallery.listLength = gallery.li.length-1;
+			rotator.m = $('.rotator');
+			rotator.ul = $(rotator.m.find('ul'));
+			rotator.li = $(rotator.m.find('li'));
+			rotator.buttons = $(rotator.m.find('.block span'));
+			rotator.load = $('.loadmore');
+			rotator.listLength = rotator.li.length-1;
 		},
 		setOrder = function(dir){
-			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){
-				var li = $(gallery.li[i]),
-					x = (gallery.li.width()*i);
+			for(var i=0, k=rotator.listLength;i<=rotator.listLength;i++){
+				var li = $(rotator.li[i]),
+					x = (rotator.li.width()*i);
 				li.css({'z-index':k--,
 						'-webkit-transform':'translate3D('+x+'px, 0px, 0px)',
 						'-moz-transform':'translate3D('+x+'px, 0px, 0px)',
@@ -212,43 +212,56 @@ $(function() {
 			}
 		},
 		clickTracker = function(){
-			gallery.clickCount = gallery.clickCount+1;
-			if(gallery.clickCount >= gallery.listLength){
-				gallery.clickCount = 0;
-				//gallery.load.addClass('active');
+			rotator.clickCount = rotator.clickCount+1;
+			if(rotator.clickCount >= rotator.listLength){
+				rotator.clickCount = 0;
+				//rotator.load.addClass('active');
 			}
 		},
 		moveSlide = function(dir){
-			var index = dir==-1?0:gallery.listLength,
-				li = $(gallery.li[index]);
+			var index = dir==-1?0:rotator.listLength,
+				li = $(rotator.li[index]);
 			if(dir<=-1){
-				li.appendTo(gallery.ul);
+				li.appendTo(rotator.ul);
 			}else{
-				li.prependTo(gallery.ul);
+				li.prependTo(rotator.ul);
 			}
 			initializeVar();
 			setOrder(dir);
 			clickTracker();
 		},
 		idleCheck = function(){
-			clearTimeout(gallery.idletimer);
-			gallery.idletimer = setTimeout(function(){
-				autoRotate(gallery.auto, gallery.interval);
+			clearTimeout(rotator.idletimer);
+			rotator.idletimer = setTimeout(function(){
+				autoRotate(rotator.auto, rotator.interval);
 			},5000);
 		},
 		bindClick = function(e){
-			gallery.buttons.on('click',function(e){
+			rotator.buttons.on('click',function(e){
 				e.stopImmediatePropagation();
 				var dir = $(this).parent().hasClass('block-left')?-1:1;
-				if(gallery.auto){
-					clearInterval(gallery.autotimer);
+				if(rotator.auto){
+					clearInterval(rotator.autotimer);
 					idleCheck();
 				}
 				moveSlide(dir);
 			});
+			
+			rotator.m.on('mouseover',function(e){
+				if(rotator.auto){
+					clearInterval(rotator.autotimer);
+					clearTimeout(rotator.idletimer);
+				}
+			});
+			rotator.m.on('mouseout',function(e){
+				if(rotator.auto){
+					clearInterval(rotator.autotimer);
+					idleCheck();
+				}
+			});
 		},
 		loadMore = function(){
-			gallery.load.on('click',function(e){
+			rotator.load.on('click',function(e){
 				$.ajax({
 					method: "GET",
 					dataType: "json",
@@ -266,32 +279,32 @@ $(function() {
 								) 
 							);
 						}
-						liObj.insertAfter('.gallery li:first-child');
-						gallery.clickCount = gallery.listLength;
+						liObj.insertAfter('.rotator li:first-child');
+						rotator.clickCount = rotator.listLength;
 						initializeVar();
 						setOrder(-1);
 						bindClick();
-						gallery.load.removeClass('active');
+						rotator.load.removeClass('active');
 					}
 				});
 			});
 		},
 		autoRotate = function(isRotate, interval){
-			gallery.auto = isRotate;
-			gallery.interval = interval;
+			rotator.auto = isRotate;
+			rotator.interval = interval;
 			if(isRotate){
-				gallery.autotimer = setInterval(function(){
+				rotator.autotimer = setInterval(function(){
 					moveSlide(-1);
 				}, interval);
 			}else{
-				clearInterval(gallery.autotimer);
+				clearInterval(rotator.autotimer);
 			}
 		},
 		Init = function(){
 			initializeVar();
-			$(gallery.li[gallery.listLength]).prependTo(gallery.ul);
-			gallery.ul = $(gallery.m.find('ul'));
-			gallery.li = $(gallery.m.find('li'));
+			$(rotator.li[rotator.listLength]).prependTo(rotator.ul);
+			rotator.ul = $(rotator.m.find('ul'));
+			rotator.li = $(rotator.m.find('li'));
 			setOrder(-1);
 			bindClick();
 			autoRotate(true, 3500);
