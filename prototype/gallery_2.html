@@ -1,0 +1,319 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<title>Gallery</title>
+<style>
+.gallery{
+	margin:0;
+	display:block;
+	position:relative;
+	width:100%;
+	max-height:413px;
+	overflow:abuto;
+}
+.gallery ul{
+	margin:0 auto;
+	padding:0;
+	display:block;
+	position:relative;
+	overflow:hidden;
+	width:100%;
+	max-height:413px;
+}
+.gallery li{
+	list-style:none;
+	position:relative;
+	top:0;
+	left:0;
+	cursor:pointer;
+}
+.gallery li:first-child{
+}
+.gallery figure{
+	margin:0 auto;
+	display:block;
+	width:100%;
+	height:auto;
+}
+.gallery img{
+	width:100%;
+	height:auto;
+}
+.gallery figcaption{
+	position:absolute;
+	background:#000;
+	width:auto;
+	height:50px;
+	font-weight:bold;
+	font-family:arial;
+	font-size:30px;
+	color:#fff;
+	bottom:0;
+	left:0;
+	text-align:center;
+	line-height:50px;
+	padding:10px 15px;
+}
+.loadmore{
+	background:#000;
+	display:none;
+	margin:10px 0;
+	border:0;
+	padding:10px 15px;
+	font-family:arial;
+	font-weight:bold;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+}
+.loadmore.active{
+	display:block;
+}
+.loadmore.disabled{
+	background:#999;
+	cursor:default;
+	color:#666;
+}
+.page{
+	margin:0 auto;
+	width:100%;
+	max-width:640px;
+}
+.thumblist{
+	position:relative;
+	z-index:90;
+	width:auto;
+	margin:10px auto 0;
+}
+.thumb{
+	width:20px;
+	height:20px;
+	background:rgba(0,0,0,0.5);
+	float:left;
+	margin:0 5px 0 0;
+	cursor:pointer;
+}
+.thumb.active{
+	background:rgba(0,0,0,0.8);
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+	<button class="loadmore">load more</button>
+
+	<div class="gallery" id="g_0001">
+		<ul>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140011.jpg?quality=80&strip=all"/>
+					<figcaption>1. Fusce maximus, elit non</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140012.jpg?quality=80&strip=all"/>
+					<figcaption>2. Suspendisse sodales, justo</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140025.jpg?quality=80&strip=all"/>
+					<figcaption>3. Vivamus sit amet nulla</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140034.jpg?quality=80&strip=all"/>
+					<figcaption>4. Class aptent taciti </figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140035.jpg?quality=80&strip=all"/>
+					<figcaption>5. Curabitur euismod, quam eu</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140037.jpg?quality=80&strip=all"/>
+					<figcaption>6. Ut feugiat sem vel </figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+	
+	<br/><br/><br/>
+	<div class="gallery" id="g_0002">
+		<ul>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140011.jpg?quality=80&strip=all"/>
+					<figcaption>1. Fusce maximus, elit non</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140012.jpg?quality=80&strip=all"/>
+					<figcaption>2. Suspendisse sodales, justo</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140025.jpg?quality=80&strip=all"/>
+					<figcaption>3. Vivamus sit amet nulla</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140034.jpg?quality=80&strip=all"/>
+					<figcaption>4. Class aptent taciti </figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140035.jpg?quality=80&strip=all"/>
+					<figcaption>5. Curabitur euismod, quam eu</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140037.jpg?quality=80&strip=all"/>
+					<figcaption>6. Ut feugiat sem vel </figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+var driving = driving || {};
+driving.fe =  driving.fe || {};
+driving.fe.gallery = driving.fe.gallery || {};
+
+driving.fe.gallery = (function(){
+
+	var SetUpGallery = function(elem){
+	
+		var gallery = $(elem);
+		
+		gallery.clickCount = gallery.listLength = 0;
+		
+		var initializeVar = function(){	
+			gallery.ul = $(gallery.find('ul'));
+			gallery.li = $(gallery.find('li'));
+			gallery.listLength = gallery.li.length-1;			
+		},
+		
+		setOrder = function(){			
+			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){			
+				var li = $(gallery.li[i]);				
+				li.css('z-index',k--);
+			}		
+		},
+		
+		clickTracker = function(){
+			gallery.clickCount = gallery.clickCount+1;
+			
+			if(gallery.clickCount > gallery.listLength){
+				gallery.clickCount = 0;
+				//gallery.load.addClass('active');
+			}
+			gallery.thumbs.removeClass('active');
+			
+			$(gallery.thumbs[gallery.clickCount]).addClass('active');
+		},
+		
+		bindClick = function(e){
+			gallery.li.on('click',function(e){
+				e.stopImmediatePropagation();
+				var li = $(this);
+				li.appendTo(gallery.ul);
+				initializeVar();
+				setOrder();
+				clickTracker();				
+			});
+		}, 
+		
+		getThumbs = function(e){
+			var thumblist = $('<div>', {'class':'thumblist'});
+			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){
+				if(i==0){
+					thumblist.append( $('<div>',{'class':'thumb active'}));
+				}else{
+					thumblist.append( $('<div>',{'class':'thumb'}));
+				}				
+			}
+			thumblist.appendTo( gallery );
+			thumblist.css('width', ((gallery.listLength+1)*25)+'px');
+			
+			gallery.thumblist = $(gallery.find('.thumblist'));
+			gallery.thumbs = $(gallery.thumblist.children());
+			
+			bindThumbs();
+		},
+		
+		bindThumbs = function(){
+		
+			gallery.thumbs.on('click',function(){
+				var thumb = $(this),
+					firstSlide = $(gallery.li[0]);
+					
+				gallery.thumbs.removeClass('active');
+			
+				thumb.addClass('active');
+				
+				gallery.li.eq(thumb.index()).after(firstSlide);
+				
+				firstSlide.appendTo(gallery.ul);
+				
+				initializeVar();
+				setOrder();
+				clickTracker();
+				
+			});
+		}
+		
+		initializeVar();	
+		getThumbs();
+		setOrder();
+		bindClick();
+		
+	
+	},
+	
+	Init = function(){
+		
+		var galleries = $('.gallery');
+		
+		for(var i=0,j=galleries.length;i<j;i++){
+		
+			SetUpGallery( $(galleries[i]) );
+		
+		}
+		
+	
+	}
+
+	return{
+		
+		Init: Init
+
+	}
+
+})();
+
+$(function() {
+
+	driving.fe.gallery.Init();
+	
+});
+</script>
+</body>
+
+</html> 

@@ -1,0 +1,224 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<title>Gallery</title>
+<style>
+.gallery{
+	margin:0;
+	display:block;
+	position:relative;
+	width:100%;
+	max-height:413px;
+}
+.gallery ul{
+	margin:0 auto;
+	padding:0;
+	display:block;
+	position:relative;
+}
+.gallery li{
+	visibility:hidden;
+	list-style:none;
+	position:relative;
+	position:absolute;
+	top:0;
+	left:0;
+	cursor:pointer;
+}
+.gallery li:first-child{
+	visibility:visible;
+}
+.gallery figure{
+	margin:0 auto;
+	display:block;
+	width:100%;
+	height:auto;
+}
+.gallery img{
+	float:left;
+	width:100%;
+	height:auto;
+}
+.gallery figcaption{
+	position:absolute;
+	background:#000;
+	width:auto;
+	height:50px;
+	font-weight:bold;
+	font-family:arial;
+	font-size:30px;
+	color:#fff;
+	bottom:0;
+	left:0;
+	text-align:center;
+	line-height:50px;
+	padding:10px 15px;
+}
+.loadmore{
+	background:#000;
+	display:none;
+	margin:10px 0;
+	border:0;
+	padding:10px 15px;
+	font-family:arial;
+	font-weight:bold;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+}
+.loadmore.active{
+	display:block;
+}
+.loadmore.disabled{
+	background:#999;
+	cursor:default;
+	color:#666;
+}
+.page{
+	margin:0 auto;
+	width:100%;
+	max-width:640px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+	<button class="loadmore">load more</button>
+
+	<div class="gallery">
+		<ul>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140011.jpg?quality=80&strip=all"/>
+					<figcaption>1. Fusce maximus, elit non</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140012.jpg?quality=80&strip=all"/>
+					<figcaption>2. Suspendisse sodales, justo</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140025.jpg?quality=80&strip=all"/>
+					<figcaption>3. Vivamus sit amet nulla</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140034.jpg?quality=80&strip=all"/>
+					<figcaption>4. Class aptent taciti </figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140035.jpg?quality=80&strip=all"/>
+					<figcaption>5. Curabitur euismod, quam eu</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="http://driving.wpdev5.canada.com/wp-content/uploads/sites/10/2014/07/rs5c140037.jpg?quality=80&strip=all"/>
+					<figcaption>6. Ut feugiat sem vel </figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+$(function() {
+
+	var gallery = {};
+		gallery.clickCount = gallery.listLength = 0;
+		
+	var initializeVar = function(){	
+			gallery.m = $('.gallery');
+			gallery.ul = $(gallery.m.find('ul'));
+			gallery.li = $(gallery.m.find('li'));
+			gallery.load = $('.loadmore');
+			gallery.listLength = gallery.li.length-1;
+						
+		},
+		
+		setOrder = function(){			
+			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){			
+				var li = $(gallery.li[i]);				
+				li.css('z-index',k--);
+			}		
+		},
+		
+		clickTracker = function(){
+			gallery.clickCount = gallery.clickCount+1;
+			
+			if(gallery.clickCount >= gallery.listLength){
+				gallery.clickCount = 0;
+				gallery.load.addClass('active');
+			}
+		},
+		
+		bindClick = function(e){
+			gallery.li.on('click',function(e){
+				e.stopImmediatePropagation();
+				var li = $(this);
+				li.appendTo(gallery.ul);
+				initializeVar();
+				setOrder();
+				clickTracker();				
+			});
+		},
+		
+		loadMore = function(){
+		
+			gallery.load.on('click',function(e){
+						
+				$.ajax({
+					method: "GET",
+					dataType: "json",
+					url: "imagelist.json",					
+					success: function(data){
+						var images = data.images, liObj = $();
+						
+						for(var i=0;i<images.length;i++){
+							
+							liObj = liObj.add( 
+								$('<li>',{'id':images[i].id}).append(
+									$('<figure>').append(
+										$('<img>',{'src':images[i].url}),
+										$('<figcaption>').text( images[i].caption)
+									)							
+								) 
+							);
+						}
+						
+						liObj.insertAfter('.gallery li:first-child');
+						gallery.clickCount = gallery.listLength;
+						initializeVar();
+						setOrder();
+						bindClick();
+						gallery.load.removeClass('active');
+					}
+				});
+				
+				
+			});
+		
+		};
+		
+	initializeVar();	
+	setOrder();
+	bindClick();
+	loadMore();
+	
+	
+});
+</script>
+</body>
+
+</html> 
