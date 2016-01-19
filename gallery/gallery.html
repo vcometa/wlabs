@@ -29,7 +29,6 @@
 	left:0;
 	top:0;
 	width:400px;
-	cursor:pointer;
 	-webkit-transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-o-transition:all 0.3s ease-in-out;
@@ -108,6 +107,7 @@
 	height:256px;
 	background:rgba(0,0,0,0.6);
 	z-index:100;
+	cursor:pointer;
 }
 .block.block-left{
 	left:0;
@@ -173,13 +173,14 @@ $(function() {
 			gallery.m = $('.gallery');
 			gallery.ul = $(gallery.m.find('ul'));
 			gallery.li = $(gallery.m.find('li'));
+			gallery.block = $(gallery.m.find('.block'));
 			gallery.load = $('.loadmore');
 			gallery.listLength = gallery.li.length-1;
 		},
-		setOrder = function(){
+		setOrder = function(dir){
 			for(var i=0, k=gallery.listLength;i<=gallery.listLength;i++){
 				var li = $(gallery.li[i]),
-					x = 400*i;
+					x = (gallery.li.width()*i);
 				li.css({'z-index':k--,
 						'-webkit-transform':'translate3D('+x+'px, 0px, 0px)',
 						'-moz-transform':'translate3D('+x+'px, 0px, 0px)',
@@ -196,12 +197,18 @@ $(function() {
 			}
 		},
 		bindClick = function(e){
-			gallery.li.on('click',function(e){
+			gallery.block.on('click',function(e){
 				e.stopImmediatePropagation();
-				var li = $(gallery.li[0]);
-				li.appendTo(gallery.ul);
+				var dir = $(this).hasClass('block-left')?-1:1,
+					index = dir==-1?0:gallery.listLength,
+					li = $(gallery.li[index]);
+				if(dir<=-1){
+					li.appendTo(gallery.ul);
+				}else{
+					li.prependTo(gallery.ul);
+				}
 				initializeVar();
-				setOrder();
+				setOrder(dir);
 				clickTracker();
 			});
 		},
@@ -227,7 +234,7 @@ $(function() {
 						liObj.insertAfter('.gallery li:first-child');
 						gallery.clickCount = gallery.listLength;
 						initializeVar();
-						setOrder();
+						setOrder(-1);
 						bindClick();
 						gallery.load.removeClass('active');
 					}
@@ -239,7 +246,7 @@ $(function() {
 			$(gallery.li[gallery.listLength]).prependTo(gallery.ul);
 			gallery.ul = $(gallery.m.find('ul'));
 			gallery.li = $(gallery.m.find('li'));
-			setOrder();
+			setOrder(-1);
 			bindClick();
 			loadMore();
 		}
