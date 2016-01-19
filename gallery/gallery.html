@@ -107,13 +107,35 @@
 	height:256px;
 	background:rgba(0,0,0,0.6);
 	z-index:100;
+}
+.block span{
+    display: block;
+    height: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 43%;
+    width: 30px;
 	cursor:pointer;
 }
-.block.block-left{
+.block.block-left,
+.block.block-left span{
 	left:0;
 }
-.block.block-right{
+.block.block-right,
+.block.block-right span{
 	right:0;
+}
+.block.block-left span{
+	background:rgba(255, 255, 255, 0.3) url(images/slider-arrows.png) 14px 14px no-repeat;
+}
+.block.block-right span{
+	background:rgba(255, 255, 255, 0.3) url(images/slider-arrows.png) -40px 14px no-repeat;
+}
+.block.block-left span:hover{
+	background:rgba(255, 255, 255, 0.3) url(images/slider-arrows.png) 14px -36px no-repeat;
+}
+.block.block-right span:hover{
+	background:rgba(255, 255, 255, 0.3) url(images/slider-arrows.png) -40px -36px no-repeat;
 }
 </style>
 </head>
@@ -121,8 +143,8 @@
 <body>
 
 	<div class="gallery">
-		<div class="block block-left"></div>
-		<div class="block block-right"></div>
+		<div class="block block-left"><span></span></div>
+		<div class="block block-right"><span></span></div>
 		<ul>
 			<li>
 				<figure>
@@ -251,8 +273,6 @@ $(function() {
 			loadMore();
 		}
 	Init();
-	
-	
 });
 </script>
 </body>
