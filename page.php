@@ -136,7 +136,7 @@
 
 
 			</div>
-			<h3>Featured Articles</h3>
+			<h3 class="right-label">Featured Articles</h3>
 			<?PHP include ("includes/feature.php"); ?>
 			<div class="bigbox">
 
