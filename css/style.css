@@ -189,6 +189,8 @@ Updated By:Virgilio Cometa
   }
   nav{
     display:block;
+    background:#eee;
+    border: 1px solid #fff;
     float:left;
     margin:0 auto;
     width:auto;
@@ -226,7 +228,8 @@ Updated By:Virgilio Cometa
     height:30px;
     line-height:30px;
     text-align:center;
-    border:1px solid #fff;
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
     margin-left:-1px;
     z-index:0;
     -webkit-transition: all 0.2s ease-in-out;
@@ -350,8 +353,8 @@ Updated By:Virgilio Cometa
   }
   .bigbox{
     margin:0 auto 20px;
-    width:320px;
-    height:250px;
+    width:auto;
+    height:auto;
     overflow:hidden;
   }
   .page .left-rail img{
@@ -434,7 +437,7 @@ Updated By:Virgilio Cometa
     color:#eee;
   }
   .page {
-    margin: 80px auto 0;
+    margin: 140px auto 0;
   }
   .page header{
     position:fixed;
@@ -444,18 +447,25 @@ Updated By:Virgilio Cometa
     height:auto;
     background:#fff;
   }
+  .page .right-label{
+    font:bold 22px Garamond;
+    border-bottom: 3px solid #c1c1c1;
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
   .page .feature-box .ablock{
     clear:both;
     width:300px !important;
     height:300px !important;
     margin: 0 auto 15px !important;
-    border:1px solid #ccc;
+    border:0;
+    box-shadow:none;
   }
   .page .feature-box .content .caption-block{
     left:0;
-    bottom:0;
+    bottom:30px;
     width:90%;
-    background:#000;
+    background:#688fad;
     color:#fff;
     clear:both;
   }
