@@ -24,13 +24,13 @@
 				if($cat == null && $tag == null){
 				
 					if( $articlename == null ){
-						print '<li><a href="http://www.lifefare.com/index.php" class="selected">All</a></li>';					
+						print '<li><a href="http://www.lifefare.com/index.php" class="selected">Latest</a></li>';
 					}else{
-						print '<li><a href="http://www.lifefare.com/index.php">Home</a></li>';
+						print '<li><a href="http://www.lifefare.com/index.php">Latest</a></li>';
 					}
 					
 				}else{
-					print '<li><a href="http://www.lifefare.com/index.php">All</a></li>';
+					print '<li><a href="http://www.lifefare.com/index.php">Latest</a></li>';
 				}
 				while ( $db_field = mysqli_fetch_assoc($result) ) {
 				
