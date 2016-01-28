@@ -365,6 +365,7 @@ Updated By:Virgilio Cometa
     height:480px;
     background:#eaeaea;
     overflow:hidden;
+	border-bottom: 3px double #97a7e3;
   }
   .feature-box .content{
     margin: 0;
@@ -380,7 +381,7 @@ Updated By:Virgilio Cometa
     margin:0 0 1px 1px;
     height:50%;
     width:26.45%;
-    background:#000;
+    background:#fff;
   }
   .feature-box .content .ablock figure{
     height:auto;
@@ -394,10 +395,10 @@ Updated By:Virgilio Cometa
     position:absolute;
     bottom:10px;
     left:0;
-    background: #666;
+    background:#a1b1c3;
     padding: 2%;
     width:80%;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -406,6 +407,7 @@ Updated By:Virgilio Cometa
   .feature-box .content .ablock:hover .caption-block{
     bottom:30px;
     background:#F2390E;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.8);
   }
   .feature-box .content .caption-block  h2 {
     font-size: 20px;
@@ -525,8 +527,7 @@ Updated By:Virgilio Cometa
     text-decoration:none;
   }
   .story .left-rail article a:hover{
-    color:#688fad;
-    text-decoration:underline;
+    color:#688fad;g
   }
   .story h1{
     margin: 20px 0;
@@ -725,9 +726,9 @@ Updated By:Virgilio Cometa
     z-index:999999999;
   }
   .tags{
-    background: #757778;
+    background: #eee;
     bottom: 0;
-    color: #fff;
+    color: #97a7e3;
     font-size: 12px;
     font-weight: bold;
     height: auto;
@@ -751,8 +752,8 @@ Updated By:Virgilio Cometa
     text-transform:uppercase;
   }
   .tags a{
-    color:#fff;
-    font-family:Jura;
+    color:#97a7e3;
+    font-family:Garamond;
   }
   .tags a.selected,
   .tags a:hover{
