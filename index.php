@@ -71,7 +71,7 @@ if ($db_handle) {
 	while ( $db_field = mysqli_fetch_assoc($result) ) {
 		
 		$desc = html_entity_decode($db_field['description']);
-		$desc = (strlen($desc) > 100) ? substr($desc,0,97).'...' : $desc;
+		$desc = (strlen($desc) > 164) ? substr($desc,0,161).'...' : $desc;
 		
 		$titleShort = html_entity_decode($db_field['title']);
 		$titleShort = (strlen($titleShort) > 60) ? substr($titleShort,0,57).'...' : $titleShort;
@@ -91,14 +91,16 @@ if ($db_handle) {
 		}
 		
 		$tags = explode(", ", $db_field['tags']);
+		print '<h2>'.html_entity_decode($db_field['title']).'</h2>';
+		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/></figure>';
 		
-		print '<figure><img src="/images/thumbnails/'.html_entity_decode($db_field['imgname']).'" title="'.html_entity_decode($db_field['articlename']).'"/><span>Courtesy Of '.html_entity_decode($db_field['sourcename']).'</span></figure>';		
+		//<span>Courtesy Of '.html_entity_decode($db_field['sourcename']).'</span>';		
 		print '<div class="caption-block">';
-		print '<h2>'.$titleShort.'</h2>';
+		
 		//print '<a class="source" href="'.html_entity_decode($db_field['source']).'" target="_blank">'.html_entity_decode($db_field['author']).'</a>';
 		//print '<div class="dateline">'.  date("F j, Y", strtotime($db_field['lastupdated']) ) .'</div>';		
 		print '<p>'. preg_replace('/[^A-Za-z0-9\. -]/', '', $desc).'</p>';
-		print '<div class="tags">';
+		/*print '</div><div class="tags">';
 		
 		for ($i = 0; $i < count($tags); ++$i) {
 		
@@ -107,23 +109,23 @@ if ($db_handle) {
 			if( $i == count($tags)-1 ){
 			
 				if( $tag == $lowerTag ){
-					print '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>';
+					print '<a href="../topic/'.$lowerTag.'" class="selected">#'.$lowerTag.'</a>';
 				}else{
-					print '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>';
+					print '<a href="../topic/'.$lowerTag.'">#'.$lowerTag.'</a>';
 				}
 				
 			}else{
 			
 				if( $tag == $lowerTag ){
-					print '<a href="../topic/'.$lowerTag.'" class="selected">'.$lowerTag.'</a>, ';
+					print '<a href="../topic/'.$lowerTag.'" class="selected">#'.$lowerTag.'</a>, ';
 				}else{
-					print '<a href="../topic/'.$lowerTag.'">'.$lowerTag.'</a>, ';
+					print '<a href="../topic/'.$lowerTag.'">#'.$lowerTag.'</a>, ';
 				}
 				
 			}
-		}
+		}*/
 		
-		print '</div></div>';
+		print '</div>';
 		print '</article>';
 		
 		//print '<p data-char-limit="60">'.$desc.'</p>';	
