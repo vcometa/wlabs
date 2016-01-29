@@ -868,7 +868,7 @@ $(function() {
 	
 	$( ".categorylist input:radio" ).on('click', function(){
 	
-		var delim = ($('#category').val().length==0)?'':', ';
+		/*var delim = ($('#category').val().length==0)?'':', ';
 		
 		if( $(this)[0].checked ){
 	
@@ -878,9 +878,9 @@ $(function() {
 		
 			$('#category').val($('#category').val().replace(delim+$(this).val(),''));
 		
-		}
+		}*/
 	
-		//$('#category').val( $('input[name=categorylist]:checked').val() );
+		$('#category').val( $('input[name=categorylist]:checked').val() );
 		
 	});
 	
