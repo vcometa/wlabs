@@ -381,6 +381,9 @@ Updated By:Virgilio Cometa
     background:#eaeaea;
     overflow:hidden;
   }
+  .feature-box.hidden{
+    display:none;
+  }
   .feature-box .content{
     margin: 0;
     padding: 0;

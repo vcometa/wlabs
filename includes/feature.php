@@ -4,7 +4,7 @@ if ($_GET){
 	$cat = htmlspecialchars($_GET["cat"]);
 	$tag = htmlspecialchars($_GET["tag"]);
 	
-	if( $tag != null || $cat != 'home' ){
+	if( $tag != null || $cat != 'latest' ){
 		$ishidden = 'hidden';		
 	}else{
 		$ishidden = '';		
